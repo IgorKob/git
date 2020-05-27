@@ -12,7 +12,7 @@ git --version
 ### авторизація
 git config --global user.name IgorKob
 ### авторизація
-git config --global user.email kobrynovych@gmail.com
+git config --global user.email myemail@gmail.com
 
 ### щоб переглянути дані
 git config --global user.name
