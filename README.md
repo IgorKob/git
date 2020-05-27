@@ -6,18 +6,18 @@ bug fixed, new block compiled, mesh changed
 Відкрийте командний рядок редактора **Crtl + Shift + P** і введіть команду **"GitHub: Clone"**
 або натисніть сполучення клавіш **Alt + G + =**
 
-**версія gitа** 
+### версія gitа
 git --version
 
-**авторизація**
+### авторизація
 git config --global user.name IgorKob
-**авторизація**
+###авторизація###
 git config --global user.email kobrynovych@gmail.com
 
 # щоб переглянути дані
 git config --global user.name
 
-**очистити командний рядок редактора**
+### очистити командний рядок редактора
 clear
 
 
