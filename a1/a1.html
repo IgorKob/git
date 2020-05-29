@@ -1,64 +1,101 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style media="screen">
+  <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title></title>
     <style>
-*, *::after, *::before {
-  box-sizing: border-box;
-}
-body {
-  padding: 0;
-  margin: 0;
-}
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-.qwe2 {
-    float: left;
-  width: 30%;
-  background-color: red;
-}
-.qwe3 {
-    float: left;
-  width: 70%;
-  background-color: blue;
-}
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+      .menu {
+        width: 100%;
+        background-color: #ccc;
+        overflow: hidden;
 
-  </style>
-</head>
+      }
+      .asd {
+        text-align: center;
+        color: #fff;
+        width: 144px;
+        font-size: 22px;
+        padding: 11px;
+        float: left;
+         overflow: hidden;
+      }
+      .asd:hover {
+        background-color: #aaa;
+      }
+      .active {
+        background-color: #999;
+      }
+      .clearfix {
+        content: '';
+        clear: both;
+          display: table;
+      }
+      .asd1 {
+        /* float: right; */
 
-<body>
+        font-size: 33px;
+        text-align: center;
+        padding: 4px;
+        display: none;
+      }
+      .asd1:hover {
+        color: red;
+        cursor: pointer;
+      }
 
-
-
-<div class="qwe2">
-    <a href="#" class="asd">asd1</a>
-    <a href="#" class="asd">asd2</a>
-    <a href="#" class="asd">asd3</a>
+      @media screen and (max-width: 770px) {
+      .menu.asd:not(.active) {display: none;}
+      .menu.menu2 {position: relative;}
+      .menu.menu2.asd {float: none;
+        display: block;
+   text-align: left;
+ }
+        /* .active {display: block;} */
+          .menu.menu2.asd1 {display: block;}
+        .menu i {
+          position: absolute;
+          top: 4px;
+          right: 4px;}
+      }
+    </style>
+  </head>
+  <body>
+<div id="menu" class="menu clearfix">
+  <div class="asd active">Home</div>
+  <div class="asd">News</div>
+  <div class="asd">Contact</div>
+  <div class="asd">About</div>
+  <div class="asd">Service</div>
+  <div class="asd1" onclick="myff()"><i class="fa fa-bars"></i></div>
+</div>
+<div class="container">
+  <h1>asd asd asd</h1>
+  <p>qwe asd ac dc v er v  v bt b tr rt  rbrt b b</p>
 </div>
 
-<div class="qwe3">
-    <div class="asd2">asd1 asd1 asd1 asd1 asd1 asd1 asd1 asd1 asd1 asd1 asd1 </div>
-    <div class="asd2">asd2 asd2 asd2 asd2 asd2 asd2 asd2 </div>
-    <div class="asd2">asd3asd3asd3asd3asd3asd3asd3asd3asd3asd3</div>
-</div>
 
 
+    <script type="text/javascript">
+function myff() {
 
+var x = document.getElementById("menu");
 
-<script type="text/javascript">
-
-</script>
-
-
-
-
-
-</body>
-
+if (x.className === "menu") {
+x.className += " menu2";
+} else {
+    x.className = "menu";
+  }
+}
+    </script>
+  </body>
 </html>
