@@ -10,91 +10,76 @@
       box-sizing: border-box;
     }
     body {
-      padding: 0;
+      padding: 10px;
       margin: 0;
       font-family: Arial, sans-serif;
+      height: 1232px;
+      /* transition: all 2s ease; */
     }
-      .menu {
-        width: 100%;
-        background-color: #ccc;
-        overflow: hidden;
+.asd0 {
+width: 100%;
+background-color: #ccc;
 
-      }
-      .asd {
-        text-align: center;
-        color: #fff;
-        width: 144px;
-        font-size: 22px;
-        padding: 11px;
-        float: left;
-         overflow: hidden;
-      }
-      .asd:hover {
-        background-color: #aaa;
-      }
-      .active {
-        background-color: #999;
-      }
-      .clearfix {
-        content: '';
-        clear: both;
-          display: table;
-      }
-      .asd1 {
-        /* float: right; */
+/* display: flex; */
+/* flex-direction: row; */
+/* flex-wrap: nowrap; */
+overflow: auto;
+white-space: nowrap;
+}
+.asd {
+   display: inline-block;
+  color: #000;
+  padding: 12px;
+  font-size: 22px;
+  cursor: pointer;
+  width: 160px;
 
-        font-size: 33px;
-        text-align: center;
-        padding: 4px;
-        display: none;
-      }
-      .asd1:hover {
-        color: red;
-        cursor: pointer;
-      }
-
-      @media screen and (max-width: 770px) {
-      .menu.asd:not(.active) {display: none;}
-      .menu.menu2 {position: relative;}
-      .menu.menu2.asd {float: none;
-        display: block;
-   text-align: left;
- }
-        /* .active {display: block;} */
-          .menu.menu2.asd1 {display: block;}
-        .menu i {
-          position: absolute;
-          top: 4px;
-          right: 4px;}
-      }
+  /* display: inline-block; */
+}
+.asd:hover {
+  color: red;
+}
+/* i {
+  color: #ccc;
+  font-size: 17px;
+} */
+.asd2 {
+  margin-left: 32%;
+}
     </style>
   </head>
   <body>
-<div id="menu" class="menu clearfix">
-  <div class="asd active">Home</div>
-  <div class="asd">News</div>
-  <div class="asd">Contact</div>
-  <div class="asd">About</div>
-  <div class="asd">Service</div>
-  <div class="asd1" onclick="myff()"><i class="fa fa-bars"></i></div>
+    <div class="asd00">
+
+
+<div id="asd0" class="asd0">
+  <!-- <button class="btn" onclick="myh1()" type="button" name="button">&times;</button> -->
+  <div class="asd active"><i class="fa fa-home"></i> Home</div>
+  <div class="asd"> <i class="fa  fa-wrench"></i> News</div>
+  <div class="asd"> <i class="fa fa-user"></i> Contact</div>
+  <div class="asd"> <i class="fa fa-envelope"></i> About</div>
+  <a class="asd"> <i class="fa fa-wrench"></i> Service</a>
+  <div class="asd active"><i class="fa fa-home"></i> Home</div>
+  <div class="asd"> <i class="fa  fa-wrench"></i> News</div>
+  <div class="asd"> <i class="fa fa-user"></i> Contact</div>
+  <div class="asd"> <i class="fa fa-envelope"></i> About</div>
+  <a class="asd"> <i class="fa fa-wrench"></i> Service</a>
 </div>
-<div class="container">
+<div id="asd2" class='asd2'>
   <h1>asd asd asd</h1>
   <p>qwe asd ac dc v er v  v bt b tr rt  rbrt b b</p>
-</div>
+  <!-- <button class="btn" onclick="myh2()" type="button" name="button">&#9776;</button> -->
 
+</div>
+    </div>
 
 
     <script type="text/javascript">
-function myff() {
+function myh1() {
 
-var x = document.getElementById("menu");
+}
+function myh2() {
 
-if (x.className === "menu") {
-x.className += " menu2";
-} else {
-    x.className = "menu";
-  }
 }
     </script>
   </body>
