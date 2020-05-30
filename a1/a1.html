@@ -46,6 +46,76 @@ white-space: nowrap;
 .asd2 {
   margin-left: 32%;
 }
+
+
+.asdv {
+width: 25%;
+height: 40%;
+overflow: auto;
+white-space: nowrap;
+position: absolute;
+left: 0;
+}
+.v {
+font-size: 22px;
+padding: 12px;
+display: block;
+cursor: pointer;
+}
+.v:hover {
+  color: #ccc;
+}
+.asdd {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ccc;
+  cursor: pointer;
+  /* overflow: hidden; */
+  /* white-space: nowrap; */
+}
+.d {
+  font-size: 22px;
+  padding: 12px;
+  display: block;
+  float: left;
+}
+.d:last-child {
+  display: none;
+  float: right;
+  padding: 7px;
+}
+.d:hover {
+  color: #fff;
+}
+@media screen and (max-width: 700px) {
+  .d {
+    display: none;
+  }
+  .d:last-child {
+    display: inline-block;
+  }
+  .d.active {
+    display: inline-block;
+  }
+   .dkim2 .d {
+    display: block;
+    width: 100%;
+  }
+  .dkim .d  {
+  display: none;
+  }
+  .dkim .act {
+    display: inline-block;
+  }
+  .dkim .ddd  {
+    display: inline-block;
+  }
+}
+/* ////////////// */
+
+
     </style>
   </head>
   <body>
@@ -65,6 +135,29 @@ white-space: nowrap;
   <div class="asd"> <i class="fa fa-envelope"></i> About</div>
   <a class="asd"> <i class="fa fa-wrench"></i> Service</a>
 </div>
+<div id="asdv" class="asdv">
+  <!-- <button class="btn" onclick="myh1()" type="button" name="button">&times;</button> -->
+  <div class="v active"><i class="fa fa-home"></i> Home</div>
+  <div class="v"> <i class="fa  fa-wrench"></i> News</div>
+  <div class="v"> <i class="fa fa-user"></i> Contact</div>
+  <div class="v"> <i class="fa fa-envelope"></i> About</div>
+  <a class="v"> <i class="fa fa-wrench"></i> Service</a>
+  <div class="v active"><i class="fa fa-home"></i> Home</div>
+  <div class="v"> <i class="fa  fa-wrench"></i> News</div>
+  <div class="v"> <i class="fa fa-user"></i> Contact</div>
+  <div class="v"> <i class="fa fa-envelope"></i> About</div>
+  <a class="v"> <i class="fa fa-wrench"></i> Service</a>
+</div>
+<div id="asdd" class="asdd">
+  <!-- <button class="btn" onclick="myh1()" type="button" name="button">&times;</button> -->
+  <div class="d active act"><i class="fa fa-home"></i> Home</div>
+  <div class="d"> <i class="fa  fa-wrench"></i> News</div>
+  <div class="d"> <i class="fa fa-user"></i> Contact</div>
+  <div class="d"> <i class="fa fa-envelope"></i> About</div>
+  <div id='ddd' class="d" onclick="mydd(this)">
+    &#9776;
+  </div>
+</div>
 <div id="asd2" class='asd2'>
   <h1>asd asd asd</h1>
   <p>qwe asd ac dc v er v  v bt b tr rt  rbrt b b</p>
@@ -74,6 +167,17 @@ white-space: nowrap;
     </div>
 
 
+    <div id="kim" class="kim">
+
+      <div class="kk"><i class="fa fa-home"></i> Home</div>
+<div class="kim2">
+
+
+      <div class="k"> <i class="fa  fa-wrench"></i> News</div>
+      <div class="k"> <i class="fa fa-user"></i> Contact</div>
+      <div class="k"> <i class="fa fa-envelope"></i> About</div>
+</div>
+    </div>
     <script type="text/javascript">
 function myh1() {
 
@@ -81,6 +185,18 @@ function myh1() {
 function myh2() {
 
 }
+function mydd() {
+
+var d0 =  document.getElementById('asdd');
+    if (d0.className  === 'asdd') {
+
+d0.className +=' dkim2';
+    } else {
+  d0.className ='asdd';
+
+    }
+}
+
     </script>
   </body>
 </html>
