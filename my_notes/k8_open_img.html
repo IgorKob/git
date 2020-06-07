@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    *, *::after, *::before {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      transition: 1s;
+      height: 1232px;
+    }
+.img {
+  background-color: #aaa;
+  width: 100px;
+  height: 80px;
+  margin: 6px;
+}
+.figure {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(0, 0, 0, 0.1); */
+  animation: kim 1s;
+}
+.figure .img {
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* margin: auto; */
+
+}
+@keyframes kim {
+  from {transform: scale(0.3);}
+  to {transform: scale(1);}
+}
+.x {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 33px;
+  font-weight: bold;
+  cursor: pointer;
+
+}
+.x:hover {
+  color: red;
+}
+.t {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 82%;
+}
+    </style>
+  </head>
+  <body>
+<div href="#" class="img" onclick="myopen(this)" title="image1">image1</div>
+<div href="#" class="img" onclick="myopen(this)" title="image2">image2</div>
+<div href="#" class="img" onclick="myopen(this)" title="image3">image3</div>
+<div href="#" class="img" onclick="myopen(this)" title="image4">image4</div>
+<div href="#" class="img" onclick="myopen(this)" title="image5">image5</div>
+
+<div class="figure">
+  <div class="x" onclick="myclose()">&times;</div>
+  <div class="img"></div>
+  <div class="t"></div>
+</div>
+    <script>
+      var x = document.getElementsByClassName('figure')[0];
+      var t = document.getElementsByClassName('t')[0];
+      var img = document.getElementsByClassName('img');
+
+for (var i = 0; i < img.length; i++) {
+  img[i].onclick = function() {
+  t.innerHTML = this.title;
+  x.src = this.src;
+  x.style.display='block';
+  document.body.style.background = 'rgba(0, 0, 0, 0.1)';
+}
+}
+
+// function myopen(xx) {
+//   t.innerHTML = xx.title;
+//   // x.src = xx.src;
+//   x.style.display='block';
+//   document.body.style.background = 'rgba(0, 0, 0, 0.1)';
+// }
+
+function myclose() {
+
+  x.style.display='none';
+  document.body.style.background = 'rgba(255, 255, 255, 1)';
+}
+window.onclick = function(event) {
+  if (event.target == x) {
+    x.style.display='none';
+    document.body.style.background = 'rgba(255, 255, 255, 1)';
+  }
+}
+    </script>
+  </body>
+</html>

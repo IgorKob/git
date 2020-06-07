@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    *, *::after, *::before {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      height: 1232px;
+    }
+    .clearfix {
+      content: '';
+      clear: both;
+      display: table;
+    }
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  transition: 1s;
+  overflow: hidden;
+}
+.container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+
+}
+.x {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 44px;
+  cursor: pointer;
+}
+.x:hover {
+  color: red;
+}
+.f {
+  padding: 11px;
+font-size: 44px;
+  cursor: pointer;
+
+  text-align: center;
+}
+
+.active, .f:hover, .img:hover {
+color: #fff;
+}
+.img {
+font-size: 27px;
+cursor: pointer;
+margin-left: 10px;
+}
+
+
+
+
+    </style>
+  </head>
+  <body>
+<div class="container ">
+  <div class="menu">
+
+  <div class="f active" onclick="myff(this)">
+    Home
+  </div>
+  <div class="f" onclick="myff(this)">
+    Contact
+  </div>
+  <div class="f" onclick="myff(this)">
+    Servise
+  </div>
+  <div class="f " onclick="myff(this)">
+    News
+  </div>
+  </div>
+  <div class="x" onclick="myclose()">
+&times;
+  </div>
+</div>
+
+<h1>asdsad asdsa das </h1>
+<p>sadsad fwe f wf w fwe f ef ew fw</p>
+<div class="img" onclick="mymenu(this)">
+&#9776;
+</div>
+    <script>
+    var cc = document.getElementsByClassName('container')[0];
+function mymenu(x) {
+  cc.style.width='100%';
+}
+function myclose() {
+cc.style.width='0';
+}
+
+window.onclick = function(event) {
+  var cc = document.getElementsByClassName('container')[0];
+  if (event.target== cc) {
+    cc.style.width='0';
+  }
+}
+    </script>
+  </body>
+</html>

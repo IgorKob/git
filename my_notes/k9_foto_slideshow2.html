@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    *, *::after, *::before {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      transition: 1s;
+      height: 1232px;
+    }
+.img {
+  background-color: #555;
+  width: 100px;
+  height: 80px;
+  margin: 6px;
+  float: left;
+  opacity: .5;
+
+}
+.img:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.figure {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(0, 0, 0, 0.1); */
+  animation: kim 1s;
+}
+.figure .img {
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* margin: auto; */
+  opacity: 1;
+
+}
+@keyframes kim {
+  from {transform: scale(0.3);}
+  to {transform: scale(1);}
+}
+.x {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 33px;
+  font-weight: bold;
+  cursor: pointer;
+
+}
+.x:hover {
+  color: red;
+}
+.k {
+  position: absolute;
+  width: 100%;
+  top: 65%;
+  padding: 12px;
+  background-color: #000;
+  color: white;
+
+}
+.prev {
+float: left;
+display: block;
+line-height: 40px;
+}
+.t {
+  text-align: center;
+  display: block;
+  line-height: 40px;
+}
+.next {
+float: right;
+display: block;
+line-height: 40px;
+
+}
+.prev:hover, .next:hover {
+  cursor: pointer;
+  color: #aaa;
+}
+.slide {
+  position: absolute;
+  top: 77%;
+  left: 0;
+  width: 100%;
+  height: 40px;
+}
+.img1 {
+  width: 20%;
+  height: 70px;
+  display: block;
+  float: left;
+  background: #555;
+  border: 1px solid #aaa;
+  cursor: pointer;
+  opacity: .7;
+}
+.img1:hover {
+  opacity: 1;
+}
+.active {
+  opacity: 1;
+}
+    </style>
+  </head>
+  <body>
+<div href="#" class="img" onclick="myopen(1)" title="image1">image1</div>
+<div href="#" class="img" onclick="myopen(2)" title="image2">image2</div>
+<div href="#" class="img" onclick="myopen(3)" title="image3">image3</div>
+<div href="#" class="img" onclick="myopen(4)" title="image4">image4</div>
+<div href="#" class="img" onclick="myopen(5)"  title="image5">image5</div>
+
+<div class="figure">
+  <div class="x" onclick="myclose()">&times;</div>
+  <div class="img"></div>
+<div class="k">
+  <div class="next" onclick="myk(1)">&#10095;</div>
+  <div class="prev" onclick="myk(-1)">&#10094;</div>
+ <div class="t"></div>
+ </div>
+ <div class="slide">
+   <div href="#" class="img1" onclick="myopen(1)" title="image1">image1</div>
+   <div href="#" class="img1" onclick="myopen(2)" title="image2">image2</div>
+   <div href="#" class="img1" onclick="myopen(3)" title="image3">image3</div>
+   <div href="#" class="img1" onclick="myopen(4)" title="image4">image4</div>
+   <div href="#" class="img1" onclick="myopen(5)" title="image5">image5</div>
+ </div>
+</div>
+
+
+
+    <script>
+
+    var x = document.getElementsByClassName('figure')[0];
+    var t = document.getElementsByClassName('t')[0];
+    var img = document.getElementsByClassName('img');
+    var img1 = document.getElementsByClassName('img1');
+
+    var ns = 1;
+
+
+    function myk(n) {
+      myff(ns += n);
+    }
+
+
+    function myopen(n) {
+myff(ns=n);
+    }
+
+
+    function myff(n) {
+      for (var i = 0; i < img.length; i++) {
+        img[i].className = img[i].className.replace('active', '');
+      }
+for (var i = 0; i < img1.length; i++) {
+  img1[i].className = img1[i].className.replace('active', '');
+}
+
+if (n>img1.length) { ns=1; }
+if (n<1) { ns=img1.length; }
+
+img[ns-1].className +=' active';
+img1[ns-1].className +=' active';
+t.innerHTML = img1[ns-1].title;
+x.src = img1[ns-1].src;
+x.style.display='block';
+document.body.style.background = 'rgba(0, 0, 0, 0.3)';
+
+    }
+
+
+
+
+function myclose() {
+  x.style.display='none';
+  document.body.style.background = 'rgba(255, 255, 255, 1)';
+}
+
+
+window.onclick = function(event) {
+  if (event.target == x) {
+    x.style.display='none';
+    document.body.style.background = 'rgba(255, 255, 255, 1)';
+  }
+}
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

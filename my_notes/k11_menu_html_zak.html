@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    *, *::after, *::before {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      height: 1232px;
+    }
+    .clearfix {
+      content: '';
+      clear: both;
+      display: table;
+    }
+    .container {
+
+    }
+    .section {
+      width: 100%;
+      background: #aaa;
+    }
+    .btn {
+      width: 200px;
+      padding: 22px;
+      float: left;
+      background: #ccc;
+      text-align: center;
+      border: 1px solid #aaa;
+    }
+    .active, .btn:hover {
+      background-color: #bbb;
+      cursor: pointer;
+    }
+    .content {
+      position: relative;
+      display: none;
+      /* opacity: 0; */
+      transition: 1s;
+      padding: 22px;
+      width: 100%;
+      height: 100px;
+      background: #ddd;
+      border: 1px solid #aaa;
+      animation: kim 1s;
+    }
+    .x {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 33px;
+      font-weight: bold;
+      cursor: pointer;
+
+    }
+    .x:hover {
+      color: red;
+    }
+    @keyframes kim {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+<div class="section clearfix">
+  <div class="btn" onclick="myff(1)">1</div>
+  <div class="btn" onclick="myff(2)">2</div>
+  <div class="btn" onclick="myff(3)">3</div>
+</div>
+<div class="content">
+  <span class="x" onclick="c(this)">&times;</span>
+  111111111
+</div>
+<div class="content">
+  <span class="x" onclick="c(this)">&times;</span>
+  222222222
+</div>
+<div class="content">
+  <span class="x" onclick="c(this)">&times;</span>
+  3333333333
+</div>
+    </div>
+
+
+    <script>
+    // var n = 1;
+    // myff(n);
+    document.getElementsByClassName('btn')[1].click();
+function myff(n) {
+  var x = document.getElementsByClassName('content');
+  var btn = document.getElementsByClassName('btn');
+for (var i = 0; i < x.length; i++) {
+  x[i].style.display='none';
+}
+for (var i = 0; i < btn.length; i++) {
+  btn[i].className = btn[i].className.replace('active', '');
+}
+x[n-1].style.opacity='1';
+x[n-1].style.display='block';
+btn[n-1].className += ' active';
+}
+
+function c(x) {
+  var xx = x.parentElement;
+  xx.style.opacity='0';
+setTimeout(function() {
+  xx.style.display='none';
+}, 1000);
+}
+    </script>
+  </body>
+</html>

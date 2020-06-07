@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    *, *::after, *::before {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      height: 1232px;
+    }
+    .clearfix {
+      content: '';
+      clear: both;
+      display: table;
+    }
+.container {
+  width: 100%;
+  background: #ccc;
+}
+.container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.f {
+  /* display: block; */
+  width: 180px;
+  padding: 11px;
+  float: left;
+  background: #ccc;
+  cursor: pointer;
+
+  text-align: center;
+}
+
+.active, .f:hover, .img:hover {
+color: #fff;
+}
+.img {
+display: none;
+position: absolute;
+top: 0;
+right: 0;
+/* float: right; */
+font-size: 27px;
+cursor: pointer;
+margin-right: 10px;
+}
+
+
+@media screen and (max-width: 800px) {
+  .img {display: block;}
+  .f:not(.active) {display: none}
+
+  .mm.f {
+    display: block;
+    width: 100%;
+  }
+}
+
+
+
+    </style>
+  </head>
+  <body>
+<div class="container ">
+  <div class="f active" onclick="myff(this)">
+    Home
+  </div>
+  <div class="f" onclick="myff(this)">
+    Contact
+  </div>
+  <div class="f" onclick="myff(this)">
+    Servise
+  </div>
+  <div class="f " onclick="myff(this)">
+    News
+  </div>
+  <div class="img" onclick="mymenu(this)">
+&#9776;
+  </div>
+</div>
+
+<h1>asdsad asdsa das </h1>
+<p>sadsad fwe f wf w fwe f ef ew fw</p>
+
+    <script>
+function mymenu(x) {
+  var f = document.getElementsByClassName('f');
+  for (var i = 0; i < f.length; i++) {
+    f[i].classList.toggle('mm');
+
+    // if (f[i].style.display='block') {
+    //   f[i].style.display='none';
+    //   f[i].style.width='180px';
+    // } else {
+    //   f[i].style.display='block';
+    //   f[i].style.width='100%';
+    //
+    // }
+  }
+
+
+}
+    </script>
+  </body>
+</html>

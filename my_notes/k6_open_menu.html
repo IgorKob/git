@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    *, *::after, *::before {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      transition: 1s;
+    }
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 0;
+  overflow: hidden;
+  transition: 1s;
+
+  /* animation: kim 1s; */
+}
+/* @keyframes kim {
+  from {opacity: 0;}
+  to {opacity: 1;}
+} */
+.nav2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 20%;
+  background-color: #ccc;
+  padding: 11px;
+  overflow: hidden;
+}
+.x {
+  position:absolute;
+  top: 0;
+  right: 10px;
+  font-weight: bold;
+  color: #aaa;
+  font-size: 33px;
+  cursor: pointer;
+}
+.x:hover {
+  color: red;
+}
+.input {
+  margin-top: 30px;
+  width: 100%;
+  padding: 5px;
+  outline: none;
+  border: none;
+}
+.v {
+  width: 100%;
+  display: block;
+  text-decoration: none;
+  padding: 5px;
+
+}
+.v:hover {
+  background-color: #aaa;
+}
+    </style>
+  </head>
+  <body>
+
+  <div class="nav" id="nav">
+  <div class="nav2">
+    <span class="x" onclick="close2()">&times;</span>
+    <input placeholder="Search.." type="text" class="input" onkeyup="search(this.value.toUpperCase())">
+    <a class="v" href="#">Contact</a>
+    <a class="v" href="#">About</a>
+    <a class="v" href="#">Servise</a>
+    <a class="v" href="#">News</a>
+    <a class="v" href="#">Con</a>
+    <a class="v" href="#">Abo</a>
+    <a class="v" href="#">Ser</a>
+    <a class="v" href="#">New</a>
+  </div>
+</div>
+<h1 id="asd">asdd sadasd sa</h1>
+
+<button type="button" onclick="menu()" >Open menu</button>
+    <script>
+    var nav = document.getElementsByClassName('nav')[0];
+    var body = document.body;
+function menu() {
+nav.style.width='100%';
+body.style.marginLeft = '20%';
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+function close2() {
+  nav.style.width='0';
+  body.style.marginLeft = '0';
+   document.body.style.backgroundColor = "white";
+}
+function search(v) {
+  var a = nav.getElementsByTagName('a');
+  for (var i = 0; i < a.length; i++) {
+    if (a[i].innerHTML.toUpperCase().indexOf(v)>-1) {
+      a[i].style.display='';
+    } else {
+      a[i].style.display='none';
+    }
+  }
+}
+window.onclick = function(event) {
+var nav = document.getElementsByClassName('nav')[0];
+  if (event.target == nav) {
+    nav.style.width='0';
+  }
+}
+
+
+
+    </script>
+  </body>
+</html>

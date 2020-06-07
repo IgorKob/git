@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    *, *::after, *::before {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+    }
+      .accordion {
+width: 100%;
+margin: 12px;
+      }
+.header {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #aaa;
+  padding: 22px;
+  position: relative;
+  width: 100%;
+}
+.active, .header:hover {
+  background-color: blue;
+}
+.header::after {
+  content: '\002B';
+  float: right;
+  margin-left: 5px;
+  font-weight: bold;
+}
+.active:after {
+  content: "\2212";
+}
+.content {
+background-color: #aaa;
+/* padding: 5px; */
+transition: 2s;
+width: 100%;
+height: 0;
+overflow: hidden;
+}
+h1, p {
+  margin: 12px;
+}
+    </style>
+  </head>
+  <body>
+<div class="accordion">
+  <div class="header">Hello world </div>
+    <div class="content">
+      <h1>asd asd</h1>
+      <p>sd qdq wedw ewd ew dw d ewdewd wd w ed ff</p>
+    </div>
+  <div class="header">Hello world2</div>
+      <div class="content">
+        <h1>asd asd</h1>
+        <p>sd qdq wedw ewd ew dw d ewdewd wd w ed ff</p>
+      </div>
+  <div class="header">Hello world3 </div>
+      <div class="content">
+        <h1>asd asd</h1>
+        <p>sd qdq wedw ewd ew dw d ewdewd wd w ed ff</p>
+      </div>
+
+</div>
+
+
+
+
+    <script>
+var h = document.getElementsByClassName('header');
+var c = document.getElementsByClassName('content');
+for (var i = 0; i < h.length; i++) {
+  h[i].onclick = function() {
+    var x = this.nextElementSibling;
+    if (x.style.height == '100px') {
+      x.style.height='0';
+      this.className = this.className.replace('active', '');
+    } else {
+      x.style.height='100px';
+      this.className += ' active';
+    }
+  }
+}
+    </script>
+  </body>
+</html>

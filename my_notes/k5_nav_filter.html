@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    *, *::after, *::before {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      width: 100%;
+      background-color: #ccc;
+/* overflow: hidden; */
+    }
+    .nav2 {
+      float: left;
+      width: 100px;
+      cursor: pointer;
+        padding: 4px;
+        text-align: center;
+        /* display: block;
+        overflow: hidden; */
+    }
+    .nav2:hover {
+      background-color: #aaa;
+    }
+.box {
+  float: left;
+  cursor: pointer;
+  width: 100px;
+  position: relative;
+  /* float: right; */
+}
+.home {
+  background-color: #ccc;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+
+}
+.home:hover {
+  background-color: #aaa;
+}
+/* .box:hover .nav {
+  display: block;
+} */
+.nav {
+  display: none;
+  position: absolute;
+  left:  0;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  width: 130%;
+}
+.nav a {
+display: block;
+text-decoration: none;
+padding: 3px;
+background-color: #eee;
+
+}
+.nav a:hover {
+  background-color: #ddd;
+}
+.clearfix {
+  content: '';
+  display: table;
+  clear: both;
+}
+.input {
+  width: 100%;
+}
+    </style>
+  </head>
+  <body>
+
+<div class="navbar clearfix">
+<div class="nav2">
+News
+</div>
+<div class="nav2">
+Servise
+</div>
+<div class="box" onclick="myfff()">
+  <div class="home">Home</div>
+  <div class="nav">
+    <input placeholder="Search.." type="text" class="input" onkeyup="search(this.value)">
+    <a class="v" href="#">Contact</a>
+    <a class="v" href="#">About</a>
+    <a class="v" href="#">Servise</a>
+    <a class="v" href="#">News</a>
+    <a class="v" href="#">Con</a>
+    <a class="v" href="#">Abo</a>
+    <a class="v" href="#">Ser</a>
+    <a class="v" href="#">New</a>
+  </div>
+</div>
+</div>
+<h1 id="asd">asdd sadasd sa</h1>
+
+
+    <script>
+
+function search(v) {
+  var nav = document.getElementsByClassName('nav')[0];
+  var a = nav.getElementsByTagName('a');
+  for (var i = 0; i < a.length; i++) {
+    if (a[i].innerHTML.indexOf(v)>-1) {
+      a[i].style.display='';
+    } else {
+      a[i].style.display='none';
+    }
+  }
+}
+
+
+    function myfff() {
+      var nav = document.getElementsByClassName('nav')[0];
+if (nav.style.display=='block') {
+  // nav.style.display='none';
+} else {
+  nav.style.display='block';
+}  }
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    *, *::after, *::before {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      height: 1232px;
+    }
+    .clearfix {
+      content: '';
+      clear: both;
+      display: table;
+    }
+.container {
+  width: 100%;
+
+  background: #ccc;
+  font-weight: bold;
+  transition: 1s;
+  overflow: hidden;
+}
+.container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.menu {
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+
+
+}
+.x {
+  /* position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 44px;
+  cursor: pointer; */
+}
+.x:hover {
+  color: red;
+}
+.f {
+  display: block;
+  float: left;
+  padding: 11px;
+font-size: 22px;
+  cursor: pointer;
+
+  text-align: center;
+}
+
+.active, .f:hover, .img:hover {
+color: #fff;
+}
+.img {
+font-size: 27px;
+cursor: pointer;
+margin-left: 10px;
+}
+
+.login {
+float: right;
+padding: 11px;
+font-size: 22px;
+cursor: pointer;
+text-align: center;
+}
+.username {
+padding: 4px;
+}
+.password {
+padding: 4px;
+}
+.btn {
+padding: 4px;
+}
+
+@media screen and (max-width:800px) {
+  .login { width: 100%; float: none;}
+  .f, .username, .password, .btn {
+    display: block;
+    width: 100%;
+  }
+  .username, .password, .btn {
+    margin-bottom: 5px;
+  }
+
+}
+    </style>
+  </head>
+  <body>
+<div class="container ">
+  <div class="menu">
+
+  <div class="f active" onclick="myff(this)">
+    Home
+  </div>
+  <div class="f" onclick="myff(this)">
+    Contact
+  </div>
+  <div class="f" onclick="myff(this)">
+    Servise
+  </div>
+  <div class="f " onclick="myff(this)">
+    News
+  </div>
+
+
+  <div class="login">
+    <input type="text" class="username" placeholder="UserName">
+    <input type="password" class="password" placeholder="Password" >
+    <button type="button" class="btn">Login</button>
+  </div>
+
+
+
+
+  </div>
+
+
+</div>
+
+<h1>asdsad asdsa das </h1>
+<p>sadsad fwe f wf w fwe f ef ew fw</p>
+<div class="img" onclick="mymenu(this)">
+&#9776;
+</div>
+<div class="x" onclick="myclose()">
+&times;
+</div>
+    <script>
+//     var cc = document.getElementsByClassName('container')[0];
+// function mymenu(x) {
+//   cc.style.height='100%';
+// }
+// function myclose() {
+// cc.style.height='0';
+// }
+//
+// window.onclick = function(event) {
+//   var cc = document.getElementsByClassName('container')[0];
+//   if (event.target== cc) {
+//     cc.style.height='0';
+//   }
+// }
+    </script>
+  </body>
+</html>
