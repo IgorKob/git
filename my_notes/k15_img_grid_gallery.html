@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    *, *::after, *::before {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      height: 1232px;
+    }
+    .clearfix {
+      content: '';
+      clear: both;
+      display: table;
+    }
+.nav {
+  width: 100%;
+  text-align: center;
+}
+.list {
+  background: #ccc;
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 3px;
+  text-align: center;
+  cursor: pointer;
+}
+.active, .list:hover{
+  background: #aaa;
+}
+
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.col {
+  flex: 50%;
+  padding: 0 4px;
+}
+.img {
+  margin-top: 8px;
+/* vertical-align: middle; */
+  width: 100%;
+  padding-top: 56.25%;
+  background: lightblue;
+}
+.a1 {
+background: lightgreen;
+width: 100%;
+padding-top: 100.25%;
+}
+.a2 {
+background: lightyellow;
+width: 100%;
+padding-top: 80.25%;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <div class="list" onclick="myff(this); mycol(100)">1</div>
+      <div class="list active" onclick="myff(this); mycol(50)">2</div>
+      <div class="list" onclick="myff(this); mycol(25)">3</div>
+    </div>
+<div class="container clearfix">
+  <div class="col">
+    <div class="img">image1</div>
+    <div class="img a1">image2</div>
+    <div class="img a2">image3</div>
+  </div>
+  <div class="col">
+    <div class="img a1">image2</div>
+    <div class="img a2">image3</div>
+    <div class="img ">image1</div>
+  </div>
+  <div class="col">
+    <div class="img a2">image3</div>
+    <div class="img ">image1</div>
+    <div class="img a1">image2</div>
+  </div>
+  <div class="col">
+    <div class="img">image1</div>
+    <div class="img a1">image2</div>
+    <div class="img a2">image3</div>
+  </div>
+</div>
+
+<h1>asdsad asdsa das </h1>
+<p>sadsad fwe f wf w fwe f ef ew fw</p>
+
+    <script>
+
+function myff(x) {
+  var xx = document.getElementsByClassName('list');
+  for (var i = 0; i < xx.length; i++) {
+    xx[i].className = xx[i].className.replace('active', '');
+  }
+  x.className += ' active';
+}
+function mycol(w) {
+  var col = document.getElementsByClassName('col');
+  for (var i = 0; i < col.length; i++) {
+    col[i].style.flex = w+'%';
+  }
+}
+    </script>
+  </body>
+</html>
