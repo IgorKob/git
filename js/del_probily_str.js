@@ -11,10 +11,6 @@ console.log(greeting);
 console.log(greeting.trim());
 // expected output: "Hello world!";
 
-
-
-
-
 // //
 // Поліфіл
 // Запуск наступного коду перед тим, як створить будь-який інший код,
@@ -25,3 +21,14 @@ if (!String.prototype.trim) {
     return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
   };
 }
+
+
+
+
+/////////////////видаляє пробільні символи
+
+String.prototype.trim = function() {
+   return this.replace(/^\s+|\s+$/g,"");
+}
+var input = "   xyz   ";
+var output = input.trim();    // output = "xyz"
