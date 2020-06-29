@@ -90,3 +90,23 @@ alert(soldiers.length); // 2
 alert(soldiers[0].age); // 20
 alert(soldiers[1].age); // 23
 .............
+
+
+
+
+
+//Array.from()Статичний метод створює новий, неглибоко-скопійований Array екземпляр
+//з масиву-типу або Iterable об'єкта.
+console.log(Array.from('foo'));
+// expected output: Array ["f", "o", "o"]
+console.log(Array.from([1, 2, 3], x => x + x));
+// expected output: Array [2, 4, 6]
+
+
+
+
+//
+//У every() тестах методу , чи всі елементи в масиві пройти тест , реалізований при
+//умови функції. Він повертає булеве значення.
+[12, 5, 8, 130, 44].every(x => x >= 10);   // false
+[12, 54, 18, 130, 44].every(x => x >= 10); // true​
