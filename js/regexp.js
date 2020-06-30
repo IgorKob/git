@@ -30,6 +30,41 @@
 
 
 
+//[][] - обозначает любой из символов “]” или «[»,([Хх][аоие]х[аоие], то каждая из строк “Хаха”, “хехе”, “хихи” и даже “Хохо” будут соответствовать шаблону.)
+//[[]х] – исключительно последовательность “[х]”
+//\b - обозначает границу слова,
+//\B — не границу слова,
+//\bJava\b в строке “Java and JavaScript” найдутся первые 4 символа,
+//\bJava\B — символы c 10-го по 13-й (в составе слова “JavaScript”).
+//?	- {0,1}	Ноль или одно вхождение
+//*	- {0,}	Ноль или более
+//+	- {1,}	Одно или более
+//(\w)\1\2  - соответствуют строки “aaaa”, “abab”, но не соответствует “aabb”.
+//Если выражение берётся в скобки только для применения к ней квантификатора (не планируется запоминать результат поиска по этой группе), то сразу после первой скобки стоит добавить ?:, например (?:[abcd]+\w).
+
+
+// (x) - відповідає x і запам'ятовує матч.
+var regex = /(foo)bar\1/;
+console.log(regex.test('foobarfoo'));  // true
+console.log(regex.test('foobar'));    // false
+// \1 - запам'ятовує та використовує цю відповідність від першого піддепресії в дужках.
+// (?: x) - відповідає x і не запам'ятовує збіг.  Тут \1не вийде, це буде відповідати буквальному \1.
+var regex = /(?:foo)bar\1/;
+console.log(regex.test('foobarfoo'));  // false
+console.log(regex.test('foobar'));     // false
+console.log(regex.test('foobar\1'));   // true
+// x (? = y) - відповідає x лише тоді, коли за x дорівнює y.
+var regex = /Red(?=Apple)/;
+console.log(regex.test('RedApple'));   // true
+// У наведеному вище прикладі збіг відбуватиметься лише в тому випадку, якщо Red за ним слідкує Apple.
+
+
+
+// Регулярний вираз має відповідати (поштовий індекс США) 12345 і 12345-6789, але не 1234, 123456, 123456789 або 1234-56789.
+/^[0-9]{5}(?:-[0-9]{4})?$/
+
+
+
 //шукає будь-які символи, крім букв, цифр та пробілів:
 alert( "alice15@gmail.com".match(/[^\d\sA-Z]/gi) ); // @ and .
 //kim
@@ -135,4 +170,105 @@ Test.assertEquals(isSuffix("vocation", "-logy"), false)
 function firstVowel(str) {
 	let r = new RegExp('[aeoiu]', 'i');
 	return str.search(r);
+}
+
+
+
+
+//
+//відповідає рядку, тільки якщо він є дійсним поштовим індексом
+//Поштові індекси повинні бути точно 5-ти розрядними і містити лише цифри.
+"32554" ➞ true
+"92 342" ➞ false
+// Invalid: contains a whitespace
+"9@342" ➞ false
+// Invalid: contains a non-numeric character
+"923444" ➞ false
+// Invalid: length is not 5
+//kim
+let x = /^\d{5}$/
+//kim
+function isValid(zip) {
+	return /^\d{5}(?:[-\s]\d{4})?$/.test(zip);
+}
+//
+let x = /^\d{5}(?:[-\s]\d{4})?$/
+
+
+
+
+
+//
+function myFunction() {
+  var str = "12121212";
+  var patt1 = /[1]/g;
+  var result = str.match(patt1);
+  document.getElementById("demo").innerHTML = result; //  1,1,1,1
+}
+
+
+
+
+
+
+//функцію, яка повертає кількість десяткових знаків, яке має число (задане у вигляді рядка).
+//рахуємо кількість цифр після коми
+Test.assertEquals(getDecimalPlaces("3.22"), 2)
+Test.assertEquals(getDecimalPlaces("400"), 0)
+Test.assertEquals(getDecimalPlaces("43.50"), 2)
+Test.assertEquals(getDecimalPlaces("100,000,000"), 0)
+Test.assertEquals(getDecimalPlaces("3.1415"), 4)
+Test.assertEquals(getDecimalPlaces("0"), 0)
+Test.assertEquals(getDecimalPlaces("01"), 0)
+Test.assertEquals(getDecimalPlaces("00010.00010"), 5)
+Test.assertEquals(getDecimalPlaces("3,141.592"), 3)
+//kim
+function getDecimalPlaces(num) {
+  let x =	num.match(/\.\d+/g);
+	if (x) {
+		return x.join('').length-1;
+	}
+	return 0;
+}
+//kim
+function getDecimalPlaces(num) {
+  let x =	num.match(/\.\d+/g);
+	return x ? x.join('').length-1 : 0;
+}
+//
+function getDecimalPlaces(num) {
+	return num.includes(".") ? num.split(".")[1].length : 0;
+}
+//
+function getDecimalPlaces(num) {
+	return num.slice(num.indexOf(".")).length - 1;
+}
+//
+function getDecimalPlaces(num) {
+	let [integer,decimals] =  num.split(".");
+	return decimals ? decimals.length : 0;
+}
+
+
+
+
+
+
+
+//для тестування порожнього рядка.
+"".length === 0 ➞ true
+//kim
+const REGEXP = /^$/
+
+
+
+
+//Напишіть функцію, яка приймає номер кредитної картки і відображає лише
+//останні чотири символи. Решту номера картки необхідно замінити на ************
+Test.assertEquals(cardHide("1234123456785678"), "************5678")
+Test.assertEquals(cardHide("8754456321113213"), "************3213")
+Test.assertEquals(cardHide("35123413355523"), "**********5523")
+//kim
+function cardHide(card) {
+	return card.slice(0,-4).replace(/\d/g, '*')+card.slice(-4);
 }
