@@ -77,3 +77,16 @@ numObj.toFixed(6)      // Returns '12345.678900': note added zeros
 2.55.toFixed(1)        // Returns '2.5'. Note it rounds down - see warning above
 -2.34.toFixed(1)       // Returns -2.3 (due to operator precedence, negative number literals don't return a string...)
 (-2.34).toFixed(1)     // Returns '-2.3'
+
+
+
+
+
+
+//перетворити ціле число, скажімо 12345, на масив на зразок [1,2,3,4,5]
+Array.from(String(12345), Number);
+// перетворить число в рядок, візьме кожен символ цього рядка, перетворить його в число і
+// поставить у новий масив. Нарешті, цей новий масив чисел буде повернутий.
+const numToSeparate = 12345;
+const arrayOfDigits = Array.from(String(numToSeparate), Number);
+console.log(arrayOfDigits);   //[1,2,3,4,5]

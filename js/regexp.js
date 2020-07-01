@@ -43,6 +43,95 @@
 //Если выражение берётся в скобки только для применения к ней квантификатора (не планируется запоминать результат поиска по этой группе), то сразу после первой скобки стоит добавить ?:, например (?:[abcd]+\w).
 
 
+//                flag
+// g -	Глобальний пошук.	RegExp.prototype.global
+// i -	Пошуковий нечутливий пошук.	RegExp.prototype.ignoreCase
+// m -	Багаторядковий пошук.	RegExp.prototype.multiline
+// s -	Дозволяє .відповідати символам нового рядка. (Додано в ES2018, ще не підтримується у Firefox).	RegExp.prototype.dotAll
+// u -	"unicode"; трактувати шаблон як послідовність точок коду унікоду.	RegExp.prototype.unicode
+// y -	Виконайте "липкий" пошук, який відповідає, починаючи з поточного положення в цільовому рядку. Див  sticky.	RegExp.prototype.sticky
+
+
+
+
+
+// exec()	Виконує пошук збігу в рядку. Він повертає масив інформації або nullпро невідповідність.
+// test()	Тести на відповідність в рядку. Він повертається trueабо false.
+// match()	Повертає масив, що містить усі збіги, включаючи групи захоплення, або nullякщо збіг не знайдено.
+// matchAll()	Повертає ітератор, що містить усі збіги, включаючи групи захоплення.
+// search()	Тести на відповідність в рядку. Він повертає індекс збігу, або -1якщо пошук не вдається.
+// replace()	Виконує пошук збігу в рядку та замінює відповідна підрядка заміною підрядкою.
+// replaceAll()	Виконує пошук усіх збігів у рядку та замінює відповідні підрядки заміною підрядкою.
+// split()	Використовує регулярний вираз або фіксовану рядок для розбиття рядка на масив підрядів.
+
+
+
+
+var re = /\w+\s/g;
+// або
+var re = new RegExp('\\w+\\s', 'g');
+
+
+// /\d+(?!\.)/ відповідає номеру лише в тому випадку, якщо за ним не стоїть
+// десяткова крапка.
+/\d+(?!\.)/.exec('3.141 '); // відповідає "141", але не "3.
+
+
+/(?<!-)\d+/      //відповідає номеру, лише якщо йому не передує знак мінус.
+/(?<!-)\d+/.exec('3 ') //відповідає "3".
+/(?<!-)\d+/.exec('-3 ') //збіг не знайдено, оскільки число передує знаку мінус.
+
+
+
+//re = /\w+\s/gстворює регулярний вираз, який шукає одного або декількох символів, за якими пробіл, і він шукає цю комбінацію у всьому рядку.
+var re = /\w+\s/g;
+var str = 'fee fi fo fum';
+var myArray = str.match(re);
+console.log(myArray);
+// ["fee ", "fi ", "fo "]
+
+
+
+const text = 'A quick fox';
+const regexpLastWord = /\w+$/;
+console.log(text.match(regexpLastWord));
+// expected output: Array ["fox"]
+const regexpWords = /\b\w+\b/g;
+console.log(text.match(regexpWords));
+// expected output: Array ["A", "quick", "fox"]
+const regexpFoxQuality = /\w+(?= fox)/;
+console.log(text.match(regexpFoxQuality));
+// expected output: Array ["quick"]
+
+
+
+
+var xArray; while(xArray = re.exec(str)) console.log(xArray);
+// ["fee ", index: 0, input: "fee fi fo fum"]
+// ["fi ", index: 4, input: "fee fi fo fum"]
+// ["fo ", index: 7, input: "fee fi fo fum"]
+// m - Прапор використовується для вказівки того, що багатостроковий вхідного рядка
+// слід розглядати як кілька рядків. Якщо mпрапор використовується, ^і $збігається
+// на початку або в кінці будь-якого рядка вхідного рядка замість початку або в
+// кінці всього рядка.
+
+
+
+
+// икористання спеціальних символів для перевірки введення номер телефону
+var re = /(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}/;
+function testInfo(phoneInput) {
+  var OK = re.exec(phoneInput.value);
+  if (!OK) {
+    console.error(phoneInput.value + ' isn\'t a phone number with area code!');
+  } else {
+    console.log('Thanks, your phone number is ' + OK[0]);}
+}
+
+
+
+
+
 // (x) - відповідає x і запам'ятовує матч.
 var regex = /(foo)bar\1/;
 console.log(regex.test('foobarfoo'));  // true
@@ -58,6 +147,13 @@ var regex = /Red(?=Apple)/;
 console.log(regex.test('RedApple'));   // true
 // У наведеному вище прикладі збіг відбуватиметься лише в тому випадку, якщо Red за ним слідкує Apple.
 
+
+
+
+var myRe = /d(b+)d/g;
+var myArray = myRe.exec('cdbbdbsbz');
+console.log('The value of lastIndex is ' + myRe.lastIndex);  //myRe.index;
+// "The value of lastIndex is 5"
 
 
 // Регулярний вираз має відповідати (поштовий індекс США) 12345 і 12345-6789, але не 1234, 123456, 123456789 або 1234-56789.
@@ -272,3 +368,124 @@ Test.assertEquals(cardHide("35123413355523"), "**********5523")
 function cardHide(card) {
 	return card.slice(0,-4).replace(/\d/g, '*')+card.slice(-4);
 }
+
+
+
+
+
+
+
+
+
+
+buggyMultiline = `tey, ihe light-greon apple tangs on ihe greon traa`;
+// 1) Use ^ to fix the matching at the begining of the string, and right after newline.
+buggyMultiline = buggyMultiline.replace(/^t/gim,'h');
+console.log(1, buggyMultiline); // fix 'tey', 'tangs' => 'hey', 'hangs'. Avoid 'traa'.
+// 2) Use $ to fix matching at the end of the text.
+buggyMultiline = buggyMultiline.replace(/aa$/gim,'ee.');
+console.log(2, buggyMultiline); // fix  'traa' => 'tree'.
+// 3) Use \b to match characters right on border between a word and a space.
+buggyMultiline = buggyMultiline.replace(/\bi/gim,'t');
+console.log(3, buggyMultiline); // fix  'ihe' but does not touch 'light'.
+// 4) Use \B to match characters inside borders of an entity.
+fixedMultiline = buggyMultiline.replace(/\Bo/gim,'e');
+console.log(4, fixedMultiline); // fix  'greon' but does not touch 'on'.
+
+
+
+
+const aliceExcerpt = 'The Caterpillar and Alice looked at each other';
+const regexpWithoutE = /\b[a-df-z]+\b/ig;
+console.log(aliceExcerpt.match(regexpWithoutE));
+// expected output: Array ["and", "at"]
+const imageDescription = 'This image has a resolution of 1440×900 pixels.';
+const regexpSize = /([0-9]+)×([0-9]+)/;
+const match = imageDescription.match(regexpSize);
+console.log(`Width: ${match[1]} / Height: ${match[2]}.`);
+// expected output: "Width: 1440 / Height: 900."
+
+
+
+
+
+var aliceExcerpt = "There was a long silence after this, and Alice could only hear whispers now and then.";
+var regexpVowels = /[aeiouy]/g;
+console.log("Number of vowels:", aliceExcerpt.match(regexpVowels).length);
+// Number of vowels: 25
+
+
+
+
+
+// Використання груп
+let personList = `First_Name: John, Last_Name: Doe
+First_Name: Jane, Last_Name: Smith`;
+let regexpNames =  /First_Name: (\w+), Last_Name: (\w+)/mg;
+let match = regexpNames.exec(personList);
+do {
+  console.log(`Hello ${match[1]} ${match[2]}`);
+} while((match = regexpNames.exec(personList)) !== null);
+
+// Використання названих груп
+let personList = `First_Name: John, Last_Name: Doe
+First_Name: Jane, Last_Name: Smith`;
+let regexpNames =  /First_Name: (?<firstname>\w+), Last_Name: (?<lastname>\w+)/mg;
+let match = regexpNames.exec(personList);
+do {
+  console.log(`Hello ${match.groups.firstname} ${match.groups.lastname}`);
+} while((match = regexpNames.exec(personList)) !== null);
+
+
+
+
+
+
+const paragraph = 'The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?';
+// any character that is not a word character or whitespace
+const regex = /[^\w\s]/g;
+console.log(paragraph.search(regex));
+// expected output: 43                   індекс пошуку
+console.log(paragraph[paragraph.search(regex)]);
+// expected output: "."                  індекс показує елемент
+
+
+
+
+// Наступний скрипт перемикає слова в рядку. Для заміщає тексту, скрипт
+// використовує захоплення груп і $1та $2заміни моделей.
+let re = /(\w+)\s(\w+)/;
+let str = 'John Smith';
+let newstr = str.replace(re, '$2, $1');
+console.log(newstr);  // Smith, John
+
+
+
+
+
+const names = 'Harry Trump ;Fred Barney; Helen Rigby ; Bill Abel ;Chris Hand '
+const re = /\s*(?:;|$)\s*/
+const nameList = names.split(re)
+console.log(nameList)
+//[ "Harry Trump", "Fred Barney", "Helen Rigby", "Bill Abel", "Chris Hand", "" ]
+
+
+
+
+// Створіть функцію, яка зберігає лише рядки з повторюваними однаковими символами
+// (іншими словами, вона має встановлений розмір 1).
+identicalFilter(["aaaaaa", "bc", "d", "eeee", "xyz"])
+➞ ["aaaaaa", "d", "eeee"]
+identicalFilter(["88", "999", "22", "545", "133"])
+➞ ["88", "999", "22"]
+identicalFilter(["xxxxo", "oxo", "xox", "ooxxoo", "oxo"])
+➞ []
+//kim
+function identicalFilter(arr) {
+	return arr.filter(el=>/^(.)\1*$/g.test(el));
+}
+//
+function identicalFilter(arr){
+    return arr.filter((str) => new Set(str).size === 1)
+}
+//
