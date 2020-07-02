@@ -489,3 +489,88 @@ function identicalFilter(arr){
     return arr.filter((str) => new Set(str).size === 1)
 }
 //
+
+
+
+
+
+// Створіть функцію, яка повертає слово в рядку, але з усіма fog видаленими літерами.
+// Однак якщо рядок очищається від туману, поверніться "It's a clear day!".
+//kim
+function clearFog(str) {
+	return /[fog]/.test(str) ? str.replace(/[fog]/gi, '') : "It's a clear day!";
+}
+//
+function clearFog(str) {
+	return (/[fog]/gi).test(str) ? str.match(/[^fog]/gi).join("") :"It's a clear day!";
+}
+
+
+
+
+
+
+
+
+// Створіть функцію , яка приймає рядок і цензорів слово більше чотирьох символів з *.
+censor("The code is fourty") ➞ "The code is ******"
+censor("Two plus three is five") ➞ "Two plus ***** is five"
+censor("aaaa aaaaa 1234 12345") ➞ "aaaa ***** 1234 *****"
+//kim
+function censor(str) {
+  return	str.split(' ').map((el)=>{
+		if (el.length>4) { return el = "*".repeat(el.length); }
+		return el;
+	}).join(' ');
+}
+//
+const censor = str => str.replace(/\w{5,}/g, v => '*'.repeat(v.length));
+//
+
+
+
+
+
+
+
+
+
+
+// Створіть функцію, яка повертається, trueякщо зірочка *знаходиться у вікні.
+inBox([
+  "####",
+  "#* #",
+  "#  #",
+  "####"
+]) ➞ true
+inBox([
+  "*####",
+  "# #",
+  "#  #*",
+  "####"
+]) ➞ false
+inBox([
+  "#####",
+  "#   #",
+  "#   #",
+  "#   #",
+  "#####"
+]) ➞ false
+//kim error
+function inBox(arr) {
+	return /\*(?=\s*#)/g.test(arr);
+}
+//
+const inBox = arr => arr.some(str => str.includes('*'));
+//
+
+
+
+
+
+
+//Знайдіть, скільки вкладок з одним буквальним пробілом, що знаходиться безпосередньо після вкладки, є рядком.
+//kim
+const REGEXP = /\t /g
+//error
+const REGEXP = /(?<=\t)\s/g

@@ -62,3 +62,21 @@ Math.abs([1,2]);    // NaN
 Math.abs({});       // NaN
 Math.abs('string'); // NaN
 Math.abs();         // NaN
+
+
+
+//знайти степінь числа х якщо є результат у (х в степенні)
+function getBaseLog(x, y) {
+  return Math.log(y) / Math.log(x);
+}
+// 2 x 2 x 2 = 8
+console.log(getBaseLog(2, 8));
+// expected output: 3
+//
+Test.assertEquals(solveForExp(4, 1024), 5)
+Test.assertEquals(solveForExp(2, 1024), 10)
+Test.assertEquals(solveForExp(9, 3486784401), 10)
+//kim
+function solveForExp(a, b) {
+	return Math.round(Math.log(b)/Math.log(a));
+}
