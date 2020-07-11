@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HTML form tag example</title>
+</head>
+<body>
+<!-- вказати кодування символів, які мають бути використані для подання форми -->
+<form accept-charset="ISO-8859-1"
+action="https://www.w3resource.com/html-css-exercise/basic/solution/form-accept-charset-answer-
+demo.php" method="post">
+  Name: <input type="text" name="name"><br>
+  Address: <input type="text" name="add"><br>
+  <input type="submit" value="Submit">
+</form>
+
+
+
+<!-- встановити автозаповнення у формі HTML -->
+<form
+action="https://www.w3resource.com/html-css-exercise/basic/solution/form-autocomplete-answer-demo.php"
+method="post"
+autocomplete="off">
+  First name:<input
+type="text" name="fname"><br>
+  Last name:<input
+type="text" name="lname"><br>
+  E-mail: <input type="email"
+name="email"><br>
+  <input type="submit">
+</form>
+
+
+
+
+<!-- Вкажіть, як повинні бути закодовані дані форми-форми при поданні їх на сервер -->
+<form action="https://www.w3resource.com/html-css-exercise/basic/solution/form-enctype-answer-demo.php"
+method="post" enctype="multipart/form-data">
+ Name: <input type="text" name="name"><br>
+  Address: <input type="text" name="add"><br>
+  <input type="submit" value="Submit">
+</form>
+
+
+
+
+<!-- Вкажіть, що при поданні форми не слід перевіряти -->
+<form
+action="https://www.w3resource.com/html-css-exercise/basic/solution/form-
+novalidate-answer-demo.php"
+method="get" novalidate>
+  E-mail: <input type="email"
+name="user_email" required>
+  <input type="submit">
+</form>
+
+
+<!-- Вкажіть, де відображати відповідь, отриману після надсилання форми -->
+<form
+action="https://www.w3resource.com/html-css-exercise/basic/solution/form-target-answer-demo.php"
+method="get" target="_blank">
+First name: <input
+type="text" name="fname"><br>
+Last name: <input
+type="text" name="lname"><br>
+<input type="submit"
+value="Submit">
+</form>
+
+
+
+<!-- вказати типи файлів, які приймає сервер -->
+<form method="POST"
+action="https://www.w3resource.com/html-css-
+exercise/basic/solution/input-accept-
+demo.php">
+  <input type="file" name="my_image"
+accept="image/*">
+  <input type="submit">
+</form>
+
+
+
+<!-- елемент введення повинен автоматично отримувати фокус під час завантаження сторінки -->
+<form ="example_form" method="POST" action="https://www.w3resource.com/html-css-exercise/basic/solution/input-autofocus-answer-demo.php">
+ First name: <input type="text" name="fname" autofocus><br>
+ Last name: <input type="text" name="lname"><br>
+  Address:  <input type="text" name="address"><br>
+ <input type="submit">
+</form>
+
+
+<!-- checked елемент введення повинен бути попередньо обраний під час завантаження сторінки-->
+<form method="POST" action="https://www.w3resource.com/html-css-
+exercise/basic/solution/input-checked-answer-demo.php">
+<input type="checkbox" name="device[]" value="Laptop"> I have a Laptop<br>
+<input type="checkbox" name="device[]" value="Printer" checked> I have a Printer<br>
+<input type="submit" value="Submit">
+</form>
+
+
+
+
+<!-- елемент введення повинен бути відключений -->
+<form method="POST" action="https://www.w3resource.com/html-css-exercise/basic/solution/input-disabled-answer-demo.php">
+  Name: <input type="text" name="name"><br>
+  Email: <input type="text" email="email" disabled><br>
+  <input type="submit" value="Submit">
+</form>
+
+
+
+
+<!-- вказати одну чи кілька форм, до яких належить елемент введення -->
+<form method="POST" action="https://www.w3resource.com/html-css-exercise/basic/solution/input-form-answer-demo.php"
+ id="form1">
+First name: <input type="text" name="fname"><br>
+<input type="submit" value="Submit">
+</form><br>
+<p>The "Address" field below is outside the form element, but still part of the form.</p>
+Address: <input type="text" name="address" form="form1">
+
+
+
+<!-- дані форми повинні бути закодовані під час подання їх на сервер -->
+<form method="post" action="https://www.w3resource.com/html-css-exercise/basic/solution/input-
+formenctype-answer-demo.php" >
+   Name: <input type="text"name="name"><br>
+      <input type="submit" value="Submit">
+  <input type="submit" formenctype="multipart/form-data" value="Multipart/form-data">
+</form>
+
+
+<!-- визначити метод HTTP для надсилання даних у URL-адресу дії -->
+<form action="https://www.w3resource.com/html-css-exercise/basic/solution/input-formmethod-answer-demo.php" method="get"  >
+First Name: <input type="text" name="fname"><br>
+Last Name: <input type="text" name="lname"><br>
+Address: <input type="text"name="place"><br>
+  <input type="submit" value="Submit">
+  <input type="submit" formmethod="post" formaction="https://www.w3resource.com/html-css-exercise/basic/solution/input-formmethod-post-answer.php" value="Submit using POST">
+</form>
+
+
+
+
+
+
+<!-- посилатися на даталістичний елемент, який містить заздалегідь визначені параметри для вхідного елемента -->
+<form method="post"
+action="http://wwww.w3resource.com/html-css-
+exercise/basic/solution/input-list-answer-
+demo.php">
+  <input list="animal" name="animal">
+  <datalist id="animal">
+    <option value="Lion">
+    <option value="Tiger">
+    <option value="Elephant">
+    </datalist>
+  <input type="submit">
+</form>
+
+
+
+<!-- максимальну кількість символів, дозволених у вхідному елементі -->
+<form method="post" action="https://www.w3resource.com/html-css-
+exercise/basic/solution/input-alt-answer-demo.php">
+  Name: <input type="text" name="name" maxlength="5"><br>
+  <input type="submit" value="Submit">
+</form>
+
+
+
+
+<!-- мінімальне значення для вхідного елемента -->
+<form method="post" action="https://www.w3resource.com/html-css-exercise/basic/solution/input-max-answer-demo.php">
+  Enter a date before 2010-01-01:
+  <input type="date" name="day_before" max="2010-12-31"><br>
+  Enter a date after 2015-01-01:
+  <input type="date" name="day_after" min="2015-01-02"><br>
+  Quantity (between 1 and 5):
+  <input type="number" name="quantity" min="1" max="5"><br>
+  <input type="submit">
+</form>
+
+
+
+<!-- користувач може ввести більше одного значення у вхідний елемент -->
+<form method="post"
+action="https://www.w3resource.com/html-css-
+exercise/basic/solution/input-multiple-demo.php">
+  Select images: <input type="file"
+name="my_image" multiple>
+  <input type="submit">
+</form>
+
+
+
+<!-- регулярний вираз, на який перевіряється значення вхідного елемента -->
+<form method="post"
+action="https://www.w3resource.com/html-css-
+exercise/basic/solution/input-pattern-answer-
+demo.php">
+Pin code: <input type="text" name="pin_code"
+pattern="[0-9]{6}" title="six number pin code">
+  <input type="submit">
+</form>
+
+
+
+
+<!-- поле введення є лише для читання -->
+<form method="post"
+action="https://www.w3resource.com/
+html-css-
+exercise/basic/solution/input-
+readonly-answer-demo.php">
+  First Name: <input type="text"
+name="fname"><br>
+  Last Name: <input type="text"
+name="lname"><br>
+  Place: <input type="text"
+name="place" value="Delhi"
+readonly><br>
+  <input type="submit"
+value="Submit">
+</form>
+
+
+
+
+<!-- поле для введення потрібно заповнити перед надсиланням форми -->
+<form method="post" action="https://www.w3resource.com/html-css-exercise/basic/solution/input-required-answer-demo.php">
+Telephone No: <input type="number" name="phone_no" required>
+  <input type="submit">
+</form>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>The example of autofocus attribute with button element.</title>
+</head>
+<body>
+  <!-- кнопка повинна автоматично отримувати фокус під час завантаження сторінки -->
+<button type="button" autofocus onclick="console.log('Welcome Friends')">Click Me!</button>
+
+
+<!-- вказати, що кнопку слід відключити -->
+<form action="example.php" method="post">
+First Name : <input type="text" name="Fname"><br>
+<button type="button" name="Submit" disabled>Submit</button>
+
+
+<!-- вказати одну чи кілька форм, до яких належить кнопка -->
+<form method="POST"
+action="https://www.w3resource.com/html-css-exercise/basic/solution/button-form-answer-demo.php" id="form1">
+  First   name  : <input type="text" name="fname"><br>
+  Last    name : <input type="text" name="lname"><br>
+  Present Address : <input type="text" name="add"><br>
+  E-mail  : <input type="text" name="mail"><br>
+</form>
+<button type="submit" form="form1" value="Submit">Submit</button>
+
+
+<!-- вказати, куди надсилати дані форми при поданні форми -->
+<form action="https://www.w3resource.com/html-css-exercise/basic/solution/button-formaction-
+answer-demo.php" method="post">
+  First name: <input type="text" name="fname"><br>
+  Last name: <input type="text" name="lname"><br>
+  <button type="submit">Submit</button><br>
+  <button type="submit" formaction="https://www.w3resource.com/html-css-
+exercise/basic/solution/button-formaction-admin-demo.php">Submit as admin</button>
+</form>
+
+
+<!-- вказати, як дані форми повинні бути закодовані перед відправкою на сервер -->
+<form action="https://www.w3resource.com/html-css-exercise/basic/solution/button-formenctype.php" method="post">
+name: <input type="text" name="name">   email: <input type="email" name="email"> <button name="Submit" type="submit" formenctype="text/plain">Submit</button>
+</form>
+
+
+
+<!-- надсилати дані форми (який метод HTTP використовувати) -->
+<form action="https://www.w3resource.com/html-css-exercise/basic/solution/button-formmethod-answer-demo.php">
+  First name: <input type="text" name="fname"><br>
+  Last name: <input type="text" name="lname"><br>
+  Address: <input type="text" name="place"><br>
+  <button type="submit">Submit</button>
+  <button type="submit" formmethod="post" formaction="http://localhost/html-css-exercise/basic/solution/button-formmethod-post-answer.php">Submit using POST</button>
+</form>
+
+
+
+<!-- вказати, що дані форми не повинні бути перевірені після подання -->
+<form action="https://www.w3resource.com/html-css-exercise/basic/solution/button-formnovalidate-answer-demo.php" method="post">
+  E-mail: <input type="text" name="email"><br>
+  <button type="submit">Submit</button><br>
+  <button type="submit" formnovalidate>Submit without validation</button>
+</form>
+
+
+
+<!-- вказати, де відображати відповідь після надсилання форми -->
+<form action="https://www.w3resource.com/html-css-exercise/basic/solution/button-formtarget-answer-demo.php" method="POST">
+  First name: <input type="text" name="fname"><br>
+  Last name: <input type="text" name="lname"><br>
+  <button type="submit">Submit</button>
+  <button type="submit" formtarget="_blank">Submit to a new window/tab</button>
+</form>
+
+
+<!-- вказати початкове значення для кнопки -->
+<form action="https://www.w3resource.com/html-css-exercise/basic/solution/button-value-answer-demo.php" method="post">
+Choose your favorite game:
+<button name="game" type="submit" value="cricket">cricket</button>
+<button name="game" type="submit" value="football">football</button>
+</form>
+
+
+
+<!-- визначити тип кнопки -->
+<form action="https://www.w3resource.com/html-css-exercise/basic/solution/button-type-answer-demo.php" method="post"id="nameform">
+First name: <input type="text" name="fname"><br>
+Last name: <input type="text" name="lname"><br>
+Address: <input type="text" name="add"><br>
+<button type="submit" value="Submit">Submit</button>
+<button type="reset" value="Reset">Reset</button>
+</form>
+</body>
+</html>

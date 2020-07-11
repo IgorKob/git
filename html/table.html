@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>How to define a table caption</title>
+</head>
+<body>
+
+<table border="1">
+<caption>First column holds Student code and second column holds percentage of marks obtained by the student</caption>
+<tr>
+<th>Student code </th>
+<th>% of marks </th>
+</tr>
+<tr>
+<td>S001</td>
+<td>85</td>
+</tr>
+<tr>
+<td>S002</td>
+<td>86</td>
+</tr>
+</table>
+
+
+<!-- визначити властивості стовпців кожного стовпця в елементі групи стовпців -->
+<table class="table table-bordered">
+  <colgroup>
+    <col span="3" style="background-color:#cc66Ff">
+	<col style="background-color:#cc66Ff">
+  </colgroup>
+  <tr>
+    <th>COL-1</th>
+    <th>COL-2</th>
+    <th>COL-3</th>
+  </tr>
+  <tr>
+    <td>MySQL</td>
+    <td>PHP</td>
+    <td>SQL</td>
+  </tr>
+  <tr>
+    <td>MySQL Exercise</td>
+    <td>PHP Exercise</td>
+    <td>SQL Exercise</td>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>

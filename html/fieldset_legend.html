@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>How to define a caption for a
+fieldset element</title>
+</head>
+<body>
+<form>
+ <fieldset disabled>
+  <legend>Cariculam-vita:</legend>
+  Name:     <input type="text"><br>
+  Address:  <input type="text"><br>
+  Phone No: <input type="text"><br>
+  Email:    <input type="text">
+ </fieldset>
+</form>
+
+
+
+
+<!-- вказати одну чи кілька форм, до яких належить набір полів -->
+<form action="https://www.w3resource.com/html-css-exercise/basic/solution/fieldset-form-answer-demo.php" method="post" id="w3r_form">
+What is your favorite game? <input type="text" name="game"><br>
+<input type="submit">
+</form>
+<fieldset form="w3r_form">
+<legend>Personal Info:</legend>
+Name: <input type="text" name="name" /><br /><br />
+Email: <input type="text" name="email" /><br /><br />
+Place: <input type="text" name="place"/><br /><br />
+ </fieldset>
+
+
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>How to add controls to an audio</title>
+</head>
+<body>
+<audio controls>
+    <source src="https://www.w3resource.com/html-css-exercise/basic/solution/beach.ogg" type="audio/ogg">
+ <source src="https://www.w3resource.com/html-css-exercise/basic/solution/beach.mp3" type="audio/mpeg">
+</audio>
+
+
+<audio controls="controls" autoplay>
+  Your browser does not support the audio element.
+  <source src="https://www.w3resource.com/html-css-exercise/basic/beach.ogg" type="audio/ogg">
+</audio>
+
+
+<audio controls loop>
+    <source src="https://www.w3resource.com/html-css-exercise/basic/solution/beach.ogg"
+type="audio/ogg">
+ <source src="https://www.w3resource.com/html-css-exercise/basic/solution/beach.mp3"
+type="audio/mpeg">
+</audio>
+
+
+<!-- звуку відключено -->
+<audio controls muted>
+  Your browser does not support the audio element.
+  <source src="https://www.w3resource.com/html-css-exercise/basic/beach.ogg" type="audio/ogg">
+</audio>
+
+
+<!-- попередньо завантажити аудіо -->
+<audio controls preload="auto">
+  Your browser does not support the audio element.
+  <source src="https://www.w3resource.com/html-css-exercise/basic/beach.ogg" type="audio/ogg">
+</audio>
+</body>
+</html>
