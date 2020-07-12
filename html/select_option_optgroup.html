@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>How to define a group of
+related options in a drop-down
+list</title>
+</head>
+<body>
+  <!-- Як визначити групу пов’язаних параметрів у спадному списку -->
+<select>
+<optgroup label="Computer
+Monitors">
+<option value="crt">CRT</option>
+<option value="lcd">LCD</option>
+<option value="led">LED</option>
+</optgroup>
+<optgroup label="Computer
+Printers"disabled>
+<option value="dot-matrix">Dot-
+Matrix</option>
+<option value="ink-jet">Ink-
+jet</option>
+<option value="laser">Laser</option>
+</optgroup>
+</select>
+
+
+
+
+<!-- визначити спадний список -->
+<form name="example" action="html-select-
+option-optgroup-example.html" >
+Select one or more sections:
+<select name="languages" multiple>
+<optgroup label="Server_side">
+<option>PHP</option>
+<option>ASP</option>
+<option>Ruby on Rails </option>
+</optgroup>
+<optgroup label="Client_side">
+<option>JavaScript</option>
+<option>VB Script </option>
+</optgroup>
+</select>
+</form>
+
+
+
+<!-- визначити кількість видимих ​​параметрів у спадному списку -->
+<form method="post"
+action="https://www.w3resource.com/htm
+l-css-
+exercise/basic/solution/select-size-
+answer-demo.php">
+<select size="2">
+<option value="lion">Lion</option>
+<option value="tiger">Tiger</option>
+<option
+value="elephant">Elephant</option>
+</select>
+</form>
+
+
+
+
+
+
+</body>
+</html>

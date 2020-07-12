@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>How to specify the type of media resource</title>
+</head>
+<body>
+
+  <!-- визначити тип медіаресурсу -->
+<video width="320" height="240" controls>
+<source src="https://www.w3resource.com/html-css-exercise/basic/solution/php-demo1.mp4"
+type="video/mp4" media="screen and (min-width:320px)">
+<source src="https://www.w3resource.com/html-css-exercise/basic/solution/php-demo1.ogg"
+type="video/ogg" media="screen and (min-width:320px)">
+
+
+
+
+<!-- вказати зображення, яке відображатиметься під час завантаження відео чи
+поки користувач не натисне кнопку відтворення -->
+<video width="200" height="250" poster="https://www.w3resource.com/images/w3resourcelogo.gif" controls >
+<source src="https://www.w3resource.com/html-css-exercise/basic/solution/php-demo1.mp4" type="video/mp4">
+<source src="https://www.w3resource.com/html-css-exercise/basic/solution/php-demo1.ogg" type="video/ogg">
+</video>
+
+
+
+<!-- Завантажити відео, коли сторінка завантажується -->
+<video width="300" height="250" controls preload="auto">
+<source src="http://localhost/html-css-exercise/basic/solution/php-demo1.mp4" type="video/mp4">
+<source src="https://www.w3resource.com/html-css-exercise/basic/solution/php-demo1.ogg" type="video/ogg">
+</video>  
+
+
+
+
+</body>
+</html>
