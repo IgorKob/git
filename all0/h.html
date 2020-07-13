@@ -1,0 +1,316 @@
+<header>, <nav>, <main>І <footer>створити базову структуру веб - сторінки.
+<section> визначає елементи в документі, такі як глави, заголовки або будь-яка інша область
+документа з тією ж темою.
+<article> вміщує вміст, який має сенс самостійно, наприклад статті, блоги, коментарі тощо.
+<aside> містить інформацію, яка пов'язана з основним змістом, але не потрібна для розуміння
+домінуючої інформації.
+<figure> інкапсулює всі типи носія.
+<figcaption>використовується для опису засобів масової інформації в <figure>.
+<video>, <embed>та <audio>елементи використовуються для медіафайлів.
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Navigational Links</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#posts">Posts</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <article>
+          <h2>Facts About Dogs</h2>
+          <p>
+          Dogs have a sense of time. It's been proven that they know the difference between a hour and five. If conditioned to, they can predict future events, such as regular walk times.
+          </p>
+        </article>
+        <aside>
+          <p>A study was conducted on dogs being away from their owners for varying hours and the studies show that dogs who were away from their owners the longest showed the greatest amount of affection!
+          </p>
+        </aside>
+      </section>
+      <figure>
+        <img src="https://codecademy-content.s3.amazonaws.com/courses/Semantic+HTML/dogimage.jpeg"/>
+        <figcaption>A cute dog.</figcaption>
+      </figure>
+      <audio controls>
+        <source src="https://codecademy-content.s3.amazonaws.com/courses/Semantic+HTML/dogBarking.mp3" type="audio/mp3">
+      </audio>
+      <video src="https://codecademy-content.s3.amazonaws.com/courses/Semantic+HTML/dog+video.mp4" controls>
+      </video>
+      <embed src="https://codecademy-content.s3.amazonaws.com/courses/Semantic+HTML/dog-on-beach.gif"/>
+
+    </main>
+
+    <footer>
+      <p>Contact me at +1 234 567 8910 </p>
+    </footer>
+
+  </body>
+</html>
+..............................
+<p contenteditable="true">визначає, чи вміст елемента можна редагувати чи ні.</p>
+
+<li onclick="ff(this)" id="salmon" data-asd-type="fish">Salmon</li> data для створення користувацьких даних
+
+<p dir="rtl">Write this text right-to-left!</p>
+
+<p hidden>Прихований абзац:</p>
+.............................Атрибут перетягування HTML
+#div1 {
+  width: 350px;
+  height: 70px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+function drag(ev) {
+  ev.dataTransfer.setData("Text", ev.target.id);
+}
+function drop(ev) {
+  var data = ev.dataTransfer.getData("Text");
+  ev.target.appendChild(document.getElementById(data));
+  ev.preventDefault();
+}
+</script>
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+<p id="drag1" draggable="true" ondragstart="drag(event)">This is a draggable paragraph. Drag this element into the rectangle.</p>
+..................закладки
+<h2><a id="top">Some heading</a></h2>
+<a href="#top">Go to top</a>
+.........Виконати JavaScript, коли збирається надрукувати сторінку:
+<body onbeforeprint="myFunction()">
+  <script>
+function myFunction() {
+  alert("You are about to print this document!");
+}
+</script>
+......Виконайте JavaScript, коли сторінка почала друкувати
+<body onafterprint="myFunction()">
+............при переході по силці, запитує чи дійсно ми хочемо перейти по силці
+<body onbeforeunload="return myFunction()">
+<a href="https://www.w3schools.com">Click here to go to w3schools.com</a>
+<script>
+function myFunction() {
+  return "Write something clever here...";
+}
+</script>
+....onerror спрацьовує, коли виникає помилка під час завантаження зовнішнього файлу (наприклад, документа чи зображення).
+<img src="image.gif" onerror="myFunction()">
+<script>
+function myFunction() {
+  alert("The image could not be loaded.");
+}
+</script>
+......................................подій Форми
+Атрибут onblur запускає функцію, коли елемент втрачає фокус (коли користувач залишає поле форми).
+<input type="text" name="fname" id="fname" onblur="myFunction()">
+<script>
+function myFunction() {
+  var x = document.getElementById("fname");
+  x.value = x.value.toUpperCase();
+}
+</script>
+.........Виконати JavaScript, коли користувач щось вводить у поле <input>:
+<input type="text" id="myInput" oninput="myFunction()">
+<p id="demo"></p>
+<script>
+function myFunction() {
+  var x = document.getElementById("myInput").value;
+  document.getElementById("demo").innerHTML = "You wrote: " + x;
+}
+</script>
+.......Виконати JavaScript, коли поле введення недійсне: порожнє
+<input type="text" oninvalid="alert('You must fill out the form!');" name="fname" required>
+............................Вкажіть, що сервер приймає лише файли зображень при завантаженні файлу:
+<form action="/action_page.php">
+  <input type="file" name="pic" accept="image/*">
+  <input type="submit">
+</form>
+...............карта на зображені
+<img src="planets.gif" width="145" height="126" alt="Planets" usemap="#planetmap">
+<map name="planetmap">
+  <area shape="rect" coords="0,0,82,126" alt="Sun" href="sun.htm">
+  <area shape="circle" coords="90,58,3" alt="Mercury" href="mercur.htm">
+</map>
+............................table
+<table>
+  <colgroup>
+    <col span="2" style="background-color:red">      міняє колір для двох перших стовпчиків
+    <col style="background-color:yellow">            міняє колір для наступного третього стовпчика
+  </colgroup>
+  <tr>
+    <th>Month</th>
+    <th>Savings</th>
+    <th>Savцйвings</th>
+  </tr>
+  <tr>
+    <td rowspan="2">$100</td>             обєднює рядки
+    <td>January</td>
+    <td>January</td>
+  </tr>
+  <tr>
+    <td>January</td>
+    <td colspan="2">Sum: $180</td>       обєднює стовпці
+  </tr>
+</table>
+......................................ol
+<ol start="50">               нумерація почнеться з 50
+  <li>Coffee</li>
+  <li value="55">Tea</li>      нумерація почнеться з 55
+  <li>Milk</li>
+</ol>
+<ol type="I">                   нумерація буде римськими цифрами
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ol>
+..................
+Аудіоплеєр з двома вихідними файлами. Браузер повинен вибрати, для якого файлу (якщо такий є) він підтримує:
+<audio controls>
+  <source src="horse.ogg" type="audio/ogg">
+  <source src="horse.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+....
+<picture>
+  <source media="(min-width: 650px)" srcset="img_pink_flowers.jpg">
+  <source media="(min-width: 465px)" srcset="img_white_flower.jpg">
+  <img src="img_orange_flowers.jpg" alt="Flowers" style="width:auto;">
+</picture>
+.........................Як за допомогою елемента <object> вставити файл Flash:
+<object width="400" height="400" data="helloworld.swf"></object>
+....................................data- *
+Атрибут data- * використовується для зберігання користувальницьких даних,
+приватних на сторінці чи програмі.
+<script>
+function showDetails(asd) {
+  var asdType = asd.getAttribute("data-asd");
+  alert("The " + asd.innerHTML + " is a " + asdType + ".");
+}
+</script>
+<ul>
+  <li onclick="showDetails(this)" id="owl" data-asd="bird">Owl</li>
+  <li onclick="showDetails(this)" id="salmon" data-asd="fish">Salmon</li>
+  <li onclick="showDetails(this)" id="tarantula" data-asd="spider">Tarantula</li>
+</ul>
+...............................disabled
+Випадаючий список з одним вимкненим варіантом:
+<label for="cars">Choose a car:</label>
+<select id="cars">
+  <optgroup label="Swedish Cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+  </optgroup>
+  <optgroup label="German Cars" disabled>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </optgroup>
+</select>
+...............................enctype
+Надіслати дані форми, закодовані як "багаточастинні / форму-дані":
+<form action="/action_page_binary.asp" method="post" enctype="multipart/form-data">
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname"><br><br>
+  <input type="submit" value="Submit">
+</form>
+...........................Виконайте обчислення та покажіть результат у елементі <output>:
+<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">0
+<input type="range" id="a" value="50">100
++<input type="number" id="b" value="50">
+=<output name="x" for="a b"></output>
+</form>
+.............Форма з двома кнопками подання. Перша кнопка надсилання подає дані форми "action_page.php",
+а друга - "action_page2.php":
+<form action="/action_page.php" method="get">
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname"><br><br>
+  <button type="submit">Submit</button>
+  <button type="submit" formaction="/action_page2.php">Submit to another page</button>
+</form>
+......................Визначте зображення як кнопку подання з атрибутами висоти та ширини:
+<form action="/action_page.php">
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname"><br><br>
+  <input type="image" src="img_submit.gif" alt="Submit" width="48" height="48">
+</form>
+...................Елемент <input> з попередньо визначеними значеннями в <datalist>:
+<form action="/action_page.php" method="get">
+  <input list="browsers" name="browser">
+  <datalist id="browsers">
+    <option value="Internet Explorer">
+    <option value="Firefox">
+    <option value="Chrome">
+    <option value="Opera">
+    <option value="Safari">
+  </datalist>
+  <input type="submit">
+</form>
+...............Триває завантаження:
+<label for="file">Downloading progress:</label>
+<progress id="file" value="32" max="100"> 32% </progress>
+.....................maxlength
+<textarea maxlength="50">
+Enter text here...
+</textarea>
+...............................multiple
+Поле для завантаження файлу, яке приймає кілька значень:
+<form action="/action_page.php">
+  <label for="files">Select files:</label>
+  <input type="file" id="files" name="files" multiple><br><br>
+  <input type="submit">
+</form>
+................................name
+ВІДКРИЄ ПОСИЛАННЯ У iframe
+<iframe src="demo_iframe.htm" name="iframe_a">
+</iframe>
+<a href="https://www.w3schools.com" target="iframe_a">W3Schools.com</a>
+..................................oninput
+Виконати JavaScript, коли користувач щось записує у поле <введення>:
+<input type="text" id="myInput" oninput="myFunction()">
+<p id="demo"></p>
+<script>
+function myFunction() {
+  var x = document.getElementById("myInput").value;
+  document.getElementById("demo").innerHTML = "You wrote: " + x;
+}
+</script>
+...................................pattern
+Атрибут шаблону визначає регулярне вираження, на яке перевіряється значення елемента <input>.
+<form action="/action_page.php">
+  <label for="country_code">Country code:</label>
+  <input type="text" id="country_code" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code">
+
+  <label for="pwd">Password:</label>
+  <input type="password" id="pwd" name="pwd" pattern=".{8,}" title="Eight or more characters">
+
+  <label for="pwd">Password:</label>
+  <input type="password" id="pwd" name="pwd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+
+  <label for="phone">Enter a phone number:</label><br><br>
+  <input type="tel" id="phone" name="phone" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+  <input type="submit">
+</form>
+...........................rel
+<a rel="nofollow" href="http://www.functravel.com/">Cheap Flights</a>
+...................................................
+e-mail
+ <a href=”mailto:xxx@yyy”

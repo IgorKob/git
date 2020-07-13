@@ -1,0 +1,1239 @@
+<?php
+function addNumbers(int $a, int $b) {
+    return $a + $b;
+}
+echo addNumbers(5, "5 days");
+addNumbers(4, '3 asd');
+// since strict is NOT enabled "5 days" is changed to int(5), and it will return 10
+?>
+
+
+...У PHP 7 додано декларації типу. Це дає нам можливість вказати очікуваний тип даних при оголошенні функції,
+...і додавши strict декларацію, вона видасть "Fatal Error", якщо тип даних не відповідає.
+<?php declare(strict_types=1); // strict requirement
+function addNumbers(int $a, int $b) {
+    return $a + $b;
+}
+echo addNumbers(5, "5 days");
+// since strict is enabled and "5 days" is not an integer, an error will be thrown
+?>
+
+
+
+
+Наступний приклад показує, як використовувати параметр за замовчуванням.
+Якщо ми називаємо функцію setHeight () без аргументів, вона бере аргумент за замовчуванням:
+......
+<?php declare(strict_types=1); // strict requirement ?>
+<!DOCTYPE html>
+<html>
+<body>
+<?php
+function setHeight(int $minheight = 50) {
+    echo "The height is : $minheight <br>";
+}
+setHeight(350);
+setHeight();
+setHeight(135);
+setHeight(80);
+?>
+</body>
+</html>
+
+
+
+
+count()     Функція використовується , щоб повернути довжину (кількість елементів) масиву:
+<?php
+$cars = array("Volvo", "BMW", "Toyota");
+echo count($cars);
+?>
+
+
+
+
+
+
+PHP 7 також підтримує Декларації типу для return оператора. Як і у декларації типу для аргументів функції,
+включивши сувору вимогу, вона видасть "Fatal Error" на невідповідність типу.
+Щоб оголосити тип повернення функції, додайте двокрапку ( :) та тип прямо перед відкриттям
+фігурної {дужки ( ), коли оголошуєте функцію.
+.....
+<?php declare(strict_types=1); // strict requirement
+function addNumbers(float $a, float $b) : float {
+  return $a + $b;
+}
+echo addNumbers(1.2, 5.2);
+?>
+
+
+
+
+sort() - сортувати масиви у порядку зростання
+rsort() - сортувати масиви у порядку зменшення
+asort() - сортувати асоціативні масиви у порядку зростання, відповідно до значення
+ksort() - сортувати асоціативні масиви у порядку зростання, відповідно до ключа
+arsort() - сортувати асоціативні масиви у порядку зменшення відповідно до значення
+krsort() - сортувати асоціативні масиви у порядку зменшення відповідно до ключа
+
+<?php
+$numbers = array(4, 6, 2, 22, 11);
+sort($numbers);
+$arrlength = count($numbers);
+for($x = 0; $x < $arrlength; $x++) {
+    echo $numbers[$x];
+    echo "<br>";
+}
+?>
+
+
+
+
+
+
+
+
+             PHP глобальні змінні - суперглобали
+$GLOBALS
+$_SERVER
+$_REQUEST
+$_POST
+$_GET
+$_FILES
+$_ENV
+$_COOKIE
+$_SESSION
+
+
+                 $GLOBALS
+<?php
+$x = 75;
+$y = 25;
+function addition() {
+  $GLOBALS['z'] = $GLOBALS['x'] + $GLOBALS['y'];
+}
+addition();
+echo $z;
+?>
+
+
+
+$ _SERVER - супер глобальна змінна PHP, яка містить інформацію про заголовки, шляхи та розташування скриптів.
+
+$ _SERVER ['PHP_SELF'] Повертає ім'я файла поточного виконуваного сценарію
+$ _SERVER ['GATEWAY_INTERFACE'] Повертає версію загального інтерфейсу шлюзу (CGI), який використовує сервер
+$ _SERVER ['SERVER_ADDR'] Повертає IP-адресу хост-сервера
+$ _SERVER ['SERVER_NAME'] Повертає ім'я хост-сервера (наприклад, www.w3schools.com)
+$ _SERVER ['SERVER_SOFTWARE'] Повертає ідентифікаційний рядок сервера (наприклад, Apache / 2.2.24)
+$ _SERVER ['SERVER_PROTOCOL'] Повертає ім'я та перегляд інформаційного протоколу (наприклад, HTTP / 1.1)
+$ _SERVER ['REQUEST_METHOD'] Повертає метод запиту, який використовується для доступу до сторінки (наприклад, POST)
+$ _SERVER ['REQUEST_TIME'] Повертає часову позначку початку запиту (наприклад, 1377687496)
+$ _SERVER ['QUERY_STRING'] Повертає рядок запиту, якщо доступ до сторінки здійснюється через рядок запиту
+$ _SERVER ['HTTP_ACCEPT'] Повертає заголовок Accept з поточного запиту
+$ _SERVER ['HTTP_ACCEPT_CHARSET'] Повертає заголовок Accept_Charset з поточного запиту (наприклад, utf-8, ISO-8859-1)
+$ _SERVER ['HTTP_HOST'] Повертає заголовок хоста з поточного запиту
+$ _SERVER ['HTTP_REFERER'] Повертає повну URL-адресу поточної сторінки (не надійна, оскільки не всі користувацькі агенти підтримують її)
+$ _SERVER ['HTTPS'] Сценарій запитується через захищений протокол HTTP
+$ _SERVER ['REMOTE_ADDR'] Повертає IP-адресу, звідки користувач переглядає поточну сторінку
+$ _SERVER ['REMOTE_HOST'] Повертає ім'я хоста, звідки користувач переглядає поточну сторінку
+$ _SERVER ['REMOTE_PORT'] Повертає порт, який використовується на машині користувача для зв'язку з веб-сервером
+$ _SERVER ['SCRIPT_FILENAME'] Повертає абсолютне ім'я поточного сценарію, що виконується
+$ _SERVER ['SERVER_ADMIN'] Повертає значення, задане директиві SERVER_ADMIN у файлі конфігурації веб-сервера (якщо ваш скрипт працює на віртуальному хості, це буде значення, визначене для цього віртуального хоста) (наприклад, netko@w3schools.com )
+$ _SERVER ['SERVER_PORT'] Повертає порт на серверній машині, що використовується веб-сервером для зв'язку (наприклад, 80)
+$ _SERVER ['SERVER_SIGNATURE'] Повертає версію сервера та ім'я віртуального хоста, які додаються до створених сервером сторінок
+$ _SERVER ['PATH_TRANSLATED'] Повертає шлях до файлової системи до поточного сценарію
+$ _SERVER ['SCRIPT_NAME'] Повертає шлях до поточного сценарію
+$ _SERVER ['SCRIPT_URI'] Повертає URI поточної сторінки
+
+
+
+
+
+$ _REQUEST - супер глобальна змінна PHP, яка використовується для збору даних після надсилання HTML-форми.
+
+<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+  Name: <input type="text" name="fname">
+  <input type="submit">
+</form>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // collect value of input field
+    $name = htmlspecialchars($_REQUEST['fname']);
+    if (empty($name)) {
+        echo "Name is empty";
+    } else {
+        echo $name;
+    }
+}
+?>
+
+
+
+
+
+
+$ _POST - супер глобальна змінна PHP, яка використовується для збору даних форми після
+подання HTML-форми з методом = "повідомлення". $ _POST також широко використовується для передачі змінних.
+
+<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+  Name: <input type="text" name="fname">
+  <input type="submit">
+</form>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // collect value of input field
+    $name = $_POST['fname'];
+    if (empty($name)) {
+        echo "Name is empty";
+    } else {
+        echo $name;
+    }
+}
+?>
+
+
+
+
+
+
+
+
+$ _GET - супер глобальна змінна PHP, яка використовується для збору даних форми після подання HTML-форми
+з методом = "отримати".
+$ _GET також може збирати дані, що надсилаються за URL-адресою.
+<a href="test_get.php?subject=PHP&web=W3schools.com">Test $GET</a>
+<?php
+echo "Study " . $_GET['subject'] . " at " . $_GET['web'];
+?>
+
+
+
+
+$ _GET - це масив змінних, що передаються поточному сценарію через параметри URL.
+$ _POST - це масив змінних, переданих до поточного сценарію методом HTTP POST.
+
+
+
+
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+  $ _SERVER ["PHP_SELF"] надсилає подані дані форми на саму сторінку, замість того,
+  щоб переходити на іншу сторінку. Таким чином, користувач отримає повідомлення про помилки на тій же
+  сторінці, що і форма.
+Функція htmlspecialchars () перетворює спеціальні символи в об'єкти HTML. Це означає,
+що він замінить символи HTML на зразок <і> на & lt; і & gt ;. Це запобігає зловмисникам
+використовувати код, вводячи у форми HTML або Javascript (міжсайтові сценарії).
+
+    Ми також зробимо ще дві речі, коли користувач подасть форму:
+Видаліть непотрібні символи (додатковий простір, вкладка, новий рядок) з вхідних даних користувача
+(за допомогою функції PHP trim ())
+    Видаліть зворотні косої риски (\) з вхідних даних користувача (за допомогою функції PHP stripslashes ())
+    Наступним кроком є ​​створення функції, яка зробить усі перевірки для нас (що набагато зручніше, ніж писати
+один і той же код знову і знову).
+    Зауважте, що на початку сценарію ми перевіряємо, чи форма подана за допомогою $ _SERVER ["REQUEST_METHOD"].
+Якщо REQUEST_METHOD - POST, тоді форму подано - і її слід підтвердити. Якщо вона не була подана,
+пропустіть перевірку та покажіть порожню форму.
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<body>
+<?php
+// define variables and set to empty values
+$name = $email = $gender = $comment = $website = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $name = test_input($_POST["name"]);
+  $email = test_input($_POST["email"]);
+  $website = test_input($_POST["website"]);
+  $comment = test_input($_POST["comment"]);
+  $gender = test_input($_POST["gender"]);
+}
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+<h2>PHP Form Validation Example</h2>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+  Name: <input type="text" name="name">
+  <br><br>
+  E-mail: <input type="text" name="email">
+  <br><br>
+  Website: <input type="text" name="website">
+  <br><br>
+  Comment: <textarea name="comment" rows="5" cols="40"></textarea>
+  <br><br>
+  Gender:
+  <input type="radio" name="gender" value="female">Female
+  <input type="radio" name="gender" value="male">Male
+  <input type="radio" name="gender" value="other">Other
+  <br><br>
+  <input type="submit" name="submit" value="Submit">
+</form>
+<?php
+echo "<h2>Your Input:</h2>";
+echo $name;
+echo "<br>";
+echo $email;
+echo "<br>";
+echo $website;
+echo "<br>";
+echo $comment;
+echo "<br>";
+echo $gender;
+?>
+</body>
+</html>
+    У наступному коді ми додали кілька нових змінних: $ nameErr, $ emailErr, $ genderErr та $ websiteErr.
+Ці змінні помилки містять повідомлення про помилки для необхідних полів. Ми також додали if elseоператор
+для кожної змінної $ _POST. Це перевіряє, чи змінна $ _POST порожня (з empty() функцією PHP ).
+Якщо воно порожнє, повідомлення про помилку зберігається в різних змінних помилок, а якщо воно не порожнє,
+воно надсилає користувачеві вхідні дані через test_input() функцію:
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+.error {color: #FF0000;}
+</style>
+</head>
+<body>
+<?php
+// define variables and set to empty values
+$nameErr = $emailErr = $genderErr = $websiteErr = "";
+$name = $email = $gender = $comment = $website = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["name"])) {
+    $nameErr = "Name is required";
+  } else {
+    $name = test_input($_POST["name"]);
+  }
+
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+  }
+
+  if (empty($_POST["website"])) {
+    $website = "";
+  } else {
+    $website = test_input($_POST["website"]);
+  }
+
+  if (empty($_POST["comment"])) {
+    $comment = "";
+  } else {
+    $comment = test_input($_POST["comment"]);
+  }
+
+  if (empty($_POST["gender"])) {
+    $genderErr = "Gender is required";
+  } else {
+    $gender = test_input($_POST["gender"]);
+  }
+}
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+<h2>PHP Form Validation Example</h2>
+<p><span class="error">* required field</span></p>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+  Name: <input type="text" name="name">
+  <span class="error">* <?php echo $nameErr;?></span>
+  <br><br>
+  E-mail: <input type="text" name="email">
+  <span class="error">* <?php echo $emailErr;?></span>
+  <br><br>
+  Website: <input type="text" name="website">
+  <span class="error"><?php echo $websiteErr;?></span>
+  <br><br>
+  Comment: <textarea name="comment" rows="5" cols="40"></textarea>
+  <br><br>
+  Gender:
+  <input type="radio" name="gender" value="female">Female
+  <input type="radio" name="gender" value="male">Male
+  <input type="radio" name="gender" value="other">Other
+  <span class="error">* <?php echo $genderErr;?></span>
+  <br><br>
+  <input type="submit" name="submit" value="Submit">
+</form>
+<?php
+echo "<h2>Your Input:</h2>";
+echo $name;
+echo "<br>";
+echo $email;
+echo "<br>";
+echo $website;
+echo "<br>";
+echo $comment;
+echo "<br>";
+echo $gender;
+?>
+</body>
+</html>
+
+
+                  перевірити ім'я
+    У наведеному нижче коді показаний простий спосіб перевірити, чи містить поле ім’я лише літери та пробіли.
+    Якщо значення поля імені недійсне, збережіть повідомлення про помилку:
+$name = test_input($_POST["name"]);
+if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+  $nameErr = "Only letters and white space allowed";
+}
+Функція preg_match () шукає рядок для шаблону, повертаючи true, якщо шаблон існує, а false - інакше.
+
+
+
+                перевірити електронну пошту
+    Найпростіший і безпечний спосіб перевірити, чи правильно сформована адреса електронної пошти - це використовувати функцію filter_var () PHP.
+    У наведеному нижче коді, якщо електронна адреса не сформована, збережіть повідомлення про помилку:
+$email = test_input($_POST["email"]);
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  $emailErr = "Invalid email format";
+
+
+                 підтвердження URL-адреси
+    Код, наведений нижче, показує спосіб перевірити, чи синтаксис URL-адреси є дійсним (цей регулярний
+    вираз також дозволяє вводити тире в URL). Якщо синтаксис URL-адреси недійсний, збережіть повідомлення
+    про помилку:
+$website = test_input($_POST["website"]);
+if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
+  $websiteErr = "Invalid URL";
+}
+
+
+...............................Ось повний код для прикладу перевірки форми PHP:
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+.error {color: #FF0000;}
+</style>
+</head>
+<body>
+
+<?php
+// define variables and set to empty values
+$nameErr = $emailErr = $genderErr = $websiteErr = "";
+$name = $email = $gender = $comment = $website = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["name"])) {
+    $nameErr = "Name is required";
+  } else {
+    $name = test_input($_POST["name"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+      $nameErr = "Only letters and white space allowed";
+    }
+  }
+
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+    // check if e-mail address is well-formed
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $emailErr = "Invalid email format";
+    }
+  }
+
+  if (empty($_POST["website"])) {
+    $website = "";
+  } else {
+    $website = test_input($_POST["website"]);
+    // check if URL address syntax is valid (this regular expression also allows dashes in the URL)
+    if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
+      $websiteErr = "Invalid URL";
+    }
+  }
+
+  if (empty($_POST["comment"])) {
+    $comment = "";
+  } else {
+    $comment = test_input($_POST["comment"]);
+  }
+
+  if (empty($_POST["gender"])) {
+    $genderErr = "Gender is required";
+  } else {
+    $gender = test_input($_POST["gender"]);
+  }
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
+<h2>PHP Form Validation Example</h2>
+<p><span class="error">* required field</span></p>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+  Name: <input type="text" name="name" value="<?php echo $name;?>">
+  <span class="error">* <?php echo $nameErr;?></span>
+  <br><br>
+  E-mail: <input type="text" name="email" value="<?php echo $email;?>">
+  <span class="error">* <?php echo $emailErr;?></span>
+  <br><br>
+  Website: <input type="text" name="website" value="<?php echo $website;?>">
+  <span class="error"><?php echo $websiteErr;?></span>
+  <br><br>
+  Comment: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
+  <br><br>
+  Gender:
+  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="female">Female
+  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="male">Male
+  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="other") echo "checked";?> value="other">Other
+  <span class="error">* <?php echo $genderErr;?></span>
+  <br><br>
+  <input type="submit" name="submit" value="Submit">
+</form>
+
+<?php
+echo "<h2>Your Input:</h2>";
+echo $name;
+echo "<br>";
+echo $email;
+echo "<br>";
+echo $website;
+echo "<br>";
+echo $comment;
+echo "<br>";
+echo $gender;
+?>
+
+</body>
+</html>
+........................................................
+
+
+
+
+
+
+
+
+
+
+
+.....................date(format,timestamp)
+
+d - Позначає день місяця (від 01 до 31)
+м - представляє місяць (від 01 до 12)
+Y - представляє рік (у чотирьох цифрах)
+l (нижній регістр 'L') - Позначає день тижня
+
+echo "Today is " . date("Y/m/d") . "<br>";
+echo "Today is " . date("Y.m.d") . "<br>";
+echo "Today is " . date("Y-m-d") . "<br>";
+echo "Today is " . date("l");
+
+
+Використовуйте date()функцію для автоматичного оновлення року авторських прав на вашому веб-сайті:
+© 2010-<?php echo date("Y");?>
+
+
+
+..............................час
+Ось кілька символів, які зазвичай використовуються часом:
+
+H - цілодобовий формат години (00 - 23)
+h - 12-годинний формат години з провідними нулями (від 01 до 12)
+i - Хвилини з провідними нулями (00 до 59)
+s - секунди з провідними нулями (00 до 59)
+a - Низький регістр меридієму та пост меридієма (ранку чи вечора)
+
+
+
+
+Наведений нижче приклад встановлює часовий пояс на "America / New_York", а потім виводить поточний час у вказаному форматі:
+date_default_timezone_set("America/New_York");
+echo "The time is " . date("h:i:sa");
+
+
+
+
+
+//////////////////////include
+коли файл додається до include оператора і PHP не може його знайти, сценарій продовжить виконувати:
+Припустимо, у нас є стандартний файл нижнього колонтитулу під назвою "footer.php",
+який виглядає приблизно так:
+<?php
+echo "<p>Copyright &copy; 1999-" . date("Y") . " W3Schools.com</p>";
+?>
+Щоб включити файл нижнього колонтитулу на сторінку, використовуйте include оператор:
+<html>
+<body>
+  <div class="menu">
+<?php include 'menu.php';?>
+</div>
+<h1>Welcome to my home page!</h1>
+<p>Some text.</p>
+<?php include 'footer.php';?>
+</body>
+</html>
+Припустимо, у нас є стандартний файл меню під назвою "menu.php":
+<?php
+echo '<a href="/default.asp">Home</a> -
+<a href="/html/default.asp">HTML Tutorial</a> -
+<a href="/css/default.asp">CSS Tutorial</a> -
+<a href="/js/default.asp">JavaScript Tutorial</a> -
+<a href="default.asp">PHP Tutorial</a>';
+?>
+
+Використовувати, requireколи програма вимагає файл.
+
+Використовувати, includeколи файл не потрібен, а додаток слід продовжувати, коли файл не знайдено.
+
+
+.....readfile()Функція читає файл і записує його у вихідний буфер.
+readfile("webdictionary.txt");
+Кращий спосіб відкрити файли - це fopen()функція. Ця функція дає більше можливостей, ніж readfile() функція.
+
+Перший параметр fopen()містить ім'я файла, який потрібно відкрити, а другий параметр визначає, в якому
+режимі файл повинен бути відкритий. Наступний приклад також генерує повідомлення, якщо функція fopen ()
+не в змозі відкрити вказаний файл:
+<?php
+$myfile = fopen("webdictionary.txt", "r") or die("Unable to open file!");
+echo fread($myfile,filesize("webdictionary.txt"));
+fclose($myfile);
+?>
+
+
+r Відкрийте файл лише для читання. Покажчик файлу починається на початку файлу
+w Відкрийте файл лише для запису. Стирає вміст файлу або створює новий файл, якщо його не існує. Покажчик файлу починається на початку файлу
+a Відкрийте файл лише для запису. Існуючі дані у файлі зберігаються. Покажчик файлу починається в кінці файлу. Створює новий файл, якщо файл не існує
+x Створює новий файл лише для запису. Повертає FALSE та помилку, якщо файл вже існує
+r + Відкрийте файл для читання / запису. Покажчик файлу починається на початку файлу
+w + Відкрийте файл для читання / запису. Стирає вміст файлу або створює новий файл, якщо його не існує. Покажчик файлу починається на початку файлу
+a + Відкрийте файл для читання / запису. Існуючі дані у файлі зберігаються. Покажчик файлу починається в кінці файлу. Створює новий файл, якщо файл не існує
+x + Створює новий файл для читання / запису. Повертає FALSE та помилку, якщо файл вже існує
+
+
+fread()Функція зчитує з відкритого файлу.
+Перший параметр fread()містить ім'я файлу для читання, а другий параметр визначає максимальну
+кількість байтів для читання.
+Наступний код PHP читає файл "webdictionary.txt" до кінця:
+fread($myfile,filesize("webdictionary.txt"));
+
+
+fclose()Функція використовується , щоб закрити відкритий файл.
+Хороша практика програмування, щоб закрити всі файли після того, як ви закінчили з ними. Ви не хочете,
+щоб відкритий файл працював на вашому сервері, використовуючи ресурси!
+fclose()Потрібно ім'я файлу (або змінної , яка містить ім'я файлу) ми хочемо закрити:
+<?php
+$myfile = fopen("webdictionary.txt", "r");
+// some code to be executed....
+fclose($myfile);
+?>
+
+
+fgets()Функція використовується для читання один рядок з файлу.
+У наведеному нижче прикладі виводиться перший рядок файлу "webdictionary.txt":
+<?php
+$myfile = fopen("webdictionary.txt", "r") or die("Unable to open file!");
+echo fgets($myfile);
+fclose($myfile);
+?>
+
+
+
+
+У feof()функції перевіряє , є чи «кінець файлу» (EOF) було досягнуто.
+feof()Функція корисна для циклу за даними невідомої довжини.
+Наведений нижче приклад читає файл "webdictionary.txt" рядок за рядком, поки не буде досягнуто кінця файлу:
+<?php
+$myfile = fopen("webdictionary.txt", "r") or die("Unable to open file!");
+// Output one line until end-of-file
+while(!feof($myfile)) {
+  echo fgets($myfile) . "<br>";
+}
+fclose($myfile);
+?>
+
+
+
+fgetc()Функція використовується для читання одного символу з файлу.
+У наведеному нижче прикладі читається символ символу "webdictionary.txt", доки не буде досягнуто кінця файлу:
+<?php
+$myfile = fopen("webdictionary.txt", "r") or die("Unable to open file!");
+// Output one character until end-of-file
+while(!feof($myfile)) {
+  echo fgetc($myfile);
+}
+fclose($myfile);
+?>
+
+
+
+...
+fopen()Функція також використовується для створення файлу.
+Якщо ви використовуєте fopen()файл, який не існує, він створить його, враховуючи, що файл відкритий
+для запису (w) або додавання (a).
+
+$myfile = fopen("testfile.txt", "w")
+
+
+
+fwrite()Функція використовується для запису в файл.
+Перший параметр fwrite()містить ім'я файла, в який слід записати, а другий параметр - рядок,
+який потрібно записати.
+Наведений приклад записує пару імен в новий файл під назвою "newfile.txt":
+<?php
+$myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
+$txt = "John Doe\n";
+fwrite($myfile, $txt);
+$txt = "Jane Doe\n";
+fwrite($myfile, $txt);
+fclose($myfile);
+?>
+
+
+
+...........................................Завантаження файлів PHP
+
+                          Налаштуйте файл "php.ini"
+По-перше, переконайтеся, що PHP налаштовано для дозволу завантаження файлів.
+У файлі "php.ini" знайдіть file_uploadsдирективу та встановіть її на Увімкнено:
+file_uploads = On
+
+
+
+
+Далі створіть форму HTML, яка дозволяє користувачам вибирати файл зображення, який вони хочуть завантажити:
+<!DOCTYPE html>
+<html>
+<body>
+<form action="upload.php" method="post" enctype="multipart/form-data">
+  Select image to upload:
+  <input type="file" name="fileToUpload" id="fileToUpload">
+  <input type="submit" value="Upload Image" name="submit">
+</form>
+</body>
+</html>
+    Переконайтеся, що у формі використовується метод = "повідомлення"
+Формі також потрібен такий атрибут: enctype = "багаточастинні / форми-дані". Він визначає, який тип вмісту використовувати під час подання форми
+Без вищезазначених вимог завантаження файлів не буде працювати.
+    Інші речі, які слід помітити:
+Атрибут type = "file" тегу <input> показує поле введення як контроль вибору файлів, натиснувши кнопку
+"Огляд" поруч із контролем введення
+
+
+
+Створіть файл PHP-скрипту для завантаження
+Файл "upload.php" містить код для завантаження файлу:
+
+<?php
+$target_dir = "uploads/";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+  if($check !== false) {
+    echo "File is an image - " . $check["mime"] . ".";
+    $uploadOk = 1;
+  } else {
+    echo "File is not an image.";
+    $uploadOk = 0;
+  }
+}
+?>
+PHP-скрипт пояснив:
+
+$ target_dir = "uploads /" - вказує каталог, куди буде розміщений файл
+$ target_file вказує шлях файлу для завантаження
+$ uploadOk = 1 ще не використовується (буде використано пізніше)
+$ imageFileType містить розширення файлу (в нижньому регістрі)
+Далі перевірте, чи файл зображення є фактичним зображенням або підробленим зображенням
+Примітка. Вам потрібно буде створити новий каталог під назвою "uploads" у каталозі, де знаходиться файл "upload.php". Завантажені файли будуть збережені там.
+
+
+
+
+
+
+
+Перевірте, чи файл вже існує
+Тепер ми можемо додати деякі обмеження.
+
+Спочатку ми перевіримо, чи файл вже існує в папці "uploads". Якщо це так, відображається повідомлення
+про помилку, і $ uploadOk встановлюється на 0:
+
+// Check if file already exists
+if (file_exists($target_file)) {
+  echo "Sorry, file already exists.";
+  $uploadOk = 0;
+}
+
+
+
+
+
+Обмежити розмір файлу
+Поле для введення файлів у нашій HTML-формі вище називається "fileToUpload".
+
+Тепер ми хочемо перевірити розмір файлу. Якщо файл розміром більше 500 КБ, відображається повідомлення про помилку, а $ uploadOk встановлюється на 0:
+
+// Check file size
+if ($_FILES["fileToUpload"]["size"] > 500000) {
+  echo "Sorry, your file is too large.";
+  $uploadOk = 0;
+}
+
+
+
+
+
+Обмежити тип файлу
+Нижче наведений код дозволяє користувачам завантажувати файли JPG, JPEG, PNG та GIF. Усі інші типи файлів надсилають повідомлення про помилку перед встановленням $ uploadOk на 0:
+
+// Allow certain file formats
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+&& $imageFileType != "gif" ) {
+  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+  $uploadOk = 0;
+}
+
+
+
+
+...........Повний файл "upload.php" зараз виглядає так:
+<?php
+$target_dir = "uploads/";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+  if($check !== false) {
+    echo "File is an image - " . $check["mime"] . ".";
+    $uploadOk = 1;
+  } else {
+    echo "File is not an image.";
+    $uploadOk = 0;
+  }
+}
+
+// Check if file already exists
+if (file_exists($target_file)) {
+  echo "Sorry, file already exists.";
+  $uploadOk = 0;
+}
+
+// Check file size
+if ($_FILES["fileToUpload"]["size"] > 500000) {
+  echo "Sorry, your file is too large.";
+  $uploadOk = 0;
+}
+
+// Allow certain file formats
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+&& $imageFileType != "gif" ) {
+  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+  $uploadOk = 0;
+}
+
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+  echo "Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+} else {
+  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+    echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+  } else {
+    echo "Sorry, there was an error uploading your file.";
+  }
+}
+?>
+
+
+.....
+
+
+
+
+
+
+
+
+
+
+
+
+..................................Створення файлів cookie за допомогою PHP
+Файл створюється за допомогою setcookie()функції.
+
+Синтаксис
+setcookie(name, value, expire, path, domain, secure, httponly);
+Потрібен лише параметр імені . Усі інші параметри необов’язкові.
+
+
+
+У наступному прикладі створюється файл cookie з назвою "user" зі значенням "John Doe". Термін дії файлу cookie закінчується через 30 днів (86400 * 30). "/" Означає, що файл cookie доступний на всьому веб-сайті (в іншому випадку виберіть каталог, який ви бажаєте).
+
+Потім ми отримуємо значення файлу cookie "користувач" (використовуючи глобальну змінну $ _COOKIE). Ми також використовуємо isset()функцію, щоб дізнатися, чи встановлено файл cookie:
+<?php
+$cookie_name = "user";
+$cookie_value = "John Doe";
+setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+?>
+<html>
+<body>
+<?php
+if(!isset($_COOKIE[$cookie_name])) {
+  echo "Cookie named '" . $cookie_name . "' is not set!";
+} else {
+  echo "Cookie '" . $cookie_name . "' is set!<br>";
+  echo "Value is: " . $_COOKIE[$cookie_name];
+}
+?>
+</body>
+</html>
+Примітка .setcookie()Функція повинна з'являтися перед тегом <html>.
+Примітка . Значення файлу cookie автоматично кодується під час надсилання файлу cookie та автоматично
+ розшифровується при отриманні (щоб запобігти кодуванню URL-адрес, використовуйте setrawcookie()натомість).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+..................Запустіть сесію PHP
+Запуск сеансу з session_start()функцією.
+Змінні сесії встановлюються за допомогою глобальної змінної PHP: $ _SESSION.
+Тепер давайте створимо нову сторінку під назвою "demo_session1.php". На цій сторінці ми починаємо новий
+сеанс PHP і встановлюємо деякі змінні сеансу:
+Приклад
+<?php
+// Start the session
+session_start();
+?>
+<!DOCTYPE html>
+<html>
+<body>
+<?php
+// Set session variables
+$_SESSION["favcolor"] = "green";
+$_SESSION["favanimal"] = "cat";
+echo "Session variables are set.";
+?>
+</body>
+</html>
+Примітка. Цяsession_start()функція повинна бути найпершою справою у вашому документі. Перед будь-якими
+тегами HTML.
+
+
+
+
+
+                              Отримати значення змінних значень сеансу PHP
+Далі ми створюємо ще одну сторінку під назвою "demo_session2.php". З цієї сторінки ми отримаємо доступ
+до інформації про сеанс, яку ми встановили на першій сторінці ("demo_session1.php").
+Зауважте, що змінні сеансу не передаються окремо кожній новій сторінці, замість цього вони витягуються з
+сеансу, який ми відкриваємо на початку кожної сторінки ( session_start()).
+Також зауважте, що всі значення змінної сесії зберігаються в глобальній змінній $ _SESSION:
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html>
+<body>
+<?php
+// Echo session variables that were set on previous page
+echo "Favorite color is " . $_SESSION["favcolor"] . ".<br>";
+echo "Favorite animal is " . $_SESSION["favanimal"] . ".";
+?>
+</body>
+</html>
+
+Інший спосіб показати всі значення змінної сесії для користувача сеансу - це запустити наступний код:
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html>
+<body>
+<?php
+print_r($_SESSION);
+?>
+</body>
+</html>
+Як це працює? Звідки я знаю, що це я?
+
+Більшість сеансів встановлюють ключ користувача на комп'ютері користувача, який виглядає приблизно так:
+ 765487cf34ert8dede5a562e4f3a7e12. Потім, коли сеанс відкривається на іншій сторінці, він сканує
+ комп'ютер на ключ користувача. Якщо є відповідність, вона отримує доступ до цього сеансу, якщо ні, то
+ починається новий сеанс.
+
+
+
+
+
+
+
+
+
+
+
+
+
+                         Знищіть сесію PHP
+ Щоб видалити всі змінні глобальної сесії та знищити сеанс, використовуйте session_unset() та session_destroy():
+ Приклад
+ <?php
+ session_start();
+ ?>
+ <!DOCTYPE html>
+ <html>
+ <body>
+ <?php
+ // remove all session variables
+ session_unset();
+ // destroy the session
+ session_destroy();
+ ?>
+ </body>
+ </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////Фільтри
+filter_var()Функція як Validate дані і дезінфікувати.
+
+filter_var()Функція відфільтровує одну змінну за допомогою певного фільтра. Це займає два фрагменти даних:
+
+Змінна, яку ви хочете перевірити
+Тип чека, який потрібно використовувати
+Санітируйте рядок
+У наступному прикладі використовується filter_var()функція для видалення всіх тегів HTML із рядка:
+
+<?php
+$str = "<h1>Hello World!</h1>";
+$newstr = filter_var($str, FILTER_SANITIZE_STRING);
+echo $newstr;
+?>
+
+
+
+
+Підтвердьте ціле число
+У наступному прикладі використовується filter_var()функція, щоб перевірити, чи є змінною $ int ціле число.
+Якщо $ int є цілим числом, висновок коду нижче буде: "Ціле число є дійсним". Якщо $ int не є цілим числом,
+то виведенням буде: "Ціле число недійсне":
+<?php
+$int = 100;
+if (!filter_var($int, FILTER_VALIDATE_INT) === false) {
+  echo("Integer is valid");
+} else {
+  echo("Integer is not valid");
+}
+?>
+
+
+Порада: filter_var () та проблема з 0
+У наведеному вище прикладі, якщо для $ int було встановлено значення 0, функція, що вводиться вище,
+поверне "Ціле число недійсне". Щоб вирішити цю проблему, використовуйте наведений нижче код:
+<?php
+$int = 0;
+if (filter_var($int, FILTER_VALIDATE_INT) === 0 || !filter_var($int, FILTER_VALIDATE_INT) === false) {
+  echo("Integer is valid");
+} else {
+  echo("Integer is not valid");
+}
+?>
+
+
+
+
+
+Підтвердьте IP-адресу
+У наступному прикладі використовується filter_var()функція, щоб перевірити, чи змінна $ ip є дійсною
+IP-адресою:
+<?php
+$ip = "127.0.0.1";
+if (!filter_var($ip, FILTER_VALIDATE_IP) === false) {
+  echo("$ip is a valid IP address");
+} else {
+  echo("$ip is not a valid IP address");
+}
+?>
+
+
+
+Санітизуйте та підтвердіть адресу електронної пошти
+У наступному прикладі використовується filter_var()функція, щоб спочатку видалити всі незаконні
+символи зі змінної $ email, а потім перевірити, чи це дійсна адреса електронної пошти:
+<?php
+$email = "john.doe@example.com";
+// Remove all illegal characters from email
+$email = filter_var($email, FILTER_SANITIZE_EMAIL);
+// Validate e-mail
+if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+  echo("$email is a valid email address");
+} else {
+  echo("$email is not a valid email address");
+}
+?>
+
+
+
+Очистити та підтвердити URL-адресу
+У наступному прикладі використовується filter_var()функція, щоб спочатку видалити всі незаконні
+символи з URL-адреси, а потім перевірити, чи $ url є дійсною URL-адресою:
+<?php
+$url = "https://www.w3schools.com";
+// Remove all illegal characters from a url
+$url = filter_var($url, FILTER_SANITIZE_URL);
+// Validate url
+if (!filter_var($url, FILTER_VALIDATE_URL) === false) {
+  echo("$url is a valid URL");
+} else {
+  echo("$url is not a valid URL");
+}
+?>
+
+
+
+
+
+
+
+
+
+///////////////////////////Фільтри розширені
+Перевірка цілого числа в межах діапазону
+Наступний приклад використовує filter_var()функцію для перевірки, чи є змінна типу INT, і між 1 і 200:
+<?php
+$int = 122;
+$min = 1;
+$max = 200;
+if (filter_var($int, FILTER_VALIDATE_INT, array("options" => array("min_range"=>$min, "max_range"=>$max))) === false) {
+  echo("Variable value is not within the legal range");
+} else {
+  echo("Variable value is within the legal range");
+}
+?>
+
+
+
+
+Підтвердити IPv6-адресу
+Наступний приклад використовує filter_var()функцію для перевірки, чи змінна $ ip є дійсною IPv6 адресою:
+<?php
+$ip = "2001:0db8:85a3:08d3:1319:8a2e:0370:7334";
+
+if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) === false) {
+  echo("$ip is a valid IPv6 address");
+} else {
+  echo("$ip is not a valid IPv6 address");
+}
+?>
+
+
+
+Підтвердити URL - повинен містити QueryString
+У наведеному нижче прикладі використовується filter_var()функція перевірки, чи є змінною $ url URL з
+рядком запиту:
+<?php
+$url = "https://www.w3schools.com";
+if (!filter_var($url, FILTER_VALIDATE_URL, FILTER_FLAG_QUERY_REQUIRED) === false) {
+  echo("$url is a valid URL with a query string");
+} else {
+  echo("$url is not a valid URL with a query string");
+}
+?>
+
+
+
+
+Видаліть символи зі значенням ASCII> 127
+Наступний приклад використовує filter_var()функцію для очищення рядка. Він одночасно видалить усі
+теги HTML та всі символи зі значенням ASCII> 127 із рядка:
+<?php
+$str = "<h1>Hello WorldÆØÅ!</h1>";
+$newstr = filter_var($str, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+echo $newstr;
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+./////////////////////PHP та JSON
+PHP має деякі вбудовані функції для управління JSON.
+Спочатку ми розглянемо наступні дві функції:
+
+json_encode ()
+json_decode ()
+
+Функція json_encode () використовується для кодування значення у форматі JSON.
+Цей приклад показує, як кодувати асоціативний масив в об'єкт JSON:
+<?php
+$age = array("Peter"=>35, "Ben"=>37, "Joe"=>43);
+echo json_encode($age);
+?>
+
+
+
+json_decode () використовується для декодування об'єкта JSON в об'єкт PHP або асоціативний масив.
+Цей приклад декодує дані JSON в об'єкт PHP:
+<?php
+$jsonobj = '{"Peter":35,"Ben":37,"Joe":43}';
+var_dump(json_decode($jsonobj));
+?>

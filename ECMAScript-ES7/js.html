@@ -1,0 +1,1301 @@
+"use strict";    Оголошення суворого режиму
+
+JSON - синтаксис для зберігання та обміну даними.
+var myJSON = JSON.stringify(myObj);          об’єкті JavaScript, ви можете перетворити у JSON та надіслати його на сервер:
+var myObj = JSON.parse(myJSON);              формат JSON, перетворити у об’єкт JavaScript:
+      Файли JSON
+Тип файлу для файлів JSON - це ".json"
+Тип MIME для тексту JSON - це "application / json"
+
+
+
+
+           У JavaScript є три види спливаючих вікон: поле сповіщення, поле підтвердження та поле підказки.
+alert("I am an alert box!");         спливає вікно сповіщення, користувачеві доведеться натиснути «ОК»,
+                                     щоб продовжити.
+confirm("sometext");                 Коли з'явиться вікно підтвердження, користувачеві доведеться натиснути
+                                     або «ОК» або «Скасувати», щоб продовжити.
+prompt("sometext","defaultText");    Коли з'явиться вікно підказки, користувачеві доведеться натиснути або
+                                    "OK" або "Скасувати", щоб продовжити після введення вхідного значення.
+
+\n                Щоб відобразити розриви рядків всередині спливаючого вікна
+
+
+
+HTML DOM - це стандарт для отримання, зміни, додавання або видалення елементів HTML.
+             Пошук елементів HTML
+document.getElementById(id)        Знайдіть елемент за ідентифікатором елемента
+document.getElementsByTagName(ім'я)   Знайдіть елементи за назвою тегів
+document.getElementsByClassName(ім'я)   Знайдіть елементи за назвою класу
+             Зміна елементів HTML
+element.innerHTML = новий вміст html        Змініть внутрішній HTML елемент
+element.attribute = нове значення            Змінення значення атрибута елемента HTML
+element.style.property = новий стиль         Змінення стилю HTML-елемента
+element.setAttribute (атрибут, значення)      Змінення значення атрибута елемента HTML
+                        Додавання та видалення елементів
+            document.createElement (елемент) Створіть HTML-елемент
+            document.removeChild (елемент) Видаліть HTML-елемент
+            document.appendChild (елемент) Додати HTML-елемент
+            document.replaceChild (новий, старий) Замініть HTML-елемент
+            document.write (текст) Запишіть у вихідний потік HTML
+      Додавання обробників подій
+document.getElementById (id) .onclick = function () {code} Додавання коду обробника події до події onclick
+                       Пошук об'єктів HTML
+       document.anchors Повертає всі елементи <a>, які мають атрибут 1
+       document.applets Повертає всі елементи <applet> (застарілі в HTML5) 1
+       document.baseURI Повертає абсолютний базовий URI документа 3
+       document.body Повертає елемент <body> 1
+       document.cookie Повертає файл cookie документа 1
+       document.doctype Повертає документ 3
+       document.documentElement Повертає <html> елемент 3
+       document.documentMode Повертає режим, який використовується браузером 3
+       document.documentURI Повертає URI документа 3
+       document.domain Повертає доменне ім'я сервера документів 1
+       document.domConfig Застарілий. Повертає конфігурацію DOM 3
+       document.embeds Повертає всі <embed> елементи 3
+       document.forms Повертає всі елементи <form> 1
+       document.head Повертає елемент <head> 3
+       document.images Повертає всі елементи <img> 1
+       document.implementation Повертає реалізацію DOM 3
+       document.inputEncoding Повертає кодування документа (набір символів) 3
+       document.lastModified Повертає дату та час оновлення документа 3
+       document.links Повертає всі елементи <area> та <a>, які мають атрибут href 1
+       document.readyState Повертає статус (завантаження) документа 3
+       document.referrer Повертає URI реферала (пов'язуючий документ) 1
+       document.scripts Повертає всі елементи <script> 3
+       document.strictErrorChecking Повертається, якщо перевірка помилок виконується 3
+       document.title Повертає елемент <title> 1
+       document.URL Повертає повну URL-адресу документа
+
+
+
+///
+
+
+
+
+typeof       оператором, щоб знайти тип даних змінної JavaScript.
+constructor   Властивість повертає функцію конструктора для всіх змінних JavaScript.
+
+x.sort();                                  для сортування масиівв
+x.sort(function(a, b){return a - b});      для чисел в масиві
+x.sort(function(a, b){return b - a});      для сортування від більшого до меншого
+x.reverse();   якщо йде після sort(), то сортує з низу алфавіту, а якщо сам то сортує з кінця маству
+function myArrayMax(arr) { return Math.max.apply(null, arr);}     для пошуку max
+forEach()Метод викликає функцію (функцію зворотного виклику) один раз для кожного елемента масиву.
+map() Метод створює новий масив, виконуючи функцію для кожного елемента масиву.(function myFunction(value,index,array){return value * 2;})
+filter ()   створює новий масив з елементів, значення яких перевищує 18:
+<p id="demo"></p>
+<script>
+var numbers = [45, 4, 9, 16, 25];
+var over18 = numbers.filter(myFunction);
+document.getElementById("demo").innerHTML = over18;
+function myFunction(value, index, array) {
+  return value > 18;
+}
+</script>
+find()            Метод повертає значення першого елемента масиву , який проходить тестову функцію.
+findIndex()       Метод повертає індекс першого елемента масиву , який проходить тестову функцію.
+every()           Перевірка масиву , якщо всі значення масиву пройдуть тест.(true, false)
+some()            Перевірка мвсиву , якщо зоч одне значення масиву пройде тест.(true, false)
+
+Array.reduce ()    Метод запускає функцію для кожного елемента масиву , щоб зробити (зменшити його до) одне значення.
+indexOf()         Метод шукає елемента в масиві і повертає його позицію.
+lastIndexOf()     повертає положення останнього знайденого елемента.
+
+
+.....
+Math.round(x) повертає значення х округлення до найближчого цілого числа:
+Math.pow(x, y) повертає значення x до сили y:
+Math.sqrt(x) повертає квадратний корінь x:
+Math.abs(x) повертає абсолютне (позитивне) значення x:
+Math.ceil(x)повертає значення х округляється до верху його найближчого цілого числа:
+Math.floor(x)повертає значення х округляється вниз до найближчого цілого числа:
+Math.sin(x) повертає синус (значення між -1 та 1) кута x (заданий у радіанах).
+Math.min()і Math.max()може бути використаний для пошуку найнижчого або найвищого значення у списку аргументів:
+Math.random() повертає випадкове число між 0 (включно) та 1 (виключно):
+Math.floor(Math.random() * 10);        для повернення випадкових цілих чисел.
+
+Boolean(10 > 9);
+var x = (y < 18) ? "Too young":"Old enough";  умовний оператор, який присвоює значення змінній на основі якоїсь умови.
+
+
+JavaScript підтримує різні типи циклів:
+for - кілька разів перебирає блок коду
+for/in - циклічні властивості об'єкта
+for/of - циклічні значення через ітерабельний об'єкт
+while - цикли через блок коду, коли задана умова є істинною
+do/while - також проходить цикл через блок коду, коли вказана умова є істинною
+
+.........може перетворити числа в рядки.
+String(100 + 23);
+(123).toString();
+..
+Number()          може конвертувати рядки в числа.
+parseFloat ()     Розбирає рядок і повертає число з плаваючою точкою
+parseInt ()        Розбирає рядок і повертає ціле число
+toExponential ()      Повертає рядок з числом, округленим і записаним, використовуючи експоненціальні позначення.
+toFixed ()            Повертає рядок із числом, округленим і записаним із заданою кількістю десяткових знаків.
+toPrecision ()        Повертає рядок із номером, записаним із заданою довжиною
+
+search()Метод використовує вираз для пошуку відповідності, і повертає позицію матчу.
+replace()     Метод замінює вказане значення з іншим значенням в рядку:
+
+/w3schОols/i         нечутливий до регістру
+/.../g             знайдіть усі елементи, а не зупиняйтесь після першого
+/.../м             Виконайте відповідність між рядками
+
+[abc]              Знайдіть будь-який із символів між дужками
+[0-9]              Знайдіть будь-яку цифру між дужками
+(x | y)            Знайдіть будь-яку з альтернатив, розділених на |
+
+\ d                Знайдіть цифру
+\ s                 Знайдіть символ пробілу
+\ b                Знайдіть відповідність на початку такого слова: \ bWORD, або в кінці такого слова: WORD \ b
+\ uxxxx            Знайдіть символ Unicode, визначений шістнадцятковим числом xxxx
+
+n +             Відповідає будь-якій рядку, що містить принаймні один n
+n *             Відповідає будь-якій рядку, що містить нуль або більше входжень n
+n?              Відповідає будь-якому рядку, що містить нуль або один вхід n
+
+String.trim()    видаляє пробіл з обох сторін рядка.
+isArray()методі перевіряє, чи є об'єкт масиву.
+forEach()Метод викликає функцію один раз для кожного елемента масиву.
+
+JSON.parse()   використовується для перетворення тексту в об’єкт JavaScript:
+JSON.stringify()           щоб перетворити елемент в рядок.
+
+ Object.values(обєкт)     Будь-який об’єкт JavaScript може бути перетворений в масив, використовуючи:
+Object.defineProperty()    Метод також може бути використаний для додавання геттеров і сеттерів:
+           приклад
+  Object.defineProperty(obj, "decrement", {
+    get : function () {this.counter--;}
+    });
+  Object.defineProperty(obj, "add", {
+    set : function (value) {this.counter += value;}
+    });
+.........prototype   Властивість JavaScript дозволяє додавати нові властивості до конструкторів об'єктів:
+Person.prototype.nationality = "English";
+........prototype    Властивість JavaScript також дозволяє додавати нові методи до конструкторів об'єктів:
+Person.prototype.name = function() {
+  return this.firstName + " " + this.lastName
+};
+
+
+...............
+Object.defineProperty()   дозволяє визначити властивість об'єкта та / або змінити значення
+ та / або метадані властивості.
+ var person = {
+   firstName: "John",
+   lastName : "Doe",
+   language : "NO",
+ };
+ // Change a Property:
+ Object.defineProperty(person, "language", {
+   value: "EN",
+   writable : true,               // Значення властивості можна змінити
+   enumerable : true,             // Властивість можна перерахувати
+   configurable : true              // Властивість може бути налаштовано
+ });
+.......Object.defineProperty()Метод також може бути використаний для додавання геттеров і сеттерів:
+Object.defineProperty(person, "fullName", {
+  get : function () {return this.firstName + " " + this.lastName;}
+});
+....
+..innerHTML = Object.getOwnPropertyNames(myObject);    Повертає масив властивостей
+..innerHTML = Object.keys(person);                     Повертає лише  властивості об'єкта:
+///////////////
+// Додавання або зміна властивості об'єкта
+Object.defineProperty(object, property, descriptor)
+
+// A Додавання або зміна багатьох властивостей об'єкта
+Object.defineProperties(object, descriptors)
+
+// Доступ до властивостей
+Object.getOwnPropertyDescriptor(object, property)
+
+// Повертає всі властивості як масив
+Object.getOwnPropertyNames(object)
+
+// Повертає перелічені властивості як масив
+Object.keys(object)
+
+// Доступ до прототипу
+Object.getPrototypeOf(object)
+
+// Запобігає додаванню властивостей до об'єкта
+Object.preventExtensions(object)
+
+// Повертає true, якщо властивості можна додати до об'єкта
+Object.isExtensible(object)
+
+// Запобігає зміні властивостей об'єкта (не значень)
+Object.seal(object)
+
+// Повертає значення true, якщо об'єкт запечатаний
+Object.isSealed(object)
+
+// Запобігає будь-яким змінам об'єкта
+Object.freeze(object)
+
+// Повертає true, якщо об'єкт заморожений
+Object.isFrozen(object)
+///////////////
+
+
+
+...........call()    За допомогою методу можна написати метод, який можна використовувати на різних об'єктах.
+var person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + "," + city + "," + country;
+  }
+}
+var person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+var person2 = {
+  firstName:"Mary",
+  lastName: "Doe"
+}
+var x = person.fullName.call(person1, "Oslo", "Norway");
+document.getElementById("demo").innerHTML = x;           //результат: John Doe,Oslo,Norway
+...................Різниця полягає в:
+call()Метод приймає аргументи окремо .
+apply()Метод приймає аргументи як масив .
+var person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + "," + city + "," + country;
+  }
+}
+var person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+var x = person.fullName.apply(person1, ["Oslo", "Norway"]);
+document.getElementById("demo").innerHTML = x;                  //результат: John Doe,Oslo,Norway
+....................знайти найбільшу кількість (у списку чисел) за допомогою Math.max()методу:
+document.getElementById("demo").innerHTML = Math.max(1,2,3);
+Math.max.apply(null, [1,2,3]);
+Math.max.apply(Math, [1,2,3]);
+Math.max.apply(" ", [1,2,3]);
+Math.max.apply(0, [1,2,3]);
+///////////////
+<button type="button" onclick="myFunction()">Count!</button>
+<p id="demo">0</p>
+<script>
+var add = (function () {
+  var counter = 0;
+  return function () {
+  counter += 1;
+  return counter;
+  }
+}
+)();
+function myFunction(){
+  document.getElementById("demo").innerHTML = add();
+}
+/////////////////
+
+
+
+/e/.test(x);      шукає "е" в стрічці "х", і повертає тру або фолс
+...   exec      шукає і повертає сам елемент, індекс елемента і цілі елементи
+<p id="demo"></p>
+<script>
+var obj = /e/.exec("The best things in life are free!");
+document.getElementById("demo").innerHTML =
+"Found " + obj[0] + " in position " + obj.index + " in the text: " + obj.input;
+</script>
+....
+try       Оператор дозволяє перевірити блок коду на наявність помилок.
+catch     Оператор дозволяє обробляти помилку.
+throw     Оператор дозволяє створювати призначені для користувача помилки.
+finally   Оператор дозволяє виконати код, після того, як спробувати зловити, незалежно від результату.
+<input id="demo" type="text">
+<button type="button" onclick="myFunction()">Test Input</button>
+<p id="p01"></p>
+<script>
+  function myFunction() {
+    var message, x;
+    message = document.getElementById("p01");
+    message.innerHTML = "";
+    x = document.getElementById("demo").value;
+    try {
+      if(x == "")  throw "is empty";
+      if(isNaN(x)) throw "is not a number";
+      x = Number(x);
+      if(x > 10)   throw "is too high";
+      if(x < 5)  throw "is too low";
+    }
+    catch(err) {
+      message.innerHTML = "Input " + err;
+    }
+    finally {
+      document.getElementById("demo").value = "";
+    }
+  }
+</script>
+.........
+
+
+
+.................Array.forEach()  Метод викликає функцію (функцію зворотного виклику) один раз для кожного елемента масиву.
+<p id="demo"></p>
+<script>
+var txt = "";
+var numbers = [45, 4, 9, 16, 25];
+numbers.forEach(myFunction);
+document.getElementById("demo").innerHTML = txt;
+function myFunction(value, index, array) {
+  txt = txt + value + "<br>";
+}
+</script>
+.................Array.map ()      помножує кожне значення масиву на 2:
+<p id="demo"></p>
+<script>
+var numbers1 = [45, 4, 9, 16, 25];
+var numbers2 = numbers1.map(myFunction);
+document.getElementById("demo").innerHTML = numbers2;
+function myFunction(value, index, array) {
+  return value * 2;
+}
+</script>
+.............Array.filter ()   створює новий масив з елементів, значення яких перевищує 18:
+<p id="demo"></p>
+<script>
+var numbers = [45, 4, 9, 16, 25];
+var over18 = numbers.filter(myFunction);
+document.getElementById("demo").innerHTML = over18;
+function myFunction(value, index, array) {
+  return value > 18;
+}
+</script>
+...............Array.reduce ()    Цей приклад знаходить суму всіх чисел у масиві:
+<p id="demo"></p>
+<script>
+var numbers = [45, 4, 9, 16, 25];
+var sum = numbers.reduce(myFunction);
+document.getElementById("demo").innerHTML = "The sum is " + sum;
+function myFunction(total, value, index, array) {
+  return total + value;
+}
+</script>
+..............indexOf    Шукайте в масиві елемента "Apple":
+<p id="demo"></p>
+<script>
+var fruits = ["Apple", "Orange", "Apple", "Mango"];
+var a = fruits.indexOf("Apple");
+document.getElementById("demo").innerHTML = a;
+</script>
+......Array.lastIndexOf()є таким же, як Array.indexOf(), але повертає положення
+останнього виникнення зазначеного елемента.
+...........find()   Цей приклад знаходить (повертає значення) першого елемента, який перевищує 18:
+<p id="demo"></p>
+<script>
+var numbers = [4, 39, 16, 25, 29];
+var first = numbers.find(myFunction);
+document.getElementById("demo").innerHTML = first;
+function myFunction(value, index, array) {
+  return value > 18;
+}
+</script>
+....findIndex()
+Цей приклад знаходить індекс першого елемента, який перевищує 18:
+........
+
+
+
+.............JavaScript може "відображати" дані різними способами:
+Введення в елемент HTML, використовуючи innerHTML.
+Запис у вихідний HTML за допомогою document.write().
+Запис у поле сповіщення, використовуючи window.alert().
+Введення в консоль браузера, за допомогою console.log().
+...........Існує 3 способи вилучення частини рядка:
+slice(start, end)
+substring(start, end)
+substr(start, length)
+...........замінює слово, з не чутливим регістром /----/i
+Щоб замінити всі збіги, використовуйте регулярний вираз із /g
+<button onclick="myFunction()">Try it</button>
+<p id="demo">Please visit Microsoft!</p>
+<script>
+function myFunction() {
+  var str = document.getElementById("demo").innerHTML;
+  var txt = str.replace(/MICROSOFT/i,"W3Schools");
+  document.getElementById("demo").innerHTML = txt;
+}
+</script>
+...................Існує 3 способи вилучення рядкових символів:
+charAt(position)
+charCodeAt(position)
+Доступ до власності []
+..............Існує 3 методи JavaScript, які можна використовувати для перетворення змінних в числа:
+Number()метод
+parseInt()метод
+parseFloat()метод
+..................
+<p id="demo"></p>
+<script>
+var fruits, text, fLen, i;
+fruits = ["Banana", "Orange", "Apple", "Mango"];
+fLen = fruits.length;
+text = "<ul>";
+for (i = 0; i < fLen; i++) {
+  text += "<li>" + fruits[i] + "</li>";
+}
+text += "</ul>";
+document.getElementById("demo").innerHTML = text;
+</script>
+..............
+<p id="demo"></p>
+<script>
+var fruits, text;
+fruits = ["Banana", "Orange", "Apple", "Mango"];
+text = "<ul>";
+fruits.forEach(myFunction);
+text += "</ul>";
+document.getElementById("demo").innerHTML = text;
+function myFunction(value) {
+  text += "<li>" + value + "</li>";
+}
+</script>
+..............push  додаваня елемента до масиву
+<button onclick="myFunction()">Try it</button>
+<p id="demo"></p>
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits;
+function myFunction() {
+  fruits.push("Lemon");
+  document.getElementById("demo").innerHTML = fruits;
+}
+</script>
+.............length     додаваня елемента до масиву
+<button onclick="myFunction()">Try it</button>
+<p id="demo"></p>
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits;
+function myFunction() {
+  fruits[fruits.length] = "Lemon";
+  document.getElementById("demo").innerHTML = fruits;
+}
+</script>
+....................split() методом: можна перетворення рядка в масив
+var txt = "a,b,c,d,e";   // String
+txt.split(",");          // Split on commas
+txt.split(" ");          // Split on spaces
+txt.split("|");          // Split on pipe
+<script>
+function myFunction() {
+  var str = "a,b,c,d,e,f";
+  var arr = str.split(",");
+  document.getElementById("demo").innerHTML = arr[0];
+}
+</script>
+..................Доступ до останнього елемента масиву
+х = ["Banana", "Orange", "Apple", "Mango"];
+var last = х[х.length - 1];
+.....................Як дізнатись, чи є змінною масив?
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits instanceof Array;
+</script>
+..................join() об'єднує всі елементи масиву в рядок і можете вказати роздільник між ними:
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.join(" , ");
+</script>
+...............splice(2, 0, "Lemon", "Kiwi")
+Перший параметр (2) визначає положення, куди слід додавати нові елементи (зрощувати їх).
+Другий параметр (0) визначає, скільки елементів слід видалити .
+Решта параметрів ("Лимон", "Ківі") визначають нові елементи, які потрібно додати .
+ви можете використовувати splice()для видалення елементів, не залишаючи «дірок» у масиві: splice(0, 1)
+<button onclick="myFunction()">Try it</button>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo1").innerHTML = fruits;
+function myFunction() {
+  fruits.splice(2, 0, "Lemon", "Kiwi");
+  document.getElementById("demo2").innerHTML = fruits;
+}
+</script>
+.....................Date
+<p id="demo"></p>
+<script>
+var d = new Date();
+document.getElementById("demo").innerHTML = d;     всі дата
+d.getFullYear();             рік
+d.getMonth() + 1;            місяць
+d.getDate();                день
+d.getHours();
+d.getMinutes();
+d.getSeconds();
+d.toUTCString();   Метод перетворює дату в рядок UTC (стандартний дисплей дати).
+getUTCDate()
+getUTCFullYear()
+d.setFullYear(2020);    Метод встановлює рік об'єкта дати. У цьому прикладі до 2020 року:
+</script>
+
+...............
+switch(expression) {
+  case x:
+    // code block
+    break;
+  case y:
+    // code block
+    break;
+  default:
+    // code block
+}
+....
+for (i = 0; i < 10; i++) {
+  if (i === 3) { continue; }
+  text += "The number is " + i + "<br>";
+}
+.....
+var person = {fname:"John", lname:"Doe", age:25};
+var text = "";
+var x;
+for (x in person) {
+  text += person[x];
+}
+..............
+var txt = 'JavaScript';
+var x;
+for (x of txt) {
+  document.write(x + "<br >");
+}
+....
+while (i < 10) {
+  text += "The number is " + i;
+  i++;
+}
+........
+do {
+  text += "The number is " + i;
+  i++;
+}
+while (i < 10);
+............ цикл для відображення обєкта
+var x, txt = "";
+var person = {name:"John", age:50, city:"New York"};
+for (x in person) {
+  txt += person[x] + " ";
+};
+document.getElementById("demo").innerHTML = txt;
+........
+            У JavaScript існує 5 різних типів даних, які можуть містити значення:
+string
+number
+boolean
+object
+function
+               Є 6 типів об'єктів:
+Object
+Date
+Array
+String
+Number
+Boolean
+             І два типи даних, які не можуть містити значення:
+null
+undefined
+.........     щоб перевітири чи є елемент Array (відповідь true)
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = isArray(fruits);
+function isArray(fruits) {
+  return fruits.constructor === Array;
+}
+..................class
+class Car {
+  constructor(brand) {
+    this.carname = brand;
+  }
+}
+mycar = new Car("Ford");
+............ extends
+Щоб створити спадок класу, використовуйте extends ключове слово.
+<p id="demo"></p>
+<script>
+class Car {
+  constructor(brand) {
+    this.carname = brand;
+  }
+  present() {
+    return 'I have a ' + this.carname;
+  }
+}
+class Model extends Car {                  клас під назвою "Модель", який успадкує методи від класу "Автомобіль":
+  constructor(brand, mod) {
+    super(brand);                          отримуємо доступ до батьківських властивостей та методів.
+    this.model = mod;
+  }
+  show() {
+    return this.present() + ', it is a ' + this.model;
+  }
+}
+mycar = new Model("Ford", "Mustang");
+document.getElementById("demo").innerHTML = mycar.show();
+</script>
+...............Обєкт   перетворуєьбся в масив
+var person = {name:"John", age:50, city:"New York"};
+var myArray = Object.values(person);
+document.getElementById("demo").innerHTML = myArray;
+
+
+
+/////////
+function findMax() {
+  var i;
+  var max = -Infinity;
+  for(i = 0; i < arguments.length; i++) {
+    if (arguments[i] > max) {
+      max = arguments[i];
+    }
+  }
+  return max;
+}
+document.getElementById("demo").innerHTML = findMax(4, 5, 6);
+/////////
+
+
+
+......Цей приклад знаходить елемент id="frm1"форми з колекції форм і відображає всі значення елементів:
+<form id="frm1" action="/action_page.php">
+  First name: <input type="text" name="fname" value="Donald"><br>
+  Last name: <input type="text" name="lname" value="Duck"><br><br>
+  <input type="submit" value="Submit">
+</form>
+<button onclick="myFunction()">Try it</button>
+<p id="demo"></p>
+<script>
+function myFunction() {
+  var x = document.forms["frm1"];
+  var text = "";
+  var i;
+  for (i = 0; i < x.length ;i++) {
+    text += x.elements[i].value + "<br>";
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+</script>
+////////////
+
+
+щоб змінити перший елемент в класі
+<script>
+document.getElementsByClassName('test')[0].innerHTML
+ = "Hello";
+</script>
+...............Створений елемент стилю містить декларації css, які змінять властивості шрифту цього документа.
+<button onclick="myFunction()">Try it</button>
+<script>
+function myFunction() {
+  var x = document.createElement("STYLE");
+  var t = document.createTextNode("body {font: 20px verdana;}");
+  x.appendChild(t);
+  document.head.appendChild(x);
+}
+</script>
+..........
+<h1 onclick="this.innerHTML='Ooops!'">Click ot!</h1>
+........Ви можете використовувати такі властивості вузла для навігації між вузлами за допомогою JavaScript:
+parentNode
+childNodes[nodenumber]       var myTitle = document.getElementById("demo").childNodes[0].nodeValue;
+firstChild                  var myTitle = document.getElementById("demo").firstChild.nodeValue;
+lastChild
+nextSibling
+previousSibling
+..................годинник в реальному часі
+<p id="demo"></p>
+<script>
+var myVar = setInterval(myTimer, 1000);
+function myTimer() {
+  var d = new Date();
+  document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+}
+</script>
+..........................
+
+
+.........для Date(value); в JSON.parse(text);
+Перетворіть рядок у дату, використовуючи функцію
+функція, яка перевіряє кожну властивість, перш ніж повертати значення.
+var text = '{"name":"John", "birth":"1986-12-14", "city":"New York"}';
+var obj = JSON.parse(text, function (key, value) {
+  if (key == "birth") {
+    return new Date(value);
+  } else {
+    return value;
+  }
+});
+document.getElementById("demo").innerHTML = obj.name + ", " + obj.birth;
+........для function в JSON.parse(text);
+var text = '{"name":"John", "age":"function() {return 30;}", "city":"New York"}';
+var obj = JSON.parse(text);
+obj.age = eval("(" + obj.age + ")");
+document.getElementById("demo").innerHTML = obj.name + ", " + obj.age();
+..............для дати і функцій (сам написав)
+var text = '{"name":"John", "age":"function() {return 30;}", "city":"New York", "birth":"1986-12-14"}';
+var obj = JSON.parse(text, function(k, v) {
+  if (k == "age") {
+    return v = eval("(" + v + ")");
+  }
+  if (k == "birth") {
+    return new Date(v);
+  }
+  else
+  {
+    return v;
+  }
+});
+document.getElementById("demo").innerHTML = obj.age() + obj.birth;
+................Перетворити об’єкт JavaScript у рядок із JSON.stringify()
+перетворити функції в рядки перед запуском JSON.stringify() функції
+var obj = { name: "John", age: function () {return 30;}, city: "New York" };
+obj.age = obj.age.toString();
+var myJSON = JSON.stringify(obj);
+document.getElementById("demo").innerHTML = myJSON;
+.............Для доступу до масивів всередині масивів використовуйте цикл для введення для кожного масиву:
+var myObj, i, j, x = "";
+myObj = {
+  "name":"John",
+  "age":30,
+  "cars": [
+    {"name":"Ford", "models":["Fiesta", "Focus", "Mustang"]},
+    {"name":"BMW", "models":["320", "X3", "X5"]},
+    {"name":"Fiat", "models":["500", "Panda"] }
+  ]
+}
+for (i in myObj.cars) {
+  x += "<h2>" + myObj.cars[i].name + "</h2>";
+  for (j in myObj.cars[i].models) {
+    x += myObj.cars[i].models[j] + "<br>";
+  }
+}
+document.getElementById("demo").innerHTML = x;
+
+
+
+..............
+......................AJAX
+<p id="demo">Let AJAX change this text.</p>
+<button type="button" onclick="loadDoc()">Change Content</button>
+<script>
+function loadDoc() {
+  var xhttp;
+  if (window.XMLHttpRequest) {
+    // code for modern browsers
+    xhttp = new XMLHttpRequest();
+  } else {
+    // code for IE6, IE5
+    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "ajax_info.txt", true);
+  xhttp.send();
+}
+</script>
+.................надіслати запити AJAX за допомогою POST методу
+var obj, dbParam, xmlhttp, myObj, x, txt = "";
+obj = { "table":"customers", "limit":10 };
+dbParam = JSON.stringify(obj);
+xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    myObj = JSON.parse(this.responseText);
+    for (x in myObj) {
+      txt += myObj[x].name + "<br>";
+    }
+    document.getElementById("demo").innerHTML = txt;
+  }
+};
+xmlhttp.open("POST", "json_demo_db_post.php", true);
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xmlhttp.send("x=" + dbParam);
+.................
+                     XMLHttpRequest Методи об’єктів
+new  XMLHttpRequest ()                Створює новий XMLHttpRequest об’єкт
+abort ()                              Скасовує поточний запит
+getAllResponseHeaders ()              Повертає інформацію заголовка
+getResponseHeader ()                  Повертає конкретну інформацію заголовка
+open (метод, URL, async, користувач, psw)       Вказує запит
+                                      метод: тип запиту GET або POST
+                                      url: розташування файлу
+                                      async: true (асинхронний) або false (синхронний)
+                                      користувач: необов’язкове ім’я користувача
+                                      psw: необов'язковий пароль
+send ()                                  Надсилає запит на сервер
+                                      Використовується для GET-запитів
+send (string)                         Надсилає запит на сервер.
+                                      Використовується для POST-запитів
+setRequestHeader ()                   Додає пару міток / значень до заголовка, що надсилається
+
+              Властивості об'єкта XMLHttpRequest
+onreadystatechange       Визначає функцію, яку потрібно викликати, коли змінюється властивість ReadyState
+readyState               Утримує статус XMLHttpRequest.
+                          0: запит не ініціалізовано
+                          1: встановлено підключення до сервера
+                          2: запит отримано
+                          3: запит на обробку
+                          4: запит закінчений і відповідь готова
+responseText            Повертає дані відповіді у вигляді рядка
+responseXML             Повертає дані відповідей у вигляді даних XML
+status                  Повертає номер статусу запиту
+                          200: "ОК"
+                          403 Заборонено"
+                          404 Не знайдено"
+                          Для повного списку перейдіть до Посилання Http Messages
+statusText              Повертає текст статусу (наприклад, "ОК" або "Не знайдено")
+.....................
+                    Щоб надіслати запит на сервер
+open (метод, url, async)                Вказує тип запиту
+                                           метод: тип запиту: GET або POST
+                                           url: сервер (файл) розташування
+                                           async: true (асинхронний) або false (синхронний)
+send ()                                 Надсилає запит на сервер (використовується для GET)
+send (string)                           Надсилає запит на сервер (використовується для POST)
+.......Динамічна HTML таблиця на основі значення випадаючого меню:
+<select id="myselect" onchange="change_myselect(this.value)">
+  <option value="">Choose an option:</option>
+  <option value="customers">Customers</option>
+  <option value="products">Products</option>
+  <option value="suppliers">Suppliers</option>
+</select>
+<p id="demo"></p>
+<script>
+function change_myselect(sel) {
+  var obj, dbParam, xmlhttp, myObj, x, txt = "";
+  obj = { table: sel, limit: 20 };
+  dbParam = JSON.stringify(obj);
+  xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myObj = JSON.parse(this.responseText);
+      txt += "<table border='1'>"
+      for (x in myObj) {
+        txt += "<tr><td>" + myObj[x].name + "</td></tr>";
+      }
+      txt += "</table>"
+      document.getElementById("demo").innerHTML = txt;
+      }
+    };
+  xmlhttp.open("POST", "json_demo_db_post.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send("x=" + dbParam);
+}
+..................Створіть спадний список HTML із даними, отриманими як JSON:
+var obj, dbParam, xmlhttp, myObj, x, txt = "";
+obj = { table: "customers", limit: 20 };
+dbParam = JSON.stringify(obj);
+xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    myObj = JSON.parse(this.responseText);
+    txt += "<select>"
+    for (x in myObj) {
+      txt += "<option>" + myObj[x].name;
+    }
+    txt += "</select>"
+    document.getElementById("demo").innerHTML = txt;
+  }
+};
+xmlhttp.open("POST", "json_demo_db_post.php", true);
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xmlhttp.send("x=" + dbParam);
+........Зробіть приклад динамічним, відправивши JSON у файл php, і дозвольте
+файлу php повернути об’єкт JSON на основі отриманої інформації.
+<button onclick="clickButton()">Click me!</button>
+<p id="demo"></p>
+<script>
+function clickButton() {
+  var obj, s
+  obj = { table: "customers", limit: 10 };
+  s = document.createElement("script");
+  s.src = "jsonp_demo_db.php?x=" + JSON.stringify(obj);
+  document.body.appendChild(s);
+}
+function myFunc(myObj) {
+  var x, txt = "";
+  for (x in myObj) {
+    txt += myObj[x].name + "<br>";
+  }
+  document.getElementById("demo").innerHTML = txt;
+}
+.................Функція зворотного дзвінка
+Якщо у вас немає контролю над файлом сервера, як змусити файл сервера викликати правильну функцію?
+Іноді файл сервера пропонує функцію зворотного дзвінка як параметр:
+Файл php викличе функцію, яку ви передаєте як параметр зворотного виклику:
+<button onclick="clickButton()">Click me!</button>
+<p id="demo"></p>
+<script>
+function clickButton() {
+  var s = document.createElement("script");
+  s.src = "demo_jsonp2.php?callback=myDisplayFunction";
+  document.body.appendChild(s);
+}
+function myDisplayFunction(myObj) {
+  document.getElementById("demo").innerHTML = myObj.name;
+}
+...........
+
+
+.......
+var x = "The rain in SPAIN stays mainly in the plain";
+var y = x.match(/ain/g);              шукає всі слова в стрічці
+........
+var x = document.getElementById("demo").innerHTML;
+var y = x.replace("Microsoft","W3Schools");           шукає і замінює слова
+document.getElementById("demo").innerHTML = y;
+.......
+var x = 9.656;
+ x.toFixed(2)               округлює число до двох знаків після коми
+ ..............
+ var x = Math.max(0, 150, 30, 20, -8, -200);     шукає max в списку
+.........    переводить динамічно б зразу після натискання друкує
+<p><input id="c" onkeyup="convert('C')"> degrees Celsius</p>
+<p><input id="f" onkeyup="convert('F')"> degrees Fahrenheit</p>
+<script>
+function convert(degree) {
+  var x;
+  if (degree == "C") {
+    x = document.getElementById("c").value * 9 / 5 + 32;
+    document.getElementById("f").value = Math.round(x);
+  } else {
+    x = (document.getElementById("f").value -32) * 5 / 9;
+    document.getElementById("c").value = Math.round(x);
+  }
+}
+...........d.getDay()  показує числом який зараз день, а число вже вказує в масиві на відповідне слово
+var d = new Date();
+var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+document.getElementById("demo").innerHTML = days[d.getDay()];
+........... годинник в реальному часі
+<body onload="myff()">    вкл при загрузці сторінки
+<div id="asd"></div>
+function myff() {
+  var d = new Date();
+  var h = d.getHours();
+  var m = d.getMinutes();
+  var s = d.getSeconds();
+  m = myff2(m);
+  s = myff2(s);
+  document.getElementById('asd').innerHTML = h+":"+m+":"+s;
+  var t = setTimeout(myff, 500);                           обновляє функцію що 500мс
+  function myff2(x) {
+    if (x<10) {                         якщо число менше 10 то перед ним додається 0
+       x = "0" + x;
+    }
+       return x;
+  }
+}
+....................добавляє нові елементи в кінець масива
+var x = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = x;
+function myff() {
+  x[x.length] = "Lemon";                вказує довжину масиву [4] і добавляє новий елемент на 4 місце
+  document.getElementById("demo").innerHTML = x;
+}
+..........
+x.push("Kiwi");          добавляє нові елементи в кінець масива
+..........
+x.pop();                 витягує останній елемент з масива
+..........додавання двох масивів
+var x = ["Cecilie", "Lone"];
+var y = ["Emil", "Tobias", "Linus"];
+var z = x.concat(y);
+document.getElementById("demo").innerHTML = z;
+...........
+x.splice(2, 0, "Lemon", "Kiwi");     додає два нових елементи до масиву на друге місце і видаляє 0 елементів
+............
+x.sort();     сортує елементи масиву
+.........
+x.sort();
+x.reverse();     сортує перше по алфавіту а потім реверсно з кінця алфавіту
+............сортування цифр, (b - a) від більшого до меншого
+var x = [40, 100, 1, 5, 25, 10];
+function myFunction() {
+  x.sort(function(a, b){return a - b});
+  document.getElementById("demo").innerHTML = x;
+}
+............цикли для масивів
+var numbers = [45, 4, 9, 16, 25];
+numbers.forEach(myFunction);
+document.getElementById("demo").innerHTML = txt;
+function myFunction(value, index, array) {
+  txt = txt + array + "<br>";
+}
+.................фільтер
+var numbers = [45, 4, 9, 16, 25];
+var over18 = numbers.filter(myFunction);
+document.getElementById("demo").innerHTML = over18;
+function myFunction(value, index, array) {
+  return value > 18;
+}
+..................сума масиву
+var numbers = [45, 4, 9, 16, 25];
+var sum = numbers.reduce(myFunction);
+document.getElementById("demo").innerHTML = "The sum is " + sum;
+function myFunction(total, value, index, array) {
+  return total + value;
+}
+.............
+typeof 3.14;     визначає тип обєкта
+x.indexOf;       визначає індекс обєкта
+string
+number
+boolean
+object
+function
+undefined          невизначений
+
+delete person.age;   видаляє елемент з обєкта
+...........
+switch (new Date().getDay()) {
+  case 0:
+    day = "Sunday";
+    break;
+  case 1:
+    day = "Monday";
+    break;
+  case  6:
+    day = "Saturday";
+}
+.........цикл
+while (i < 10) {
+  text += "<br>The number is " + i;
+  i++;
+}
+.......
+do {
+  text += "<br>The number is " + i;
+  i++;
+}
+while (i < 10);
+........
+for (i = 0; i < 10; i++) {
+  if (i === 3) { continue; }                 пропускає і цикл продовжується
+  if (i === 8) { break; }                     закінчує цикл
+  text += "The number is " + i + "<br>";
+}
+..........
+for (x in person) {
+  txt += person[x] + " ";
+}
+
+
+
+
+
+.............повідомлення про помилку
+try {
+  adddlert("Welcome guest!");
+}
+catch(err) {
+  document.getElementById("demo").innerHTML = err.message;
+}
+...............
+var n = str.search(/w3Schools/i);    шукає елемент в строці і повертає індекс початку
+...................
+var txt = str.replace(/microsoft/i,"W3Schools");    шукає і замінює перший елемент
+...........JSON друкує перші імена
+var myObj, x;
+myObj = {"name":"John", "age":30, "car":null};
+for (x in myObj) {
+  document.getElementById("demo").innerHTML += x + "<br>";
+}
+.............щоб вітворити дату після перетворення з  JSON
+var text = '{"name":"John", "birth":"1986-12-14", "city":"New York"}';
+var obj = JSON.parse(text);
+obj.birth = new Date(obj.birth);
+document.getElementById("demo").innerHTML = obj.name + ", " + obj.birth;
+.............функція я ка перевіряє кожен елемент чи він не є датою щоб його відновити як дату після перетворення
+var text = '{"name":"John", "birth":"1986-12-14", "city":"New York"}';
+var obj = JSON.parse(text, function (key, value) {
+  if (key == "birth") {
+    return new Date(value);
+  } else {
+    return value;
+  }
+});
+................для перетворення функції після перетворення
+var text = '{"name":"John", "age":"function() {return 30;}", "city":"New York"}';
+var obj = JSON.parse(text);
+obj.age = eval("(" + obj.age + ")");
+document.getElementById("demo").innerHTML = obj.name + ", " + obj.age();
+.............перед перетворенням у JSONб фунткію потрібно перетворити
+var obj = { name: "John", age: function () {return 30;}, city: "New York" };
+obj.age = obj.age.toString();
+var myJSON = JSON.stringify(obj);
+document.getElementById("demo").innerHTML = myJSON;
+.......запит на сторінку php
+<script>
+var obj, dbParam, xmlhttp;
+obj = { "table":"customers", "limit":10 };
+dbParam = JSON.stringify(obj);
+xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    document.getElementById("demo").innerHTML = this.responseText;
+  }
+};
+xmlhttp.open("GET", "json_demo_db.php?x=" + dbParam, true);
+xmlhttp.send();
+</script>
+.........створення елемента скрипта
+function clickButton() {
+  var obj, s
+  obj = { table: "customers", limit: 10 };
+  s = document.createElement("script");
+  s.src = "jsonp_demo_db.php?x=" + JSON.stringify(obj);
+  document.body.appendChild(s);
+}
+function myFunc(myObj) {
+  var x, txt = "";
+  for (x in myObj) {
+    txt += myObj[x].name + "<br>";
+  }
+  document.getElementById("demo").innerHTML = txt;
+}
+..........функція зворотного виклику.
+function clickButton() {
+  var s = document.createElement("script");
+  s.src = "demo_jsonp2.php?callback=myDisplayFunction";
+  document.body.appendChild(s);
+}
+function myDisplayFunction(myObj) {
+  document.getElementById("demo").innerHTML = myObj.name;
+}
+.................
+
+
+
+
+
+
+
+
+
+
+..............при натисканні на кнопку висвітлюється дані з селекту в текстовому рядку
+<script>
+function getOption() {
+  var obj = document.getElementById("mySelect");
+  document.getElementById("demo").innerHTML =
+  obj.options[obj.selectedIndex].text;
+}
+</script>
+</head>
+<body>
+<form>
+Select your favorite fruit:
+<select id="mySelect">
+  <option>Apple</option>
+  <option>Orange</option>
+  <option>Pineapple</option>
+  <option>Banana</option>
+</select>
+<br><br>
+<input type="button" onclick="getOption()" value="Click Me!">
+</form>
+<p id="demo"></p>
+..............включає і виключає лампочку
+function changeImage() {
+  var image = document.getElementById('myImage');
+  if (image.src.match("bulbon")) {                    шукає відповідне слово в адресі
+    image.src = "pic_bulboff.gif";
+  } else {
+    image.src = "pic_bulbon.gif";
+  }
+}
+...................для відображення даних з комірки в таблиці
+function getCellContent(id) {
+  var x = document.getElementById(id).rows[1].cells[1];
+  document.getElementById("demo").innerHTML = x.innerHTML;
+}
+............додає новий рядок спочатку до таблиці
+function insRow(id) {
+  var x = document.getElementById(id).insertRow(0);
+  var y = x.insertCell(0);
+  var z = x.insertCell(1);
+  y.innerHTML = z.innerHTML = "New";
+}
+..........
+ onblur="myFunction()"           коли курсор покидає елемент
+ onchange="myFunction()"            коли курсор покидає елемент
+ onselect="myFunction()"          коли виділяється текст спрацьовує
+ onmousemove="myFunction(event)"   коли мишка перемішається
+ onmouseout="clearCoor()"           коли мишка залишає елемент
+ ondblclick="myFunction()"           подійний кпік
+ .......швидкий доступ до даних спадаючого списку
+ var f = document.forms[0].asd.value;
+ alert(f);
+ ................при натисканні клавіші мишки, спливає вікно де вказаний імя тега над яким було натиснуто клавішу
+ <body onmousedown="myff(event)">
+ function myff(e) {
+    var t;
+   if (e.target) {
+     t=e.target;
+   }
+   alert(t.tagName);                     імя тега
+ }
+ .............показує координати при перемішені мишки
+ <div onmousemove="myff(event)"...
+ function myff(e) {
+     x = e.clientX;
+  y = e.clientY;
+  coor = "Coordinates: (" + x + "," + y + ")";
+  document.getElementById("asd2").innerHTML = coor
+............. коли кнопка шіфт є натиснута
+if (event.shiftKey == 1) {
+  text = "The shift key was pressed!";
+}
+...........window
+x = window.open("", "", "width=300, height=300");   відкриває нове вікно
+x.moveTo(123,123);                                     коокдинати вікна
+x.focus();
+x.resizeBy(234,234);                             збільшує вікно
+x.close();                                        закриває вікно
+  window.history.go(-2)                          повертає історію вікна, відкриваючи попередній сайт
+  window.history.back()                   повертає історію вікна
+x = window.open("https://www.w3schools.com","_blank","toolbar=yes, location=yes, directories=no, status=no,
+    menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=400, height=400");
+..............
+screen.width;    щирина екрану
+screen.availHeight;      чиста висота без панелі задач
+screen.colorDepth;         розпадність колір піксел
+............таймер
+onclick="setTimeout(myFunction, 3000);           затримує виконання функції на х секунд
+onClick="mytt = setInterval(myff, 1000)"         викликає функцію кожних х серунд
+onClick="clearInterval(mytt)"
+  var c = 0;
+  document.getElementById("demo").innerHTML = ++c;
+.................
+document.getElementById("demo").innerHTML = new Date().toLocaleTimeString();   година в норм вигляді
+......................
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+...............

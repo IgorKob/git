@@ -1,0 +1,830 @@
+Найпоширенішими базами даних хостингу SQL є MS SQL Server, Oracle, MySQL та MS Access.
+
+          Деякі найважливіші команди SQL
+SELECT - витягує дані з бази даних
+UPDATE - оновлення даних у базі даних
+DELETE - видаляє дані з бази даних
+INSERT INTO - вставляє нові дані в базу даних
+СТВОРИТИ ДАНІ - створює нову базу даних
+ALTER DATABASE - змінює базу даних
+CREATE TABLE - створює нову таблицю
+ALTER TABLE - змінює таблицю
+DROP TABLE - видаляє таблицю
+CREATE INDEX - створює індекс (ключ пошуку)
+DROP INDEX - видаляє індекс
+...........
+SELECT  clol1, col2 FROM  tale1;
+SELECT * FROM [CATEGORY];
+............
+SELECT DISTINCT Country FROM Customers;          SELECT DISTINCT використовується для повернення лише різних (різних) значень.
+SELECT * FROM Customers WHERE Country='Mexico';      Наступне твердження SQL вибирає всіх клієнтів із країни "Мексика" у таблиці "Клієнти":
+SELECT * FROM Products WHERE Price BETWEEN 50 AND 60;         в заданих межах
+SELECT * FROM Customers WHERE City LIKE 's%';     шукає з буквою  's'
+SELECT * FROM Customers WHERE City IN ('Paris','London');     Щоб вказати кілька можливих значень для стовпця
+SELECT * FROM Customers WHERE NOT City= 'Berlin';        ДЕ НЕМА бЕРЛІНА
+SELECT column1 FROM table_name WHERE condition1 AND condition2;           і там і там
+SELECT column1 FROM table_name WHERE condition1 OR condition2;           або там або там
+SELECT column1, column2 FROM table_name WHERE NOT condition;              ні
+SELECT column1, column2 FROM table_name ORDER BY column1, column2, ... ASC|DESC;          для сортування набору результатів у порядку зростання чи зменшення.
+..
+SELECT  Country, CustomerName FROM Customers
+ORDER BY                       СОРТУЄ
+Country ASC,                   ПО ЗРОСТАННЮ
+CustomerName DESC;             ПО СПАДАННЮ
+..
+
+
+
+                   INSERT INTO використовується для вставки нових записів у таблицю.
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+
+
+...........НЕ НУЛЬНИЙ синтаксис
+SELECT column_names
+FROM table_name
+WHERE column_name IS NOT NULL;
+
+
+
+
+
+.........UPDATE використовується для зміни існуючих записів у таблиці.
+UPDATE table_name
+SET ContactName='Alfred Schmidt', City='Frankfurt'
+WHERE CustomerID=1;
+
+UPDATE table_name
+SET ContactName='Juan'
+WHERE Country='Mexico';
+
+
+
+
+
+
+
+
+.............DELETE використовується для видалення існуючих записів у таблиці.
+DELETE FROM table_name WHERE condition;
+
+
+
+
+
+
+............SELECT TOP використовується для визначення кількості записів, які потрібно повернути.
+               Синтаксис доступу SQL Server / MS Access:
+SELECT TOP number|percent column_name(s)
+FROM table_name
+WHERE condition;
+                Синтаксис MySQL:
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+LIMIT number;
+             Синтаксис Oracle:
+SELECT column_name(s)
+FROM table_name
+WHERE ROWNUM <= number;
+
+
+
+
+....... MIN () та MAX ()
+SELECT MAX(column_name)
+FROM table_name
+WHERE condition;
+
+
+
+
+
+.........COUNT (), AVG () та SUM ()
+Функція COUNT () повертає кількість рядків, що відповідає заданим критеріям.
+Функція AVG () повертає середнє значення числового стовпця.
+Функція SUM () повертає загальну суму числового стовпця.
+                 Синтаксис: COUNT ()
+SELECT COUNT(column_name)
+FROM table_name
+WHERE condition;
+                 Синтаксис AVG ()
+SELECT AVG(column_name)
+FROM table_name
+WHERE condition;
+                Синтаксис SUM ()
+SELECT SUM(column_name)
+FROM table_name
+WHERE condition;
+
+
+
+
+
+.........LIKE
+% - Знак відсотка означає нуль, один або кілька символів
+_ - Підкреслення представляє один символ
+Примітка: MS Access використовує зірочку (*) замість знака
+відсотків (%) та знак питання (?) Замість підкреслення (_).
+
+LIKE 'a%'       Знаходить будь-які значення, що починаються з "a"
+LIKE '%a'        Знаходить будь-які значення, що закінчуються на "a"
+ LIKE '%or%'     Знаходить будь-які значення, які мають "або" в будь-якій позиції
+ LIKE '_r%'      Знаходить будь-які значення, у яких "r" на другій позиції
+LIKE 'a_%'        Знаходить будь-які значення, що починаються з "a" і мають довжину принаймні 2 символи
+ LIKE 'a%o'        Знаходить будь-які значення, що починаються з "a" і закінчуються на "o"
+
+
+ ...........IN
+SELECT column_name(s)
+FROM table_name
+WHERE column_name IN (value1, value2, ...);
+або:
+
+SELECT column_name(s)
+FROM table_name
+WHERE column_name IN (SELECT STATEMENT);
+
+
+
+..........BETWEEN
+SELECT column_name(s)
+FROM table_name
+WHERE column_name BETWEEN value1 AND value2;
+
+
+
+
+
+.......псевдонім
+SELECT column_name AS alias_name
+FROM table_name;
+
+SELECT column_name(s)
+FROM table_name AS alias_name;
+                  потрібні подвійні лапки або квадратні дужки, якщо назва псевдоніма містить пробіли
+SELECT CustomerName AS Customer, ContactName AS [Contact Person]
+FROM Customers;
+                   Наступний оператор SQL створює псевдонім під назвою "Адреса", який поєднує чотири стовпці (Адреса, Поштовий індекс, місто та країна):
+SELECT CustomerName, Address + ', ' + PostalCode + ' ' + City + ', ' + Country AS Address
+FROM Customers;
+             Примітка. Щоб отримати оператор SQL вище для роботи в MySQL, використовуйте наступне:
+SELECT CustomerName, CONCAT(Address,', ',PostalCode,', ',City,', ',Country) AS Address
+FROM Customers;
+
+
+
+
+............JOIN використовується для об'єднання рядків з двох або
+             більше таблиць на основі пов'язаного стовпця між ними
+SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+               Ось різні типи приєднань до SQL:
+(INNER) JOIN: Повертає записи, які мають відповідні значення в обох таблицях
+LEFT (OUTER) JOIN: Повертає всі записи з лівої таблиці, а відповідні записи з правої таблиці
+RIGHT (OUTER) JOIN: Повертає всі записи з правої таблиці, а відповідні записи з лівої таблиці
+FULL (OUTER) JOIN: Повертає всі записи, якщо є збіг у лівій чи правій таблиці
+
+Примітка . Ключове слово LEFT JOIN повертає всі записи з лівої таблиці (Клієнти), навіть якщо в правій таблиці немає збігів (Orders).
+                     ПРИЄДНАЙТЕСЬ до трьох таблиць
+SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName
+FROM ((Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
+INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);
+
+               Self JOIN - це регулярне приєднання, але таблиця приєднана до себе.
+SELECT A.CustomerName AS CustomerName1, B.CustomerName AS CustomerName2, A.City
+FROM Customers A, Customers B
+WHERE A.CustomerID <> B.CustomerID
+AND A.City = B.City
+ORDER BY A.City;
+         Оператор UNION використовується для об'єднання набору
+              результатів двох або більше операторів SELECT
+         Синтаксис UNION
+SELECT column_name(s) FROM table1
+UNION
+SELECT column_name(s) FROM table2;
+                                  UNION ALL Syntax
+               Оператор UNION за замовчуванням вибирає лише окремі
+               значення. Щоб дозволити повторювані значення, використовуйте UNION ALL:
+SELECT column_name(s) FROM table1
+UNION ALL
+SELECT column_name(s) FROM table2;
+
+
+
+
+.......... GROUP BY  групує рядки, які мають однакові значення, у підсумкові рядки
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+ORDER BY column_name(s);
+
+
+
+
+.........HAVING
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+HAVING condition
+ORDER BY column_name(s);
+
+
+
+
+.........EXISTS використовується для перевірки наявності будь-якої записи в підзапиті.
+        Оператор EXISTS повертає true, якщо підзапит повертає одну або декілька записів.
+SELECT column_name(s)
+FROM table_name
+WHERE EXISTS
+(SELECT column_name FROM table_name WHERE condition);
+
+
+
+..........ANY Оператор повертає істину, якщо будь-яке з підзапитів відповідає умові.
+SELECT column_name(s)
+FROM table_name
+WHERE column_name operator ANY
+(SELECT column_name FROM table_name WHERE condition);
+..........ALL повертає істину, якщо всі значення підзапиту відповідають умові.
+SELECT column_name(s)
+FROM table_name
+WHERE column_name operator ALL
+(SELECT column_name FROM table_name WHERE condition);
+
+Примітка: оператор повинен бути стандартний оператор порівняння (=, <>, =,>,> =, <або <=!).
+
+
+
+
+
+
+
+.......... SELECT INTO копіює дані з однієї таблиці в нову таблицю.
+SELECT column1, column2, column3, ...
+INTO newtable [IN externaldb]
+FROM oldtable
+WHERE condition;
+
+      Наступний оператор SQL використовує пункт IN для копіювання таблиці в нову таблицю в іншій базі даних:
+SELECT * INTO CustomersBackup2017 IN 'Backup.mdb'
+FROM Customers;
+
+
+
+
+...........INSERT INTO SELECT копіює дані з однієї таблиці та вставляє їх в іншу таблицю.
+        INSERT INTO SELECT вимагає, щоб типи даних у вихідних та цільових таблицях відповідали
+        На існуючі записи в цільовій таблиці це не впливає
+INSERT INTO table2 (column1, column2, column3, ...)
+SELECT column1, column2, column3, ...
+FROM table1
+WHERE condition;
+
+
+
+
+
+...............CASE   проходить через умови і повертає значення, коли виконується перша умова
+CASE
+    WHEN condition1 THEN result1
+    WHEN condition2 THEN result2
+    WHEN conditionN THEN resultN
+    ELSE result
+END;
+
+SELECT OrderID, Quantity,
+CASE WHEN Quantity > 30 THEN 'The quantity is greater than 30'
+WHEN Quantity = 30 THEN 'The quantity is 30'
+ELSE 'The quantity is under 30'
+END AS QuantityText
+FROM OrderDetails;
+
+
+
+..........IFNULL (), ISNULL (), COALESCE () та NVL ()
+           Функція MySQL IFNULL () дозволяє повернути альтернативне значення, якщо вираз NULL:
+SELECT ProductName, UnitPrice * (UnitsInStock + IFNULL(UnitsOnOrder, 0))
+FROM Products;
+          або ми можемо використовувати функцію COALESCE () , наприклад:
+SELECT ProductName, UnitPrice * (UnitsInStock + COALESCE(UnitsOnOrder, 0))
+FROM Products;
+           Функція ISNULL () SQL Server дозволяє повернути альтернативне значення, коли вираз NULL:
+SELECT ProductName, UnitPrice * (UnitsInStock + ISNULL(UnitsOnOrder, 0))
+FROM Products;
+            Функція MS Access IsNull () повертає TRUE (-1), якщо вираз є нульовим значенням, інакше FALSE (0):
+SELECT ProductName, UnitPrice * (UnitsInStock + IIF(IsNull(UnitsOnOrder), 0, UnitsOnOrder))
+FROM Products;
+         Функція Oracle NVL () досягає того ж результату:
+SELECT ProductName, UnitPrice * (UnitsInStock + NVL(UnitsOnOrder, 0))
+FROM Products;
+
+
+
+
+............Синтаксис збереженої процедури
+CREATE PROCEDURE procedure_name
+AS
+sql_statement
+GO;
+
+Виконайте збережену процедуру
+EXEC procedure_name;
+
+
+Наступний оператор SQL створює збережену процедуру під назвою "SelectAllCustomers",
+             яка вибирає всі записи з таблиці "Клієнти":
+CREATE PROCEDURE SelectAllCustomers
+AS
+SELECT * FROM Customers
+GO;
+
+                 Збережена процедура з кількома параметрами
+Наступний оператор SQL створює збережену процедуру, яка вибирає Клієнтів з певного
+         міста з певним Поштовим кодом з таблиці "Клієнти":
+CREATE PROCEDURE SelectAllCustomers @City nvarchar(30), @PostalCode nvarchar(10)
+AS
+SELECT * FROM Customers WHERE City = @City AND PostalCode = @PostalCode
+GO;
+
+         Виконайте збережену вище процедуру наступним чином:
+EXEC SelectAllCustomers @City = 'London', @PostalCode = 'WA1 1DP';
+
+
+
+
+
+
+
+
+
+
+
+.................CREATE DATABASE використовується для створення нової бази даних SQL.
+CREATE DATABASE databasename;
+
+................DROP DATABASE використовується для Видалення бази даних SQL.
+DROP DATABASE databasename;
+
+................BACKUP DATABASE використовується в SQL Server для створення повної резервної копії існуючої бази даних SQL.
+BACKUP DATABASE databasename
+TO DISK = 'D:\backups\testDB.bak';
+
+
+                Диференціальне резервне копіювання створює резервні копії лише частин
+                бази даних, які змінилися з моменту останнього повного резервного копіювання бази даних.
+BACKUP DATABASE testDB
+TO DISK = 'D:\backups\testDB.bak'
+WITH DIFFERENTIAL;
+
+
+
+
+
+
+...............CREATE TABLE використовується для створення нової таблиці в базі даних.
+CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+   ....
+    PersonID int,
+    LastName varchar(255),
+    FirstName varchar(255)
+    ....
+);
+
+
+        Створіть таблицю за допомогою іншої таблиці
+CREATE TABLE new_table_name AS
+    SELECT column1, column2,...
+    FROM existing_table_name
+    WHERE ....;
+
+
+
+
+................DROP TABLE використовується для Видалення таблиці в базу даних.
+DROP TABLE table_name;
+................TRUNCATE TABLE використовується для видалення даних усередині таблиці, але не самої таблиці.
+TRUNCATE TABLE table_name;
+
+
+
+
+
+.................ALTER TABLE використовується для додавання, видалення чи зміни стовпців у існуючій таблиці.
+Оператор ALTER TABLE також використовується для додавання та випадання різних обмежень у існуючій таблиці.
+       Щоб додати стовпець до таблиці, використовуйте такий синтаксис:
+ALTER TABLE table_name
+ADD column_name datatype;
+
+       Щоб видалити стовпець у таблиці, використовуйте наступний синтаксис (зауважте, що деякі системи баз даних не дозволяють видаляти стовпчик):
+ALTER TABLE table_name
+DROP COLUMN column_name;
+
+
+
+      Щоб змінити тип даних стовпця в таблиці, використовуйте такий синтаксис:
+
+      Доступ до SQL Server / MS:
+ALTER TABLE table_name
+ALTER COLUMN column_name datatype;
+      Мій SQL / Oracle (попередня версія 10G):
+ALTER TABLE table_name
+MODIFY COLUMN column_name datatype;
+      Oracle 10G та новіші версії:
+ALTER TABLE table_name
+MODIFY column_name datatype;
+
+
+
+
+
+......................................Обмеження
+
+..............Обмеження можуть бути визначені, коли таблиця створена за допомогою
+       оператора CREATE TABLE або після створення таблиці за допомогою оператора ALTER TABLE.
+CREATE TABLE table_name (
+    column1 datatype constraint,
+    column2 datatype constraint,
+    column3 datatype constraint,
+    ....
+);
+        У SQL зазвичай використовуються такі обмеження:
+NOT NULL - гарантує, що стовпець не може мати значення NULL
+UNIQUE - Забезпечує, щоб усі значення в стовпці були різними
+PRIMARY KEY - поєднання НЕ НУЛЬНОГО та УНІКАЛЬНОГО. Унікально ідентифікує кожен рядок таблиці
+FOREIGN KEY - однозначно ідентифікує рядок / запис у іншій таблиці
+CHECK -  Переконайтеся, що всі значення в стовпці відповідають певній умові
+DEFAULT - Встановлює значення за замовчуванням для стовпця, коли не вказано значення
+INDEX - використовується для створення та отримання даних з бази даних дуже швидко
+
+            Наступний SQL гарантує, що стовпці "ID", "LastName" та "FirstName" НЕ приймають значень NULL, коли створюється таблиця "Persons":
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255) NOT NULL,
+    Age int
+);
+
+        Щоб створити обмеження NOT NULL у стовпці "Age", коли таблиця "Persons" вже створена, використовуйте наступний SQL:
+ALTER TABLE Persons
+MODIFY Age int NOT NULL;
+
+
+
+
+....   ................UNIQUE
+Наступний SQL створює UNIQUE обмеження для стовпця "ID", коли створюється таблиця "Persons":
+
+             Доступ до SQL Server / Oracle / MS:
+CREATE TABLE Persons (
+    ID int NOT NULL UNIQUE,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int
+);
+
+           MySQL:
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    UNIQUE (ID)
+);
+        Щоб назвати обмеження UNIQUE та визначити обмеження UNIQUE у кількох стовпцях, використовуйте такий синтаксис SQL:
+        MySQL / SQL Server / Oracle / MS Access:
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    CONSTRAINT UC_Person UNIQUE (ID,LastName)
+);
+
+
+
+
+             Щоб створити UNIQUE обмеження в стовпці "ID", коли таблиця вже створена, використовуйте наступний SQL:
+            MySQL / SQL Server / Oracle / MS Access:
+ALTER TABLE Persons
+ADD UNIQUE (ID);
+Щоб назвати обмеження UNIQUE та визначити обмеження UNIQUE у кількох стовпцях, використовуйте такий синтаксис SQL:
+
+         MySQL / SQL Server / Oracle / MS Access:
+ALTER TABLE Persons
+ADD CONSTRAINT UC_Person UNIQUE (ID,LastName);
+
+
+
+
+
+..........Щоб скинути UNIQUE обмеження, використовуйте наступний SQL:
+                 MySQL:
+ALTER TABLE Persons
+DROP INDEX UC_Person;
+          Доступ до SQL Server / Oracle / MS:
+ALTER TABLE Persons
+DROP CONSTRAINT UC_Person;
+
+
+
+
+
+
+
+
+...........................PRIMARY KEY НА СТВОРЕННІ ТАБЛИЦІ
+Наступний SQL створює ПРИМІТНИЙ КЛЮЧ у стовпці "Ідентифікатор", коли створюється таблиця "Особи":
+               MySQL:
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    PRIMARY KEY (ID)
+);
+              Доступ до SQL Server / Oracle / MS:
+CREATE TABLE Persons (
+    ID int NOT NULL PRIMARY KEY,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int
+);
+Щоб дозволити іменування обмеження PRIMARY KEY та для визначення обмеження PRIMARY KEY у кількох стовпцях, використовуйте такий синтаксис SQL:
+
+              MySQL / SQL Server / Oracle / MS Access:
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)
+);
+Примітка. У наведеному вище прикладі є лише ОДИН ПЕРВИЧНИЙ КЛЮЧ (PK_Person).
+Однак значення VALUE первинного ключа складається з ДВОХ КОЛІН (ID + LastName).
+
+
+
+.....Щоб створити ПЕРВИЧНЕ КЛЮЧЕ обмеження у стовпці "Ідентифікатор", коли таблиця вже створена, використовуйте такий SQL:
+          MySQL / SQL Server / Oracle / MS Access:
+ALTER TABLE Persons
+ADD PRIMARY KEY (ID);
+Щоб дозволити іменування обмеження PRIMARY KEY та для визначення обмеження PRIMARY KEY у кількох стовпцях, використовуйте такий синтаксис SQL:
+           MySQL / SQL Server / Oracle / MS Access:
+ALTER TABLE Persons
+ADD CONSTRAINT PK_Person PRIMARY KEY (ID,LastName);
+Примітка. Якщо ви використовуєте оператор ALTER TABLE для додавання первинного ключа,
+стовпеці первинного ключа повинні бути вже оголошені, що не містять значень NULL
+(коли вперше була створена таблиця).
+
+
+
+.......Щоб скинути обмеження PRIMARY KEY, використовуйте наступний SQL:
+            MySQL:
+ALTER TABLE Persons
+DROP PRIMARY KEY;
+           Доступ до SQL Server / Oracle / MS:
+ALTER TABLE Persons
+DROP CONSTRAINT PK_Person;
+
+
+
+
+
+.................Наступний SQL створює обмеження CHECK для стовпця "Age",
+                           коли створюється таблиця "Persons".
+             Обмеження CHECK гарантує, що вік людини повинен бути 18 або старше:
+                MySQL:
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    CHECK (Age>=18)
+);
+            Доступ до SQL Server / Oracle / MS:
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int CHECK (Age>=18)
+);
+Щоб дозволити іменування обмеження CHECK та для визначення обмеження CHECK у кількох
+                     стовпцях, використовуйте такий синтаксис SQL:
+
+        MySQL / SQL Server / Oracle / MS Access:
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    City varchar(255),
+    CONSTRAINT CHK_Person CHECK (Age>=18 AND City='Sandnes')
+);
+
+         Щоб створити обмеження CHECK у стовпці "Age",
+    коли таблиця вже створена, використовуйте наступний SQL:
+           MySQL / SQL Server / Oracle / MS Access:
+ALTER TABLE Persons
+ADD CHECK (Age>=18);
+            Щоб дозволити іменування обмеження CHECK та для визначення обмеження CHECK
+            у кількох стовпцях, використовуйте такий синтаксис SQL:
+
+        MySQL / SQL Server / Oracle / MS Access:
+ALTER TABLE Persons
+ADD CONSTRAINT CHK_PersonAge CHECK (Age>=18 AND City='Sandnes');
+
+   Щоб скинути обмеження CHECK, використовуйте наступний SQL:
+       Доступ до SQL Server / Oracle / MS:
+ALTER TABLE Persons
+DROP CONSTRAINT CHK_PersonAge;
+         MySQL:
+ALTER TABLE Persons
+DROP CHECK CHK_PersonAge;
+
+
+
+
+
+
+..............DEFAULT для стовпця "Місто", коли створюється таблиця "Особи":
+          Мій SQL / SQL Server / Oracle / MS Access:
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    City varchar(255) DEFAULT 'Sandnes'
+);
+Обмеження DEFAULT може також використовуватися для вставки системних значень,
+                 використовуючи функції типу GETDATE ():
+CREATE TABLE Orders (
+    ID int NOT NULL,
+    OrderNumber int NOT NULL,
+    OrderDate date DEFAULT GETDATE()
+);
+SQL DEFAULT на ALTER TABLE
+Щоб створити обмеження DEFAULT у стовпці "Місто", коли таблиця вже створена,
+                  використовуйте наступний SQL:
+                   MySQL:
+ALTER TABLE Persons
+ALTER City SET DEFAULT 'Sandnes';
+                   SQL Server:
+ALTER TABLE Persons
+ADD CONSTRAINT df_City
+DEFAULT 'Sandnes' FOR City;
+                    MS Access:
+ALTER TABLE Persons
+ALTER COLUMN City SET DEFAULT 'Sandnes';
+                    Oracle:
+ALTER TABLE Persons
+MODIFY City DEFAULT 'Sandnes';
+                 НАДАЙТЕ ЗАБЕЗПЕЧЕННЕ обмеження
+          Щоб скинути обмеження DEFAULT, використовуйте наступний SQL:
+           MySQL:
+ALTER TABLE Persons
+ALTER City DROP DEFAULT;
+          Доступ до SQL Server / Oracle / MS:
+ALTER TABLE Persons
+ALTER COLUMN City DROP DEFAULT;
+
+
+
+
+
+
+
+............INDEX
+Створює індекс на таблиці. Допускаються повторювані значення:
+
+CREATE INDEX index_name
+ON table_name (column1, column2, ...);
+
+СТВОРИТИ УНІКАЛЬНИЙ синтаксис індексу
+Створює унікальний індекс на столі. Повторювані значення заборонені:
+
+CREATE UNIQUE INDEX index_name
+ON table_name (column1, column2, ...);
+
+Примітка: Синтаксис для створення індексів змінюється в різних базах даних. Тому: Перевірте синтаксис для створення індексів у вашій базі даних.
+
+СТВОРИТИ ІНДЕКС Приклад
+Оператор SQL нижче створює індекс з назвою "idx_lastname" у стовпці "LastName" в таблиці "Persons":
+
+CREATE INDEX idx_lastname
+ON Persons (LastName);
+
+Якщо ви хочете створити індекс на комбінації стовпців, ви можете перелічити назви стовпців у дужках, розділених комами:
+
+CREATE INDEX idx_pname
+ON Persons (LastName, FirstName);
+
+Заява DROP INDEX
+Оператор DROP INDEX використовується для видалення індексу в таблиці.
+
+           MS Access:
+DROP INDEX index_name ON table_name;
+           SQL Server:
+DROP INDEX table_name.index_name;
+         DB2 / Oracle:
+DROP INDEX index_name;
+        MySQL:
+ALTER TABLE table_name
+DROP INDEX index_name;
+
+
+
+
+
+
+.................AUTO INCREMENT Поле
+Автоматичний приріст дозволяє автоматично генерувати унікальний номер, коли в таблицю вставляється новий запис.
+Наступний оператор SQL визначає стовпчик "Персонід" як поле первинного ключа з автоматичним
+збільшенням у таблиці "Особи":
+                  MySQL
+CREATE TABLE Persons (
+    Personid int NOT NULL AUTO_INCREMENT,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    PRIMARY KEY (Personid)
+);
+
+
+              для SQL Server
+Наступний оператор SQL визначає стовпчик "Персонід" як поле первинного ключа з автоматичним
+збільшенням у таблиці "Особи":
+
+CREATE TABLE Persons (
+    Personid int IDENTITY(1,1) PRIMARY KEY,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int
+);
+
+
+
+            MS Access     AUTOINCREMENT (10,5).
+CREATE TABLE Persons (
+    Personid AUTOINCREMENT PRIMARY KEY,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int
+);
+
+
+
+
+..................MySQL має такі типи даних для зберігання дати або значення дати / часу в базі даних:
+
+DATE  - формат РРРР-ММ-DD
+DATETIME - формат: РРРР-MM-DD HH: MI: SS
+TIMESTAMP - формат: РРРР-MM-DD HH: MI: SS
+YEAR  - формат РРРР або РР
+
+SQL Server постачає такі типи даних для зберігання дати або значення дати / часу в базі даних:
+DATE  - формат РРРР-ММ-DD
+DATETIME - формат: РРРР-MM-DD HH: MI: SS
+SMALLDATETIME - формат: РРРР-ММ-DD HH: MI: SS
+TIMESTAMP - формат: унікальний номер
+
+
+
+
+
+...............CREATE VIEW
+У SQL представлення - це віртуальна таблиця на основі набору результатів оператора SQL.
+CREATE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+
+
+      Наступний SQL створює подання, яке вибирає кожен продукт у таблиці "Продукти" із ціною,
+      що перевищує середню ціну:
+CREATE VIEW [Products Above Average Price] AS
+SELECT ProductName, Price
+FROM Products
+WHERE Price > (SELECT AVG(Price) FROM Products);
+
+     Ми можемо запитувати перегляд вище таким чином:
+SELECT * FROM [Products Above Average Price];
+
+
+
+      Наступний SQL додає стовпець "Місто" до подання "Клієнти Бразилії":
+CREATE OR REPLACE VIEW [Brazil Customers] AS
+SELECT CustomerName, ContactName, City
+FROM Customers
+WHERE Country = 'Brazil';
+
+
+      Наступний SQL видаляє перегляд "Бразильські клієнти":
+DROP VIEW [Brazil Customers];

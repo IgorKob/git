@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <link rel="stylesheet" href="1.css">
+  <meta charset="UTF-8">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  <meta name="author" content="John Doe">
+  <meta http-equiv="refresh" content="30">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- <base href="https://www.w3schools.com/images/" target="_blank"> -->
+<!-- <base>Елемент визначає базовий URL і базову мета для всіх відносних URL - адрес в сторінку: -->
+
+
+
+
+  <script>
+    function myFunction() {
+      document.getElementById("demo").innerHTML = "Hello JavaScript!";
+    }
+
+
+
+    </script>
+
+
+<style>
+/* Якщо ви встановлюєте box-sizing: border-box;елемент, обшивка та рамка включаються в ширину та висоту: */
+* {
+  box-sizing: border-box;
+}
+
+
+/* / * Чуйний макет - робить два стовпчики / поля укладаються один на одного, а не поруч один з одним, на маленьких екранах * / */
+    @media (max-width: 600px) {
+      nav, article {
+        width: 100%;
+        height: auto;
+      }
+    }
+    /* For tablets: */
+    /* @media only screen and (max-width:800px) {
+            .main {
+        width: 80%;
+        padding: 0;
+      }
+      .right {
+        width: 100%;
+      }
+    } */
+    /* For mobile phones: */
+    /* @media only screen and (max-width:500px) { */
+            /* .menu, .main, .right {
+        width: 100%;
+      }
+    } */
+
+
+    div {
+      border: 3px solid #4CAF50;
+      padding: 5px;
+    }
+
+    .img1 {
+      float: right;
+    }
+    /* автрматично підстроює рамку щоб увртинка помістилася в середині  */
+    /* .clearfix {
+      overflow: auto;
+    } */
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+/* Menu */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: red;
+}
+
+
+
+
+
+
+
+</style>
+
+</head>
+<body>
+
+<p>All meta information goes before the body.</p>
+
+<p id="demo">A Paragraph</p>
+<button type="button" onclick="myFunction()">Try it</button>
+
+
+<div>
+  <img class="img1" src="1.jpg" alt="Pineapple" width="170" height="170">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum...
+</div>
+<p style="clear:right">Додайте клас чітких виправлень із переповненням: auto; до елемента, що містить, щоб виправити цю проблему:</p>
+<div class="clearfix">
+  <img class="img1" src="1.jpg" alt="Pineapple" width="170" height="170">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum...
+</div>
+
+
+<!-- Menu -->
+<ul>
+  <li><a href="#home" class="active">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+
+<img src="1.jpg" style="max-width:100%;height:auto;">
+<p style="font-size:5vw;">Змініть розмір вікна браузера, щоб побачити, як масштабується розмір тексту.</p>
+
+
+<!-- <code> Визначає код програмування
+<kbd> Визначає введення клавіатури
+<samp> Визначає вихід з комп'ютера
+<var> Визначає змінну
+<pre> Визначає попередньо відформатований текст -->
+
+<form><input type="button" value="OK">
+  <button type="button">OK</button>
+</form>
+
+<form action="/action_page.php">
+Name: <input type="text" name="name">
+      <input type="submit">
+</form>
+
+<form action="/action_page.php" method="post">
+Name: <input type="text" name="name">
+      <input type="submit">
+</form>
+
+<form action="/action_page.php">
+<select name="cars">
+<option value="Volvo">Volvo</option>
+<option value="Ford">Ford</option>
+</select>
+</form>
+
+<form action="/action_page.php">
+<textarea name="note"></textarea>
+</form>
+
+<form action="/action_page.php">
+<input type="text" name="username">
+<input type="submit" value="Submit Form">
+</form>
+
+
+<form action="/action_page.php">
+  Favorite color:
+  Blue
+  <input value="blue" type="radio" name="color">
+  Red
+  <input value="red" type="radio" name="color">
+  <input type="submit">
+</form>
+
+<form action="/action_page.php">
+<input type="number" min="1" max="5">
+</form>
+
+<form action="/action_page.php">
+<input type="text" placeholder="Your name here">
+</form>
+
+<form action="/action_page.php">
+<input type="text" disabled>
+</form>
+
+<form action="/action_page.php">
+<input type="text" readonly>
+</form>
+
+<form action="/action_page.php">
+<input type="text" maxlength="40">
+</form>
+
+<!-- <article> Визначає статтю
+<aside> Визначає вміст окрім вмісту сторінки
+<details> Визначає додаткові дані, які користувач може переглядати або приховувати
+<figcaption> Визначає підпис для елемента <figure>
+<figure> Вказує автономний вміст, наприклад ілюстрації, схеми, фотографії, списки кодів тощо.
+<footer> Визначає колонтитул для документа або розділу
+<header> Вказує заголовок для документа чи розділу
+<main> Вказує основний вміст документа
+<mark> Визначає маркований / виділений текст
+<nav> Визначає навігаційні посилання
+<секція> Визначає розділ у документі
+<summary> Визначає видимий заголовок для елемента <details>
+<time> Визначає дату / час -->
+
+
+
+<p>I will display &permil;</p>
+<p>I will display &#8240;</p>
+<p>I will display &#x2030;</p>
+<p>I will display &#8251;</p>
+<p>I will display &#60;</p>
+<p>I will display &#62;</p>
+<p>I will display &euro;</p>
+<p>I will display &copy;</p>
+<p>I will display &reg;</p>
+<p>I will display a&#768;</p>
+
+
+
+
+</form>
+</body>
+</html>

@@ -1,0 +1,621 @@
+$(this).hide() - приховує поточний елемент.
+
+$("p").hide() - приховує всі <p> елементи.
+
+$(".test").hide() - приховує всі елементи з класом = "тест".
+
+$("#test").hide() - приховує елемент з id = "test".
+
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p").hide();
+  });
+});
+
+
+
+
+$ ("*") Вибирає всі елементи
+$ (це) Вибирає поточний HTML-елемент
+$ ("p.intro") Вибирає всі <p> елементи з class = "intro"
+$ ("p: перший") Вибирає перший елемент <p>
+$ ("ul li: first") Вибирає перший елемент <li> першого <ul>
+$ ("ul li: перша дитина") Вибирає перший елемент <li> кожного <ul>
+$ ("[href]") Вибирає всі елементи з атрибутом href
+$ ("a [target = '_ blank']") Вибирає всі елементи <a> зі значенням цільового атрибута, рівним "_blank"
+$ ("a [target! = '_ blank']") Вибирає всі елементи <a> зі значенням цільового атрибута НЕ рівним "_blank"
+$ (": кнопка") Вибирає всі елементи <кнопки> та <вхідні> елементи типу = "кнопка"
+$ ("tr: even") Виділяє всі елементи навіть <tr>
+$ ("tr: odd") Вибирає всі непарні <tr> елементи
+
+
+
+
+$(document).ready(function(){
+  $("p").on({
+    mouseenter: function(){
+      $(this).css("background-color", "lightgray");
+    },
+    mouseleave: function(){
+      $(this).css("background-color", "lightblue");
+    },
+    click: function(){
+      $(this).css("background-color", "yellow");
+    }
+  });
+});
+
+
+
+
+$("p").click(function(){
+  $(this).hide();
+});
+
+
+$("input").blur(function(){
+  $(this).css("background-color", "#ffffff");
+});
+
+
+$("input").focus(function(){
+  $(this).css("background-color", "#cccccc");
+});
+
+
+$("#p1").hover(function(){
+  alert("You entered p1!");
+},
+function(){
+  alert("Bye! You now leave p1!");
+});
+
+
+$("#p1").mouseup(function(){
+  alert("Mouse up over p1!");
+});
+
+
+$("#p1").mousedown(function(){
+  alert("Mouse down over p1!");
+});
+
+
+$("#p1").mouseleave(function(){
+  alert("Bye! You now leave p1!");
+});
+
+
+$("#p1").mouseenter(function(){
+  alert("You entered p1!");
+});
+
+
+$("p").dblclick(function(){
+  $(this).hide();
+});
+
+
+//////
+$("button").click(function(){
+  $("p").hide(1000);
+});
+
+$("#show").click(function(){
+  $("p").show();
+});
+
+$("button").click(function(){
+  $("p").toggle();
+});
+
+
+////
+методи зникнення:
+
+fadeIn()
+fadeOut()
+fadeToggle()
+fadeTo()
+
+
+$("button").click(function(){
+  $("#div1").fadeIn();
+  $("#div2").fadeIn("slow");
+  $("#div3").fadeIn(3000);
+});
+
+$("button").click(function(){
+  $("#div1").fadeToggle();
+  $("#div2").fadeToggle("slow");
+  $("#div3").fadeToggle(3000);
+});
+
+
+$("button").click(function(){
+  $("#div1").fadeTo("slow", 0.15);
+  $("#div2").fadeTo("slow", 0.4);
+  $("#div3").fadeTo("slow", 0.7);
+});
+
+
+
+
+/////способи слайдів:
+
+slideDown()
+slideUp()
+slideToggle()
+
+$("#flip").click(function(){
+  $("#panel").slideDown();
+});
+
+$("#flip").click(function(){
+  $("#panel").slideToggle();
+});
+
+
+
+
+///////animate
+$("button").click(function(){
+  $("div").animate({
+    left: '250px',
+    opacity: '0.5',
+    height: '150px',
+    width: '150px'
+  });
+});
+Якщо ви хочете анімувати кольори, вам потрібно завантажити плагін Color Animations з jQuery.com
+
+
+Можна також визначити відносні значення (значення тоді відносно поточного значення елемента).
+Це робиться, поставивши + = або - = перед значенням:
+$("button").click(function(){
+  $("div").animate({
+    left: '250px',
+    height: '+=150px',
+    width: '+=150px'
+  });
+});
+
+
+$("button").click(function(){
+  var div = $("div");
+  div.animate({height: '300px', opacity: '0.4'}, "slow");
+  div.animate({width: '300px', opacity: '0.8'}, "slow");
+  div.animate({height: '100px', opacity: '0.4'}, "slow");
+  div.animate({width: '100px', opacity: '0.8'}, "slow");
+});
+
+
+
+       stop  animate
+$("#stop").click(function(){
+  $("#panel").stop();
+});
+
+
+$("#stop3").click(function(){
+  $("div").stop(true, true);
+});
+true1    чи слід також очистити чи ні анімаційну чергу
+true2    чи потрібно негайно завершити поточну анімацію чи ні.
+
+
+
+
+////////Функція зворотного дзвінка виконується після завершення поточного ефекту на 100%.
+У наведеному нижче прикладі є параметр зворотного виклику, який є функцією, яка буде
+виконуватися після завершення ефекту приховування:
+$("button").click(function(){
+  $("p").hide("slow", function(){
+    alert("The paragraph is now hidden");
+  });
+});
+
+
+
+///////////////////Метод ланцюга
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#p1").css("color", "red").slideUp(2000).slideDown(2000);
+  });
+});
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#p1").css("color", "red")
+      .slideUp(2000)
+      .slideDown(2000);
+  });
+});
+
+
+///////////////////DOM:
+
+text() - Встановлює або повертає текстовий вміст вибраних елементів
+html() - Встановлює або повертає вміст вибраних елементів (включаючи розмітку HTML)
+val() - Встановлює або повертає значення полів форми
+
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    alert("Text: " + $("#test").text());
+  });
+  $("#btn2").click(function(){
+    alert("HTML: " + $("#test").html());
+  });
+});
+
+$(document).ready(function(){
+  $("button").click(function(){
+    alert("Value: " + $("#test").val());
+  });
+});
+
+
+attr()використовується для отримання значень атрибутів.
+$("button").click(function(){
+  alert($("#w3s").attr("href"));
+});
+
+
+
+     Наступний приклад показує , як встановити зміст
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    $("#test1").text("Hello world!");
+  });
+  $("#btn2").click(function(){
+    $("#test2").html("<b>Hello world!</b>");
+  });
+  $("#btn3").click(function(){
+    $("#test3").val("Dolly Duck");
+  });
+});
+
+
+
+
+    Функція зворотного виклику має два параметри: індекс поточного елемента у списку вибраних елементів
+    та вихідне (старе) значення. Потім ви повернете рядок, який хочете використовувати як нове значення
+    з функції.
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    $("#test1").text(function(i, origText){
+      return "Old text: " + origText + " New text: Hello world! (index: " + i + ")";
+    });
+  });
+
+  $("#btn2").click(function(){
+    $("#test2").html(function(i, origText){
+      return "Old html: " + origText + " New html: Hello <b>world!</b> (index: " + i + ")";
+    });
+  });
+});
+
+
+
+    Наступний приклад демонструє, як змінити (встановити) значення атрибута href у посиланні:
+$("button").click(function(){
+  $("#w3s").attr("href", "https://www.w3schools.com/jquery/");
+});
+
+
+    attr()Метод також дозволяє встановити кілька атрибутів одночасно.
+$("button").click(function(){
+  $("#w3s").attr({
+    "href" : "https://www.w3schools.com/jquery/",
+    "title" : "W3Schools jQuery Tutorial"
+  });
+});
+
+ункція зворотного виклику має два параметри: індекс поточного елемента
+у списку вибраних елементів та вихідне (старе) значення атрибута
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#w3s").attr("href", function(i, origValue){
+      return origValue + "/jquery/";
+    });
+  });
+});
+
+
+
+
+
+
+///////методи jQuery, які використовуються для додавання нового вмісту:
+
+append() - Вставляє вміст у кінці вибраних елементів
+prepend() - Вставляє вміст на початку вибраних елементів
+after() - Вставляє вміст після вибраних елементів
+before() - Вставляє вміст перед вибраними елементами
+
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    $("p").append(" <b>Appended text</b>.");
+  });
+
+  $("#btn2").click(function(){
+    $("ol").append("<li>Appended item</li>");
+  });
+});
+
+
+
+function appendText() {
+  var txt1 = "<p>Text.</p>";               // Create element with HTML
+  var txt2 = $("<p></p>").text("Text.");   // Create with jQuery
+  var txt3 = document.createElement("p");  // Create with DOM
+  txt3.innerHTML = "Text.";
+  $("body").append(txt1, txt2, txt3);      // Append the new elements
+}
+
+
+
+//////////////Для видалення елементів та вмісту
+remove() - Вилучає вибраний елемент (та його дочірні елементи)
+empty() - Вилучає дочірні елементи з обраного елемента
+
+$("#div1").remove();
+$("#div1").empty();
+
+Цей приклад видаляє всі <p>елементи з class="test"або class="demo":
+$("p").remove(".test, .demo");
+
+
+
+/////////////////Маніпулювання CSS
+addClass() - Додає один або кілька класів до вибраних елементів
+removeClass() - Вилучає один або кілька класів із вибраних елементів
+toggleClass() - Перемикання між додаванням / видаленням класів із вибраних елементів
+css() - Встановлює або повертає атрибут стилю
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("h1, h2, p").addClass("blue");
+    $("div").addClass("important");
+  });
+});
+
+$("button").click(function(){
+  $("h1, h2, p").toggleClass("blue");
+});
+
+       2 class
+$("button").click(function(){
+  $("#div1").addClass("important blue");
+});
+
+
+
+////////////кілька важливих методів роботи з розмірами:
+width()
+height()
+innerWidth()
+innerHeight()
+outerWidth()
+outerHeight()
+
+$(document).ready(function(){
+  $("button").click(function(){
+    var txt = "";
+    txt += $("#div1").width() + "</br>";
+    txt += "Height of div: " + $("#div1").height();
+    $("#div1").html(txt);
+  });
+});
+
+
+
+
+
+/////////////Три корисні методи jQuery для обходу дерева DOM:
+parent()
+parents()
+parentsUntil()
+
+
+$(document).ready(function(){
+  $("span").parent().css({"color": "red", "border": "2px solid red"});
+});
+
+$(document).ready(function(){
+  $("span").parents("ul").css({"color": "red", "border": "2px solid red"});
+});
+
+
+//////Два корисних методу jQuery для обходу дерева DOM є:
+children()
+find()
+
+$(document).ready(function(){
+  $("div").children().css({"color": "red", "border": "2px solid red"});
+});
+
+$(document).ready(function(){
+  $("div").children("p.first").css({"color": "red", "border": "2px solid red"});
+});
+
+повертає всіх нащадків <div>:
+$(document).ready(function(){
+  $("div").find("*").css({"color": "red", "border": "2px solid red"});
+});
+
+
+
+///////////Перехід вбік на дереві DOM
+Існує безліч корисних методів jQuery для руху в бік дерева DOM:
+siblings()
+next()
+nextAll()
+nextUntil()
+prev()
+prevAll()
+prevUntil()
+
+повертає всі елементи братів, <h2>які є <p> елементами
+$(document).ready(function(){
+  $("h2").siblings("p").css({"color": "red", "border": "2px solid red"});
+});
+
+$(document).ready(function(){
+  $("h2").next().css({"color": "red", "border": "2px solid red"});
+});
+
+І prev(), prevAll()і prevUntil()методи працюють так само, як описані вище способи,
+але мають зворотну функціональність: вони повертають попередні елементи братів (перехід
+назад по елементах братів у дереві DOM, а не вперед).
+
+
+
+
+/////////
+Самі основні методи фільтрації first(), last()і eq(), які дозволяють вибрати конкретний елемент
+на основі його положення в групі елементів.
+
+Інші методи фільтрації, як filter()і not()дозволяють вибрати елементи , які відповідають або не
+відповідають, певним критеріям.
+
+
+$(document).ready(function(){
+  $("div").first().css("background-color", "yellow");
+});
+
+вибирає останній <div> елемент:
+$(document).ready(function(){
+  $("div").last();
+});
+
+
+eq()Метод повертає елемент з індексом конкретного числа обраних елементів.
+$(document).ready(function(){
+  $("p").eq(1);
+});
+
+
+повертає всі <p>елементи з назвою класу "intro":
+$(document).ready(function(){
+  $("p").filter(".intro");
+});
+
+
+not()Метод повертає всі елементи , які не відповідають критеріям.
+$(document).ready(function(){
+  $("p").not(".intro");
+});
+
+
+
+
+
+
+
+
+
+
+
+////////////////////AJAX
+load()метод завантажує дані з сервера і поміщає повернуті дані в обраному елементі.
+$(selector).load(URL,data,callback);
+Обов’язковий параметр URL-адреси вказує URL-адресу, яку ви хочете завантажити.
+Необов'язковий параметр даних вказує набір пар ключів / значень запитів, які потрібно надіслати
+разом із запитом.
+Необов'язковий параметр зворотного виклику - це ім'я функції, яка виконується після завершення load()методу.
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").load("demo_test.txt");
+  });
+});
+
+завантажує вміст елемента з id = "p1", всередині файла "demo_test.txt", у певний <div>елемент:
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").load("demo_test.txt #p1");
+  });
+});
+
+
+$.get(URL,callback);
+Обов’язковий параметр URL-адреси визначає URL-адресу, яку ви хочете запитати.
+Необов'язковий параметр зворотного виклику - це ім'я функції, яка виконується, якщо запит успішний.
+
+$.get()метод для отримання даних з файлу на сервері:
+$(document).ready(function(){
+  $("button").click(function(){
+    $.get("demo_test.asp", function(data, status){
+      alert("Data: " + data + "\nStatus: " + status);
+    });
+  });
+});
+
+
+
+$.post(URL,data,callback);
+Обов’язковий параметр URL-адреси визначає URL-адресу, яку ви хочете запитати.
+Необов'язковий параметр даних вказує деякі дані, що надсилаються разом із запитом.
+Необов'язковий параметр зворотного виклику - це ім'я функції, яка виконується, якщо запит успішний.
+
+$.post()метод для надсилання деяких даних разом із запитом
+$(document).ready(function(){
+  $("button").click(function(){
+    $.post("demo_test_post.asp",
+    {
+      name: "Donald Duck",
+      city: "Duckburg"
+    },
+    function(data,status){
+      alert("Data: " + data + "\nStatus: " + status);
+    });
+  });
+});
+
+
+
+
+
+
+/////////////////noConflict()
+Метод звільняє тримання ідентифікатора $ ярлика, так що інші сценарії можуть використовувати його.
+$.noConflict();
+jQuery(document).ready(function(){
+  jQuery("button").click(function(){
+    jQuery("p").text("jQuery is still working!");
+  });
+});
+
+
+Ви також можете створити свій власний ярлик дуже легко. noConflict()Метод повертає посилання на JQuery, що ви можете зберегти у змінній, для подальшого використання. Ось приклад:
+var jq = $.noConflict();
+jq(document).ready(function(){
+  jq("button").click(function(){
+    jq("p").text("jQuery is still working!");
+  });
+});
+
+
+
+Якщо у вас є код коду jQuery, який використовує ярлик $, і ви не хочете все це змінювати, ви можете передати знак $ вхід як параметр готовому методу. Це дозволяє вам отримати доступ до jQuery за допомогою $, усередині цієї функції - поза нею, вам доведеться використовувати "jQuery":
+$.noConflict();
+jQuery(document).ready(function($){
+  $("button").click(function(){
+    $("p").text("jQuery is still working!");
+  });
+});
+
+
+
+
+///////////////Фільтрувати таблиці
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});

@@ -1,0 +1,146 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  color: #000;
+}
+
+.header {
+  /* max-width: 1600px; */
+  width: 100%;
+  height: 900px;
+  background-color: #ccdef0;
+  background-image: radial-gradient(circle 675px at center, #ffffff 0%, #ccdef0 100% );
+}
+.container {
+  width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* nav */
+.nav-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 70px;
+  margin-bottom: 90px;
+}
+.logo {
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 1;
+  color: #000000;
+}
+.logo span {
+  color: #5abb33;
+}
+.nav_ul {
+  list-style: none;
+  margin:0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+}
+.nav_li {
+  margin-right: 50px;
+}
+.nav_li:last-child {
+  margin-right: 0;
+}
+.nav_ul a {
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+}
+.nav_ul a:hover {
+  text-decoration: underline;
+}
+
+/* content */
+.header-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.header-text0 {
+  width: 500px;
+  padding-top: 90px;
+}
+.header-title {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.3;
+  margin: 0;
+  margin-bottom: 35px;
+}
+.header-text {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.7;
+  margin-bottom: 35px;
+}
+.header-btn {
+  display: inline-block;
+  padding-left: 35px;
+  padding-right: 35px;
+  height: 65px;
+  border-radius: 33px;
+  background-color: #fadb60;
+  background-image: linear-gradient(to top, #ffcc00 0%, #fadb60 100%);
+
+  color: black;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 65px;
+}
+.header-btn:hover {
+  opacity: .8;
+}
+.header-photo {
+  width: 670px;
+}
+
+/* social */
+.header-social {
+
+}
+.header-social-item {
+  font-size: 27px;
+  color: #3d3e3f;
+  text-decoration: none;
+  margin-right: 30px;
+}
+.header-social-item:last-child {
+  margin-right: 0;
+}
+.header-social-item:hover {
+  opacity: .8;
+}
+
+
+/* footer */
+.footer {
+  width: 100%;
+  height: 114px;
+  color: white;
+  background-color: #232323;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2;
+}
+.footer::before {
+  content: '';
+  display: table;
+  clear: both;
+}

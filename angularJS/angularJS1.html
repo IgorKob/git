@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+  ng-app       Директива инициализирует додаток AngularJS.
+  ng-init      Директива инициализирует дані програми.
+  У ng-model   директиві пов'язує значення управління HTML (введення, виберіть TextArea) для даних додатка.
+
+
+
+  <div data-ng-app="" data-ng-init="firstName2='John2'">
+  <p>The name is <span data-ng-bind="firstName2"></span></p>
+  </div>
+
+
+  <div ng-app="myApp" ng-controller="myCtrl">
+  First Name: <input type="text" ng-model="firstName"><br>
+  Last Name: <input type="text" ng-model="lastName"><br>
+  <br>
+  Full Name: {{firstName + " " + lastName}}
+  </div>
+  <script>
+  var app = angular.module('myApp', []);
+  app.controller('myCtrl', function($scope) {
+      $scope.firstName= "John";
+      $scope.lastName= "Doe";
+  });
+  </script>
+
+
+  <p>Name: <input type="text" ng-model="name"></p>
+  <p ng-bind="name"></p>
+    <input type='text' ng-model="name2" />
+   <p>{{name2}}</p>
+
+
+   <div ng-app="" ng-init="myCol='lightblue'">
+<input style="background-color:{{myCol}}" ng-model="myCol">
+</div>
+
+
+<div ng-app='' ng-init='x=3; y=4'>
+{{x+y}}
+</div>
+
+
+
+
+
+
+<div ng-app="myApp" ng-controller="myCtrl">
+{{ firstName + " " + lastName }}
+</div>
+<script>
+var app = angular.module("myApp", []);
+app.controller("myCtrl", function($scope) {
+    $scope.firstName = "John";
+    $scope.lastName = "Doe";
+});
+</script>
+
+
+
+
+
+
+
+<div ng-app="myApp" w3-test-directive></div>
+<script>
+var app = angular.module("myApp", []);
+app.directive("w3TestDirective", function() {
+    return {
+        template : "I was made in a directive constructor!"
+    };
+});
+</script>
+<div ng-app="" ng-init="person={firstName:'John',lastName:'Doe'}">
+<p>The name is {{ person.lastName }}</p>
+</div>
+
+
+
+
+Законними обмежувальними значеннями є:
+E для назви елемента
+A для атрибутів
+C для класу
+M для коментаря
+За замовчуванням це значення EAозначає, що і назви елементів, і назви атрибутів можуть викликати директиву.
+
+
+
+
+
+<body ng-app="myApp">
+<div class="w3-test-directive"></div>
+<script>
+var app = angular.module("myApp", []);
+app.directive("w3TestDirective", function() {
+    return {
+        restrict : "C",
+        template : "<h1>Made by a directive!</h1>"
+    };
+});
+</script>
+
+
+
+
+
+<body ng-app="myApp">
+<script>
+var app = angular.module("myApp", []);
+app.directive("w3TestDirective", function() {
+    return {
+        restrict : "M",
+        replace : true,
+        template : "<h1>Made by a directive!</h1>"
+    };
+});
+</script>
+
+
+
+
+
+
+<body ng-app="myApp">
+<w3-test-directive></w3-test-directive>
+<div w3-test-directive></div>
+<script>
+var app = angular.module("myApp", []);
+app.directive("w3TestDirective", function() {
+    return {
+        restrict : "A",                             для  атрибути
+        template : "<h1>Made by a directive!</h1>"
+    };
+});
+</script>
+
+
+
+
+
+...........................ng-show
+   Для перевірки пошти на коректність
+<form ng-app="" name="myForm">
+    Email:
+    <input type="email" name="myAddress" ng-model="text">
+    <span ng-show="myForm.myAddress.$error.email">Not a valid e-mail address</span>
+</form>
+
+
+
+
+.....................ng-click
+<div ng-app="myApp" ng-controller="myCtrl">
+    <h1 ng-click="changeName()">{{firstname}}</h1>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.firstname = "John";
+    $scope.changeName = function() {
+        $scope.firstname = "Nelly";
+    }
+});
+</script>
+
+
+
+
+............................$rootScope
+<div ng-controller="myCtrl">
+<p>The scope of the controller's favorite color:</p>
+<h1>{{color}}</h1>
+</div>
+<p>The rootScope's favorite color is still:</p>
+<h1>{{color}}</h1>
+<script>
+var app = angular.module('myApp', []);
+app.run(function($rootScope) {
+    $rootScope.color = 'blue';
+});
+app.controller('myCtrl', function($scope) {
+    $scope.color = "red";
+});
+</script>
+
+
+
+AngularJS Фільтри
+AngularJS забезпечує фільтри для перетворення даних:
+
+currency Відформатуйте номер у форматі валюти.                                <h1>Price: {{ price | currency }}</h1>
+date Відформатуйте дату у визначеному форматі.
+filter Виберіть підмножину елементів з масиву.
+json Відформатуйте об'єкт у рядок JSON.
+limitTo Обмежує масив / рядок на вказану кількість елементів / символів.
+lowercase Відформатуйте рядок у малі регістри.
+number Відформатуйте число у рядок.
+orderBy Впорядковує масив за виразом.
+uppercase Відформатуйте рядок у верхній регістр.
+
+Фільтри можна додавати до виразів за допомогою символу труби |, за яким слід фільтрувати.
+
+<div ng-app="myApp" ng-controller="personCtrl">
+<p>The name is {{ lastName | uppercase }}</p>
+</div>
+
+
+
+............................orderBy
+<div ng-app="myApp" ng-controller="namesCtrl">
+<p>Looping with objects:</p>
+<ul>
+  <li ng-repeat="x in names | orderBy:'country'">
+    {{ x.name + ', ' + x.country }}
+  </li>
+</ul>
+</div>
+<script>
+angular.module('myApp', []).controller('namesCtrl', function($scope) {
+    $scope.names = [
+        {name:'Jani',country:'Norway'},
+        {name:'Carl',country:'Sweden'},
+        {name:'Margareth',country:'England'},
+        {name:'Hege',country:'Norway'},
+        {name:'Joe',country:'Denmark'},
+        {name:'Gustav',country:'Sweden'},
+        {name:'Birgit',country:'Denmark'},
+        {name:'Mary',country:'England'},
+        {name:'Kai',country:'Norway'}
+        ];
+});
+</script>
+
+
+
+
+
+
+........................filter
+<div ng-app="myApp" ng-controller="namesCtrl">
+<ul>
+  <li ng-repeat="x in names | filter : 'i'">
+    {{ x }}
+  </li>
+</ul>
+</div>
+<script>
+angular.module('myApp', []).controller('namesCtrl', function($scope) {
+    $scope.names = [
+        'Jani',
+        'Carl',
+        'Margareth',
+        'Hege',
+        'Joe',
+        'Gustav',
+        'Birgit',
+        'Mary',
+        'Kai'
+    ];
+});
+</script>
+
+
+
+
+
+
+
+
+...............................filter
+<div ng-app="myApp" ng-controller="namesCtrl">
+<p><input type="text" ng-model="test"></p>
+<ul>
+  <li ng-repeat="x in names | filter:test">
+    {{ x }}
+  </li>
+</ul>
+</div>
+<script>
+angular.module('myApp', []).controller('namesCtrl', function($scope) {
+    $scope.names = [
+        'Jani',
+        'Carl',
+        'Margareth',
+        'Hege',
+        'Joe',
+        'Gustav',
+        'Birgit',
+        'Mary',
+        'Kai'
+    ];
+});
+</script>
+
+
+
+
+
+
+
+................................filter table
+<div ng-app="myApp" ng-controller="namesCtrl">
+<table border="1" width="100%">
+<tr>
+<th ng-click="orderByMe('name')">Name</th>
+<th ng-click="orderByMe('country')">Country</th>
+</tr>
+<tr ng-repeat="x in names | orderBy:myOrderBy">
+<td>{{x.name}}</td>
+<td>{{x.country}}</td>
+</tr>
+</table>
+</div>
+<script>
+angular.module('myApp', []).controller('namesCtrl', function($scope) {
+    $scope.names = [
+        {name:'Jani',country:'Norway'},
+        {name:'Carl',country:'Sweden'},
+        {name:'Margareth',country:'England'},
+        {name:'Hege',country:'Norway'},
+        {name:'Joe',country:'Denmark'},
+        {name:'Gustav',country:'Sweden'},
+        {name:'Birgit',country:'Denmark'},
+        {name:'Mary',country:'England'},
+        {name:'Kai',country:'Norway'}
+        ];
+    $scope.orderByMe = function(x) {
+        $scope.myOrderBy = x;
+    }
+});
+</script>
+
+
+
+
+
+...........................r
+<ul ng-app="myApp" ng-controller="namesCtrl">
+<li ng-repeat="x in names">
+    {{x | myFormat}}
+</li>
+</ul>
+<script>
+var app = angular.module('myApp', []);
+app.filter('myFormat', function() {
+    return function(x) {
+        var i, c, txt = "";
+        for (i = 0; i < x.length; i++) {
+            c = x[i];
+            if (i % 2 == 0) {                     Перевірте ,  якщо  залишок від числа 2 стає нульовим ?                                                             повернути Істинно інше: повернути Неправдиво
+                c = c.toUpperCase();
+            }
+            txt += c;
+        }
+        return txt;
+    };
+});
+app.controller('namesCtrl', function($scope) {
+    $scope.names = [
+        'Jani',
+        'Carl',
+        'Margareth',
+        'Hege',
+        'Joe',
+        'Gustav',
+        'Birgit',
+        'Mary',
+        'Kai'
+        ];
+});
+</script>
+
+
+
+
+
+.................................$location служба.
+<div ng-app="myApp" ng-controller="myCtrl">
+<p>The url of this page is:</p>
+<h3>{{myUrl}}</h3>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $location) {
+    $scope.myUrl = $location.absUrl();
+});
+</script>
+
+
+...............................Служба $ http
+<div ng-app="myApp" ng-controller="myCtrl">
+<h1>{{myWelcome}}</h1>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+  $http.get("welcome.htm").then(function (response) {
+      $scope.myWelcome = response.data;
+  });
+});
+</script>
+
+
+
+................................$timeout
+<div ng-app="myApp" ng-controller="myCtrl">
+<h1>{{myHeader}}</h1>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $timeout) {
+  $scope.myHeader = "Hello World!";
+  $timeout(function () {
+      $scope.myHeader = "How are you today?";
+  }, 2000);
+});
+</script>
+
+
+
+
+
+
+.........................  $interval
+<div ng-app="myApp" ng-controller="myCtrl">
+<h1>{{theTime}}</h1>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $interval) {
+  $scope.theTime = new Date().toLocaleTimeString();
+  $interval(function () {
+      $scope.theTime = new Date().toLocaleTimeString();
+  }, 1000);
+});
+</script>
+
+
+
+Відповідь сервера - це об'єкт із цими властивостями:
+
+.config об'єкт, що використовується для генерації запиту.
+.data рядок або об'єкт, що несе відповідь від сервера.
+.headers функція, яка використовується для отримання інформації заголовка.
+.status число, що визначає стан HTTP.
+.statusText рядок, що визначає стан HTTP.
+
+
+.............................GET
+<div ng-app="myApp" ng-controller="myCtrl">
+<h1>{{myWelcome}}</h1>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+  $http({
+    method : "GET",
+    url : "welcome.htm"
+  }).then(function mySuccess(response) {
+      $scope.myWelcome = response.data;
+    }, function myError(response) {
+      $scope.myWelcome = response.statusText;
+  });
+});
+</script>
+
+
+
+
+
+.........................data       status            statusText
+<div ng-app="myApp" ng-controller="myCtrl">
+<p>Data : {{content}}</p>
+<p>Status : {{statuscode}}</p>
+<p>StatusText : {{statustext}}</p>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+  $http.get("welcome.htm")
+  .then(function(response) {
+      $scope.content = response.data;
+      $scope.statuscode = response.status;
+      $scope.statustext = response.statusText;
+  });
+});
+</script>
+
+
+
+..................................помилки
+<div ng-app="myApp" ng-controller="myCtrl">
+<h1>{{content}}</h1>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+  $http.get("wrotrghtrbame.htm")
+  .then(function(response) {
+      $scope.content = response.data;
+  }, function(response) {
+      $scope.content = "Something went wrong";
+  });
+});
+</script>
+
+
+
+
+
+
+....................JSON
+<div ng-app="myApp" ng-controller="customersCtrl">
+<ul>
+  <li ng-repeat="x in myData">
+    {{ x.Name + ', ' + x.Country }}
+  </li>
+</ul>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+  $http.get("customers.php").then(function (response) {
+      $scope.myData = response.data.records;
+  });
+});
+</script>
+
+
+
+
+.........................table   JSON
+<div ng-app="myApp" ng-controller="customersCtrl">
+<table>
+  <tr ng-repeat="x in names | orderBy : 'Country'">
+    <td>{{ $index + 1 }}</td>
+    <td>{{ x.Name }}</td>
+    <td>{{ x.Country | uppercase }}</td>
+  </tr>
+</table>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+    $http.get("customers.php")
+    .then(function (response) {$scope.names = response.data.records;});
+});
+</script>
+
+
+
+
+
+
+
+........випадаючий список на основі об'єкта або масиву в AngularJS, вам слід скористатись ng-options директивою:
+<div ng-app="myApp" ng-controller="myCtrl">
+<select ng-model="selectedName" ng-options="x for x in names">
+</select>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.names = ["Emil", "Tobias", "Linus"];
+});
+</script>
+
+
+............випадаючий список
+<div ng-app="myApp" ng-controller="myCtrl">
+<select>
+<option ng-repeat="x in names">{{x}}</option>
+</select>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.names = ["Emil", "Tobias", "Linus"];
+});
+</script>
+
+
+
+
+
+
+
+<div ng-app="myApp" ng-controller="myCtrl">
+<select ng-model="selectedCar">
+<option ng-repeat="x in cars" ng-value="{{x}}">{{x.model}}</option>        //value="{{x.model}}
+</select>
+<h1>You selected a {{selectedCar.color}} {{selectedCar.model}}</h1>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.cars = [
+        {model : "Ford Mustang", color : "red"},
+        {model : "Fiat 500", color : "white"},
+        {model : "Volvo XC90", color : "black"}
+    ];
+});
+</script>
+
+
+
+
+
+
+
+<div ng-app="myApp" ng-controller="myCtrl">
+<select ng-model="selectedCar" ng-options="x.model for x in cars">
+</select>
+<h1>You selected: {{selectedCar.model}}</h1>
+<p>Its color is: {{selectedCar.color}}</p>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.cars = [
+        {model : "Ford Mustang", color : "red"},
+        {model : "Fiat 500", color : "white"},
+        {model : "Volvo XC90", color : "black"}
+    ];
+});
+</script>
+
+
+
+
+
+
+................ng-options
+................об'єкт як джерело даних, xпредставляє ключ і y представляє значення:
+<div ng-app="myApp" ng-controller="myCtrl">
+<select ng-model="selectedCar" ng-options="x for (x, y) in cars">
+</select>
+<h1>You selected: {{selectedCar}}</h1>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.cars = {
+        car01 : "Ford",
+        car02 : "Fiat",
+        car03 : "Volvo"
+    }
+});
+</script>
+
+
+
+
+
+
+Параметри у випадаючому списку не повинні бути ключем у парі ключ -значення, це також може бути значенням або властивістю об'єкта значення:
+<div ng-app="myApp" ng-controller="myCtrl">
+<select ng-model="selectedCar" ng-options="y.brand for (x, y) in cars">
+</select>
+<h1>You selected: {{selectedCar.brand}}</h1>
+<h2>Model: {{selectedCar.model}}</h2>
+<h3>Color: {{selectedCar.color}}</h3>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.cars = {
+        car01 : {brand : "Ford", model : "Mustang", color : "red"},
+        car02 : {brand : "Fiat", model : "500", color : "white"},
+        car03 : {brand : "Volvo", model : "XC90", color : "black"}
+    }
+});
+</script>
+
+
+
+
+
+
+
+
+<div ng-app="myApp" ng-controller="myCtrl">
+<select ng-model="selectedCar" ng-options="x for (x, y) in cars">
+</select>
+<h1>You selected: {{selectedCar.brand}}</h1>
+<h2>Model: {{selectedCar.model}}</h2>
+<h3>Color: {{selectedCar.color}}</h3>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.cars = {
+        car01 : {brand : "Ford", model : "Mustang", color : "red"},
+        car02 : {brand : "Fiat", model : "500", color : "white"},
+        car03 : {brand : "Volvo", model : "XC90", color : "black"}
+    }
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+//////////////////////ng-disabled
+<div ng-app="" ng-init='myd=true'>
+ <button ng-disabled='myd'>OKKK</button>
+ <input type='checkbox' ng-model='myd'/>
+ {{myd}}<hr>
+</div>
+
+
+
+
+                     AngularJS події
+Ви можете додати слухачів подій AngularJS до своїх елементів HTML, використовуючи одну або декілька цих директив:
+
+ng-blur
+ng-change
+ng-click
+ng-copy
+ng-cut
+ng-dblclick
+ng-focus
+ng-keydown
+ng-keypress
+ng-keyup
+ng-mousedown
+ng-mouseenter
+ng-mouseleave
+ng-mousemove
+ng-mouseover
+ng-mouseup
+ng-paste
+
+
+
+
+
+<body ng-app="">
+<form>
+  <input type="radio" ng-model="myVar" value="dogs">Dogs
+  <input type="radio" ng-model="myVar" value="tuts">Tutorials
+  <input type="radio" ng-model="myVar" value="cars">Cars
+</form>
+<div ng-switch="myVar">
+  <div ng-switch-when="dogs">
+     <h1>Dogs</h1>
+     <p>Welcome to a world of dogs.</p>
+  </div>
+  <div ng-switch-when="tuts">
+     <h1>Tutorials</h1>
+     <p>Learn from examples.</p>
+  </div>
+  <div ng-switch-when="cars">
+     <h1>Cars</h1>
+     <p>Read about cars.</p>
+  </div>
+</div>
+
+
+
+
+<body ng-app="">
+<form>
+  <select ng-model="myVar">
+    <option value="">
+    <option value="dogs">Dogs
+    <option value="tuts">Tutorials
+    <option value="cars">Cars
+  </select>
+</form>
+<div ng-switch="myVar">
+  <div ng-switch-when="dogs">
+     <h1>Dogs</h1>
+     <p>Welcome to a world of dogs.</p>
+  </div>
+  <div ng-switch-when="tuts">
+     <h1>Tutorials</h1>
+     <p>Learn from examples.</p>
+  </div>
+  <div ng-switch-when="cars">
+     <h1>Cars</h1>
+     <p>Read about cars.</p>
+  </div>
+</div>
+
+
+
+
+requiredщоб вказати, що поле для введення потрібно заповнити:
+<form name="myForm">
+<input name="myInput" ng-model="myInput" required>
+</form>
+<h1>{{myForm.myInput.$valid}}</h1>
+
+
+
+emailщоб вказати, що значення повинно бути електронною поштою:
+<form name="myForm">
+<input type="email" name="myInput" ng-model="myInput">
+</form>
+<h1>{{myForm.myInput.$valid}}</h1>
+
+                        Стан форми та стан введення
+
+      Поля введення мають такі стани:
+$untouched Поле ще не торкнулося
+$touched Поле торкнулося
+$pristine Поле ще не змінено
+$dirty Поле було змінено
+$invalid Вміст поля недійсний
+$valid Вміст поля є дійсним
+Всі вони є властивостями поля введення та є true або false.
+
+       Форми мають такі стани:
+$pristine Жодні поля ще не змінені
+$dirty Один або декілька були змінені
+$invalid Вміст форми недійсний
+$valid Вміст форми є дійсним
+$submitted Форма подається
+
+
+///////////////////
+Класи CSS
+AngularJS додає класи CSS до форм та полів введення залежно від їх стану.
+Наступні класи додаються до полів введення або видаляються з них:
+
+ng-untouched Поле ще не торкнулося
+ng-touched Поле торкнулося
+ng-pristine Поле ще не змінено
+ng-dirty Поле було змінено
+ng-valid Вміст поля є дійсним
+ng-invalid Вміст поля недійсний
+ng-valid-keyОдин ключ для кожної перевірки. Приклад: ng-valid-requiredкорисний, коли є кілька речей, які необхідно перевірити
+ng-invalid-key Приклад: ng-invalid-required
+Наступні класи додаються до форм або видаляються з них:
+
+ng-pristine Жодне поле ще не було змінено
+ng-dirty Одне або кілька полів було змінено
+ng-valid Вміст форми є дійсним
+ng-invalid Вміст форми недійсний
+ng-valid-keyОдин ключ для кожної перевірки. Приклад: ng-valid-requiredкорисний, коли є кілька речей, які необхідно перевірити
+ng-invalid-key Приклад: ng-invalid-required
+
+
+
+
+
+
+
+Створити власну функцію перевірки трохи складніше; Ви повинні додати нову директиву до своєї програми
+та обробити перевірку всередині функції з певними заданими аргументами.
+<form name="myForm">
+<input name="myInput" ng-model="myInput" required my-directive>
+</form>
+<h1>{{myForm.myInput.$valid}}</h1>
+<script>
+var app = angular.module('myApp', []);
+app.directive('myDirective', function() {
+    return {
+        require: 'ngModel',
+        link: function(scope, element, attr, mCtrl) {
+            function myValidation(value) {
+                if (value.indexOf("e") > -1) {
+                    mCtrl.$setValidity('charE', true);
+                } else {
+                    mCtrl.$setValidity('charE', false);
+                }
+                return value;
+            }
+            mCtrl.$parsers.push(myValidation);
+        }
+    };
+});
+</script>
+
+
+
+
+
+               Приклад перевірки
+<form ng-app="myApp" ng-controller="validateCtrl"
+name="myForm" novalidate>
+<p>Username:<br>
+<input type="text" name="user" ng-model="user" required>
+<span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+<span ng-show="myForm.user.$error.required">Username is required.</span>
+</span>
+</p>
+<p>Email:<br>
+<input type="email" name="email" ng-model="email" required>
+<span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+<span ng-show="myForm.email.$error.required">Email is required.</span>
+<span ng-show="myForm.email.$error.email">Invalid email address.</span>
+</span>
+</p>
+<p>
+<input type="submit"
+ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||
+myForm.email.$dirty && myForm.email.$invalid">
+</p>
+</form>
+<script>
+var app = angular.module('myApp', []);
+app.controller('validateCtrl', function($scope) {
+    $scope.user = 'John Doe';
+    $scope.email = 'john.doe@gmail.com';
+});
+</script>
+
+
+
+
+
+
+
+Щоб включити файли з іншого домену, ви можете додати білий список юридичних файлів та / або
+доменів у функції налаштування програми:
+<body ng-app="myApp">
+<div ng-include="'https://tryit.w3schools.com/angular_include.php'"></div>
+<script>
+var app = angular.module('myApp', [])
+app.config(function($sceDelegateProvider) {
+  $sceDelegateProvider.resourceUrlWhitelist([
+    'https://tryit.w3schools.com/**'
+  ]);
+});
+</script>
+
+
+
+
+
+
+
+
+
+...........Анімація      Поставте прапорець, щоб сховати DIV:
+div {
+  transition: all linear 0.5s;
+  background-color: lightblue;
+  height: 100px;
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.ng-hide {
+  height: 0;
+  width: 0;
+  background-color: transparent;
+  top:-200px;
+  left: 200px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+<body ng-app="ngAnimate">
+<h1>Hide the DIV: <input type="checkbox" ng-model="myCheck"></h1>
+<div ng-hide="myCheck"></div>
+
+
+
+
+
+Або якщо у вашої програми є ім’я, додайте ngAnimateяк залежність у свій модуль програми:
+<script>
+var app = angular.module('myApp', ['ngAnimate']);
+</script>
+
+
+
+Директивами AngularJS, які додають / видаляють класи, є:
+
+ng-show
+ng-hide
+ng-class
+ng-view
+ng-include
+ng-repeat
+ng-if
+ng-switch
+
+
+
+
+
+ngRouteмодулі маршрути вашого застосування на різні сторінки без перезавантаження всього програми.
+Якщо ви хочете перейти на різні сторінки у вашій програмі, але ви також хочете, щоб програма була SPA
+(додаток для однієї сторінки), без перезавантаження сторінки, ви можете використовувати ngRouteмодуль.
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<body ng-app="myApp">
+<p><a href="#/!">Main</a></p>
+<a href="#!red">Red</a>
+<a href="#!green">Green</a>
+<a href="#!blue">Blue</a>
+<div ng-view></div>
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "main.htm"
+    })
+    .when("/red", {
+        templateUrl : "red.htm"
+    })
+    .when("/green", {
+        templateUrl : "green.htm"
+    })
+    .when("/blue", {
+        templateUrl : "blue.htm"
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+список покупок
+Дозволяє використовувати деякі функції AngularJS для складання списку покупок, де ви можете додавати або видаляти елементи:
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+<script>
+var app = angular.module("myShoppingList", []);
+app.controller("myCtrl", function($scope) {
+    $scope.products = ["Milk", "Bread", "Cheese"];
+    $scope.addItem = function () {
+        $scope.errortext = "";
+        if (!$scope.addMe) {return;}
+        if ($scope.products.indexOf($scope.addMe) == -1) {
+            $scope.products.push($scope.addMe);
+        } else {
+            $scope.errortext = "The item is already in your shopping list.";
+        }
+    }
+    $scope.removeItem = function (x) {
+        $scope.errortext = "";
+        $scope.products.splice(x, 1);
+    }
+});
+</script>
+<div ng-app="myShoppingList" ng-cloak ng-controller="myCtrl" class="w3-card-2 w3-margin" style="max-width:400px;">
+  <header class="w3-container w3-light-grey w3-padding-16">
+    <h3>My Shopping List</h3>
+  </header>
+  <ul class="w3-ul">
+    <li ng-repeat="x in products" class="w3-padding-16">{{x}}<span ng-click="removeItem($index)" style="cursor:pointer;" class="w3-right w3-margin-right">×</span></li>
+  </ul>
+  <div class="w3-container w3-light-grey w3-padding-16">
+    <div class="w3-row w3-margin-top">
+      <div class="w3-col s10">
+        <input placeholder="Add shopping items here" ng-model="addMe" class="w3-input w3-border w3-padding">
+      </div>
+      <div class="w3-col s2">
+        <button ng-click="addItem()" class="w3-btn w3-padding w3-green">Add</button>
+      </div>
+    </div>
+    <p class="w3-text-red">{{errortext}}</p>
+  </div>
+</div>
+
+
+
+
+
+/////////////////Check all
+<input type="checkbox" ng-model="all">     виставляє всім прапорці
+<input type="checkbox" ng-checked="all">Volvo
+<input type="checkbox" ng-checked="all">Ford
+<input type="checkbox" ng-checked="all">Mercedes
+
+
+...........міняє клас div(відповідно можна поміняти стинь елемента)
+<select ng-model="home">
+<option value="sky">Sky</option>
+<option value="tomato">Tomato</option>
+</select>
+<div ng-class="home"></div>
+
+
+
+
+<input type="checkbox" ng-model="all">
+<input type="text" ng-disabled="all">
+<input type="radio" ng-disabled="all">
+
+
+
+
+
+
+<input name="myInput" ng-model="myInput" ng-maxlength="5">
+<h1 ng-if="!myForm.myInput.$valid">The value is too long</h1>
+
+
+
+<input type="checkbox" ng-model="showDetails">
+<details ng-open="showDetails">
+  <summary>Copyright 1999-2016.</summary>
+  <p> - by Refsnes Data. All Rights Reserved.</p>
+</details>
+
+
+
+
+<input type="checkbox" ng-model="all">
+<input type="text" ng-readonly="all">
+
+
+
+<input type="checkbox" ng-model="myVar"><br><br>
+<input name="myInput" ng-model="myInput" ng-required="myVar">
+<h1 ng-if="!myForm.myInput.$valid">The input field cannot be empty</h1>
+
+
+
+Покажіть розділ HTML, лише якщо він відповідає певному значенню:
+Дочірні елементи з ng-switch-whenдирективою відображатимуться, якщо вона отримає збіг,
+інакше елемент та його діти будуть видалені.
+Ви також можете визначити розділ за замовчуванням, використовуючи ng-switch-default директиву,
+щоб показати розділ, якщо жоден з інших розділів не відповідає.    <element ng-switch-default></element>
+<select ng-model="myVar">
+  <option value="dogs">Dogs
+  <option value="tuts">Tutorials
+  <option value="cars">Cars
+</select>
+<hr>
+<div ng-switch="myVar">
+  <div ng-switch-when="dogs">
+     <h1>Dogs</h1>
+     <p>Welcome to a world of dogs.</p>
+  </div>
+  <div ng-switch-when="tuts">
+     <h1>Tutorials</h1>
+     <p>Learn from examples.</p>
+  </div>
+  <div ng-switch-when="cars">
+     <h1>Cars</h1>
+     <p>Read about cars.</p>
+  </div>
+  <div ng-switch-default>
+     <h1>Switch</h1>
+     <p>Select topic from the dropdown, to switch the content of this DIV.</p>
+  </div>
+</div>
+
+
+
+
+
+Форми мають такі стани:
+
+$pristine Жодні поля ще не змінені
+$dirty Один або декілька були змінені
+$invalid Вміст форми недійсний
+$valid Вміст форми є дійсним
+$submitted Форма подається
+
+
+
+Поля введення мають такі стани:
+
+$untouched Поле ще не торкнулося
+$touched Поле торкнулося
+$pristine Поле ще не змінено
+$dirty Поле було змінено
+$invalid Вміст поля недійсний
+$valid Вміст поля є дійсним
+
+
+Date = Thursday, April 30, 2020
+<p>Date = {{ today | date : "fullDate" }}</p>
+
+
+
+
+
+Відобразити лише перші три елементи масиву:
+<li ng-repeat="x in cars | limitTo : 3">{{x}}</li>
+Відобразити три елементи, починаючи з позиції 1:
+<li ng-repeat="x in cars | limitTo : 3 : 1">{{x}}</li>
+Відобразити останні три елементи масиву:
+<li ng-repeat="x in cars | limitTo : -3">{{x}}</li>
+
+
+
+
+
+
+</body>
+</html>

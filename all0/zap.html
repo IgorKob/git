@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <title>Page Title</title>
+Визначає заголовок документа
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="demo_print.css" media="print">
+  <link href="1.asp" rel="parent" rev="subsection" hreflang="en">
+hreflang --вказує, що пов'язаний документ англійською мовою
+  <link rel="icon" href="demo_icon.gif" type="image/gif" sizes="16x16">
+відображає ікону в заголовку сторінки
+----------------------------rel
+rel --Вказує взаємозв'язок між поточним документом та пов'язаним документом
+stylesheet	Імпортує таблицю стилів
+alternate	--Надає посилання на альтернативну версію документа (тобто сторінку друку, переклад або дзеркало).
+Приклад: <link rel="alternate" type="application/atom+xml" title="W3Schools News" href="/blog/news/atom">
+author	--Надає посилання на автора документа
+dns-prefetch	--Вказує, що браузер повинен попередньо виконувати роздільну здатність DNS для джерела цільового ресурсу
+help	--Надає посилання на довідковий документ. Приклад: <link rel="help" href="/help/">
+icon	--мпортує значок для представлення документа.
+Приклад: <link rel="icon" href="/favicon.ico" type="image/x-icon">
+license	--Надає посилання на інформацію про авторські права на документ
+next	--Надає посилання на наступний документ із серії
+pingback --Надає адресу сервера pingback, який обробляє pingbacks поточному документу
+preconnect --Вказує, що браузер повинен попередньо підключитися до джерела цільового ресурсу.
+prefetch --Вказує, що веб-переглядач повинен попередньо вибирати та кешувати цільовий ресурс, оскільки це, ймовірно, буде потрібно для подальшої навігації
+preload --Вказує, що агент браузера повинен попередньо отримати та кешувати цільовий ресурс для поточної навігації відповідно до пункту призначення, заданого атрибутом "as" (та пріоритету, пов'язаного з цим призначенням).
+prerender --Вказує, що браузер повинен попередньо відобразити (завантажити) вказану веб-сторінку у фоновому режимі. Отже, якщо користувач переходить на цю сторінку, це прискорює завантаження сторінки (оскільки сторінка вже завантажена). Увага! Це втрачає пропускну здатність користувача! Використовуйте попередній візуалізацію лише в тому випадку, якщо ви абсолютно впевнені, що веб-сторінка потрібна в якийсь момент шляху користувача
+prev --Вказує, що документ є частиною серії і що попередній документ у серії є посилальним документом
+search	--Надає посилання на ресурс, який може бути використаний для пошуку через поточний документ та пов’язані з ним сторінки.
+----------icon
+HeightxWidth	--изначає один або більше розмірів для пов'язаної піктограми.
+Значення висоти та ширини розділені знаками "x" або "X".
+Приклади: <link rel="icon" href="favicon.png" sizes="16x16" type="image/png"> (1 size)
+<link rel="icon" href="favicon.png" sizes="16x16 32x32" type="image/png"> (2 sizes)
+any	--Вказує, що піктограма може бути масштабованою (як SVG-зображення)
+Приклади: <link rel="icon" href="icon.svg" sizes="any" type="image/svg+xml"> (any size)
+--------------------------------media
+all	- За замовчуванням. Використовується для всіх пристроїв мультимедійного типу
+speech - Використовується для читачів екрана, які "читають" сторінку вголос
+print -	Використовується для режиму попереднього перегляду друку / друкованих сторінок
+screen - Використовується для екранів комп'ютерів, планшетів, смартфонів тощо.
+---------screan
+aspect-ratio --Визначає співвідношення ширини / висоти цільової області відображення.
+Префікси "min-" та "max-" можна використовувати.
+Приклад: media="screen and (max-aspect-ratio:16/9)"
+color --Вказує біти на колір відображення цілі.
+Префікси "min-" та "max-" можна використовувати.
+Приклад: media="screen and (min-color:3)"
+color-index -- Вказує кількість кольорів, з якими може працювати цільовий дисплей.
+Префікси "min-" та "max-" можна використовувати.
+Приклад: media="screen and (min-color-index:256)"
+grid -- Вказує, чи пристроєм виведення є сітка чи растрова карта.
+Можливі значення "1" для сітки, а "0" в іншому випадку.
+Приклад: media="handheld and (grid:1)"
+height	--Вказує висоту цільової області відображення.
+Префікси "min-" та "max-" можна використовувати.
+Приклад: media="screen and (max-height:700px)"
+monochrome --Визначає біти на піксель у монохромному буфері кадру.
+Префікси "min-" та "max-" можна використовувати.
+Приклад: media="screen and (min-monochrome:2)"
+orientation	--Визначає орієнтацію цільового дисплея / паперу.
+Можливі значення: "портрет" або "пейзаж" ("portrait" or "landscape")
+Приклад: media="all and (orientation: landscape)"
+resolution	--Визначає щільність пікселів (dpi або dpcm) цільового дисплея / паперу.
+Префікси "min-" та "max-" можна використовувати.
+Приклад: media="print and (min-resolution:300dpi)"
+scan	--Вказує спосіб сканування телевізійного дисплея.
+Можливі значення "прогресивне" та "переплетення"("progressive" and "interlace").
+Приклад: media="tv and (scan:interlace)"
+width --Вказує ширину цільової області відображення.
+Префікси "min-" та "max-" можна використовувати.
+Приклад:  media="screen and (min-width:500px)"
+---------------------------------type
+переліку стандартних типів медіа-- http://www.iana.org/assignments/media-types/media-types.xhtml
+
+
+  <meta charset="UTF-8">
+
+  <meta name="description" content="Free Web tutorials">
+Визначте опис веб-сторінки:
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+Визначення ключових слів для пошукових систем:
+  <meta name="author" content="John Doe">
+Визначте автора сторінки:
+  <meta http-equiv="refresh" content="30">
+Оновлення документа кожні 30 секунд:
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+Налаштування вікна перегляду для того, щоб ваш веб-сайт добре виглядав на всіх пристроях:
+Ширина = частина ширини пристрою встановлює ширину сторінки,
+щоб вона відповідала ширині екрана пристрою (яка буде змінюватися залежно від пристрою).
+
+
+
+  <base href="https://www.w3schools.com/images/" target="_blank">
+base -- Елемент визначає базовий URL і базову мета для всіх відносних URL - адрес в сторінку:
+target --може бути  _blank, _parent, _self, _top, framename
+
+<style>
+h1 {color:#FF0000;}
+p {color:#0000FF;}
+body {background-color:#FFEFD6;}
+</style>
+
+<style media="print">
+h1 {color:#000000;}
+p {color:#000000;}
+body {background-color:#FFFFFF;}
+</style>
+
+<script>
+
+</script>
+
+</head>
+
+<body>
+------
+  <style>
+body {
+  display: block;
+  margin: 8px;
+}
+ body:focus {
+  outline: none;
+}
+</style>
+--------
+<h3> Демонстрація того, як отримати доступ до елемента BODY </h3>
+<p> Натисніть кнопку, щоб встановити колір фону документа червоним. </p>
+<button onclick="myFunction()">Try it</button>
+<p id="demo"></p>
+<script>
+function myFunction() {
+  var x = document.getElementsByTagName("BODY")[0];
+  x.style.backgroundColor = "red";
+}
+</script>
+---------
+<p> Клацніть кнопку, щоб змінити колір фону документа. </p>
+<button onclick="myFunction()">Try it</button>
+<script>
+function myFunction() {
+  document.body.style.backgroundColor = "yellow";
+}
+</script>
+
+
+
+
+
+
+  -----------------------Глобальні атрибути HTML
+  <accesskey> - Вказує клавішу швидкого доступу для активації / фокусування елемента
+  <class> - Вказує одне або кілька імен класів для елемента (відноситься до класу в таблиці стилів)
+  <contenteditable> - Вказує, чи вміст елемента можна редагувати чи ні
+  <data - *> - Використовується для зберігання користувацьких даних, приватних на сторінці чи програмі
+  <dir> - Вказує текстовий напрямок для вмісту в елементі
+  <draggable> - Вказує, перетягується елемент чи ні
+  <dropzone> - Вказує, чи перетягуються дані копіюються, переміщуються чи пов’язуються при падінні
+  <hidden> - Вказує, що елемент ще не є або вже не є релевантним
+  <id> - Вказує унікальний ідентифікатор для елемента
+  <lang> - Вказує мову вмісту елемента
+  <spellcheck> - Вказує, чи повинен елемент перевірити написання та граматику чи ні
+  <style> - Вказує вбудований стиль CSS для елемента
+  <tabindex> - Вказує порядок вкладки елемента
+  <title> - Вказує додаткову інформацію про елемент
+  <translate> - Вказує, чи слід перекладати вміст елемента чи ні
+-----------
+URL-адреса пов'язаного ресурсу / документа.
+Можливі значення:
+Абсолютна URL-адреса - вказує на інший веб-сайт (наприклад, href = "http://www.example.com/theme.css")
+Відносна URL - вказує на файл на веб-сайті (наприклад, href = "/ themes / topic.css")
+-------------
+<script>
+document.write("Hello World!")
+</script>
+<noscript>На жаль, ваш браузер не підтримує JavaScript!</noscript>
+
+<script src="myscripts.js" charset="UTF-8"></script>
+Зовнішній JavaScript з набором символів UTF-8:
+
+<p id="demo"></p>
+<script>
+document.getElementById("demo").innerHTML = "Hello JavaScript!";
+</script>
+Напишіть "Привіт JavaScript!" з JavaScript:
+
+<p id="demo"></p>
+<script type="application/javascript">
+document.getElementById("demo").innerHTML = "Hello JavaScript!";
+</script>
+Тип носія складається з двох частин: одного типу медіа та одного підтипу.
+Для JavaScript тип носія - це "application / javascript"
+
+<p id="p1">Hello World!</p>
+<script src="demo_async.js" async></script>
+async --Сценарій, який буде запущений асинхронно, як тільки він буде доступний:
+defer --сценарій виконується після того, як сторінка закінчила розбір.
+
+<h1>Це заголовок 1</h1>
+<h2>This is heading 2</h2>
+<h3>This is heading 3</h3>
+<h4>This is heading 4</h4>
+<h5>This is heading 5</h5>
+<h6>This is heading 6</h6>
+<style>
+h1 {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+</style>
+------
+<h3>Демонстрація того, як отримати доступ до елемента Н2</h3>
+<h2 id="myHeading">This is a h2 element.</h2>
+<p>Натисніть кнопку, щоб встановити червоний колір елемента h2.</p>
+<button onclick="myFunction()">Try it</button>
+<script>
+function myFunction() {
+  var x = document.getElementById("myHeading");
+  x.style.color = "red";
+}
+</script>
+-------
+<p>Натисніть кнопку, щоб створити елемент H1 з деяким текстом.</p>
+<button onclick="myFunction()">Try it</button>
+<script>
+function myFunction() {
+  var x = document.createElement("H1");
+  var t = document.createTextNode("Ласкаво просимо на Мою домашню сторінку");
+  x.appendChild(t);
+  document.body.appendChild(x);
+}
+</script>
+-------
+
+<p> Визначає абзац </p>
+<br> Вставляє один розрив рядка
+<hr> визначає тематичну перерву(малює лінію).
+<pre> Визначає попередньо відформатований текст з пробілами</pre>
+<b>Зробіть текст жирним шрифтом:</b>
+<mark>виділяє текст жовтим кольором.</mark>
+<sup>Текст відображається на пів символу вижжче звичайного рядка</sup>
+<sub>Текст відображається на пів символу нижче звичайного рядка</sub>
+<u>Підкреслений текст</u>
+<s>Перекреслений текст</s>
+<del>Перекреслений текст, слід використовувати для визначення заміненого чи видаленого тексту</del>
+<del datetime="2015-11-15T22:55:03Z">Цей текст видалено</del>
+<ins>Підкреслений текст</ins>
+<ins cite="why_inserted.htm">Вставний текст із URL-адресою до документа, який пояснює, чому текст був вставлений:</ins>
+<q>вставляє лапки навколо</q>
+<bdo dir="rtl">використовується для зміни напрямку тексту, справа наліво (dir="ltr" з ліва на право).</bdo>
+<abbr title="World Health Organization">WHO</abbr> --Абревіатура позначається таким чином:
+<address>визначає контактну інформацію для автора / власника документа чи статті.</address>
+<q cite="http://www.wwf.org">або цитати з інших джерел</q>
+<blockquote cite="http://www.wwf.org">Використовуйте щоб позначити розділ, який цитується з іншого джерела.</blockquote>
+<em> Підкреслений текст </em> <br>
+<strong> Сильний текст </strong> <br>
+<code> Частина комп'ютерного коду </code> <br>
+<samp> Зразок виводу з комп'ютерної програми </samp> <br>
+<kbd> Введення клавіатури </kbd> <br>
+<var> Змінна </var>
+<bdi>Виділіть імена користувачів</bdi>
+<cite>визначає назву твору (наприклад, книги, пісні, фільму тощо).</cite>
+<dfn>Представляє визначальний екземпляр терміна</dfn>
+<i>визначає частину тексту альтернативним голосом або настроєм. Вміст тегу відображається курсивом</i>
+<span>Елементи <i>та <span> елементи широко використовуються для значків, іконок.</span>
+
+<p>Використовуйте елемент лічильника для вимірювання даних:</p>
+<label for="disk_c">Disk usage C:</label>
+<meter id="disk_c" value="2" min="0" max="10">2 out of 10</meter><br>
+<label for="disk_d">Disk usage D:</label>
+<meter id="disk_d" value="0.6">60%</meter>
+
+<h1>представляє хід виконання завдання.</h1>
+<label for="file">Downloading progress:</label>
+<progress id="file" value="32" max="100"> 32% </progress>
+
+<style>
+p {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+}
+</style>
+--------
+отримати доступ до елемента <html> (HEAD, TITLE, BODY)
+var x = document.getElementsByTagName("HTML")[0];
+
+отримати доступ до елемента <hr> (<h>, <br>, <p>, <pre>....та інших елементів)
+var x = document.getElementById("myHR");
+
+створити елемент <hr> (<br>, <p>, <pre>, HEAD, TITLE, BODY....та інших елементів)
+var x = document.createElement("HR");
+
+--------
+<div> Це елемент div <br id="myBR"> з деякими розривами рядків. </div>
+<p>Натисніть кнопку, щоб встановити перший елемент BR в документі для display="none".</p>
+<button onclick="myFunction()">Стерти розрив рядка</button>
+<script>
+function myFunction() {
+  var x = document.getElementById("myBR");
+  x.style.display = "none";
+}
+</script>
+----------
+<p>Натисніть кнопку, щоб створити деякі елементи BR.</p>
+<button onclick="myFunction()">Try it</button>
+<p>Коли ви натискаєте кнопку, перед кожним прольотним елементом у діві вставляється елемент br,
+що викликає відповідний розрив рядка в тексті нижче.</p>
+<div id="myDIV">
+  <span>Hello,</span>
+  <span>My name is Bob.</span>
+  <span>I live in Bobville.</span>
+  <span>I am 45 years old.</span>
+</div>
+<script>
+function myFunction() {
+  // Get the div element with id="myDIV"
+  var div = document.getElementById("myDIV");
+  // Get all span elements inside of div
+  var spans = div.getElementsByTagName("SPAN");
+  // Create a loop which will insert a br element before each span element in div, starting from the second span element
+  var i;
+  for (i = 1; i < spans.length; i++) {
+    var newElem = document.createElement("BR");
+    div.insertBefore(newElem, spans[i]);
+  }
+}
+</script>
+
+
+
+----------------------------form
+<form action="/action_page.php">
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+-----------------------------textarea
+<textarea id="w3mission" rows="4" cols="50">
+Тег визначає багаторядковий елемент введення тексту.
+</textarea>
+
+-------------------------<select> використовується для створення випадаючого списку
+  <select id="cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+  </select>
+--------------------------<optgroup>
+використовується для групування пов'язаних параметрів у випадаючому списку.
+<label for="cars">Choose a car:</label>
+<select id="cars">
+  <optgroup label="Swedish Cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+  </optgroup>
+  <optgroup label="German Cars">
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </optgroup>
+</select>
+---------------------------<datalist> використовується для надання функції "автозаповнення" елементів <input>.
+Користувачі побачать випадаючий список попередньо визначених параметрів під час введення даних.
+<input list="browsers">
+<datalist id="browsers">
+    <option value="Internet Explorer">
+    <option value="Firefox">
+    <option value="Chrome">
+    <option value="Opera">
+    <option value="Safari">
+</datalist>
+---------------------------fieldset
+використовується для групування пов'язаних елементів у формі.
+<form action="/action_page.php">
+ <fieldset>
+  <legend>Personalia:</legend>
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname"><br><br>
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email"><br><br>
+  <label for="birthday">Birthday:</label>
+  <input type="date" id="birthday" name="birthday"><br><br>
+  <input type="submit" value="Submit">
+ </fieldset>
+</form>
+--------------------------------radio
+<form action="/action_page.php">
+  <label for="male">Male</label>
+  <input type="radio" name="gender" id="male" value="male"><br>
+  <label for="female">Female</label>
+  <input type="radio" name="gender" id="female" value="female"><br>
+  <label for="other">Other</label>
+  <input type="radio" name="gender" id="other" value="other"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+-----------------------------output
+Виконайте обчислення та покажіть результат у елементі
+<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">0
+<input type="range" id="a" value="50">100
++<input type="number" id="b" value="50">
+=<output name="x" for="a b"></output>
+</form>
+
+----------------------------input
+type	--button, checkbox, color, date, datetime-local, email, file, hidden,
+        image, month, number, password, radio, range, reset, search, submit, tel, text, time, url, week
+
+----------------------------button
+<button type="button" onclick="alert('Hello world!')">Click Me!</button>
+
+----------------------------iframe
+використовується для вбудовування іншого документа в поточний документ HTML.
+<iframe src="https://www.w3schools.com">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+
+
+
+</body>
+</html>

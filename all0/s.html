@@ -1,0 +1,477 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+background: lightblue url("1.gif") bottom right no-repeat;
+background-attachment: fixed;  дозволяє зафіксувати background-зображення щоб воно залишалося завжди навіть при прокрутті
+
+display: flex;
+flex-wrap: wrap;   визначає , чи повинен гнучкі елементи переноситися чи ні.
+justify-content: center;    вирівнює гнучкі елементи в центрі контейнера по горизонталі:
+justify-content: flex-start;
+justify-content: flex-end;
+justify-content: space-around;
+justify-content: space-between;
+align-items: center;     використовується для вирівнювання гнучких елементів по вертикалі.
+...
+align-content: space-between;   використовується для вирівнювання гнучких ліній.
+...
+align-self: center   задає вирівнювання для обраного елемента всередині гнучкого контейнера
+...
+flex: 0 0 200px;   елемент flex не піддається розтягуванню (0), не зменшується (0), а початкова довжина 200 пікселів:
+------------
+@media screen and (min-width: 480px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+@media only screen and (orientation: landscape) {
+  body {
+    background-color: lightblue;
+  }
+}
+------------------
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);      тіні
+................
+img {
+  width: 100%;
+  height: auto;
+}
+............
+  padding: 3px solid red;
+  margin: 30px;
+  border: 1px solid black;
+  outline: 1px solid red;
+  outline-offset: 15px;       дає відстань між border і outline
+............для нових шрифтів
+@font-face {
+   font-family: myFirstFont;
+   src: url(sansation_light.woff);
+}
+@font-face {
+   font-family: myFirstFont;
+   src: url(sansation_bold.woff);
+   font-weight: bold;
+}
+* {
+   font-family: myFirstFont;
+}
+.........
+text-align: left;
+text-decoration: line-through;     перекреслює слово
+text-transform: uppercase;        всі літери з великої
+text-transform: lowercase;        всі літери з малої
+text-transform: capitalize;       перші літери в словах з великої
+text-indent: 50px;              відступ в абзаці першого рядка
+text-shadow: 3px 2px red;      тінь
+text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;  (text-shadow: 2px 2px 4px #000000;)
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);          на фотографії
+vertical-align: middle;         вирівнювання іконки по середині тексту(top, bottom)
+font-family: "Times New Roman", Times, serif;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 100%;      розмір
+font-style: italic;        косий шрифт
+font-weight: bold;        жирний шрифт
+resize: none;          не дозволяє міняти вручну  textarea .....(resize: both;, resize: horizontal;, resize: vertical;)
+word-break: keep-all;    слова які не поміщаються переносяться на наступний рядок
+word-break: break-all;    слова які не поміщаються обрізаються в тому місці і переносяться на наступний рядок
+word-wrap: break-word;   якщо є довге слово то ту частину яка не влізла переносять на наступний рядок
+white-space: nowrap;        обрізає по заданій ширині і не переходить на наступний рядок
+text-overflow: ellipsis;    в кінці як обрізає ставить три крапки (означає що є продовження)
+div:hover {
+  overflow: visible;        при наведені буде видно обрізаний текст
+}
+..
+button {
+  opacity: 0.6;
+  cursor: not-allowed;        курсор буде забороненим знаком над кнопкою
+}
+.............
+a:link {
+  background-color: yellow;
+}
+a:visited {
+  background-color: cyan;
+}
+a:hover {
+  background-color: lightgreen;
+}
+a:active {
+  background-color: hotpink;
+}
+<a class="five" href="default.asp" target="_blank">бланк відкриває посилання в новому вікні </a>
+.............
+cursor:pointer;   добавляє курсор над елементом
+............
+table {
+  border-collapse: collapse;            обєднює границі в таблиці в одну
+}
+....
+tr:nth-child(even) {                    вибирає кожен парний рядок з таблиці ((2n-1) не парний)
+  background-color: #f2f2f2;
+}
+.....
+caption {
+  caption-side: bottom;         заголовок таблиці буде знизу таблиці
+}
+<table>
+<caption>Table 1.1 Customers</caption>
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+...........
+overflow-x:auto;     добавляє прокрутку по Х
+........
+visibility: hidden;           приховує елемент
+display: none;
+..........
+position: fixed;          фіксує елемент (при прокрутці лишається на свому місці)
+  bottom: 0;
+  right: 0;
+......
+position: relative;
+position: absolute;
+position: -webkit-sticky;
+position: sticky;
+......
+z-index: -1;        відображається під іншим елементом
+.........
+clip: rect(0px,60px,200px,0px);       відображає тільки визначений фрагмент картинки
+.........
+opacity: 0.5;          робить елемент прозорим
+.........
+overflow: visible;
+overflow: hidden;       обрізає те що не поміщається
+overflow: scroll;      добавляє прокрутку по Х і У
+overflow: auto;
+overflow-x: hidden;     видаляє прокрутку по Х
+overflow-y: scroll;      додає прокрутку по У
+.............
+float: right;        плаває з права
+clear: left;         стає з ліва з нового рядка
+..
+.clearfix::after {     картинка не буде виходити за рамки div і буде плавати в рамках class="clearfix"
+  content: "";
+  clear: both;
+  display: table;
+}
+..............width коробки не міняється від padding
+* {
+  box-sizing: border-box;
+}
+............. вирівнювання речення по центру коробки
+.center {
+  height: 200px;
+  position: relative;
+  border: 3px solid green;
+}
+.center p {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+......................
+p:first-child {
+  color: blue;
+}
+...
+p i:first-child {
+  color: blue;
+}
+...
+p:first-child i {
+  color: blue;
+}
+...
+h1::before {
+  content: url(smiley.gif);
+}
+...
+p::first-letter {
+  color: #ff0000;
+  font-size: xx-large;
+}
+...
+p::first-line {
+  color: #ff0000;
+  font-variant: small-caps;
+}
+...............після силки вставляється в дужках значення href (весь адрес посилання)
+a:after {
+  content: " (" attr(href) ")";
+}
+...............вставляє знаки як цитата
+q:lang(en) {
+  quotes: "«" "»" "'" "'";
+}
+.............target="_blank", target="_top"..
+a[target] {
+  background-color: yellow;
+}
+.......................title="klematis top"
+[title~=top] {
+  border: 5px solid yellow;
+}
+.....................class="top", class="top-header"
+[class|=top] {
+  background: yellow;
+}
+....................class="top", class="top-header", class="topcontent"
+[class^="top"] {
+  background: yellow;
+}
+..............class="top", class="my top", class="mytop", class="my-top", class="my_top",  які знаходяться останні
+[class$="top"] {
+  background: yellow;
+}
+..............class="first_test", class="my-test", class="mytest"
+[class*="te"] {
+  background: yellow;
+}
+...............сповільнює аніміцію
+-webkit-transition: 0.5s;
+ transition: 0.5s;
+.....................placeholder="Search.."......тільки для читання до вводу
+<input type="text" name="search" placeholder="Search..">
+................
+<input type="button" value="Button">
+<input type="reset" value="Reset">
+<input type="submit" value="Submit">
+.....................лічильник
+body {
+  counter-reset: section;
+}
+h2::before {
+  counter-increment: section;
+  content: counter(section) ".";
+}
+...................border-image:   ( 20% round; , 30 stretch; )
+#borderimg {
+  border: 10px solid transparent;
+  padding: 15px;
+  border-image: url(border.png) 30 round;
+}
+...................background-image:
+#example1 {
+  background-image: url(img_flwr.gif), url(paper.gif);
+  background-position: right bottom, left top;
+  background-repeat: no-repeat, repeat;
+  padding: 15px;
+}
+background-size: 100px 80px;
+background-size: contain;
+background-size: cover;         вставляє картинку на весь екрае, дкшо обтинається
+background: url(img_man.jpg) no-repeat center fixed;        для центральнього фіксування картинки
+background-origin: border-box;        картинка починається з border
+background-origin: content-box;       картинка починається в content, не заходячи на padding
+background-clip: padding-box;           картинка починається з border
+background-clip: content-box;          картинка починається в content, не заходячи на padding
+.....................градієнт з ліва на право(за замлвчуванням з верху в низ)
+#grad1 {
+  height: 200px;
+  background-color: red;
+  background-image: linear-gradient(to right, red , orange, yellow);
+}
+..........градусами можна крутити початок градієнта і у відсотках задавати довжину кольорів
+#grad2 {
+  height: 100px;
+  background-color: red;
+  background-image: linear-gradient(90deg, red 10%, green 85%, blue 90%);
+}
+......
+#grad3 {
+  height: 200px;
+  background-color: red;
+  background-image: repeating-linear-gradient(190deg,red,yellow 7%,green 10%);
+}
+................radial по колу, circle круглий градіент
+#grad4 {
+  height: 150px;
+  width: 200px;
+  background-color: red;
+  background-image: radial-gradient(circle, red, yellow, green);
+}
+..........................CSS 2D перетворює
+-ms-transform: translate(10px,10px); /* IE 9 */
+transform: translate(10px,10px);                  переміщує елемент по Х і У
+.....
+-ms-transform: rotate(20deg); /* IE 9 */
+transform: rotate(20deg);                         переміщує під кутом
+............збільшує елемент в 3 рази
+-ms-transform: scale(2,3); /* IE 9 */
+transform: scale(3,3);
+.....
+-ms-transform: skew(20deg,10deg); /* IE 9 */
+ transform: skew(20deg,10deg);
+.........робиться зміщення по іксу(робиться ромб)
+-ms-transform: skewX(20deg); /* IE 9 */
+transform: skewX(20deg);
+...
+-ms-transform: matrix(1, -0.3, 0, 1, 0, 0); /* IE 9 */
+  transform: matrix(1, -0.3, 0, 1, 0, 0);
+..............................................transition
+transition: all 0.5s;
+div:hover {
+  ...
+}
+....
+transition: width 2s, height 4s;
+div:hover {
+  width: 300px;
+  height: 300px;
+}
+...
+transition: width 2s, height 2s, transform 2s;
+div:hover {
+  width: 300px;
+  height: 300px;
+  transform: rotate(180deg);
+}
+...
+  transition-timing-function: linear;
+  transition-timing-function: ease;
+  transition-timing-function: ease-in;
+  transition-timing-function: ease-out;
+  transition-timing-function: ease-in-out;
+  transition-delay: 1s;                          затримка перед анімацією
+................................animation
+animation-name: asd;
+animation-duration: 4s;
+@keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+...
+position: relative;
+animation-direction: reverse;              в іншу сторону
+animation-iteration-count: 3;               кількість разів (infinite - безкінченно)
+@keyframes example {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+}
+....
+position: relative;
+animation: asd 5s infinite;
+@keyframes asd {
+  from {left: 0px;}
+  to {left: 300px;}
+}
+.....
+animation: asd 5s linear 2s infinite alternate;
+..............................filter
+img {
+  -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+  filter: grayscale(100%);
+}
+.............................вставляє зображення у задані рамки
+object-fit: fill;             стискає і розширює
+object-fit: contain;          вставляє так щоб ціле зобрадення помістилося, бічні чи верхні не заповнені частини залишаються без фотогравії
+object-fit: cover;            заповнює всю рамку не стискаючи зображення, лишнє обрізається
+object-fit: scale-down;
+object-fit: none;
+.................................column
+column-count: 3;     кількість стовпців
+column-gap: 40px;    відступи між колонками
+column-rule-style: solid;    добавляє лінію між колонками
+column-rule-width: 1px;      ширина лінії
+column-rule-color: blue;     колір
+column-rule: 1px solid blue;
+column-width: 100px;          оптимальна  ширина стовпців, якщо зменшити екран то стовпців стає 2 і потім 1
+....робить h2 заголовком для всіх колонок
+h2 {
+  column-span: all;
+}
+...............................var
+:root {
+  --asd: red;
+}
+div {
+  background-color: var(--asd);
+}
+...................................flex
+  display: -webkit-flex;
+  display: flex;
+.....елементи розміщені з права на ліво
+-webkit-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+....елементи розміщені стовпцем
+  -webkit-flex-direction: column;
+  flex-direction: column;
+....стовпці рівняються по центру по горизонталі
+-webkit-justify-content: center;
+  justify-content: center;
+....
+-webkit-flex-direction: column-reverse;
+ flex-direction: column-reverse;
+ ...
+ -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+....рівномірно від краю до краю
+-webkit-justify-content: space-between;
+justify-content: space-between;
+....
+-webkit-justify-content: space-around;
+justify-content: space-around;
+.............не будуть переходити на інший рядок, будуть стискатися
+-webkit-flex-wrap: nowrap;
+flex-wrap: nowrap;
+.....вирівнювання по горизонталі
+-webkit-align-items: center;
+align-items: center;
+......вирівнювання по горизонталі для окремих елементів
+.item1 {
+  -webkit-align-self: flex-start;
+  align-self: flex-start;
+}
+.item2 {
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+}
+.item3 {
+  -webkit-align-self: center;
+  align-self: center;
+}
+.item4 {
+  -webkit-align-self: baseline;
+  align-self: baseline;
+}
+.item5 {
+  -webkit-align-self: stretch;
+  align-self: stretch;
+}
+......переставляє box2 на місце box1
+.box2 {
+  -webkit-order: -1;
+  order: -1;
+}
+.......робить елемент .item1  в два рази більшим за інші
+.item1 {
+  -webkit-flex: 2;
+  flex: 2;
+}
+.........робить flex: 25%;
+flex: 25%;
+.......всі елементи з права
+body {
+direction: rtl;
+}
+...................................@media
+@media screen and (min-width: 480px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+........................video
+video {
+  max-width: 100%;
+  height: auto;
+}
+<video width="400" controls>
+  <source src="mov_bbb.mp4" type="video/mp4">
+  <source src="mov_bbb.ogg" type="video/ogg">
+  Your browser does not support HTML5 video.
+</video>

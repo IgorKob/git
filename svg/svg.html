@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <!-- Приклади SVG
+  Основні форми SVG
+  https://www.w3schools.com/graphics/svg_examples.asp -->
+
+<svg width="400" height="180">
+  <rect x="50" y="20" width="150" height="150" style="fill:blue;stroke:pink;stroke-width:5;opacity:0.5" />
+  Sorry, your browser does not support inline SVG.
+</svg>
+<svg width='345' height='345' style='opacity: 0.2;'>
+  <circle cx='45' cy='45' r='56' stroke='red' stroke-width='6' fill='blue' />
+  <rect x='77' width='111' height='111' stroke='yellow' stroke-width='7' fill='black' rx='22' ry='22'/>
+  <ellipse cx="200" cy="80" rx="100" ry="50" stroke='red' stroke-width='6' fill='black'  />
+  <ellipse cx='308' cy='56' rx='334' ry='16' stroke='red' stroke-width='6' fill='blue' />
+</svg>
+
+<svg width='400' height='400'>
+  <ellipse cx="200" cy="200" rx="200" ry="50" stroke='red' stroke-width='6' fill='black'  />
+  <ellipse cx="200" cy="150" rx="150" ry="40" stroke='red' stroke-width='6' fill='blue' />
+  <ellipse cx="200" cy="100" rx="100" ry="30" stroke='red' stroke-width='6' fill='black'  />
+  <ellipse cx="200" cy="50" rx="50" ry="20" stroke='red' stroke-width='6' fill='blue' />
+</svg>
+
+<svg width='400' height='400'>
+  <ellipse cx="200" cy="200" rx="200" ry="50" stroke='red' stroke-width='6' fill='black'  />
+  <ellipse cx="200" cy="200" rx="180" ry="40" stroke='red' stroke-width='6' fill='blue' />
+
+</svg>
+<svg width='345' height='345'>
+  <line x1='22' y1='22' x2='111' y2='222' stroke='red' stroke-width='7'  />
+</svg>
+
+<svg height="210" width="500">
+  <polygon points="200,10 250,190 160,210" style="fill:lime;stroke:purple;stroke-width:1" />
+  Sorry, your browser does not support inline SVG.
+</svg>
+<svg height="210" width="500">
+  <polygon points="100,10 40,198 190,78 10,78 160,198" style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;"/>
+  Sorry, your browser does not support inline SVG.
+</svg>
+<svg height="200" width="500">
+  <polyline points="20,20 40,25 60,40 80,120 120,140 200,180" style="fill:none;stroke:black;stroke-width:3" />
+  Sorry, your browser does not support inline SVG.
+</svg>
+<svg height="400" width="450">
+<path id="lineAB" d="M 100 350 l 150 -300" stroke="red" stroke-width="3" fill="none" />
+  <path id="lineBC" d="M 250 50 l 150 300" stroke="red" stroke-width="3" fill="none" />
+  <path d="M 175 200 l 150 0" stroke="green" stroke-width="3" fill="none" />
+  <path d="M 100 350 q 150 -300 300 0" stroke="blue" stroke-width="5" fill="none" />
+  <!-- Mark relevant points -->
+  <g stroke="black" stroke-width="3" fill="black">
+    <circle id="pointA" cx="100" cy="350" r="3" />
+    <circle id="pointB" cx="250" cy="50" r="3" />
+    <circle id="pointC" cx="400" cy="350" r="3" />
+  </g>
+  <!-- Label the points -->
+  <g font-size="30" font-family="sans-serif" fill="black" stroke="none" text-anchor="middle">
+    <text x="100" y="350" dx="-30">A</text>
+    <text x="250" y="50" dy="-10">B</text>
+    <text x="400" y="350" dx="30">C</text>
+  </g>
+  Sorry, your browser does not support inline SVG.
+</svg>
+
+<!-- Елемент <path> використовується для визначення шляху.
+
+Для даних шляху доступні наступні команди:
+
+M = moveto
+L = лінето
+Н = горизонтальний лінето
+V = вертикальний лінето
+C = крива
+S = гладка крива
+Q = квадратична крива Безьє
+T = гладка квадратична крива Безьє
+A = еліптична дуга
+Z = близький шлях
+Примітка. Усі команди, наведені вище, також можуть бути виражені малими літерами. Великі літери означають абсолютно розміщені, малі регістри означають відносно розташовані. -->
+
+<svg height="30" width="200">
+  <text x="0" y="15" fill="red">I love SVG!</text>
+  Sorry, your browser does not support inline SVG.
+</svg>
+<svg height="60" width="200">
+  <text x="0" y="15" fill="red" transform="rotate(30 20,40)">I love SVG</text>
+  Sorry, your browser does not support inline SVG.
+</svg>
+
+<svg height="30" width="200" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <a xlink:href="https://www.w3schools.com/graphics/" target="_blank">
+   <text x="0" y="15" fill="red">I love SVG!</text>
+ </a>
+ Sorry, your browser does not support inline SVG.
+</svg>
+<svg height="150" width="400">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+  <text fill="#ffffff" font-size="45" font-family="Verdana" x="150" y="86">SVG</text>
+  Sorry, your browser does not support inline SVG.
+</svg>
+
+
+
+</body>
+</html>
