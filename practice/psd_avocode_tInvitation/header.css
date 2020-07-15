@@ -1,10 +1,12 @@
+
 .header {
   width: 100%;
   background-color: #fffef9;
   background-image: linear-gradient(to top, #ffffff 0%, #fff9df 100%);
-  padding-top: 92px;
+  padding-top: 30px;
   background-position: center bottom, top left;
 }
+
 .logo {
 
 }
@@ -47,11 +49,12 @@
 }
 .header-title {
   color: #0d3e60;
-  font-size: 38px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 1;
   margin-bottom: 36px;
 }
+
 /* /// */
 .header-names {
   margin-left: auto;
@@ -59,18 +62,22 @@
   margin-bottom: 60px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
+
+
 .header-names * {
 
 }
 .header-names-left {
-  text-align: right;
+  text-align: center;
 }
 .header-names-button {
-  margin: 0 37px;
+  /* margin: 0 37px; */
+  text-align: center;
 }
 .header-names-right {
-
+  text-align: center;
 }
 .header-names-name {
   color: #eb5238;
@@ -112,7 +119,7 @@
   height: 174px;
   display: block;
   position: absolute;
-  left: -23px;
+  left: 5px;
   top: -28px;
   background-image: url('img/left_scroll.svg');
   background-repeat: no-repeat;
@@ -125,13 +132,44 @@
   height: 174px;
   display: block;
   position: absolute;
-  right: -23px;
+  right: 5px;
   top: -28px;
   background-image: url('img/right_scroll.svg');
   background-repeat: no-repeat;
   background-position: center;
 
 }
+@media (min-width: 400px) {
+  .container {
+    width: 1140px
+    padding: 0;
+  }
+  .header-title {
+    font-size: 38px;
+  }
+  .header-names {
+    flex-direction: row;
+  }
+  .header-names-left {
+    text-align: right;
+  }
+  .header-names-button {
+    margin: 0 37px;
+  }
+  .header-names-right {
+    text-align: left;
+  }
+  .scroll-bg::after {
+      right: -23px;
+  }
+.scroll-bg::before {
+  left: -23px;
+}
+.img-down {
+  bottom: 0;
+}
+}
+/* /@media   */
 .scroll-title {
   color: #8d8b80;
   font-size: 18px;
@@ -147,7 +185,16 @@
 }
 .img-down {
   position: absolute;
-  bottom: 0;
+  bottom: -40px;
   left: 50%;
   transform: translateX(-50%);
 }
+.down img {
+  max-width: 100%;
+  height: auto;
+}
+/* ////mob */
+/* .down {
+  display: none;
+} */
+/* ///mob */
