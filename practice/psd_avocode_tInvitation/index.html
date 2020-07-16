@@ -10,14 +10,62 @@
     <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="footer.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    <style media="screen">
-     .about-wrapper, .footer {
-        display: none;
+
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+    <!-- <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+
+    <script>
+    // $( function() {
+    //   $( "#tabs" ).tabs();
+    // } );
+
+    $(document).ready(function() {
+      $('.about-toggle').click(function(event) {
+        event.preventDefault();
+
+        $('.about-content-box').hide();
+
+        let href = $(this).attr('href');
+
+        $(href).fadeIn();
+      });
+
+
+    // scroll
+    $(window).scroll(function() {
+      if ( $(this).scrollToTop() > windowHeight ) {
+        $('#scrollToTop').fadeIn();
+      } else {
+        $('#scrollToTop').fadeOut();
       }
+    });
+
+    $('#scrollToTop').click(function(event) {
+      event.preventDefault();
+      $('html').animate({scrollTop: 0}, 800);
+    });
+
+  });
+    </script>
+
+    <style media="screen">
+    /* .header, .information-wrapper, .about-wrapper {
+        display: none;
+      } */
     </style>
   </head>
   <body>
+<div id="scrollToTop" class="scrollToTop-wrapper">
+  <div class="scrollToTop-icon">
 
+  </div>
+</div>
 
     <header class="header">
                   <div class="container space-between">
@@ -116,7 +164,7 @@
 
 <!-- /////about -->
 <div class="about-wrapper">
-  <div class="container justify-between">
+  <div class="container kim1">
 
     <div class="about-cards">
 
@@ -210,25 +258,39 @@
     </div>
 
     <div class="about-content">
-      <div class="about-toggle-wrapper">
-        <a href="#" class="about-toggle">Why Use OathJar</a>
-        <a href="#" class="about-toggle">How it Works</a>
-        <a href="#" class="about-toggle">OathJar is Private</a>
+      <div id="tabs" class="about-toggle-wrapper">
+       <ul>
+          <li><a href="#tabs-1" class="about-toggle">Why Use OathJar</a></li>
+          <li><a href="#tabs-2" class="about-toggle">How it Works</a></li>
+          <li><a href="#tabs-3" class="about-toggle">OathJar is Private</a></li>
+       </ul>
+
+         <div id="tabs-1" class="about-content-box">
+          <h2 class="col-h4 title-special">What is OathJar?</h2>
+
+          <p>OathJar is a brand new company aimed at providing people in an active
+            relationship with a place of their own to set the rules and guidelines of their relationships</p>
+        </div>
+        <div id="tabs-2" class="about-content-box">
+         <h2 class="col-h4 title-special">How it Works?</h2>
+
+         <p>OathJar is a brand new company aimed at providing people in an active
+           relationship with a place of their own to set the rules</p>
+       </div>
+       <div id="tabs-3" class="about-content-box">
+        <h2 class="col-h4 title-special">OathJar is Private?</h2>
+
+        <p>OathJar is a brand new company aimed at providing people</p>
       </div>
-
-      <h2 class="col-h4 title-special">What is OathJar?</h2>
-
-      <p>OathJar is a brand new company aimed at providing people in an active
-        relationship with a place of their own to set the rules and guidelines of their relationships</p>
+  </div>
     </div>
   </div>
 </div>
 
 
-
 <!-- footer -->
 <footer class="footer">
-  <div class="container justify-between align-center">
+  <div class="container kim2">
     <div class="footer-copyright">
       <img class="footer-logo" src="img/logo.svg" alt="logo">
       <span class="footer-text">© OathJar, 2018</span>
