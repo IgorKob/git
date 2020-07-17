@@ -1,0 +1,9 @@
+npm cache clean
+npm i npm check updates g
+npm i npm check updates
+npm i -g gulp
+npm install gulp-sass --save-dev
+
+npm i -g gulp-cli
+npm i
+gulp

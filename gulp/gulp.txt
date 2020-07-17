@@ -1,9 +1,9 @@
       Gulp
-//для додавання з caniuse.com префіксів
-//https://www.npmjs.com/package/gulp-autoprefixer
-const gulp = require('gulp');
-const autoprefixer = require('gulp-autoprefixer');
- 
+// РґР»СЏ РґРѕРґР°РІР°РЅРЅСЏ Р· caniuse.com РїСЂРµС„С–РєСЃС–РІ //
+https://www.npmjs.com/package/gulp-autoprefixer
+const gulp = requ ('gulp');
+const autoprefixer = requ ('gulp-autoprefixer');
+
 gulp.task('default', () =>
      gulp.src('css/1.css')
     .pipe(autoprefixer({
@@ -12,92 +12,52 @@ gulp.task('default', () =>
 }))
     .pipe(gulp.dest('dist'))
 );
-          
 
 
+html
+Р”РѕР·РІРѕР»СЏС” СЂРѕР·Р±РёС‚Рё СЃС‚РѕСЂС–РЅРєСѓ РЅР° РѕРєСЂРµРјС– Р±Р»РѕРєРё
+npm i gulp-file-include
 
+css
+Р—'С”РґРЅСѓСЋС‡С– С„Р°Р№Р»Рё css https://www.npmjs.com/package/gulp-concat-css
 
-З’єднує файли css
-https://www.npmjs.com/package/gulp-concat-css
+РїР»Р°РіС–РЅ РґР»СЏ РјС–РЅС–РјС–Р·Р°С†С–С— CSS https://www.npmjs.com/package/gulp-clean-css
 
-плагін для мінімізації CSS
-https://www.npmjs.com/package/gulp-clean-css
+РїР»Р°РіС–РЅ РґР»СЏ Р»РµРіРєРѕРіРѕ РїРµСЂРµР№РјРµРЅСѓРІР°РЅРЅСЏ С„Р°Р№Р»С–РІ. https://www.npmjs.com/package/gulp-rename
 
-плагін для легкого перейменування файлів.
-https://www.npmjs.com/package/gulp-rename
+Р’РёРґР°Р»С–С‚СЊ РЅРµРІРёРєРѕСЂРёСЃС‚Р°РЅРёР№ CSS https://www.npmjs.com/package/gulp-uncss-sp
 
-Видаліть невикористаний CSS
-https://www.npmjs.com/package/gulp-uncss-sp
+Р°РІС‚РѕРјР°С‚РёС‡РЅРѕ С„РѕСЂРјР°С‚СѓС” РІР°С€ СЃС‚РёР»СЊ, Р’Р†Рќ Р‘РЈР’ С‰РѕР± РїРѕСЃР»С–РґРѕРІРЅС–Рј Рё РґР»СЏ С‡РёС‚Р°РЅРЅСЏ Р»РµРіРєРёРј https://www.npmjs.com/package/gulp-cssbeautify
 
-автоматично форматує ваш стиль, щоб він був послідовним і легким для читання
-https://www.npmjs.com/package/gulp-cssbeautify
-
-
-
-js 
+         js
 https://www.npmjs.com/package/gulp-concat
 
-
 https://www.npmjs.com/package/gulp-jscs-with-reporter
-
 
 https://www.npmjs.com/package/gulp-babel
 
 https://www.npmjs.com/package/gulp-jshint
 
-
-
-
-
-
-
-
-image
+       image
 https://www.npmjs.com/package/gulp-imagemin
 
-
-
-Зміна розмірів зображення
-https://www.npmjs.com/package/gulp-image-resize
-
+Р—РјС–РЅР° СЂРѕР·РјС–СЂС–РІ Р·РѕР±СЂР°Р¶РµРЅРЅСЏ https://www.npmjs.com/package/gulp-image-resize
 
 https://www.npmjs.com/package/gulp-img-retina
 
-
-
-Створює зображення різного розміру
-https://www.npmjs.com/package/gulp-responsive
-
-
+РЎС‚РІРѕСЂС–С‚СЊ Р·РѕР±СЂР°Р¶РµРЅРЅСЏ СЂС–Р·РЅРѕРіРѕ СЂРѕР·РјС–СЂСѓ https://www.npmjs.com/package/gulp-responsive
 
 https://www.npmjs.com/package/gulp-imacss
 
-
-
-
-
+       all
 https://www.npmjs.com/package/gulp-less
-
-
 
 https://www.npmjs.com/package/gulp-sass
 
-
 https://www.npmjs.com/package/gulp-react-templates
-
 
 https://www.npmjs.com/package/gulp-angular-templatecache
 
-
 https://www.npmjs.com/package/gulp-autoprefixer
 
-
-для запуску локального веб-сервера з перезавантаженням в реальному часі за допомогою socket.io
-https://www.npmjs.com/package/gulp-server-livereload
-
-
-
-
-
-
-
+РґР»СЏ Р·Р°РїСѓС‰РµРЅРѕС— Р»РѕРєР°Р»СЊРЅРѕС— РІРµР±-СЃРµСЂРІРµСЂР° Р· РїРµСЂРµРіР»СЏРґРѕРј РІ СЂРµР°Р»СЊРЅС–Р№ С‡Р°СЃС– РґР»СЏ РІРёРєРѕСЂРёСЃС‚Р°РЅРЅСЏ socket.io https://www.npmjs.com/package/gulp-server-livereload

@@ -1,0 +1,29 @@
+{
+	"name": "gulp-project",
+	"version": "1.0.3",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"browser-sync": "^2.24.4",
+		"gulp": "^3.9.1",
+		"gulp-autoprefixer": "^5.0.0",
+		"gulp-less": "^3.4.0",
+		"gulp-notify": "^3.2.0",
+		"gulp-plumber": "^1.2.0",
+		"gulp-sass": "^4.1.0",
+		"gulp-sourcemaps": "^2.6.4",
+		"gulp-watch": "^5.0.0"
+	},
+	"description": "",
+	"dependencies": {
+		"check": "^1.0.0",
+		"g": "^2.0.1",
+		"npm": "^6.14.6",
+		"updates": "^10.2.17"
+	}
+}
