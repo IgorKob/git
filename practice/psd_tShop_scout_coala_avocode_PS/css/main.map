@@ -1,0 +1,16 @@
+{
+	"version": 3,
+	"file": "main.css",
+	"sources": [
+		"../scss/main.scss",
+		"../scss/base/_base.scss",
+		"../scss/blocks/_header.scss"
+	],
+	"sourcesContent": [
+		"@import \"./base/base\";\r\n\r\n@import \"./blocks/header\";",
+		"",
+		".header {\r\n    width: 1440px;\r\n    height: 180px;\r\n    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);\r\n    background-color: #ffffff;\r\n}\r\n.header__container {\r\n    max-width: 110px;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    padding-left: 23px;\r\n    padding-right: 41px;\r\n\r\n}\r\n.header__logo {\r\n\r\n}\r\n.header__search {\r\n\r\n}\r\n.header__button {\r\n\r\n}"
+	],
+	"names": [],
+	"mappings": ";AEAA,AAAA,OAAO,CAAC;EACJ,KAAK,EAAE,MAAM;EACb,MAAM,EAAE,KAAK;EACb,UAAU,EAAE,CAAC,CAAC,GAAG,CAAC,IAAI,CAAC,mBAAmB;EAC1C,gBAAgB,EAAE,OAAO;CAC5B;;;AACD,AAAA,kBAAkB,CAAC;EACf,SAAS,EAAE,KAAK;EAChB,WAAW,EAAE,IAAI;EACjB,YAAY,EAAE,IAAI;EAClB,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,aAAa;EAC9B,WAAW,EAAE,MAAM;EACnB,YAAY,EAAE,IAAI;EAClB,aAAa,EAAE,IAAI;CAEtB"
+}

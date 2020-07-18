@@ -1,0 +1,21 @@
+/* line 1, D:/igorka/test/Git/howto/practice/psd_tShop_scout_coala_avocode_PS/scss/blocks/_header.scss */
+.header {
+  width: 1440px;
+  height: 180px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+}
+
+/* line 7, D:/igorka/test/Git/howto/practice/psd_tShop_scout_coala_avocode_PS/scss/blocks/_header.scss */
+.header__container {
+  max-width: 110px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 23px;
+  padding-right: 41px;
+}
+
+/*# sourceMappingURL=main.css.map */
