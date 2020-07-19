@@ -1,13 +1,9 @@
 * {
     box-sizing: border-box;
 }
+
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: $fafafa;
+    background-color: #fafafa;
     margin: 0;
-}
-.container {
-    max-width: 110px;
-    margin-left: auto;
-    margin-right: auto;
+    font-family: "Roboto", sans-serif;
 }

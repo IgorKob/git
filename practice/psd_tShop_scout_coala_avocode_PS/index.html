@@ -1,28 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
-    <header class="header">
-        <div class="header__container">
-            <div class="header__logo">
-                QUANTUM
-            </div>
-            <div class="header__search">
 
-            </div>
-            <div class="header__button">
-                
-            </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quantum</title>
+  <link rel="stylesheet" href="./css/main.css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap&subset=cyrillic-ext" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <div class="header-top">
+      <div class="header-top__logo"><a href="#">QUANTUM</a></div>
+
+      <div class="header-top__search">
+        <input type="text" placeholder="Search goods">
+
+        <div class="header-top__search__category">
+          <div>CATEGORY</div>
+          <div class="arrow-svg__padding-left">
+            <svg class="header-top__search__cat__arrow-svg" xmlns="http://www.w3.org/2000/svg" width="8" height="5" viewBox="0 0 8 5">
+              <path d="M3.998 5L8 2.5V.104L3.998 2.62 0 0v2.5z" />
+            </svg></div>
+        </div>
+
+        <div class="header-top__search__search-svg">
+          <svg class="search-svg" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13">
+            <path d="M5.001 8a3 3 0 0 0 0-6 3 3 0 1 0 0 6zm2.773 1.16A5 5 0 1 1 9.16 7.774L13 11.624 11.622 13z" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="header-top__shop">
+
+        <div class="header-top__shop__cart">
+
+          <div class="header-top__shop__cart__svg__wrapper">
+
+            <svg class="header-top__shop__cart__svg" xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20">
+              <path
+                d="M16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2c1.099 0 2-.9 2-2s-.901-2-2-2zM4.008 18c0 1.1.89 2 1.99 2 1.102 0 2-.9 2-2s-.898-2-2-2c-1.1 0-1.99.9-1.99 2zM14.55 9H7.53l-.13-.27L5.16 4h12.15zM3.27 0H0v2H2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96C4 14.1 4.9 15 6 15h12v-2H6.42a.256.256 0 0 1-.25-.25l.03-.12L7.1 11h7.45c.75 0 1.409-.41 1.75-1.03l3.861-7.01-.16-.96H4.21z" />
+            </svg>
+
+            <div class="header-top__shop__cart__svg__circle"></div>
+
+          </div>
+
+
+          <div class="header-top__shop__cart__text">2 Items</div>
 
         </div>
-    </header>
+
+        <div class="header-top__shop__hard">
+
+          <div class="header-top__shop__hard__svg__wrapper">
+            <svg class="header-top__shop__hard__svg" xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 20 19">
+              <path
+                d="M10.1 15.55l-.1.1-.1-.1C5.14 11.24 2 8.39 2 5.5 2 3.5 3.5 2 5.5 2c1.54 0 3.038.99 3.569 2.36h1.871C11.46 2.99 12.96 2 14.5 2c2.002 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.898 10.05zM14.5 0c-1.74 0-3.41.81-4.5 2.09C8.912.81 7.24 0 5.5 0 2.42 0 0 2.42 0 5.5c0 3.78 3.4 6.86 8.55 11.54L10 18.35l1.451-1.32C16.6 12.36 20 9.28 20 5.5 20 2.42 17.58 0 14.5 0z" />
+            </svg>
+          </div>
+
+          <div class="header-top__shop__hard__text">Wish List</div>
+
+        </div>
+
+        <div class="header-top__shop__user">
+
+          <div class="header-top__shop__user__svg__wrapper">
+            <svg class="header-top__shop__user__svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                  <path d="M16 13v3H0v-3c0-2.66 5.33-4 8-4s8 1.34 8 4zm-4.002-9c0 2.21-1.789 4-3.998 4a3.997 3.997 0 0 1-4-4c0-2.21 1.788-4 4-4 2.21 0 3.998 1.79 3.998 4zm-10.1 9v1.1H14.1V13c0-.64-3.13-2.1-6.1-2.1-2.968 0-6.1 1.46-6.1 2.1zM5.9 4a2.101 2.101 0 0 0 4.202 0A2.101 2.101 0 0 0 5.9 4z" />
+            </svg>
+          </div>
+
+          <div class="header-top__shop__user__text">Sing in</div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="header-bottom"></div>
+  </header>
 
 
+
+  <script src="js/main.js"></script>
 </body>
+
 </html>
