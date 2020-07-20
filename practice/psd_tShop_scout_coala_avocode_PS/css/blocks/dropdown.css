@@ -1,0 +1,70 @@
+/* line 4, D:/igorka/test/Git/howto/www__myprob/scss/blocks/dropdown.scss */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* line 9, D:/igorka/test/Git/howto/www__myprob/scss/blocks/dropdown.scss */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* line 18, D:/igorka/test/Git/howto/www__myprob/scss/blocks/dropdown.scss */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* line 23, D:/igorka/test/Git/howto/www__myprob/scss/blocks/dropdown.scss */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* line 34, D:/igorka/test/Git/howto/www__myprob/scss/blocks/dropdown.scss */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+/* line 38, D:/igorka/test/Git/howto/www__myprob/scss/blocks/dropdown.scss */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* line 47, D:/igorka/test/Git/howto/www__myprob/scss/blocks/dropdown.scss */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* line 56, D:/igorka/test/Git/howto/www__myprob/scss/blocks/dropdown.scss */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* line 60, D:/igorka/test/Git/howto/www__myprob/scss/blocks/dropdown.scss */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/*# sourceMappingURL=dropdown.css.map */

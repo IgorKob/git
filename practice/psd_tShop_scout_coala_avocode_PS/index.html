@@ -10,19 +10,30 @@
 </head>
 
 <body>
+
   <header>
+
     <div class="header-top">
       <div class="header-top__logo"><a href="#">QUANTUM</a></div>
 
       <div class="header-top__search">
         <input type="text" placeholder="Search goods">
 
-        <div class="header-top__search__category">
-          <div>CATEGORY</div>
+        <div class="header-top__search__category custom-select">
+
+          <select>
+            <option value="0">CATEGORY</option>
+            <option value="1">Link 1</option>
+            <option value="2">Link 2</option>
+            <option value="3">Link 3</option>
+          </select>
+
           <div class="arrow-svg__padding-left">
             <svg class="header-top__search__cat__arrow-svg" xmlns="http://www.w3.org/2000/svg" width="8" height="5" viewBox="0 0 8 5">
               <path d="M3.998 5L8 2.5V.104L3.998 2.62 0 0v2.5z" />
-            </svg></div>
+            </svg>
+          </div>
+
         </div>
 
         <div class="header-top__search__search-svg">
@@ -69,7 +80,8 @@
 
           <div class="header-top__shop__user__svg__wrapper">
             <svg class="header-top__shop__user__svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                  <path d="M16 13v3H0v-3c0-2.66 5.33-4 8-4s8 1.34 8 4zm-4.002-9c0 2.21-1.789 4-3.998 4a3.997 3.997 0 0 1-4-4c0-2.21 1.788-4 4-4 2.21 0 3.998 1.79 3.998 4zm-10.1 9v1.1H14.1V13c0-.64-3.13-2.1-6.1-2.1-2.968 0-6.1 1.46-6.1 2.1zM5.9 4a2.101 2.101 0 0 0 4.202 0A2.101 2.101 0 0 0 5.9 4z" />
+              <path
+                d="M16 13v3H0v-3c0-2.66 5.33-4 8-4s8 1.34 8 4zm-4.002-9c0 2.21-1.789 4-3.998 4a3.997 3.997 0 0 1-4-4c0-2.21 1.788-4 4-4 2.21 0 3.998 1.79 3.998 4zm-10.1 9v1.1H14.1V13c0-.64-3.13-2.1-6.1-2.1-2.968 0-6.1 1.46-6.1 2.1zM5.9 4a2.101 2.101 0 0 0 4.202 0A2.101 2.101 0 0 0 5.9 4z" />
             </svg>
           </div>
 
@@ -80,12 +92,148 @@
       </div>
     </div>
 
-    <div class="header-bottom"></div>
+    <div class="header-bottom">
+
+      <nav>
+
+        <div class="nav-all dropdown">
+
+          <div class="nav-svg__wrapper">
+            <svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12">
+              <path d="M18 0v2H0V0zM0 5h18v2H0zm0 5h18v2H0z" />
+            </svg>
+          </div>
+
+          <div class="nav-text">All Categories</div>
+
+          <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+
+        </div>
+
+        <div class="nav-category">
+          <a href="#">Super Deals</a>
+          <a href="#">Featured Brands</a>
+          <a href="#">Collections</a>
+          <a href="#">Bestselling</a>
+        </div>
+
+
+      </nav>
+
+      <div class="nav_to">
+
+        <div class="nav_help dropdown">
+
+          <a href="#">
+            <div>Help</div>
+            <div class="nav_help_svg-wrapper">
+              <svg class="nav_help_svg" xmlns="http://www.w3.org/2000/svg" width="8" height="5" viewBox="0 0 8 5">
+                <path d="M3.998 5L8 2.5V.104L3.998 2.62 0 0v2.5z" />
+              </svg>
+            </div>
+          </a>
+
+          <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+
+        </div>
+
+        <div class="nav_price dropdown">
+
+          <a href="#">
+            <div>USD</div>
+            <div class="nav_help_svg-wrapper">
+              <svg class="nav_help_svg" xmlns="http://www.w3.org/2000/svg" width="8" height="5" viewBox="0 0 8 5">
+                <path d="M3.998 5L8 2.5V.104L3.998 2.62 0 0v2.5z" />
+              </svg>
+            </div>
+          </a>
+
+          <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+
+        </div>
+
+        <div class="nev_lang dropdown">
+
+          <a href="#">
+            <div>Language</div>
+            <div class="nav_help_svg-wrapper">
+              <svg class="nav_help_svg" xmlns="http://www.w3.org/2000/svg" width="8" height="5" viewBox="0 0 8 5">
+                <path d="M3.998 5L8 2.5V.104L3.998 2.62 0 0v2.5z" />
+              </svg>
+            </div>
+          </a>
+
+          <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </header>
+
+  <div class="">
+    <div class="slideshow-container">
+
+      <div class="mySlides fade">
+        <img src="./img/slideshow/image.png" style="width:100%">
+        <div class="text">The Universe Through A Child S Eyes</div>
+      </div>
+
+      <div class="mySlides fade">
+        <img src="./img/slideshow/image.png" style="width:100%">
+        <div class="text">Caption Two</div>
+      </div>
+
+      <div class="mySlides fade">
+        <img src="./img/slideshow/image.png" style="width:100%">
+        <div class="text">Caption Three</div>
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+          <path fill="#fff" d="M10.576 20.077l1.393-1.511-7.951-7.553h15.964V9.027H4.018l7.951-7.49L10.41 0 0 10.006l10.576 10.071" />
+        </svg>
+      </a>
+
+      <a class="next" onclick="plusSlides(1)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+              <path fill="#fff" d="M9.425 20.077l-1.396-1.511 7.955-7.553H.019V9.027h15.965l-7.955-7.49L9.591 0 20 10.006 9.424 20.077" />
+        </svg>
+      </a>
+
+      <div class="dot-wrapper" style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+
+    </div>
+
+  </div>
 
 
 
   <script src="js/main.js"></script>
+  <script src="js/select.js"></script>
+  <script src="js/slideshow.js"></script>
 </body>
 
 </html>

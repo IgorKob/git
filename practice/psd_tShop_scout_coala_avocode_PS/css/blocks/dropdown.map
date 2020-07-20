@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "dropdown.css",
+	"sources": [
+		"../../scss/blocks/dropdown.scss"
+	],
+	"sourcesContent": [
+		"// dropdown\r\n// dropdown-content\r\n// dropbtn\r\n.navbar {\r\n  overflow: hidden;\r\n  background-color: #333;\r\n}\r\n\r\n.navbar a {\r\n  float: left;\r\n  font-size: 16px;\r\n  color: white;\r\n  text-align: center;\r\n  padding: 14px 16px;\r\n  text-decoration: none;\r\n}\r\n\r\n.dropdown {\r\n  float: left;\r\n  overflow: hidden;\r\n}\r\n\r\n.dropdown .dropbtn {\r\n  font-size: 16px;\r\n  border: none;\r\n  outline: none;\r\n  color: white;\r\n  padding: 14px 16px;\r\n  background-color: inherit;\r\n  font-family: inherit;\r\n  margin: 0;\r\n}\r\n\r\n.navbar a:hover, .dropdown:hover .dropbtn {\r\n  background-color: red;\r\n}\r\n\r\n.dropdown-content {\r\n  display: none;\r\n  position: absolute;\r\n  background-color: #f9f9f9;\r\n  min-width: 160px;\r\n  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-content a {\r\n  float: none;\r\n  color: black;\r\n  padding: 12px 16px;\r\n  text-decoration: none;\r\n  display: block;\r\n  text-align: left;\r\n}\r\n\r\n.dropdown-content a:hover {\r\n  background-color: #ddd;\r\n}\r\n\r\n.dropdown:hover .dropdown-content {\r\n  display: block;\r\n}\r\n"
+	],
+	"names": [],
+	"mappings": ";AAGA,AAAA,OAAO,CAAC;EACN,QAAQ,EAAE,MAAM;EAChB,gBAAgB,EAAE,IAAI;CACvB;;;AAED,AAAA,OAAO,CAAC,CAAC,CAAC;EACR,KAAK,EAAE,IAAI;EACX,SAAS,EAAE,IAAI;EACf,KAAK,EAAE,KAAK;EACZ,UAAU,EAAE,MAAM;EAClB,OAAO,EAAE,SAAS;EAClB,eAAe,EAAE,IAAI;CACtB;;;AAED,AAAA,SAAS,CAAC;EACR,KAAK,EAAE,IAAI;EACX,QAAQ,EAAE,MAAM;CACjB;;;AAED,AAAA,SAAS,CAAC,QAAQ,CAAC;EACjB,SAAS,EAAE,IAAI;EACf,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,IAAI;EACb,KAAK,EAAE,KAAK;EACZ,OAAO,EAAE,SAAS;EAClB,gBAAgB,EAAE,OAAO;EACzB,WAAW,EAAE,OAAO;EACpB,MAAM,EAAE,CAAC;CACV;;;AAED,AAAA,OAAO,CAAC,CAAC,AAAA,MAAM,EAAE,SAAS,AAAA,MAAM,CAAC,QAAQ,CAAC;EACxC,gBAAgB,EAAE,GAAG;CACtB;;;AAED,AAAA,iBAAiB,CAAC;EAChB,OAAO,EAAE,IAAI;EACb,QAAQ,EAAE,QAAQ;EAClB,gBAAgB,EAAE,OAAO;EACzB,SAAS,EAAE,KAAK;EAChB,UAAU,EAAE,GAAG,CAAC,GAAG,CAAC,IAAI,CAAC,GAAG,CAAC,kBAAe;EAC5C,OAAO,EAAE,CAAC;CACX;;;AAED,AAAA,iBAAiB,CAAC,CAAC,CAAC;EAClB,KAAK,EAAE,IAAI;EACX,KAAK,EAAE,KAAK;EACZ,OAAO,EAAE,SAAS;EAClB,eAAe,EAAE,IAAI;EACrB,OAAO,EAAE,KAAK;EACd,UAAU,EAAE,IAAI;CACjB;;;AAED,AAAA,iBAAiB,CAAC,CAAC,AAAA,MAAM,CAAC;EACxB,gBAAgB,EAAE,IAAI;CACvB;;;AAED,AAAA,SAAS,AAAA,MAAM,CAAC,iBAAiB,CAAC;EAChC,OAAO,EAAE,KAAK;CACf"
+}
