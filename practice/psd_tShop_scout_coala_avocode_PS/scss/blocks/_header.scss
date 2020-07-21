@@ -78,7 +78,7 @@ header {
   }
 
   &:hover {
-    color: #1875f0;
+      color: #1875f0;
 
     .header-top__search__cat__arrow-svg {
       fill: #1875f0;
@@ -331,7 +331,7 @@ nav {
   }
 
   &:hover {
-    & a {
+    & .colorBlue {
       color: #1875f0;
     }
 
@@ -363,7 +363,7 @@ nav {
   }
 
   &:hover {
-    & a {
+    & .colorBlue {
       color: #1875f0;
     }
 
@@ -391,7 +391,7 @@ nav {
   }
 
   &:hover {
-    & a {
+    & .colorBlue {
       color: #1875f0;
     }
 

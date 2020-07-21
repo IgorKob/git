@@ -10,6 +10,14 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+/* line 10, D:/igorka/test/Git/howto/www__myprob/scss/base/_base.scss */
+.container {
+  width: 1440px;
+  background-color: #fafafa;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* line 1, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 header {
   max-width: 1440px;
@@ -365,7 +373,7 @@ nav {
 }
 
 /* line 334, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
-.nav_help:hover a {
+.nav_help:hover .colorBlue {
   color: #1875f0;
 }
 
@@ -396,7 +404,7 @@ nav {
 }
 
 /* line 366, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
-.nav_price:hover a {
+.nav_price:hover .colorBlue {
   color: #1875f0;
 }
 
@@ -426,7 +434,7 @@ nav {
 }
 
 /* line 394, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
-.nev_lang:hover a {
+.nev_lang:hover .colorBlue {
   color: #1875f0;
 }
 
@@ -448,9 +456,10 @@ nav {
 /* line 1, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_dropdown.scss */
 .dropdown {
   position: relative;
+  color: #b3b3b3;
 }
 
-/* line 5, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_dropdown.scss */
+/* line 6, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_dropdown.scss */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -462,7 +471,7 @@ nav {
   z-index: 1;
 }
 
-/* line 16, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_dropdown.scss */
+/* line 18, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_dropdown.scss */
 .dropdown-content a {
   float: none;
   padding: 12px 16px;
@@ -476,13 +485,13 @@ nav {
   line-height: 30px;
 }
 
-/* line 29, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_dropdown.scss */
+/* line 32, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_dropdown.scss */
 .dropdown-content a:hover {
   background-color: #ddd;
   color: #1875f0;
 }
 
-/* line 34, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_dropdown.scss */
+/* line 37, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_dropdown.scss */
 .dropdown:hover .dropdown-content {
   display: block;
 }
@@ -510,6 +519,7 @@ nav {
 .select-items {
   position: absolute;
   background-color: #fff;
+  color: #b3b3b3;
   top: 100%;
   left: 0;
   right: 0;
@@ -517,13 +527,14 @@ nav {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
-/* line 27, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_select.scss */
+/* line 29, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_select.scss */
 .select-hide {
   display: none;
 }
 
-/* line 31, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_select.scss */
+/* line 33, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_select.scss */
 .select-items div:hover, .same-as-selected {
+  color: #1875f0;
   background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -606,16 +617,17 @@ img {
   width: 68px;
   margin: 0 15px;
   background-color: #fff;
+  opacity: 0.3;
   display: inline-block;
   transition: background-color 0.6s ease;
 }
 
-/* line 74, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
+/* line 75, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
 .active {
-  opacity: 0.3;
+  opacity: 1;
 }
 
-/* line 78, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
+/* line 79, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
 .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
@@ -643,10 +655,546 @@ img {
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-  /* line 97, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
+  /* line 98, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
   .prev, .next, .text {
     font-size: 11px;
   }
+}
+
+/* line 1, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+.promo {
+  display: flex;
+  justify-content: space-between;
+  width: 1110px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 11, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+.col {
+  position: relative;
+  width: 350px;
+  height: 330px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  background-color: #ffffff;
+}
+
+/* line 19, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+.col:hover {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* line 26, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+.col1-title {
+  position: absolute;
+  top: 45px;
+  left: 50%;
+  width: 100%;
+  text-align: center;
+  transform: translateX(-50%);
+  color: #666666;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+/* line 40, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+.col1-text {
+  position: absolute;
+  top: 89px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #b3b3b3;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+/* line 51, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+.col1-img {
+  position: absolute;
+  bottom: 31px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* line 59, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+.col2-title {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  position: absolute;
+  bottom: 85px;
+  left: 50%;
+  width: 100%;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+/* line 74, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+.col2-text {
+  position: absolute;
+  bottom: 47px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  color: #b3b3b3;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+/* line 89, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+.col2-img {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* line 95, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+.colorFaFaFa {
+  background-color: #fafafa;
+}
+
+/* line 98, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+.col-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 150px;
+  flex-direction: row;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+/* line 106, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+.col-row:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+/* line 109, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+.col-row:hover {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* line 119, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+.col3-title {
+  padding-left: 25px;
+  color: #666666;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+/* line 1, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 1110px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 10, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+.main-nav {
+  width: 255px;
+  height: 600px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  background-color: #ffffff;
+}
+
+/* line 18, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+.main-nav__list {
+  list-style: none;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* line 26, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+.nav-itam {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  align-items: center;
+  border-bottom: 2px solid #f5f5f5;
+}
+
+/* line 40, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+.nav-itam:hover .nav-text {
+  color: #1875f0;
+}
+
+/* line 43, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+.nav-itam:hover .nav-icon {
+  fill: #1875f0;
+}
+
+/* line 46, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+.nav-itam:hover .nav-arrow {
+  fill: #1875f0;
+}
+
+/* line 52, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+.nav-icon {
+  padding-left: 17px;
+  fill: #ccc;
+}
+
+/* line 58, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+.nav-text {
+  padding-left: 17px;
+  color: #808080;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+/* line 66, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+.nav-arrow {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: #b3b3b3;
+}
+
+/* line 76, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+.aser {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  width: 255px;
+  height: 330px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  background-color: #ffffff;
+}
+
+/* line 92, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+.aser-content h4 {
+  text-align: center;
+  color: #666666;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+/* line 99, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+.aser-content h5 {
+  text-align: center;
+  color: #d1d1d1;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+/* line 110, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+.filter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 825px;
+  height: 60px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  background-color: #ffffff;
+  padding: 15px;
+  margin-left: 30px;
+}
+
+/* line 123, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+.filter-item {
+  display: flex;
+  color: #808080;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 50px;
+  padding: 0 25px;
+  white-space: nowrap;
+}
+
+/* line 134, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+.filter-item a {
+  text-decoration: none;
+}
+
+/* line 140, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+.filter-active a, .filter-item:hover a {
+  color: #1875f0;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 50px;
+  text-decoration: none;
+  border-bottom: 2px solid #1875f0;
+}
+
+/* line 1, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+.content {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* line 9, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+.el {
+  width: 255px;
+  height: 420px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  background-color: #ffffff;
+  padding: 20px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+
+/* line 24, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+.el:hover {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* line 29, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+.el-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 21px;
+}
+
+/* line 37, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+.el-top__left {
+  color: #b3b3b3;
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+  border-radius: 4px;
+  background-color: #f7f7f7;
+  padding: 6px 10px;
+}
+
+/* line 48, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+.el-top__right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* line 55, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+.el-top__menu {
+  margin-right: 25px;
+  fill: #d8d6d6;
+  cursor: pointer;
+}
+
+/* line 59, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+.el-top__menu:hover {
+  fill: #1875f0;
+}
+
+/* line 65, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+.el-top__hard {
+  fill: #d8d6d6;
+  cursor: pointer;
+}
+
+/* line 68, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+.el-top__hard:hover {
+  fill: #1875f0;
+}
+
+/* line 73, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+.el-img-wrapper {
+  padding: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* line 82, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+.el-img {
+  cursor: pointer;
+}
+
+/* line 87, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+.el-title {
+  text-align: center;
+  color: #666666;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+/* line 94, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+.el-title:hover {
+  color: #1875f0;
+}
+
+/* line 102, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+.el-start-icon {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 25px;
+}
+
+/* line 110, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+.start {
+  padding-right: 4px;
+  cursor: pointer;
+}
+
+/* line 115, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+.start-title {
+  padding-left: 12px;
+  padding-right: 4px;
+  color: #b3b3b3;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.12px;
+}
+
+/* line 128, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+.el-many {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 29px;
+}
+
+/* line 136, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+.el-many__d {
+  padding-right: 17px;
+}
+
+/* line 144, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+.el-many__s__i {
+  fill: #e6e4e4;
+  cursor: pointer;
+}
+
+/* line 147, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+.el-many__s__i:hover {
+  fill: #1875f0;
+}
+
+/* line 1, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+footer {
+  width: 1440px;
+  height: 240px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+}
+
+/* line 11, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 119px;
+  border-bottom: 2px solid #f5f5f5;
+}
+
+/* line 21, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-logo {
+  color: #4d4d4d;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 1.76px;
+  padding-left: 247px;
+}
+
+/* line 31, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* line 37, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-dropdown {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* line 42, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-dropdown a {
+  display: block;
+  color: #666666;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 30px;
+  text-decoration: none;
+  padding-right: 10px;
+}
+
+/* line 58, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-nav__item {
+  text-decoration: none;
+  color: #666666;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 30px;
+  padding: 0 30px;
+}
+
+/* line 67, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-sites {
+  margin-right: 247px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* line 74, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.icon-f {
+  margin-left: 32px;
+}
+
+/* line 82, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.icon-t {
+  margin-left: 32px;
+}
+
+/* line 91, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.icon-i {
+  margin-left: 32px;
+}
+
+/* line 96, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.icon-y {
+  margin-left: 32px;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -17,6 +17,8 @@
 .select-items {
   position: absolute;
   background-color: #fff;
+  color: #b3b3b3;
+  
   top: 100%;
   left: 0;
   right: 0;
@@ -29,5 +31,6 @@
 }
 
 .select-items div:hover, .same-as-selected {
+  color: #1875f0;
   background-color: rgba(0, 0, 0, 0.1);
 }

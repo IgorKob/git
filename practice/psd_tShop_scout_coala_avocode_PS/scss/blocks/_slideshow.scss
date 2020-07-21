@@ -64,6 +64,7 @@ img {
   width: 68px;
   margin: 0 15px;
   background-color: #fff;
+  opacity: 0.3;
   display: inline-block;
   // display: flex;
   // justify-content: center;
@@ -72,7 +73,7 @@ img {
 }
 
 .active {
-  opacity: 0.3;
+  opacity: 1;
 }
 
 .fade {
