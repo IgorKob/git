@@ -18,6 +18,15 @@ body {
   margin-right: auto;
 }
 
+@media (max-width: 320px) {
+  /* line 10, D:/igorka/test/Git/howto/www__myprob/scss/base/_base.scss */
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
 /* line 1, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 header {
   max-width: 1440px;
@@ -36,7 +45,16 @@ header {
   margin: auto;
 }
 
-/* line 18, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+@media (max-width: 320px) {
+  /* line 10, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+  .header-top {
+    flex-direction: column;
+    padding: 3px;
+    justify-content: center;
+  }
+}
+
+/* line 24, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__logo {
   font-size: 22px;
   font-weight: 900;
@@ -44,18 +62,27 @@ header {
   padding-right: 58px;
 }
 
-/* line 24, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 30, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__logo a {
   text-decoration: none;
   color: #4d4d4d;
 }
 
-/* line 28, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 34, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__logo a:hover {
   color: #1875f0;
 }
 
-/* line 34, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+@media (max-width: 320px) {
+  /* line 24, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+  .header-top__logo {
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 3px;
+  }
+}
+
+/* line 46, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__search {
   width: 468px;
   height: 100%;
@@ -66,7 +93,16 @@ header {
   margin-right: 66px;
 }
 
-/* line 44, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+@media (max-width: 320px) {
+  /* line 46, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+  .header-top__search {
+    width: 100%;
+    height: 30px;
+    margin-right: 3px;
+  }
+}
+
+/* line 62, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__search input {
   width: 278px;
   color: #000;
@@ -77,12 +113,20 @@ header {
   padding: 20px;
 }
 
-/* line 55, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 73, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__search input::placeholder {
   color: #b3b3b3;
 }
 
-/* line 60, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+@media (max-width: 320px) {
+  /* line 62, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+  .header-top__search input {
+    width: 100%;
+    padding: 2px;
+  }
+}
+
+/* line 83, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__search__category {
   display: flex;
   flex-direction: row;
@@ -98,27 +142,35 @@ header {
   cursor: pointer;
 }
 
-/* line 76, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 99, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__search__category .arrow-svg__padding-left {
   padding-left: 15px;
 }
 
-/* line 80, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 103, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__search__category:hover {
   color: #1875f0;
 }
 
-/* line 83, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 106, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__search__category:hover .header-top__search__cat__arrow-svg {
   fill: #1875f0;
 }
 
-/* line 89, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+@media (max-width: 320px) {
+  /* line 83, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+  .header-top__search__category {
+    width: 70%;
+    padding: 2px;
+  }
+}
+
+/* line 118, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__search__cat__arrow-svg {
   fill: #b3b3b3;
 }
 
-/* line 93, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 122, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__search__search-svg {
   display: flex;
   justify-content: center;
@@ -128,24 +180,32 @@ header {
   cursor: pointer;
 }
 
-/* line 101, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 130, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__search__search-svg .search-svg {
   fill: gray;
 }
 
-/* line 106, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 135, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__search__search-svg:hover .search-svg {
   fill: #1875f0;
 }
 
-/* line 113, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 142, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__shop {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-/* line 119, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+@media (max-width: 320px) {
+  /* line 142, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+  .header-top__shop {
+    width: 100%;
+    padding: 2px;
+  }
+}
+
+/* line 154, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__shop__cart {
   display: flex;
   flex-direction: row;
@@ -155,27 +215,36 @@ header {
   cursor: pointer;
 }
 
-/* line 128, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 163, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__shop__cart:hover .header-top__shop__cart__text {
   color: #1875f0;
 }
 
-/* line 132, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 167, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__shop__cart:hover .header-top__shop__cart__svg {
   fill: #1875f0;
 }
 
-/* line 138, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+@media (max-width: 320px) {
+  /* line 154, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+  .header-top__shop__cart {
+    margin-right: 2px;
+    margin-top: 5px;
+    padding: 2px;
+  }
+}
+
+/* line 179, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__shop__cart__svg__wrapper {
   position: relative;
 }
 
-/* line 142, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 183, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__shop__cart__svg {
   fill: gray;
 }
 
-/* line 146, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 187, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__shop__cart__svg__circle {
   position: absolute;
   top: -8px;
@@ -186,7 +255,7 @@ header {
   border-radius: 50%;
 }
 
-/* line 156, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 197, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__shop__cart__text {
   padding-left: 22px;
   color: #808080;
@@ -195,7 +264,7 @@ header {
   white-space: nowrap;
 }
 
-/* line 164, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 205, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__shop__hard {
   display: flex;
   flex-direction: row;
@@ -204,27 +273,27 @@ header {
   cursor: pointer;
 }
 
-/* line 172, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 213, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__shop__hard:hover .header-top__shop__hard__text {
   color: #1875f0;
 }
 
-/* line 176, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 217, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__shop__hard:hover .header-top__shop__hard__svg {
   fill: #1875f0;
 }
 
-/* line 182, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 223, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__shop__hard__svg__wrapper {
   margin-right: 16px;
 }
 
-/* line 186, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 227, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__shop__hard__svg {
   fill: gray;
 }
 
-/* line 190, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 231, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__shop__hard__text {
   color: #808080;
   font-size: 14px;
@@ -233,7 +302,7 @@ header {
   white-space: nowrap;
 }
 
-/* line 199, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 240, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__shop__user {
   display: flex;
   flex-direction: row;
@@ -241,27 +310,27 @@ header {
   cursor: pointer;
 }
 
-/* line 206, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 247, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__shop__user:hover .header-top__shop__user__text {
   color: #1875f0;
 }
 
-/* line 210, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 251, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__shop__user:hover .header-top__shop__user__svg {
   fill: #1875f0;
 }
 
-/* line 216, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 257, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__shop__user__svg__wrapper {
   margin-right: 19px;
 }
 
-/* line 220, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 261, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__shop__user__svg {
   fill: gray;
 }
 
-/* line 224, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 265, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-top__shop__user__text {
   color: #808080;
   font-size: 14px;
@@ -270,7 +339,7 @@ header {
   white-space: nowrap;
 }
 
-/* line 233, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 274, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .header-bottom {
   display: flex;
   justify-content: space-around;
@@ -282,7 +351,18 @@ header {
   border-bottom: 2px solid #f5f5f5;
 }
 
-/* line 247, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+@media (max-width: 320px) {
+  /* line 274, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+  .header-bottom {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 4px;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+}
+
+/* line 297, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 nav {
   display: flex;
   flex-direction: row;
@@ -291,7 +371,15 @@ nav {
   border-right: 2px solid #f5f5f5;
 }
 
-/* line 257, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+@media (max-width: 320px) {
+  /* line 297, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+  nav {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+/* line 311, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nav-all {
   display: flex;
   flex-direction: row;
@@ -302,28 +390,28 @@ nav {
   cursor: pointer;
 }
 
-/* line 267, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 321, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nav-all:hover .nav-text {
   color: #1875f0;
 }
 
-/* line 271, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 325, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nav-all:hover .nav-svg {
   fill: #1875f0;
 }
 
-/* line 277, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 331, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nav-svg__wrapper {
   margin-left: 30px;
   margin-right: 22px;
 }
 
-/* line 282, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 336, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nav-svg {
   fill: gray;
 }
 
-/* line 286, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 340, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nav-text {
   color: #808080;
   font-size: 14px;
@@ -331,7 +419,7 @@ nav {
   line-height: 30px;
 }
 
-/* line 295, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 349, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nav-category a {
   text-decoration: none;
   color: #808080;
@@ -342,24 +430,31 @@ nav {
   padding-left: 38px;
 }
 
-/* line 304, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 358, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nav-category a:hover {
   color: #1875f0;
 }
 
-/* line 311, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 365, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nav_to {
   display: flex;
 }
 
-/* line 316, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+@media (max-width: 320px) {
+  /* line 365, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+  .nav_to {
+    width: 100%;
+  }
+}
+
+/* line 374, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nav_help {
   padding-left: 28px;
   padding-right: 28px;
   border-right: 2px solid #f5f5f5;
 }
 
-/* line 321, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 379, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nav_help a {
   display: flex;
   flex-direction: row;
@@ -372,24 +467,24 @@ nav {
   line-height: 30px;
 }
 
-/* line 334, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 392, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nav_help:hover .colorBlue {
   color: #1875f0;
 }
 
-/* line 338, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 396, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nav_help:hover .nav_help_svg {
   fill: #1875f0;
 }
 
-/* line 347, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 405, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nav_price {
   padding-left: 28px;
   padding-right: 28px;
   border-right: 2px solid #f5f5f5;
 }
 
-/* line 352, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 410, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nav_price a {
   display: flex;
   flex-direction: row;
@@ -403,24 +498,24 @@ nav {
   text-transform: uppercase;
 }
 
-/* line 366, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 424, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nav_price:hover .colorBlue {
   color: #1875f0;
 }
 
-/* line 370, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 428, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nav_price:hover .nav_help_svg {
   fill: #1875f0;
 }
 
-/* line 376, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 434, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nev_lang {
   padding-left: 28px;
   padding-right: 28px;
   border-right: 2px solid #f5f5f5;
 }
 
-/* line 381, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 439, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nev_lang a {
   display: flex;
   flex-direction: row;
@@ -433,22 +528,22 @@ nav {
   line-height: 30px;
 }
 
-/* line 394, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 452, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nev_lang:hover .colorBlue {
   color: #1875f0;
 }
 
-/* line 398, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 456, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nev_lang:hover .nav_help_svg {
   fill: #1875f0;
 }
 
-/* line 403, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 461, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nav_help_svg-wrapper {
   padding-left: 10px;
 }
 
-/* line 407, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
+/* line 465, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_header.scss */
 .nav_help_svg {
   fill: #b3b3b3;
 }
@@ -557,7 +652,14 @@ img {
   margin-top: 28px;
 }
 
-/* line 17, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
+@media (max-width: 320px) {
+  /* line 9, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
+  .slideshow-container {
+    margin-top: 2px;
+  }
+}
+
+/* line 20, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
 .prev, .next {
   cursor: pointer;
   position: absolute;
@@ -572,24 +674,24 @@ img {
   user-select: none;
 }
 
-/* line 30, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
+/* line 33, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
 .prev {
   left: 70px;
   border-radius: 0 3px 3px 0;
 }
 
-/* line 34, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
+/* line 37, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
 .next {
   right: 70px;
   border-radius: 3px 0 0 3px;
 }
 
-/* line 39, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
+/* line 42, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
 .prev:hover, .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* line 43, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
+/* line 46, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
 .text {
   position: absolute;
   top: 94px;
@@ -599,10 +701,18 @@ img {
   font-family: Roboto;
   font-size: 36px;
   font-weight: 300;
-  line-height: 30px;
+  line-height: 1;
 }
 
-/* line 54, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
+@media (max-width: 320px) {
+  /* line 46, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
+  .text {
+    font-size: 16px;
+    top: 4px;
+  }
+}
+
+/* line 62, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
 .dot-wrapper {
   position: absolute;
   bottom: 50px;
@@ -610,7 +720,15 @@ img {
   transform: translateX(-50%);
 }
 
-/* line 61, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
+@media (max-width: 320px) {
+  /* line 62, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
+  .dot-wrapper {
+    bottom: 5px;
+    left: 50%;
+  }
+}
+
+/* line 72, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
 .dot {
   cursor: pointer;
   height: 2px;
@@ -622,12 +740,19 @@ img {
   transition: background-color 0.6s ease;
 }
 
-/* line 75, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
+@media (max-width: 320px) {
+  /* line 72, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
+  .dot {
+    width: 8px;
+  }
+}
+
+/* line 89, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
 .active {
   opacity: 1;
 }
 
-/* line 79, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
+/* line 93, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
 .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
@@ -655,7 +780,7 @@ img {
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-  /* line 98, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
+  /* line 112, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_slideshow.scss */
   .prev, .next, .text {
     font-size: 11px;
   }
@@ -671,7 +796,16 @@ img {
   margin-right: auto;
 }
 
-/* line 11, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+@media (max-width: 320px) {
+  /* line 1, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+  .promo {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 3px;
+  }
+}
+
+/* line 15, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
 .col {
   position: relative;
   width: 350px;
@@ -681,13 +815,21 @@ img {
   background-color: #ffffff;
 }
 
-/* line 19, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+/* line 23, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
 .col:hover {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
-/* line 26, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+@media (max-width: 320px) {
+  /* line 15, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+  .col {
+    width: 100%;
+    margin-top: 3px;
+  }
+}
+
+/* line 33, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
 .col1-title {
   position: absolute;
   top: 45px;
@@ -701,7 +843,7 @@ img {
   line-height: 30px;
 }
 
-/* line 40, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+/* line 47, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
 .col1-text {
   position: absolute;
   top: 89px;
@@ -713,7 +855,7 @@ img {
   line-height: 30px;
 }
 
-/* line 51, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+/* line 58, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
 .col1-img {
   position: absolute;
   bottom: 31px;
@@ -721,7 +863,7 @@ img {
   transform: translateX(-50%);
 }
 
-/* line 59, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+/* line 66, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
 .col2-title {
   color: #ffffff;
   font-size: 20px;
@@ -735,7 +877,7 @@ img {
   transform: translateX(-50%);
 }
 
-/* line 74, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+/* line 81, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
 .col2-text {
   position: absolute;
   bottom: 47px;
@@ -749,19 +891,19 @@ img {
   line-height: 30px;
 }
 
-/* line 89, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+/* line 96, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
 .col2-img {
   width: 100%;
   height: 100%;
   z-index: -1;
 }
 
-/* line 95, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+/* line 102, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
 .colorFaFaFa {
   background-color: #fafafa;
 }
 
-/* line 98, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+/* line 105, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
 .col-row {
   display: flex;
   align-items: center;
@@ -772,18 +914,18 @@ img {
   padding: 20px;
 }
 
-/* line 106, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+/* line 113, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
 .col-row:not(:last-child) {
   margin-bottom: 30px;
 }
 
-/* line 109, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+/* line 116, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
 .col-row:hover {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
-/* line 119, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
+/* line 126, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_promo.scss */
 .col3-title {
   padding-left: 25px;
   color: #666666;
@@ -803,7 +945,17 @@ main {
   margin-right: auto;
 }
 
-/* line 10, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+@media (max-width: 320px) {
+  /* line 1, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+  main {
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 3px;
+  }
+}
+
+/* line 16, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
 .main-nav {
   width: 255px;
   height: 600px;
@@ -812,7 +964,15 @@ main {
   background-color: #ffffff;
 }
 
-/* line 18, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+@media (max-width: 320px) {
+  /* line 16, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+  .main-nav {
+    width: 100%;
+    margin-top: 3px;
+  }
+}
+
+/* line 28, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
 .main-nav__list {
   list-style: none;
   display: block;
@@ -821,7 +981,7 @@ main {
   margin: 0;
 }
 
-/* line 26, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+/* line 36, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
 .nav-itam {
   position: relative;
   width: 100%;
@@ -833,28 +993,28 @@ main {
   border-bottom: 2px solid #f5f5f5;
 }
 
-/* line 40, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+/* line 50, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
 .nav-itam:hover .nav-text {
   color: #1875f0;
 }
 
-/* line 43, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+/* line 53, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
 .nav-itam:hover .nav-icon {
   fill: #1875f0;
 }
 
-/* line 46, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+/* line 56, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
 .nav-itam:hover .nav-arrow {
   fill: #1875f0;
 }
 
-/* line 52, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+/* line 62, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
 .nav-icon {
   padding-left: 17px;
   fill: #ccc;
 }
 
-/* line 58, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+/* line 68, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
 .nav-text {
   padding-left: 17px;
   color: #808080;
@@ -863,7 +1023,7 @@ main {
   line-height: 30px;
 }
 
-/* line 66, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+/* line 76, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
 .nav-arrow {
   position: absolute;
   right: 20px;
@@ -872,7 +1032,7 @@ main {
   fill: #b3b3b3;
 }
 
-/* line 76, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+/* line 86, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
 .aser {
   display: flex;
   flex-direction: row;
@@ -886,7 +1046,14 @@ main {
   background-color: #ffffff;
 }
 
-/* line 92, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+@media (max-width: 320px) {
+  /* line 86, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+  .aser {
+    display: none;
+  }
+}
+
+/* line 105, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
 .aser-content h4 {
   text-align: center;
   color: #666666;
@@ -895,7 +1062,7 @@ main {
   line-height: 30px;
 }
 
-/* line 99, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+/* line 112, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
 .aser-content h5 {
   text-align: center;
   color: #d1d1d1;
@@ -904,7 +1071,7 @@ main {
   line-height: 30px;
 }
 
-/* line 110, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+/* line 123, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
 .filter {
   display: flex;
   flex-direction: row;
@@ -918,7 +1085,18 @@ main {
   margin-left: 30px;
 }
 
-/* line 123, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+@media (max-width: 320px) {
+  /* line 123, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+  .filter {
+    width: 100%;
+    margin: 3px;
+    flex-direction: column;
+    padding: 2px;
+    height: auto;
+  }
+}
+
+/* line 144, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
 .filter-item {
   display: flex;
   color: #808080;
@@ -929,12 +1107,12 @@ main {
   white-space: nowrap;
 }
 
-/* line 134, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+/* line 155, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
 .filter-item a {
   text-decoration: none;
 }
 
-/* line 140, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
+/* line 161, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_main-content.scss */
 .filter-active a, .filter-item:hover a {
   color: #1875f0;
   font-size: 13px;
@@ -952,7 +1130,18 @@ main {
   flex-wrap: wrap;
 }
 
-/* line 9, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+@media (max-width: 320px) {
+  /* line 1, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+  .content {
+    width: 100%;
+    flex-direction: column;
+    margin-top: 3px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* line 15, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
 .el {
   width: 255px;
   height: 420px;
@@ -964,12 +1153,20 @@ main {
   margin-bottom: 30px;
 }
 
-/* line 24, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+/* line 30, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
 .el:hover {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
-/* line 29, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+@media (max-width: 320px) {
+  /* line 15, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+  .el {
+    width: 100%;
+    margin: 3px;
+  }
+}
+
+/* line 40, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
 .el-top {
   display: flex;
   flex-direction: row;
@@ -978,7 +1175,7 @@ main {
   height: 21px;
 }
 
-/* line 37, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+/* line 48, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
 .el-top__left {
   color: #b3b3b3;
   font-size: 10px;
@@ -990,37 +1187,37 @@ main {
   padding: 6px 10px;
 }
 
-/* line 48, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+/* line 59, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
 .el-top__right {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-/* line 55, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+/* line 66, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
 .el-top__menu {
   margin-right: 25px;
   fill: #d8d6d6;
   cursor: pointer;
 }
 
-/* line 59, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+/* line 70, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
 .el-top__menu:hover {
   fill: #1875f0;
 }
 
-/* line 65, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+/* line 76, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
 .el-top__hard {
   fill: #d8d6d6;
   cursor: pointer;
 }
 
-/* line 68, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+/* line 79, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
 .el-top__hard:hover {
   fill: #1875f0;
 }
 
-/* line 73, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+/* line 84, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
 .el-img-wrapper {
   padding: 24px;
   display: flex;
@@ -1030,12 +1227,12 @@ main {
   width: 100%;
 }
 
-/* line 82, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+/* line 93, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
 .el-img {
   cursor: pointer;
 }
 
-/* line 87, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+/* line 98, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
 .el-title {
   text-align: center;
   color: #666666;
@@ -1045,12 +1242,12 @@ main {
   cursor: pointer;
 }
 
-/* line 94, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+/* line 105, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
 .el-title:hover {
   color: #1875f0;
 }
 
-/* line 102, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+/* line 113, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
 .el-start-icon {
   width: 100%;
   display: flex;
@@ -1059,13 +1256,13 @@ main {
   padding-top: 25px;
 }
 
-/* line 110, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+/* line 121, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
 .start {
   padding-right: 4px;
   cursor: pointer;
 }
 
-/* line 115, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+/* line 126, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
 .start-title {
   padding-left: 12px;
   padding-right: 4px;
@@ -1076,7 +1273,7 @@ main {
   letter-spacing: 0.12px;
 }
 
-/* line 128, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+/* line 139, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
 .el-many {
   width: 100%;
   display: flex;
@@ -1085,18 +1282,18 @@ main {
   padding-top: 29px;
 }
 
-/* line 136, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+/* line 147, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
 .el-many__d {
   padding-right: 17px;
 }
 
-/* line 144, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+/* line 155, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
 .el-many__s__i {
   fill: #e6e4e4;
   cursor: pointer;
 }
 
-/* line 147, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
+/* line 158, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_el.scss */
 .el-many__s__i:hover {
   fill: #1875f0;
 }
@@ -1111,7 +1308,16 @@ footer {
   background-color: #ffffff;
 }
 
-/* line 11, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+@media (max-width: 320px) {
+  /* line 1, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+  footer {
+    width: 100%;
+    margin: 3px;
+    height: auto;
+  }
+}
+
+/* line 15, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
 .footer-top {
   display: flex;
   flex-direction: row;
@@ -1122,7 +1328,17 @@ footer {
   border-bottom: 2px solid #f5f5f5;
 }
 
-/* line 21, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+@media (max-width: 320px) {
+  /* line 15, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+  .footer-top {
+    flex-direction: column;
+    width: 100%;
+    margin: 3px;
+    height: auto;
+  }
+}
+
+/* line 31, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
 .footer-logo {
   color: #4d4d4d;
   font-size: 22px;
@@ -1133,14 +1349,37 @@ footer {
   padding-left: 247px;
 }
 
-/* line 31, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+/* line 40, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-logo:hover {
+  color: #1875f0;
+  cursor: pointer;
+}
+
+@media (max-width: 320px) {
+  /* line 31, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+  .footer-logo {
+    padding-left: 2px;
+  }
+}
+
+/* line 49, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
 .footer-nav {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-/* line 37, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+@media (max-width: 320px) {
+  /* line 49, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+  .footer-nav {
+    flex-direction: column;
+    width: 100%;
+    margin: 3px;
+    height: auto;
+  }
+}
+
+/* line 61, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
 .footer-dropdown {
   display: flex;
   flex-direction: row;
@@ -1148,7 +1387,7 @@ footer {
   white-space: nowrap;
 }
 
-/* line 42, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+/* line 67, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
 .footer-dropdown a {
   display: block;
   color: #666666;
@@ -1159,7 +1398,22 @@ footer {
   padding-right: 10px;
 }
 
-/* line 58, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+/* line 78, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-dropdown:hover a {
+  color: #1875f0;
+}
+
+/* line 82, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-dropdown:hover:hover .footer-arrow {
+  fill: #1875f0;
+}
+
+/* line 89, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-arrow {
+  fill: #b3b3b3;
+}
+
+/* line 93, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
 .footer-nav__item {
   text-decoration: none;
   color: #666666;
@@ -1169,7 +1423,12 @@ footer {
   padding: 0 30px;
 }
 
-/* line 67, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+/* line 101, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-nav__item:hover {
+  color: #1875f0;
+}
+
+/* line 106, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
 .footer-sites {
   margin-right: 247px;
   display: flex;
@@ -1177,24 +1436,180 @@ footer {
   align-items: center;
 }
 
-/* line 74, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+@media (max-width: 320px) {
+  /* line 106, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+  .footer-sites {
+    width: 100%;
+    margin: 3px;
+    height: auto;
+    justify-content: center;
+  }
+}
+
+/* line 120, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.icon-ff {
+  margin-left: 32px;
+}
+
+@media (max-width: 320px) {
+  /* line 120, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+  .icon-ff {
+    margin-left: 6px;
+  }
+}
+
+/* line 127, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
 .icon-f {
-  margin-left: 32px;
+  fill: #666;
+  cursor: pointer;
 }
 
-/* line 82, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
-.icon-t {
-  margin-left: 32px;
+/* line 131, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.icon-f:hover {
+  fill: #1875f0;
 }
 
-/* line 91, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
-.icon-i {
-  margin-left: 32px;
+/* line 136, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 946px;
+  height: 119px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* line 96, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
-.icon-y {
-  margin-left: 32px;
+@media (max-width: 320px) {
+  /* line 136, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+  .footer-bottom {
+    flex-direction: column;
+    width: 100%;
+    margin: 3px;
+    height: auto;
+    justify-content: center;
+  }
+}
+
+/* line 155, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-bottom__left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media (max-width: 320px) {
+  /* line 155, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+  .footer-bottom__left {
+    flex-direction: column;
+    width: 100%;
+    margin: 3px;
+    height: auto;
+    justify-content: center;
+  }
+}
+
+/* line 168, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-bottom__copy {
+  color: #b8b8b8;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  padding-right: 30px;
+}
+
+/* line 174, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-bottom__copy:hover {
+  cursor: pointer;
+  color: #1875f0;
+}
+
+@media (max-width: 320px) {
+  /* line 168, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+  .footer-bottom__copy {
+    padding: 2px;
+    margin: auto;
+  }
+}
+
+/* line 185, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-bottom__left__a a {
+  text-decoration: none;
+  color: #b8b8b8;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  padding-right: 30px;
+}
+
+/* line 192, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-bottom__left__a a:hover {
+  cursor: pointer;
+  color: #1875f0;
+}
+
+@media (max-width: 320px) {
+  /* line 198, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+  .footer-bottom__left__a a {
+    margin: auto;
+    padding: 2px;
+  }
+}
+
+/* line 205, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-bottom__right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media (max-width: 320px) {
+  /* line 205, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+  .footer-bottom__right {
+    flex-direction: column;
+    width: 100%;
+    margin: 3px;
+    height: auto;
+    justify-content: center;
+  }
+}
+
+/* line 218, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-bottom__right__text {
+  color: #b8b8b8;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  padding-right: 10px;
+}
+
+/* line 224, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-bottom__right__text:hover {
+  cursor: pointer;
+  color: #1875f0;
+}
+
+/* line 231, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-bottom__right__icon img {
+  margin-left: 20px;
+  transition: .2s;
+}
+
+/* line 234, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+.footer-bottom__right__icon img:hover {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transform: translateY(-7px);
+}
+
+@media (max-width: 320px) {
+  /* line 231, D:/igorka/test/Git/howto/www__myprob/scss/blocks/_footer.scss */
+  .footer-bottom__right__icon img {
+    margin: 3px;
+    height: auto;
+    justify-content: center;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

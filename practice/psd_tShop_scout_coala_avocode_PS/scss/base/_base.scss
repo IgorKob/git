@@ -12,4 +12,9 @@ body {
      background-color: #fafafa;
      margin-left: auto;
      margin-right: auto;
+     @media (max-width: 320px) {
+       display: flex;
+       flex-direction: column;
+      width: 100%;
+      }
 }

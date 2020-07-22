@@ -6,6 +6,12 @@ main {
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
+    @media (max-width: 320px) {
+      flex-direction: column;
+      flex-wrap: wrap;
+     width: 100%;
+       margin-top: 3px;
+     }
 }
 .main-nav {
   width: 255px;
@@ -13,6 +19,10 @@ main {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
   border-radius: 6px;
   background-color: #ffffff;
+  @media (max-width: 320px) {
+   width: 100%;
+     margin-top: 3px;
+   }
 }
 
 .main-nav__list {
@@ -85,6 +95,9 @@ main {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
   border-radius: 6px;
   background-color: #ffffff;
+  @media (max-width: 320px) {
+   display: none;
+   }
 }
 
 .aser-content {
@@ -118,6 +131,14 @@ main {
   background-color: #ffffff;
   padding: 15px;
   margin-left: 30px;
+
+  @media (max-width: 320px) {
+   width: 100%;
+     margin: 3px;
+     flex-direction: column;
+     padding: 2px;
+     height: auto;
+   }
 }
 
 .filter-item {
