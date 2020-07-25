@@ -1,0 +1,19 @@
+{
+  "keyMain": {
+    "user": "username1",
+    "pass": "password1"
+  },
+  "keyShort": "username1:password1",
+  "privateKey": {
+    "user": "username"
+  },
+  "privateKeyEncrypted": {
+    "user": "username",
+    "passphrase": "passphrase1"
+  },
+  "privateKeyCustom": {
+    "user": "username",
+    "passphrase": "passphrase1",
+    "keyLocation": "/full/path/to/key"
+  }
+}
