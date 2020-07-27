@@ -1,0 +1,12 @@
+extends main
+
+block variables
+  - var pageTitle = 'Index about'
+  - var current = 'About'
+  - var arr = [1, 2, 3, 4, 5]
+  
+block main
+  h2 About
+  ul
+    each el, i in arr
+      li #{i}.) #{el}

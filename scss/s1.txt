@@ -1,0 +1,204 @@
+@use завантажує комбінації, функції та змінні з інших таблиць стилів Sass та поєднує CSS з кількох таблиць стилів разом.
+
+@forward завантажує таблицю стилів Sass та робить її комбінації, функції та змінні доступними, коли ваш таблицю стилів завантажено  @useправилом.
+
+@import розширює правило at- CSS для завантаження стилів, комбінацій, функцій та змінних з інших таблиць стилів.
+
+@mixin і @include дозволяє легко використовувати шматки стилів.
+
+@function визначає власні функції, які можна використовувати у виразах SassScript .
+
+@extend дозволяє селекторам успадковувати стилі один від одного.
+
+@at-root розміщує стилі всередині нього в корені  документа CSS .
+
+@error викликає збій компіляції з повідомленням про помилку.
+
+@warn друкує попередження, не припиняючи компіляцію повністю.
+
+@debug друкує повідомлення для налагодження.
+
+Правила управління потоком , наприклад @if, @each, @for, і @while контроль або скільки раз вилітають стилі.
+
+//if
+@mixin theme-colors($light-theme: true) {
+  @if $light-theme {
+    background-color: $light-background;
+    color: $light-text;
+  } @else {
+    background-color: $dark-background;
+    color: $dark-text;
+  }
+}
+
+//for
+$base-color: #036;
+
+@for $i from 1 through 3 {
+  ul:nth-child(3n + #{$i}) {
+    background-color: lighten($base-color, $i * 5%);
+  }
+}
+
+
+
+// src/_corners.scss
+$-radius: 3px;
+@mixin rounded {
+  border-radius: $-radius;
+}
+
+
+// style.scss
+@use "src/corners";
+.button {
+  @include corners.rounded;
+  // This is an error! $-radius isn't visible outside of `_corners.scss`.
+  padding: 5px + corners.$-radius;
+}
+
+
+
+
+/////////Modules @use
+// foundation/_code.scss
+code {
+  padding: .25em;
+  line-height: 0;
+}
+// foundation/_lists.scss
+ul, ol {
+  text-align: left;
+
+  & & {
+    padding: {
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+// style.scss
+@use 'foundation/code';
+@use 'foundation/lists';
+
+
+
+
+
+///////////////2 @use
+// src/_corners.scss
+$radius: 3px;
+
+@mixin rounded {
+  border-radius: $radius;
+}
+// style.scss
+@use "src/corners" as c;
+
+.button {
+  @include c.rounded;
+  padding: 5px + c.$radius;
+}
+
+
+
+
+
+
+////////////Mixins
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+.box { @include transform(rotate(30deg)); }
+
+
+
+
+
+
+
+
+//////////Extend
+/* This CSS will print because %message-shared is extended. */
+%message-shared {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+// This CSS won't print because %equal-heights is never extended.
+%equal-heights {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.message {
+  @extend %message-shared;
+}
+
+.success {
+  @extend %message-shared;
+  border-color: green;
+}
+
+.error {
+  @extend %message-shared;
+  border-color: red;
+}
+
+.warning {
+  @extend %message-shared;
+  border-color: yellow;
+}
+
+
+
+
+/////////s
+@mixin button-base() {
+  @include typography(button);
+  @include ripple-surface;
+  @include ripple-radius-bounded;
+
+  display: inline-flex;
+  position: relative;
+  height: $button-height;
+  border: none;
+  vertical-align: middle;
+
+  &:hover { cursor: pointer; }
+
+  &:disabled {
+    color: $mdc-button-disabled-ink-color;
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+
+
+
+
+
+
+////////// %    @extend
+%toolbelt {
+  box-sizing: border-box;
+  border-top: 1px rgba(#000, .12) solid;
+  padding: 16px 0;
+  width: 100%;
+
+  &:hover { border: 2px rgba(#000, .5) solid; }
+}
+
+.action-buttons {
+  @extend %toolbelt;
+  color: #4285f4;
+}
+
+.reset-buttons {
+  @extend %toolbelt;
+  color: #cddc39;
+}

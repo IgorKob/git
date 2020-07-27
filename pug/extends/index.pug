@@ -1,0 +1,21 @@
+extends main
+
+block variables
+  - var pageTitle = 'Index page'
+  - var current = 'Home'
+  
+block main
+  h2 Home
+
+  mixin product(title, price)
+    .card
+      img(src='https://via.placeholder.com/150x100')
+      h3 #{title}
+      .price $ #{price}
+      button OK
+
+  +product('Name1', 11)
+  +product('Name2', 12)
+  +product('Name3', 13)
+  +product('Name4', 14)
+  +product('Name5', 15)

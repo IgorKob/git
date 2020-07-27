@@ -1,0 +1,39 @@
+body {
+	font-family: 'PT Sans', Arial, Sans-serif;
+	/*background-color: green;*/
+	background-color: #FFE082;
+}
+
+$blue: #1976D2;
+$size: 18px;
+
+h3 {
+	color: $blue;
+	font-size: $size;
+}
+
+.card {
+  background-color: #eee;
+  padding: 10px;
+  margin: 10px;
+  width: 170px;
+  float: left;
+}
+.nav {
+  list-style: none;
+  display: flex;
+  // justify-content: space-around;
+  width: 100%;
+  li {
+    margin-right: 100px;
+  }
+  a {
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+    &.active {
+      color: lightgreen;
+    }
+  }
+
+}

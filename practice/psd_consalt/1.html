@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/css/master.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Open Sans', sans-serif;
+      }
+      .container {
+        margin: 0 auto;
+        max-width: 936px;
+      }
+      .header {
+        background: linear-gradient(#161616 ,#424242);
+
+      }
+          .header .container {
+            padding: 44px 0 0 30px;
+          }
+              .logo {
+                display: inline-block;
+                vertical-align: top;
+              }
+                .logo img {
+                  display: block;
+                }
+.nav {
+  text-align:right;
+}
+.menu {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 0;
+}
+.menu > li {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 1px;
+  position: relative;
+}
+.menu > li > a {
+  display: block;
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  width: 132px;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 5px 5px 0 0;
+  background-color: #000;
+  margin-top: 5px;
+  cursor: pointer;
+}
+/* .menu>li>a:hover {
+  font-size: 13px;
+  text-transform: uppercase;
+  font-style: italic;
+  background: linear-gradient(to top, #e77e00, #f6a60d);
+
+} */
+.menu>li>a:hover,
+.menu>li>.active1 {
+  font-size: 13px;
+  text-transform: uppercase;
+  font-style: italic;
+  background: linear-gradient(to top, #e77e00, #f6a60d);
+
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 172px;
+  background: linear-gradient(to right, #e77e00, #f6a60d);
+  padding-top: 6px;
+  display: none;
+}
+.menu>li:last-of-type .submenu {
+  left: auto;
+  right: 0;
+}
+.submenu>li>a {
+  display: block;
+  font: 400 11px Arial, sans-serif;
+  color: #ffffff;
+  text-align: left;
+  text-decoration: none;
+  height: 25px;
+  cursor: pointer;
+  padding: 0 8px;
+  box-sizing: border-box;
+  padding-top: 6px;
+}
+.submenu a:hover {
+  font: 400 12px Tahoma, sans-serif;
+  background-color: #4e4e4e;
+}
+.menu>li:hover .submenu {
+  display: block;
+}
+
+
+
+
+
+
+.main {
+  background-color: #cad2d7;
+  padding: 5px 0 6px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+.main .container {
+  border: 1px solid #acb3b7;
+  border-radius: 6px;
+  background-image: url('img/head.jpg');
+  background-position: center;
+  background-size: cover;
+  padding: 104px 38px 88px;
+  text-align: right;
+  box-sizing: border-box;
+}
+.head {
+  font-size: 28px;
+  font-weight: 400;
+  color: #353535;
+  line-height: 31px;
+  margin-bottom: 17px;
+}
+.head span {
+  color: #ec8c04;
+  font-style: italic;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+.btn {
+  display: inline-block;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 3px;
+  padding: 10px 12px;
+}
+.main .btn {
+  background: linear-gradient(to top, #f6a60c, #e77e00);
+}
+
+
+
+
+
+
+
+
+
+.about {
+  background: linear-gradient(to top,#e6eaec ,#fefefe);
+  padding: 12px 0 20px;
+}
+.about .container{
+  /* padding: 12px 3px; */
+  font-size: 0;
+}
+.about_item {
+  display: inline-block;
+  vertical-align: top;
+  background: linear-gradient(#ffffff ,#f3f3f3 );
+  border-radius: 6px;
+  border: 1px solid #c3c6c8;
+  width: 306px;
+  /* height: 360px; */
+  padding: 0 25px 29px;
+  box-sizing: border-box;
+  margin-right: 6px;
+
+}
+.about_item:last-of-type(3) {
+  margin-right: 0;
+}
+.about_tittle {
+  font-weight: 400;
+  font-size: 24px;
+  color: #353535;
+  /* padding: 35px 40px; */
+  padding: 28px 0 7px 63px;
+  border-bottom: 1px dotted #9b9a99;
+  letter-spacing: -1px;
+  position: relative;
+}
+
+.about_tittle::before {
+  content: '';
+  position: absolute;
+  top:5px;
+  left: 0;
+  background-image: url('img/a3.png');
+  width: 49px;
+  height: 103px;
+}
+.about_item:nth-of-type(2) .about_tittle::before {
+  background-position: 0 0;
+}
+.about_item:nth-of-type(2) .about_tittle::before {
+  background-position: -52px 0;
+}
+.about_item:nth-of-type(3) .about_tittle::before {
+  background-position: -105px 0;
+}
+.about_img {
+  width: 100%;
+  display: block;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  box-shadow: 0 0 0 1px #dddddd;
+  margin: 17px 0;
+}
+.about_text {
+  font: 400 12px/17px Arial, sans-serif;
+  color: #808080;
+  padding-left: 7px;
+}
+.about_item .btn {
+  background: linear-gradient(#494949, #121212);
+  display: inline-block;
+  margin-top: 15px;
+
+}
+/* ///////// */
+.about_list {
+  list-style-type: none;
+}
+.about_list li {
+
+}
+.about_list a {
+  font: 400 10px/17px Arial, sans-serif;
+  color: #ec8c04;
+  margin-left: 19px;
+  position: relative;
+  text-transform: uppercase;
+  display: block;
+}
+.about_list a::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: -13px;
+  margin: auto;
+  width: 5px;
+  height: 5px;
+  background-image: url('img/a3.png');
+  background-position: -157px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+.services {
+  background: linear-gradient(#262626, #3e3e3e);
+  padding-bottom: 52px;
+}
+.services .container {
+  font-size: 0;
+}
+.services_left {
+  display: inline-block;
+  vertical-align: top;
+  width: 622px;
+  margin-right: 6px;
+  padding-top: 30px ;
+  padding-right: 25px;
+  box-sizing: border-box;
+}
+.services_title {
+  font-size: 24px;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 18px;
+}
+.services_img {
+
+  border: 1px solid #fff;
+  border-radius: 5px;
+  float: left;
+  box-sizing: border-box;
+  width: 216px;
+  height: 140px;
+  margin-right: 21px;
+}
+.services_text {
+  font: 400 12px/17px Arial, sans-serif;
+  color: #d1d1d1;
+  margin-bottom: 18px;
+}
+.stg {
+  color: #989999;
+}
+.services_left .services_text:first-of-type {
+  color: #c17821;
+    font: italic 400 16px/20px Arial, sans-serif;
+}
+.services .btn {
+  background: linear-gradient(#e77d00, #f6a60d);
+  margin-top: 8px;
+  border: 1px solid #333333;
+}
+.services_right {
+  display: inline-block;
+  vertical-align: top;
+  width: 308px;
+  padding-top: 37px ;
+  padding-left: 34px;
+  box-sizing: border-box;
+}
+.services_list {
+  list-style-type: none;
+
+  margin-bottom: : 17px;
+  margin-top: 26px;
+  margin-right: 14px;
+
+}
+.services_list li {
+  font: 400 12px/15px Arial, sana-serif;
+  color: #989999;
+  border-bottom: 1px dotted #646b6d;
+  padding-bottom: 8px;
+}
+.services_list a {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.footer {
+  background-color: #202020;
+
+    padding: 17px 0 18px;
+    border-top: 1px solid #080808;
+}
+.footer .container {
+
+}
+.footer_icon {
+  font-size: 0;
+  float: left;
+}
+.footer_icon a {
+  display: inline-block;
+  vertical-align: top;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  background-image: url('img/a3.png');
+
+}
+.footer_icon  .fb {
+  background-position: -164px 0;
+}
+.footer_icon .tw {
+background-position: -214px 0;
+}
+.footer_icon .other {
+    background-position: -164px -51px;
+}
+.footer_icon .tube {
+  background-position: -264px 0;
+}
+.footer_icon .rss {
+background-position: -214px -51px;
+}
+
+
+.footer_nav {
+float: right;
+font-size: 0;
+
+}
+.footer_nav li {
+display: inline-block;
+vertical-align: top;
+border-right: 1px solid #313131;
+}
+.footer_nav li:last-of-type {
+  border-right: none;
+}
+
+.footer_nav a {
+  display: block;
+   color: #8b8b8b;
+   font: 400 10px Arial, sans-serif;
+   text-transform: uppercase;
+   margin: 0 20px;
+}
+.footer_nav li:last-of-type a{
+  margin-right: 0;
+}
+.footer_nav li:first-of-type {
+  margin-left: 0;
+}
+.footer_nav a:hover {
+   color: #fff;
+   text-decoration: none;
+
+}
+.copy {
+  clear: right;
+  text-align: right;
+color: #8b8b8b;
+padding-top: 5px;
+}
+.copy a {
+color: #8b8b8b;
+  font: 400 12px Arial, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+}
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.footer .active {
+  color: #fff;
+  text-decoration: none;
+}
+    </style>
+  </head>
+  <body>
+    <header class='header'>
+      <div class="container">
+        <a class="logo" href='#'>
+          <img src="img/logo.png" alt="logo">
+        </a>
+        <nav class="nav">
+          <ul class="menu">
+            <li><a class="active1" href="#">Home</a>
+              <ul class="submenu">
+                <li ><a href="#">Home</a></li>
+                <li><a href="#">Servises</a></li>
+                <li><a href="#">Solution</a></li>
+                <li><a href="#">Partners</a></li>
+                <li><a href="#">Contacts</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Servises</a>
+              <ul class="submenu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Servises</a></li>
+                <li><a href="#">Solution</a></li>
+                <li><a href="#">Partners</a></li>
+                <li><a href="#">Contacts</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Solution</a>
+              <ul class="submenu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Servises</a></li>
+                <li><a href="#">Solution</a></li>
+                <li><a href="#">Partners</a></li>
+                <li><a href="#">Contacts</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Partners</a>
+              <ul class="submenu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Servises</a></li>
+                <li><a href="#">Solution</a></li>
+                <li><a href="#">Partners</a></li>
+                <li><a href="#">Contacts</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Contacts</a>
+              <ul class="submenu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Servises</a></li>
+                <li><a href="#">Solution</a></li>
+                <li><a href="#">Partners</a></li>
+                <li><a href="#">Contacts</a></li>
+              </ul>
+            </li>
+          </ul>
+
+        </nav>
+      </div>
+    </header>
+
+
+
+
+
+
+    <section class="main">
+      <div class="container">
+        <h1 class="head"><span>OUR WORK IS</span> dedicated<br>to the prosperity of our <span>CLIENTS!</span></h1>
+        <a href="#" class="btn">Read more</a>
+      </div>
+    </section>
+
+
+
+
+    <section class="about">
+      <div class="container">
+        <div class="about_item">
+          <h2 class="about_tittle">Personal Finance</h2>
+          <img class="about_img" src="img/about1.jpg" alt="">
+          <p class="about_text">Wnec porta diam eu massa. Quisque diam  vitae, pede. Donec eget tellus non erat lacinia fermentum. Donec in velit ve...</p>
+          <a href="#" class="btn">READ MORE</a>
+        </div>
+        <div class="about_item">
+          <h2 class="about_tittle">Resource Centers</h2>
+          <img class="about_img" src="img/about2.jpg" alt="">
+          <p class="about_text">Quisque diam lorem, interdum vitae, dapibus ac, scelerisque vitae, pede. Donec llus non
+erat lacinia fermentum. Donec in velit ve...</p>
+          <a href="#" class="btn">READ MORE</a>
+        </div>
+        <div class="about_item">
+          <h2 class="about_tittle">Online Business</h2>
+          <img class="about_img" src="img/about3.jpg" alt="">
+          <ul class="about_list">
+            <li><a href="#">Wnec porta diam eu massa Quisque</a></li>
+            <li><a href="#">lorem, interdum vitae, dapibus</a></li>
+            <li><a href="#">scelerisque vitae, pede Donec eg</a></li>
+          </ul>
+
+          <a href="#" class="btn">READ MORE</a>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+<section class="services">
+  <div class="container">
+    <div class="services_left clearfix">
+<h2 class="services_title">Services Overview</h2>
+<img class="img" src="img/f1.jpg"  alt="">
+<p class="services_text">Donec accumsan malesuada orci. Donec sit amet
+adipiscing elitauris fermentu gna.</p>
+<p class="services_text">Donec porta diam eu massa. Quisque diam lorem, interdum
+vitae, dapibus ac.</p>
+<p class="services_text stg">Donec eget tellus non erat lacinia fermentum. Donec in velit vel ipsum auctor pulvinar. Proin ullamcorper urna et felis.ro</p>
+<p class="services_text stg">Nulla facilisi. Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere ubil
+ia Curae; Suspendisse sollicitudin velit sed leo. Ut pharetra augue nec augue. Nam elit magna, hendrerit.</p>
+<a href="#" class="btn">Read More</a>
+    </div>
+    <div class="services_right">
+<h2 class="services_title">Special Offers</h2>
+<p class="services_text">Wnec porta diam eu massa. Quisque diam orem, interdum vitae, dapibus ac, scelerisque vitae, pe
+deonec eget tellus</p>
+<ul class="services_list">
+  <li>Malesuada at, neque.vamus eget nibhtia</li>
+  <li>Vivamus eget nibiam cursus leo vel metus</li>
+  <li>Nulla facilisienean nec erosestibulum </li>
+  <li>Qstibulum ante ipsum primis in </li>
+</ul>
+<a href="#" class="btn">Read More</a>
+    </div>
+  </div>
+
+
+</section>
+
+
+
+
+
+
+
+<footer class="footer">
+  <div class="container clearfix">
+
+
+<div class="footer_icon">
+  <a href="#" class="fb">facebook</a>
+  <a href="#" class="tw">twitter</a>
+  <a href="#" class="other">other</a>
+  <a href="#" class="tube">youtube</a>
+  <a href="#" class="rss">rss</a>
+</div>
+<div class="footer_nav">
+  <ul class="footer_nav">
+    <li class="active"> <a href="#">Home</a> </li>
+    <li> <a href="#">Services</a> </li>
+    <li> <a href="#">Solutions</a> </li>
+    <li> <a href="#">Partners</a> </li>
+    <li> <a href="#">Contacts</a> </li>
+  </ul>
+</div>
+<div class="copy">Consultex (c) 2010  <a href="#">Privacy policy</a>
+
+</div></div>
+</footer>
+
+
+
+
+  </body>
+</html>

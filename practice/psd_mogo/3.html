@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/2.css">
+  <title>Mogo</title>
+  <!--  font-family: 'Kaushan Script', cursive;
+          font-family: 'Montserrat', sans-serif; -->
+  <style media="screen">
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #333;
+
+
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: border-box;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-block;
+      vertical-align: top;
+      padding: 10px 15px;
+      border: 3px solid #fff;
+      color: #fff;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 8px 30px;
+
+      transition: background-color .3s linear, color .3s linear;
+    }
+
+    .btn:hover {
+      background-color: #fff;
+      color: #333;
+    }
+
+
+
+
+
+
+    /* section2 */
+    .section {
+      pedding: 80px 0;
+
+    }
+
+    .section__header {
+      width: 100%;
+      max-width: 950px;
+      margin: 0 auto 50px;
+      text-align: center;
+    }
+
+    .section__suptitle {
+      color: #333;
+      font-family: 'Kaushan Script', cursive;
+      font-size: 24px;
+
+    }
+
+    .section__title {
+
+      font-size: 30px;
+      font-weight: 700;
+      color: #333;
+      text-decoration: uppercase;
+
+    }
+
+    .section__title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      margin: 30px auto;
+      background-color: #f38181;
+
+    }
+
+    .section__text {
+      font-size: 15px;
+      color: #999;
+    }
+
+    .about {
+      margin-top: 80px;
+      display: flex;
+      justify-content: space-between;
+
+    }
+
+    .about__item:hover .about__text {
+      opacity: 1;
+    }
+
+    .about__item {
+      position: relative;
+      width: 380px;
+      background-color: #95e1d3;
+
+    }
+
+    .about__item:hover .about__img {
+      transform: translate3d(-10px, -10px, 0);
+    }
+
+    .about__item:hover .about__img img {
+      opacity: .1;
+    }
+
+    .about__img {
+      transition: transform .2s linear;
+      background: linear-gradient(#f38181, #fce38a);
+
+
+    }
+
+    .about__img img {
+      display: block;
+      transition: opacity 1s. linear;
+
+    }
+
+    .about__text {
+      width: 100%;
+      font-size: 18px;
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 700;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      z-index: 1;
+      transform: translate3d(0, -50%, 0);
+      opacity: 0;
+      transition: opacity .2s linear;
+    }
+
+
+
+    .statistics {
+      background-color: #95e1d3;
+
+    }
+
+    .stat {
+      display: flex;
+
+    }
+
+    .stat__item {
+      flex: 1 1 0;
+      border-left: 1px solid #b5eae0;
+      text-align: center;
+      color: #fff;
+      padding: 70px 25px;
+
+    }
+
+    .stat__item:last-child {
+      border-right: 1px solid #b5eae0;
+    }
+
+    .stat__count {
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 10px;
+
+    }
+
+    .stat__text {
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+
+
+
+    /* section3 */
+    .services {
+      display: flex;
+
+    }
+
+    .services__item {
+
+      flex: 1 1 0;
+      padding-left: 85px;
+      padding-right: 35px;
+      position: relative;
+
+    }
+
+    .services__icon {
+      position: absolute;
+      top: 0;
+      left: 28px;
+      z-index: 1;
+    }
+
+    .services__title {
+      font-size: 14px;
+      color: #333;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+
+    }
+
+    .services__text {
+      font-size: 15px;
+      color: #999;
+
+    }
+
+    hr {
+      display: block;
+      width: 100%;
+      height: 1px;
+      border: 0;
+      background-color: #e5e5e5;
+      margin: 40px 0;
+    }
+
+
+
+
+
+    /* section4 */
+    .section__devices {
+      margin-bottom: 80px;
+      background: url('43.jpg') center no-repeat;
+      background-size: cover;
+      padding-bottom: 0;
+
+    }
+
+    .devices {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .devices__item {
+      display: block;
+    }
+
+    .devices__item2 {
+      position: absolute;
+      bottom: -90px;
+      right: -85px;
+      z-index: 1;
+    }
+
+
+
+    /* section5 */
+    .wedo {
+      display: flex;
+    }
+
+    .wedo__item {
+      width: 50%;
+
+    }
+
+    .accordion__item {
+      border: 1px solid #e5e5e5;
+
+
+    }
+
+    .accordion__header {
+      border-bottom: 1px solid #e5e5e5;
+      padding: 15px 20px 15px 65px;
+      position: relative;
+
+    }
+
+    .accordion__header::after {
+      content: '';
+      display: block;
+      width: 16px;
+      height: 16px;
+      border-top: 2px solid #cccccc;
+      border-right: 2px solid #cccccc;
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      z-index: 1;
+      transform: translateY(-50%) rotate(-45deg);
+    }
+
+    .accordion__content {
+      padding: 15px 20px;
+      font-size: 15px;
+      color: #999;
+      font-style: italic;
+      font-weight: 300;
+      display: none;
+      overflow: hidden;
+
+
+    }
+
+    .accordion__title {
+      font-size: 14px;
+      color: #333;
+      text-transform: uppercase;
+
+    }
+
+    .accordion__icon {
+      position: absolute;
+      top: 60%;
+      left: 20px;
+      z-index: 1;
+      transform: translateY(-50%);
+    }
+
+
+    /* /////// */
+    .review {
+      padding: 0 110px;
+
+    }
+
+    .reviews__item {
+      padding-left: 205px;
+      position: relative;
+    }
+
+    .reviews__photo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      padding: 22px;
+      border: 3px solid #95e1d3;
+    }
+
+    .reviews__text {
+      font-size: 24px;
+      font-style: italic;
+      font-weight: 300;
+      color: #999;
+      margin-bottom: 15px;
+
+
+    }
+
+    .reviews__author {
+      font-family: 'Kaushan Script', cursive;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .reviews__author::before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 60px;
+      height: 3px;
+      margin-right: 10px;
+      background-color: #f38181;
+      /* background-color: #f8f8f8; */
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h3 class="section__suptitle">What we do</h3>
+        <h2 class="section__title">What we do</h2>
+        <div class="section__text">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+
+      <div class="about">
+        <div class="about__item">
+          <div class="about__img">
+            <img src="a1.jpg" alt="">
+          </div>
+          <div class="about__text">
+            super team
+          </div>
+        </div>
+        <div class="about__item">
+          <div class="about__img">
+            <img src="a2.jpg" alt="">
+          </div>
+          <div class="about__text">
+            super team
+          </div>
+        </div>
+        <div class="about__item">
+          <div class="about__img">
+            <img src="a3.jpg" alt="">
+          </div>
+          <div class="about__text">
+            super team
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <div class="statistics">
+    <div class="container">
+      <div class="stat">
+        <div class="stat__item">
+          <div class="stat__count">42</div>
+          <div class="stat__text">Web Design Projects</div>
+        </div>
+        <div class="stat__item">
+          <div class="stat__count">123</div>
+          <div class="stat__text">happy client</div>
+        </div>
+        <div class="stat__item">
+          <div class="stat__count">15</div>
+          <div class="stat__text">award winner</div>
+        </div>
+        <div class="stat__item">
+          <div class="stat__count">99</div>
+          <div class="stat__text">award winner</div>
+        </div>
+        <div class="stat__item">
+          <div class="stat__count">24</div>
+          <div class="stat__text">members</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- section3 -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h3 class="section__suptitle">We work with</h3>
+        <h2 class="section__title">Amazing Services</h2>
+      </div>
+
+      <div class="services">
+        <div class="services__item">
+          <img class="services__icon" src="31.png" alt="">
+          <div class="services__title">Photography</div>
+          <div class="services__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
+        </div>
+        <div class="services__item">
+          <img class="services__icon" src="32.png" alt="">
+          <div class="services__title">Web Design</div>
+          <div class="services__text">Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
+        </div>
+        <div class="services__item">
+          <img class="services__icon" src="33.png" alt="">
+          <div class="services__title">Creativity</div>
+          <div class="services__text">Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
+        </div>
+        <hr>
+        <div class="services__item">
+          <img class="services__icon" src="34.png" alt="">
+          <div class="services__title">seo</div>
+          <div class="services__text">Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</div>
+        </div>
+        <div class="services__item">
+          <img class="services__icon" src="35.png" alt="">
+          <div class="services__title">Css/Html</div>
+          <div class="services__text">Lorem dolor sit amet, consectetur adipiscing elit, sed do tempor.</div>
+        </div>
+        <div class="services__item">
+          <img class="services__icon" src="36.png" alt="">
+          <div class="services__title">digital</div>
+          <div class="services__text">Sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- section4 -->
+  <section class="section section__devices">
+    <div class="container">
+      <div class="section__header">
+        <h3 class="section__suptitle">For all devices</h3>
+        <h2 class="section__title">Unique design</h2>
+      </div>
+      <div class="devices">
+
+
+        <img class="devices__item" src="42.png" alt="">
+        <img class="devices__item devices__item2" src="411.png" alt="">
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+  <!-- section5 -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h3 class="section__suptitle">Service</h3>
+        <h2 class="section__title">Service</h2>
+        <div class="section__text">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+
+      <div class="wedo">
+        <div class="wedo__item">
+          <img class="wedo__img" src="51.jpg" width='570' height="380" alt="">
+        </div>
+
+
+        <div class="wedo__item">
+          <div class="accordion">
+            <div class="accordion__item">
+              <div class="accordion__header" onclick="myff()">
+                <img class="accordion__icon" src="52.png" alt="">
+                <div class="accordion__title">
+                  Photography
+                </div>
+              </div>
+              <div class="accordion__content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </div>
+            </div>
+
+
+            <div class="accordion__item">
+              <div class="accordion__header">
+                <img class="accordion__icon" src="53.png" alt="">
+                <div class="accordion__title">
+                  creativity
+                </div>
+              </div>
+              <div class="accordion__content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </div>
+            </div>
+
+
+
+
+            <div class="accordion__item">
+              <div class="accordion__header">
+                <img class="accordion__icon" src="54.png" alt="">
+                <div class="accordion__title">
+                  web design
+                </div>
+              </div>
+              <div class="accordion__content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+
+
+  <div class="section section__gray">
+    <div class="container">
+
+      <a class="review__btn prev" href="#">Prev</a>
+      <a class="review__btn next" href="#">Next</a>
+
+      <div class="reviews">
+
+
+        <div class="reviews__item">
+          <img class="reviews__photo" src="55.png" alt="">
+          <!-- <img class="reviews__photo" src="http://placehold.it/123" alt=""> -->
+          <div class="reviews__text">
+            “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exerc
+          </div>
+          <div class="reviews__author">
+            Jon Doe
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    // function myff() {
+    //    document.getElementsByClassName('accordion__content').style.display = block;
+    //
+    // }
+    var acc = document.getElementsByClassName("accordion__header");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        // var asd = document.getElementsByClassName("asd");
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+          // asd.style.transition = rotate('-45deg');
+        }
+      });
+    }
+  </script>
+  <!-- <details open>
+  <div class="accordion__header">
+    <img class="accordion__icon" src="52.png" alt="">
+<div class="accordion__title">
+Photography
+</div>
+      </div>
+    <div class="accordion__content">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>
+</details> -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+block variables
+	
+include ../mixins/mixins.pug
+include ../mixins/appartment.pug
+
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		title #{pageTitle}
+		link(rel="stylesheet", href="css/main.css")
+	body
+		.wrapper
+			block main
+				h1 Main template pug

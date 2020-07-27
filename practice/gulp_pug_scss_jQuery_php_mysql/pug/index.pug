@@ -1,0 +1,33 @@
+extends templates/main-template
+
+block variables
+	- var pageTitle = 'Размещение'
+
+block main
+	include modules/header.pug
+	.section-content
+		h1 
+			| Варианты для размещения
+
+		+appartment('Superior Double', ['air condition', 'free wi-fi', 'bath', 'flat TV'], 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.', 'background-image: url(../img/room/room_01.jpg);')
+		
+		+appartment('Superior Single item', ['air condition', 'free wi-fi'], 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'background-image: url(../img/room/room_02.jpg);')
+
+		//.appartment
+			.appartment__img(style="background-image: url(../img/room/room_01.jpg);")
+			.appartment__desc
+				.appartment__header
+					.appartment__title Superior Double item
+					.appartment__beds
+						.fa.fa-bed
+						.fa.fa-bed
+				.appartment__text
+					p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.
+				.appartment__footer
+					.appartment__button Details
+					.appartment__options
+						.tag air condition
+						.tag free wi-fi
+						.tag bath
+						.tag flat TV
+	include modules/footer.pug

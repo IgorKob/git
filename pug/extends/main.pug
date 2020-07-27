@@ -1,0 +1,19 @@
+block variables
+  //- - var current = 'Home'
+
+mixin navlink(link, name)
+  li
+    a(href=link class={ active : name === current }) #{name}
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title #{pageTitle}
+    link(rel='stylesheet', href='css/style.css')
+  body
+    ul.nav
+      +navlink('index.html', 'Home')
+      +navlink('about.html', 'About')
+      +navlink('contacts.html', 'Contacts')
+      
+    block main

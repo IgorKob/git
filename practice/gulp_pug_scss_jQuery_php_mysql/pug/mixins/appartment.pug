@@ -1,0 +1,16 @@
+mixin appartment(title, tags, desc, img)
+	.appartment
+		.appartment__img(style= img)
+		.appartment__desc
+			.appartment__header
+				.appartment__title #{title}
+				.appartment__beds
+					.fa.fa-bed
+					.fa.fa-bed
+			.appartment__text
+				p #{desc}
+			.appartment__footer
+				.appartment__button Details
+				.appartment__options
+					each tag in tags
+						.tag #{tag}

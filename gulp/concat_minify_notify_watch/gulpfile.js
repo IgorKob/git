@@ -30,6 +30,9 @@ const stripDebug = require('gulp-strip-debug');
 const plumber = require('gulp-plumber');
 //img
 const imagemin = require('gulp-imagemin');
+//html
+// const htmlmin = require('gulp-html-minifier');
+// const htmlmin = require('gulp-htmlmin');
 
 
 //kim class
@@ -160,6 +163,17 @@ function img() {
 
 
 
+//kim html min error
+// function htmlmin() {
+//   return  gulp.src('./app/*.html')
+//       .pipe(htmlmin({collapseWhitespace: true, ignorePath: '/assets' }))
+//       .pipe(gulp.dest('./dist'));
+// }
+
+
+
+
+
 //watch
 function watch() {
     browserSync.init({
@@ -188,6 +202,8 @@ exports.removeCss = removeCss;
 exports.buildHtml = buildHtml;
 //kim cleanFile
 exports.cleanFile = cleanFile;
+//htmlmin
+// exports.htmlmin = htmlmin;
 //kim img
 exports.img = img;
 //kim ftp Files
