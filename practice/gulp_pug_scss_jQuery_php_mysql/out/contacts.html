@@ -1,18 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <title>Index page</title>
-    <link rel="stylesheet" href="css/main.css">
+    <meta charset="UTF-8"/>
+    <title>Розміщення</title>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="libs/jquery-ui-1.12.1.custom/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="libs/jquery-ui-1.12.1.custom/jquery-ui.structure.css"/>
+    <link rel="stylesheet" href="libs/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,700,700i&amp;amp;subset=cyrillic-ext"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/><!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><![endif]-->
   </head>
   <body>
     <div class="wrapper">
-      <h1>Contacts</h1>
-      <ul class="navigation">
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="about.html">О нас</a></li>
-        <li><a class="active" href="contacts.html">Контакты</a></li>
-      </ul>
+      <div class="section-header">
+        <div class="logo"><a href="#"><img src="img/logo/logo.png"/></a></div>
+        <div class="navigation">
+          <ul>
+            <li><a href="index.html">Главная<br/><span>Добро пожаловать</span></a></li>
+            <li><a href="appartment-page.html">Аппартаменты <br/><span>Выбор номера</span></a></li>
+            <li><a href="contacts.html">Контакты <br/><span>Напишите нам</span></a></li>
+            <li class="reservation-btn custom-color-btn-back"><a href="#">Бронирование <br/><span>Забронировать номер</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="section-content">
+        <h1>Зворотній зв'язок</h1>
+        <form class="contact-form" id="contact-form">
+          <div class="row" id="form-notify"></div>
+          <div class="contact-form__row">
+            <input class="input input--half" type="text" id="input-name" name="contact-font-name" placeholder="Введіть ім'я"/>
+            <input class="input input--half" type="text" id="input-email" name="contact-font-email" placeholder="Введіть email"/>
+          </div>
+          <div class="contact-form__row">
+            <textarea class="textarea" id="input-message" name="contact-font-message" placeholder="Ваше повідомлення"></textarea>
+          </div>
+          <div class="contact-form__row">
+            <input class="button" type="submit" id="input-sumbit" name="contact-font-sumbit" value="Надіслати"/>
+          </div>
+        </form>
+      </div>
+      <div class="section-footer">
+        <div class="map">
+          <!-- img(src="http://via.placeholder.com/250x150", alt="")--><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5740.709414819223!2d115.1689508123794!3d-8.716764730321545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd246becfdf3a21%3A0xc9b3a559671f273b!2sBounty+Hotel!5e0!3m2!1sru!2sru!4v1516788876021" width="300" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+        <div class="address">
+          <p><strong>2 Commercial Road <br></strong>EH6 78H, Chicago <br>
+            Ohio, United States <br>
+            Full directions
+          </p>
+        </div>
+        <div class="footer__social"><a href="#" target="_blank"><i class="fa fa-vk"></i></a><a href="#" target="_blank"><i class="fa fa-telegram"></i></a><a href="#" target="_blank"><i class="fa fa-twitter"></i></a><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></div>
+      </div>
     </div>
   </body>
+  <script src="libs/jquery.js"></script>
+  <script src="libs/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+  <script src="js/main.js"></script>
 </html>

@@ -1,0 +1,31 @@
+.button {
+	.transition;
+	display: inline-block;
+	background-color: @green;
+	padding: 10px 40px 10px 40px;
+	color: #FFF;
+	-webkit-border-radius: 4px;
+	        border-radius: 4px;
+	font-size: 18px;
+	font-weight: 300;
+	text-decoration: none;
+	border: none;
+	font-family: 'Roboto', sans-serif; // 400 500 700
+	cursor: pointer;
+	&:hover, &:focus {
+		background-color: saturate(@green, 30%);	
+		outline-style: none;
+	}
+	&:active {
+		outline-style: none;
+	}
+}
+
+.button--appartment {
+	margin-right: 20px;
+}
+
+.button--full-width {
+	width: 100%;
+}
+

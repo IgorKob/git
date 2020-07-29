@@ -1,0 +1,18 @@
+.map {
+  padding-bottom: 15px;
+}
+.address {
+  padding-bottom: 15px;
+}
+.footer__social {
+  font-size: 32px;
+  padding-bottom: 15px;
+}
+.footer__social a {
+  opacity: 0.75;
+  color: #FFF;
+  margin-right: 25px;
+}
+.footer__social a:hover {
+  opacity: 1;
+}

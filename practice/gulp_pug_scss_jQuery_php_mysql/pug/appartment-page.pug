@@ -1,0 +1,49 @@
+extends templates/main-template
+
+block variables
+	- var pageTitle = 'Розміщення'
+
+block main
+	include modules/header.pug
+	.section-content
+		.app-single__header
+			h1 Двоспальний номер
+			.appartment__beds
+				.fa.fa-bed
+				.fa.fa-bed
+
+		img(src="img/room/room_01.jpg" alt="Image - room photo")
+		
+		.tags-block
+			.tag-title Зручності:
+			.appartment__options
+				//- each tag in tags
+					.tag #{tag}
+				.tag air condition
+				.tag free wi-fi
+				.tag bath
+				.tag flat TV
+
+		p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+		p Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+		.booking
+			.booking__price $14 <br>
+				span per night
+			form.booking-form(action="reservation.php" method="get")
+				input(type="hidden" id="booking-room" name="booking-room" value="3")
+				.input-wrapper
+					input(type="text" class="input-wrapper__input datepicker" id="booking-checkin" name="booking-checkin" placeholder="24.01.2018")
+					.input-wrapper__icon
+						.fa.fa-calendar
+					
+				.input-wrapper
+					input(type="text" class="input-wrapper__input datepicker" id="booking-checkout" name="booking-checkout" placeholder="31.01.2018")
+					.input-wrapper__icon
+						.fa.fa-calendar
+
+
+				input(type="submit" class="button button--full-width custom-color-btn-back" value="Book now")
+
+		p.extended-info Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam

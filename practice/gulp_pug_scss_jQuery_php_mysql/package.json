@@ -36,5 +36,13 @@
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "**4-й день интенсива**",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebCademy/day4-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/WebCademy/day4-project/issues"
+  },
+  "homepage": "https://github.com/WebCademy/day4-project#readme"
 }

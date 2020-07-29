@@ -1,0 +1,39 @@
+block variables
+
+include ../mixins/mixins.pug
+include ../mixins/appartment.pug
+
+<!DOCTYPE html>
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		title #{pageTitle}
+		link(rel="stylesheet", href="libs/bootstrap-4/css/bootstrap.min.css")
+		link(rel="stylesheet", href="css/main.css")
+
+		//- jQuery UI
+		link(rel="stylesheet", href="libs/jquery-ui-1.12.1.custom/jquery-ui.min.css")
+		link(rel="stylesheet", href="libs/jquery-ui-1.12.1.custom/jquery-ui.structure.css")
+		link(rel="stylesheet", href="libs/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css")
+
+		//- Fonts
+		link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,300i,400,700,700i&amp;subset=cyrillic-ext')
+		link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+
+		<!--[if lt IE 9]>
+		script(src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js")
+		<![endif]-->
+
+	body
+		.wrapper
+			block main
+				h1 Main template pug
+		
+			include ../modules/footer-admin.pug
+
+	
+	script(src="libs/jquery.js")
+	script(src="libs/jquery-ui-1.12.1.custom/jquery-ui.min.js")
+	script(src="libs/bootstrap-4/js/bootstrap.min.js")
+	script(src="js/main.js")
+

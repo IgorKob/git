@@ -1,0 +1,59 @@
+.appartment {
+  display: flex;
+  background-color: #FFF;
+  margin-bottom: 30px;
+}
+.appartment__img {
+  min-width: 350px;
+  min-height: 270px;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.appartment__desc {
+  padding: 20px 30px;
+}
+.appartment__header {
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.appartment__title {
+  color: #26bc8c;
+  font-size: 20px;
+  font-weight: 400;
+}
+.appartment__beds .fa-bed {
+  margin-left: 15px;
+  font-size: 22px;
+  color: #555 !important;
+}
+.appartment__text {
+  margin: 15px 0px 0px 0px;
+}
+.appartment__text p {
+  font-weight: 300;
+}
+.appartment__footer {
+  margin: 20px 0px;
+  display: flex;
+  align-items: center;
+}
+.appartment__button {
+  background-color: #26bc8c !important;
+  padding: 10px 40px 10px 40px;
+  margin-right: 20px;
+  color: #FFF;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 300;
+}
+.tag {
+  font-style: italic;
+  font-size: 13px;
+  color: #888;
+  display: inline-block;
+}

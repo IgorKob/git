@@ -10,7 +10,8 @@ mixin appartment(title, tags, desc, img)
 			.appartment__text
 				p #{desc}
 			.appartment__footer
-				.appartment__button Details
+				a.button.button--appartment(href='appartment-page.html') Details
 				.appartment__options
 					each tag in tags
 						.tag #{tag}
+

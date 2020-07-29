@@ -1,0 +1,26 @@
+extends templates/admin-template
+
+block variables
+	- var pageTitle = 'Адмін панель'
+
+block main
+	include modules/header-admin.pug
+	.section-content
+		h1 Додати номер
+		form.contact-form.mt30(id="contact-form")
+			.row(id="form-notify")
+			.contact-form__row
+				input.input(type="text" id="app-title" name="app-title" placeholder="Назва номера")
+			.contact-form__row
+				input.input(type="text" id="app-beds" name="app-beds" placeholder="Кількість спальних місць")
+			.contact-form__row
+				input.input(type="file" id="app-img" name="app-img")
+			.contact-form__row
+				textarea.textarea(id="app-desc" name="app-desc" placeholder="Опис номера")
+			.contact-form__row
+				input.button(type="submit" id="app-add" name="app-add" value="Додати номер")
+
+
+
+
+		

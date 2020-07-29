@@ -1,11 +1,19 @@
 extends templates/main-template
 
 block variables
-	- var pageTitle = 'Index page'
+	- var pageTitle = 'Розміщення'
 
 block main
+	include modules/header.pug
+	.section-content
+		h1 Зворотній зв'язок
+		form.contact-form(id="contact-form")
+			.row(id="form-notify")
 
-	h1 Contacts
-
-	-var current = 'Контакты'
-	include modules/nav
+			.contact-form__row
+				input.input.input--half(type="text" id="input-name" name="contact-font-name" placeholder="Введіть ім'я")
+				input.input.input--half(type="text" id="input-email" name="contact-font-email" placeholder="Введіть email")
+			.contact-form__row
+				textarea.textarea(id="input-message" name="contact-font-message" placeholder="Ваше повідомлення")
+			.contact-form__row
+				input.button(type="submit" id="input-sumbit" name="contact-font-sumbit" value="Надіслати")
