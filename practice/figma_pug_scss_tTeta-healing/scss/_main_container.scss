@@ -1,0 +1,163 @@
+main {
+  width: 100%;
+  background: linear-gradient(180deg, #FFFFFF 49.96%, #EFF9FF 100%);
+}
+
+h2 {
+  width: 855px;
+  font-family: Uni Neue;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 64px;
+  text-align: center;
+  color: #363636;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+
+  span {
+    color: #69B0AC;
+  }
+}
+// width: 1264px;
+.container {
+  width: 1264px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  // flex-flow: row wrap;
+  align-items: flex-start;
+}
+
+.container-left {
+  position: relative;
+  width: 625px;
+  height: 420px;
+  margin-right: 46px;
+  flex-grow: 1;
+
+  background: #FFFFFF;
+  border-radius: 40px;
+  background: radial-gradient(25.3% 57.25% at 50% 50%, rgba(80, 152, 190, 0.5) 0%, rgba(52, 113, 146, 0.76) 100%), url('/img/gg.jpg');
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.img {
+  // background: #FFFFFF;
+  // border-radius: 40px;
+  // width: 100%;
+  // height: 100%;
+  // background: radial-gradient(25.3% 57.25% at 50% 50%, rgba(80, 152, 190, 0.5) 0%, rgba(52, 113, 146, 0.76) 100%), url('/img/gg.jpg');
+  // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.svg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  fill-opacity: 1;
+  &:hover {
+    cursor: pointer;
+    fill-opacity: .2
+    ;
+  }
+}
+
+
+.container-right {
+    flex-grow: 1;
+  width: 625px;
+  height: 420px;
+
+  p {
+    font-family: Uni Neue;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 28px;
+color: #545454;
+margin-top: 0;
+
+    span {
+      font-weight: 900;
+
+    }
+  }
+}
+////
+
+
+//.container-number
+.container-number {
+  width: 1264px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 89px;
+  display: flex;
+  flex-direction: row;
+  // flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.container-number_hours {
+
+}
+
+.number {
+  font-family: Uni Neue;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 100px;
+  line-height: 64px;
+  color: #69B0AC;
+}
+
+.number-title {
+  display: flex;
+  flex-direction: row;
+  // flex-flow: row wrap;
+  // align-items: center;
+  justify-content: flex-start;
+  margin-top: 34px;
+  margin-bottom: 123px;
+}
+
+.number-title_h {
+  font-family: Uni Neue;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  color: #363636;
+  padding-right: 19px;
+  // flex: 1;
+}
+
+.number-title_t {
+  font-family: Uni Neue;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: #545454;
+  // flex: 1;
+
+
+}
+
+//
+.container-number_years {
+
+}
+
+//
+.container-number_hours {
+
+}
