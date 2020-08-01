@@ -9,11 +9,18 @@ html(lang='uk')
   head
     meta(charset='UTF-8')
     title #{pageTitle}
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel='stylesheet', href='css/style.css')
   body
-    //- ul.nav
-      //- +navlink('index.html', 'Home')
-      //- +navlink('about.html', 'About')
-      //- +navlink('contacts.html', 'Contacts')
+    //- a(data-fancybox href="https://www.youtube.com/watch?v=_sI_Ps7JSEk&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0") YouTube
+    //- a(data-fancybox href="https://www.youtube.com/watch?v=_sI_Ps7JSEk") YouTube video
+    //- a(data-fancybox="gallery" href="big_1.jpg")
+    //-   img(src="small_1.jpg")
       
     block main
+    
+    block scripts
+      script(src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js")
+      link(rel="stylesheet", href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css")
+      script(src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js")
+      script(src=`js/main.js`)

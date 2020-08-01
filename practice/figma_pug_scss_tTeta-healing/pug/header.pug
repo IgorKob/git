@@ -2,6 +2,9 @@ header
   nav
     .nav-logo Жанна Тата
       .nav-logo-title Сертифікований тренер по тета-хілінгу
+    
+    span(class='nav-span-btn', style="font-size:30px; cursor:pointer", onclick="openNav()") &#9776;
+    
     .nav-link 
       ul
         li
@@ -18,6 +21,18 @@ header
           a(href='#') БЛОГ
         li
           a(href='#') КОНТАКТИ
+          
+    .overlay(id="myNav")
+      a(href="javascript:void(0)", class="closebtn", onclick="closeNav()") &times;
+      .overlay-content
+        a(href='#') ПРО МЕНЕ
+        a(href='#') ТЕТА-ХІЛІНГ
+        a(href='#') ПОСЛУГИ
+        a(href='#') РОЗКЛАД
+        a(href='#') ГАЛЕРЕЯ
+        a(href='#') БЛОГ
+        a(href='#') КОНТАКТИ
+        
   
   .header-main
     .header-main_left
@@ -58,3 +73,4 @@ header
     .header-main_right
       
     .header-main_bottom
+      
