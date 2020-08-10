@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>Card 3D</title>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <style media="screen">
+      body {
+        margin: 0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      .container {
+        display: flex;
+        height: 100vh;
+        background-color: #ccc;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .card {
+        perspective: 1000px;
+        transform-style: preserve-3d;
+
+      }
+      .card-item {
+        background-color: #eee;
+        width: 250px;
+        height: 250px;
+        transition: transform .2s;
+        /* transform: rotateX(20deg); */
+      }
+    </style>
+  </head>
+  <body
+    <div class='container'>
+      <div class="card">
+        <div class="card-item"></div>
+      </div>
+      <div class="card">
+        <div class="card-item"></div>
+      </div>
+      <div class="card">
+        <div class="card-item"></div>
+      </div>
+    </div>
+
+
+    <!-- <script scr='main.js'></script> -->
+    <script>
+    const cards = document.querySelectorAll('.card');
+
+    for (let i = 0; i < cards.length; i++) {
+      const card = cards[i];
+      card.addEventListener('mousemove', startRotate);
+      card.addEventListener('mouseout', stopRotate);
+    }
+
+    function startRotate(event) {
+      const cardItem = this.querySelector('.card-item');
+      const halfHeight = cardItem.offsetHeight / 2;
+      const halfWidth = cardItem.offsetWidth / 2;
+      cardItem.style.transform = 'rotateX(' + -(event.offsetY -
+      halfHeight) / 5 + 'deg) rotateY('+ (event.offsetX -
+      halfWidth) / 5 + 'deg)';
+    }
+
+    function stopRotate(event) {
+      const cardItem = this.querySelector('.card-item');
+      cardItem.style.transform = 'rotate(0)';
+    }
+
+    </script>
+  </body>
+</html>
