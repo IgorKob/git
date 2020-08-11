@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MouseMove X & Y</title>
+  <style>
+    /* scss */
+    /* body {
+      font-family: sans-serif;
+      font-size: 16px;
+      color: #131313;
+    }
+
+    .container {
+      max-width: 768px;
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+      z-index: 100;
+    }
+
+    .ma {
+      margin-top: 10rem;
+      margin-bottom: 4rem;
+    }
+
+    .article {
+      background-color: #fff;
+      padding: 20px 35px;
+      box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.1);
+
+      &__date {
+        display: block;
+        text-align: right;
+        font-weight: 300;
+        color: #afafaf;
+      }
+
+      &__title {
+        font-size: 2.3rem;
+        font-weight: 600;
+      }
+
+      &__text {
+        font-size: 1.1rem;
+        font-weight: 400;
+        line-height: 1.5;
+      }
+    }
+
+    //
+    .layer-bg {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: -10%;
+      bottom: 0;
+
+      &-1 {
+        background: url(http://pngimg.com/uploads/mountain/mountain_PNG20.png) center no-repeat;
+        background-size: cover;
+        z-index: 40;
+      }
+
+      &-2 {
+        background: url(http://pngimg.com/uploads/mountain/mountain_PNG18.png) center no-repeat;
+        background-size: cover;
+        right: -10%;
+        z-index: 20;
+      }
+    }
+
+    .layer-sun {
+      @extend .layer-bg;
+      background: url(http://pngimg.com/uploads/sun/sun_PNG13427.png) center no-repeat;
+      background-size: cover;
+      height: 200px;
+      width: 200px;
+      left: 2%;
+      // bottom: 0;
+      // transform: translateY(-100%);
+      z-index: 10;
+    } */
+
+    /* css */
+    body {
+      font-family: sans-serif;
+      font-size: 16px;
+      color: #131313;
+    }
+
+    .container {
+      max-width: 768px;
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+      z-index: 100;
+    }
+
+    .ma {
+      margin-top: 10rem;
+      margin-bottom: 4rem;
+    }
+
+    .article {
+      background-color: #fff;
+      padding: 20px 35px;
+      box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .article__date {
+      display: block;
+      text-align: right;
+      font-weight: 300;
+      color: #afafaf;
+    }
+
+    .article__title {
+      font-size: 2.3rem;
+      font-weight: 600;
+    }
+
+    .article__text {
+      font-size: 1.1rem;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+
+    /* // */
+    .layer-bg {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: -10%;
+      bottom: 0;
+    }
+
+    .layer-bg-1 {
+      background: url(http://pngimg.com/uploads/mountain/mountain_PNG20.png) center no-repeat;
+      background-size: cover;
+      z-index: 40;
+    }
+
+    .layer-bg-2 {
+      background: url(http://pngimg.com/uploads/mountain/mountain_PNG18.png) center no-repeat;
+      background-size: cover;
+      right: -10%;
+      z-index: 20;
+    }
+
+
+    .layer-sun {
+      /* @extend .layer-bg; */
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: -10%;
+      bottom: 0;
+
+      background: url(http://pngimg.com/uploads/sun/sun_PNG13427.png) center no-repeat;
+      background-size: cover;
+      height: 200px;
+      width: 200px;
+      left: 2%;
+      /* // bottom: 0; */
+      /* // transform: translateY(-100%); */
+      z-index: 10;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container ma">
+    <div class="article">
+      <h1 class="article__title">Article title</h1>
+      <span class="article__date">11/08/2020</span>
+      <p class="article__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic voluptate, similique ipsa velit expedita dignissimos impedit voluptatibus ipsam quibusdam at earum neque, saepe totam quisquam nesciunt molestiae error
+        perferendis id aspernatur eveniet molestias corrupti accusantium. Molestiae quasi, cupiditate accusantium illo, dolores amet aperiam officia autem assumenda odio laudantium ad. Quam.</p>
+      <p class="article__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic voluptate, similique ipsa velit expedita dignissimos impedit voluptatibus ipsam quibusdam at earum neque, saepe totam quisquam nesciunt molestiae error
+        perferendis id aspernatur eveniet molestias corrupti accusantium. Molestiae quasi, cupiditate accusantium illo, dolores amet aperiam officia autem assumenda odio laudantium ad. Quam.</p>
+      <p class="article__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic voluptate, similique ipsa velit expedita dignissimos impedit voluptatibus ipsam quibusdam at earum neque, saepe totam quisquam nesciunt molestiae error
+        perferendis id aspernatur eveniet molestias corrupti accusantium. Molestiae quasi, cupiditate accusantium illo, dolores amet aperiam officia autem assumenda odio laudantium ad. Quam.</p>
+      <p class="article__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic voluptate, similique ipsa velit expedita dignissimos impedit voluptatibus ipsam quibusdam at earum neque, saepe totam quisquam nesciunt molestiae error
+        perferendis id aspernatur eveniet molestias corrupti accusantium. Molestiae quasi, cupiditate accusantium illo, dolores amet aperiam officia autem assumenda odio laudantium ad. Quam.</p>
+      <p class="article__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic voluptate, similique ipsa velit expedita dignissimos impedit voluptatibus ipsam quibusdam at earum neque, saepe totam quisquam nesciunt molestiae error
+        perferendis id aspernatur eveniet molestias corrupti accusantium. Molestiae quasi, cupiditate accusantium illo, dolores amet aperiam officia autem assumenda odio laudantium ad. Quam.</p>
+      <p class="article__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic voluptate, similique ipsa velit expedita dignissimos impedit voluptatibus ipsam quibusdam at earum neque, saepe totam quisquam nesciunt molestiae error
+        perferendis id aspernatur eveniet molestias corrupti accusantium. Molestiae quasi, cupiditate accusantium illo, dolores amet aperiam officia autem assumenda odio laudantium ad. Quam.</p>
+      <p class="article__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic voluptate, similique ipsa velit expedita dignissimos impedit voluptatibus ipsam quibusdam at earum neque, saepe totam quisquam nesciunt molestiae error
+        perferendis id aspernatur eveniet molestias corrupti accusantium. Molestiae quasi, cupiditate accusantium illo, dolores amet aperiam officia autem assumenda odio laudantium ad. Quam.</p>
+      <p class="article__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic voluptate, similique ipsa velit expedita dignissimos impedit voluptatibus ipsam quibusdam at earum neque, saepe totam quisquam nesciunt molestiae error
+        perferendis id aspernatur eveniet molestias corrupti accusantium. Molestiae quasi, cupiditate accusantium illo, dolores amet aperiam officia autem assumenda odio laudantium ad. Quam.</p>
+      <p class="article__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic voluptate, similique ipsa velit expedita dignissimos impedit voluptatibus ipsam quibusdam at earum neque, saepe totam quisquam nesciunt molestiae error
+        perferendis id aspernatur eveniet molestias corrupti accusantium. Molestiae quasi, cupiditate accusantium illo, dolores amet aperiam officia autem assumenda odio laudantium ad. Quam.</p>
+      <p class="article__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic voluptate, similique ipsa velit expedita dignissimos impedit voluptatibus ipsam quibusdam at earum neque, saepe totam quisquam nesciunt molestiae error
+        perferendis id aspernatur eveniet molestias corrupti accusantium. Molestiae quasi, cupiditate accusantium illo, dolores amet aperiam officia autem assumenda odio laudantium ad. Quam.</p>
+    </div>
+  </div>
+  <!--  -->
+  <div data-speed="20" class="layer-bg layer-bg-1"></div>
+  <div data-speed="-40" class="layer-bg layer-bg-2"></div>
+  <div class="layer-sun"></div>
+  <!--  -->
+
+
+  <script>
+    function parallax(event) {
+      this.querySelectorAll('.layer-bg').forEach(layer => {
+        let speed = layer.getAttribute('data-speed');
+        layer.style.transform = `translateX(${event.clientX*speed/1000}px)`;
+      })
+    }
+
+    document.addEventListener('mousemove', parallax);
+
+    function mouseMoveY(event) {
+      let sun = this.querySelector('.layer-sun');
+      sun.style.transform = `translateY(${ -event.clientY / 30}px)`;
+    }
+
+    document.addEventListener('mousemove', mouseMoveY);
+  </script>
+</body>
+
+</html>

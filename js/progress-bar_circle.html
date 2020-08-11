@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+      /* progress 1 */
+      /* html, body {
+        background-color: #64B5F6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 100%;
+      }
+      .progress-ring__circle {
+        transform-origin: center;
+        transform: rotate(-90deg);
+        transition: storke-dashoffset 0.3s;
+      } */
+
+/* progress 2 */
+      body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: linear-gradient(135deg, #abdcff, #0396ff);
+}
+
+.progress-ring {
+}
+
+.progress-ring__circle {
+  stroke-width: 4;
+  stroke: #ffffff;
+  fill: none;
+  transform-origin: center;
+  transform: rotate(-90deg);
+}
+    </style>
+  </head>
+  <body>
+
+    <!-- progress 1 -->
+    <!-- <svg class="progress-ring" width="120" height="120">
+      <circle class="progress-ring__circle" stroke="white" stroke-width="4" cx="60" cy="60" r="52" fill="transparent"/>
+    </svg>
+
+    <input type="number" class="percent"> -->
+
+
+<!-- progress 2 -->
+    <svg class="progress-ring" width="120" height="120">
+      <circle class="progress-ring__circle" cx="60" cy="60" r="58"></circle>
+    </svg>
+
+    <input class="percente" type="range" min="0" max="100" value="20">
+    <script>
+      // progress 1
+      // const circle = document.querySelector('.progress-ring__circle');
+      // const radius = circle.r.baseVal.value;
+      // const circumference = 2 * Math.PI * radius;
+      // const input = document.querySelector('.percent');
+      //
+      // input.addEventListener('change', function() {
+      //   setProgress(input.value);
+      // })
+      //
+      // circle.style.strokeDasharray = `${circumference} ${circumference}`;
+      // circle.style.strokeDashoffset = circumference;
+      //
+      // function setProgress(percent) {
+      //   const offset = circumference - percent / 100 * circumference;
+      //   circle.style.strokeDashoffset = offset;
+      // }
+
+
+ // progress 2
+const circle = document.querySelector('.progress-ring__circle');
+const r = circle.r.baseVal.value;
+const circumference = 2 * Math.PI * r;
+const input = document.querySelector('.percente');
+
+circle.style.strokeDasharray = `${circumference} ${circumference}`;
+circle.style.strokeDashoffset = circumference;
+
+function setProgress(percent) {
+  const offset = circumference - percent / 100 * circumference;
+  circle.style.strokeDashoffset = offset;
+}
+
+setProgress(20);
+
+input.addEventListener('input', function () {
+  setProgress(input.value);
+});
+    </script>
+
+  </body>
+</html>
