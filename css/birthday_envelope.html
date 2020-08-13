@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style media="screen">
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .section {
+      background-color: #fab1a0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .envelope {
+      position: relative;
+      width: 200px;
+      height: 110px;
+    }
+
+    .envelope__top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      transition: 0.2s;
+      transform: translateY(-100%);
+      transform-origin: bottom;
+    }
+
+    .envelope__body {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .paper {
+      background-color: #fff;
+      width: 100px;
+      height: 80px;
+      text-align: center;
+      position: absolute;
+      left: 50%;
+      margin-left: -50px;
+      transform: translateY(-40px);
+      transition: 0.2s;
+      bottom: 0;
+    }
+
+    .envelope__top_close {
+      transform: translateY(-110%) rotateX(180deg);
+      z-index: 2;
+    }
+
+    .paper_close {
+      transform: translateY(-10%);
+      height: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="section">
+    <div class="envelope">
+
+      <div class="envelope__top">
+        <img src="http://up-skills.ru/test/envelope-top.svg" alt="">
+      </div>
+
+      <div class="paper">
+        Подарок
+      </div>
+
+      <div class="envelope__body">
+        <img src="http://up-skills.ru/test/envelope.svg" alt="">
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+
+  <script>
+    $('.envelope').on('click', function(e) {
+      $('.envelope__top').toggleClass('envelope__top_close');
+      $('.paper').toggleClass('paper_close');
+    })
+  </script>
+
+</body>
+
+</html>

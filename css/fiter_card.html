@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style media="screen">
+    html {
+      background: url('https://images.unsplash.com/photo-1568048773966-a18abfbffbfd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1308&q=80') no-repeat fixed center / cover;
+      position: relative;
+      overflow-y: scroll;
+    }
+
+    body {
+      background: inherit;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .block * {
+      position: relative;
+    }
+
+    .block {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      width: 300px;
+      height: 300px;
+      box-shadow: 1px 1px 4px rgba(14, 14, 14, 0.3);
+      border: 15px solid rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      text-shadow: 0 1px 2px #000;
+      color: #fff;
+      background: inherit;
+      cursor: move;
+      font-family: Fira Sans;
+    }
+
+    h1 {
+      margin-bottom: 5px;
+    }
+
+    .block:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: inherit;
+      filter: blur(10px);
+      filter: url(#blur);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="block">
+    <h1>h1</h1>
+    <span>span</span>
+  </div>
+
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="6"></feGaussianBlur>
+    </filter>
+  </svg>
+
+
+
+
+
+
+
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+  <script>
+    $(function() {
+      $('.block').draggable();
+    })
+  </script>
+</body>
+
+</html>
