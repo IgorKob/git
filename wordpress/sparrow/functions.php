@@ -8,6 +8,7 @@ add_action( 'widgets_init', 'register_my_widgets' );
 
 
 // https://wp-kama.ru/hook/wp_enqueue_scripts
+  // <?php wp_head(); >  вставити в кінці файлу header.php
 function style_theme() {
 	wp_enqueue_style( 'style-name', get_stylesheet_uri() );
   wp_enqueue_style( 'sdefault', get_template_directory_uri() .'/assets/css/default.css');
@@ -15,6 +16,8 @@ function style_theme() {
   wp_enqueue_style( 'media-queries', get_template_directory_uri() .'/assets/css/media-queries.css');
 }
 
+
+//<?php wp_footer(); > вставити в кінці файлу footer.php
 function scripts_theme() {
   wp_enqueue_script( 'jquery.flexslider', get_template_directory_uri() .'/assets/js/jquery.flexslider.js');
   wp_enqueue_script( 'doubletaptogo', get_template_directory_uri() .'/assets/js/doubletaptogo.js');
@@ -39,8 +42,25 @@ function my_scripts_method() {
 function theme_register_nav_menu() {
 	register_nav_menu( 'top', 'Primary Menu' );
   register_nav_menu( 'footer', 'footer menu' );
+add_theme_support( 'title-tag' );
+add_theme_support( 'post-thumbnails', array( 'post' ) );          // Только для post
+// add_theme_support( 'post-thumbnails', array( 'page' ) );          // Только для page
+add_image_size( 'post_thumb', 1300, 500, true );
+
+add_filter('excerpt_more', 'new_excerpt_more');
+function new_excerpt_more($more) {
+global $post;
+return '<a href="'. get_permalink($post->ID) . '">Читати далі...</a>';
+}
 
 }
+// add_action( 'after_setup_theme', function(){
+// 	register_nav_menus( [
+// 		'header_menu' => 'Меню в шапке',
+// 		'footer_menu' => 'Меню в подвале'
+// 	] );
+// } );
+
 
 
 // https://wp-kama.ru/function/register_sidebar
@@ -56,5 +76,18 @@ function register_my_widgets(){
 		'after_title'   => "</h5>\n"
 	) );
 }
+
+
+
+// https://wp-kama.ru/id_119/the-loop.html
+// https://wp-kama.ru/function/the_tags
+// https://wp-kama.ru/function/get_the_author
+// https://wp-kama.ru/function/add_theme_support
+// https://wp-kama.ru/function/add_image_size
+// https://wp-kama.ru/hook/the_excerpt
+//https://wp-kama.ru/function/the_posts_pagination
+//https://wp-kama.ru/function/get_posts
+
+
 
 ?>
