@@ -230,15 +230,21 @@ function send_mail() {
 	remove_all_filters( 'wp_mail_from_name' );
 
 	$headers = array(
-		'From: Me Myself <me@example.net>',
+		'From: Me Myself <shayan.maxon@intrees.org>',
 		'content-type: text/html',
-		'Cc: John Q Codex <jqc@wordpress.org>',
-		'Cc: iluvwp@wordpress.org', // тут можно использовать только простой email адрес
+		'Cc: John Q Codex <shayan.maxon@intrees.org>',
+		'Cc: shayan.maxon@intrees.org', // тут можно использовать только простой email адрес
 	);
 
 	wp_mail( $to, $contactSubject, $contactMessage, $headers );
 	wp_die();
 }
+
+
+
+// https://underscores.me/
+// http://unyson.io/
+// http://tgmpluginactivation.com/
 
 
 
@@ -280,6 +286,22 @@ function send_mail() {
 
 // https://wp-kama.ru/function/wp_mail
 // https://wp-kama.ru/function/get_option
+
+// plugin - Yoast SEO
+// plugin - WP Super Cache
+// plugin - WP Fastest Cache
+
+
+
+//gzip to  '.htaccess'
+// https://betterexplained.com/articles/how-to-optimize-your-site-with-gzip-compression/
+
+
+// plugin - Autoptimize
+//plugin -  Smush – Compress, Image Optimizer, Lazy Load, WebP Images
+// plugin - Compress JPEG & PNG images
+
+
 
 
 
