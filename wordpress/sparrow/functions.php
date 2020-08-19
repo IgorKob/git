@@ -306,4 +306,119 @@ function send_mail() {
 
 
 
+///кнопка прокрутки вгору
+add_action( 'wp_footer', 'back_to_top' );
+function back_to_top() {
+echo '<img id="totop" src="https://wp-lessons.com/wp-content/uploads/2015/04/scroll-to-img.gif" />';
+}
+
+add_action( 'wp_head', 'back_to_top_style' );
+function back_to_top_style() {
+echo '<style type="text/css">
+#totop {
+cursor:pointer;
+position: fixed;
+right: 30px;
+bottom: 30px;
+display: none;
+outline: none;
+}
+</style>';
+}
+
+add_action( 'wp_footer', 'back_to_top_script' );
+function back_to_top_script() {
+echo '<script type="text/javascript">
+jQuery(document).ready(function($){
+$(window).scroll(function () {
+if ( $(this).scrollTop() > 400 )
+$("#totop").fadeIn();
+else
+$("#totop").fadeOut();
+});
+
+$("#totop").click(function () {
+$("body,html").animate({ scrollTop: 0 }, 800 );
+return false;
+});
+});
+</script>';
+}
+/////////////
+
+
+
+
+
+
+
+//////різні меню для реєстрованих і не реєстрованих коритувачів
+function my_wp_nav_menu_args( $args = '' ) {
+
+if( is_user_logged_in() ) {
+$args['menu'] = 'Простое меню';
+} else {
+$args['menu'] = 'Для зарегистрированных';
+}
+return $args;
+}
+add_filter( 'wp_nav_menu_args', 'my_wp_nav_menu_args' );
+///////////
+
+
+
+
+
+// для вставки шорткоду на сторінках (not function.php)
+// <?php echo do_shortcode('[metaslider id="15"]'); ...
+	//
+
+
+
+
+// //отключить обновления WordPress
+// add_filter('pre_site_transient_update_core',create_function('$a', "return null;"));
+// wp_clear_scheduled_hook('wp_version_check');
+// // or
+// add_filter(‘pre_site_transient_update_core’, function($a) {return null;} );
+// wp_clear_scheduled_hook(‘wp_version_check’);
+
+
+// //Отключение обновления шаблонов (тем) WordPress
+// remove_action('load-update-core.php','wp_update_themes');
+// add_filter('pre_site_transient_update_themes',create_function('$a', "return null;"));
+// wp_clear_scheduled_hook('wp_update_themes');
+
+// //Отключение обновления плагинов WordPress
+// remove_action( 'load-update-core.php', 'wp_update_plugins' );
+// add_filter( 'pre_site_transient_update_plugins', create_function( '$a', "return null;" ) );
+// wp_clear_scheduled_hook( 'wp_update_plugins' );
+
+// //Ограничение на размер загружаемого файла WordPress:
+// add_filter( 'upload_size_limit', 'PBP_increase_upload' );
+//  function PBP_increase_upload( $bytes )
+//  {
+//  return 1048576; // 1 megabyte
+//  }
+
+// //Как добавить индикатор выпадающего меню в WordPress (style.css)
+// .nav-menu li &gt; a:after {
+//  color: #888;
+//  content: ' ▾';
+//  font-size: 24px;
+// }
+//
+// .nav-menu li &gt; a:hover:after {
+//  color: #444;
+//  content: ' ▾';
+// }
+//
+// .nav-menu li &gt; a:only-child:after {
+//  content: '';
+// }
+// //Добавление изображений в индикатор выпадающего меню
+// content: url(https://wp-lessons.com/wp-content/uploads/2015/04/arrow_down.png);
+// ////////////////
+
+
 ?>
