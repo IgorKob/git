@@ -421,4 +421,120 @@ add_filter( 'wp_nav_menu_args', 'my_wp_nav_menu_args' );
 // ////////////////
 
 
+
+
+// // theme shop
+// Storefront
+// i-craft
+// Oceanic
+// Modality
+// RetroTale
+// Boutique
+// //kim
+// Envo Storefront
+// Easy Storefront
+// Envo eCommerce
+// Envo Shop
+// Shop Isle
+
+
+////                          WooCommerce
+//// вывести последние добавленные (новые) товары
+// [recent_products per_page="12" columns="4"]
+
+// //вывести популярные товары
+// [featured_products per_page="12" columns="4"]
+
+// //Вывод одного(багатьох) товара по ID или артикулу (SKU)
+// [product id="45"]
+// //or
+// [products ids="1, 2, 3, 4, 5"]
+// //or too
+// [product sku="0001"]
+// //or
+// [products skus="0001, 0002"]
+
+// //Кнопка «Добавить в корзину» для определенного товара
+// [add_to_cart id="40"]
+
+// //вывести товары из категории WooCommerce
+// [product_category category="kategoriya-1"]
+// //вывод категорий
+// [product_categories number="7" parent="0"]
+// [product_categories ids="7,8" parent="0"]
+
+// // вывести товары со скидкой
+// [sale_products per_page="4"]
+
+// //вывести топ рейтинговых товаров
+// [top_rated_products per_page="12"]
+
+
+// // товаров по свойствам
+// [product_attribute attribute='color' filter='black']
+
+
+
+
+
+// //Массовое изменение цен с помощью запроса в базу данных MySQL
+// UPDATE wp_postmeta SET meta_value = REPLACE(meta_value, ',', '.') WHERE meta_key = '_price';
+// UPDATE wp_postmeta SET meta_value = REPLACE(meta_value, ',', '.') WHERE meta_key = '_regular_price';
+// UPDATE wp_postmeta SET meta_value = REPLACE(meta_value, ',', '.') WHERE meta_key = '_sale_price';
+// UPDATE wp_postmeta SET meta_value = REPLACE(meta_value, ',', '.') WHERE meta_key = '_min_variation_price';
+// UPDATE wp_postmeta SET meta_value = REPLACE(meta_value, ',', '.') WHERE meta_key = '_max_variation_price';
+// UPDATE wp_postmeta SET meta_value = REPLACE(meta_value, ',', '.') WHERE meta_key = '_min_variation_regular_price';
+// UPDATE wp_postmeta SET meta_value = REPLACE(meta_value, ',', '.') WHERE meta_key = '_max_variation_regular_price';
+// UPDATE wp_postmeta SET meta_value = REPLACE(meta_value, ',', '.') WHERE meta_key = '_min_variation_sale_price';
+// UPDATE wp_postmeta SET meta_value = REPLACE(meta_value, ',', '.') WHERE meta_key = '_max_variation_sale_price';
+
+
+
+
+
+
+
+
+// //Отключение вкладки (таба) отзывов в WooCommerce
+// add_filter( 'woocommerce_product_tabs', 'sb_woo_remove_reviews_tab', 98);
+// function sb_woo_remove_reviews_tab($tabs) {
+// unset($tabs['reviews']);
+// return $tabs;
+// }
+///как убрать отзывы товара только от незарегистрированных гостей сайта
+////заменив стандартный вывод комментариев в теме на:
+// <?php if (is_user_logged_in()) {
+//     comments_template();
+// } ...
+
+
+// // Отключение вкладок на странице товара
+// add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
+// function woo_remove_product_tabs( $tabs ) {
+// unset( $tabs['description'] ); // Убираем вкладку "Описание"
+// unset( $tabs['reviews'] ); // Убираем вкладку "Отзывы"
+// unset( $tabs['additional_information'] ); // Убираем вкладку "Свойства"
+// return $tabs;
+// }
+
+
+////изменить количество товаров на странице WooCommerce на 24
+// add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 24;' ), 20 );
+
+// // изменить количество похожих товаров в WooCommerce
+// add_filter( 'woocommerce_output_related_products_args', 'jk_related_products_args' );
+//  function jk_related_products_args( $args ) {
+// $args['posts_per_page'] = 6; // количество "Похожих товаров"
+//  $args['columns'] = 3; // количество колонок
+//  return $args;
+// }
+// //для того щоб видалити  похожі товари
+// function wc_remove_related_products( $args ) {
+//     return array();
+// }
+// add_filter('woocommerce_related_products_args','wc_remove_related_products', 10);
+
+
+
+
 ?>
