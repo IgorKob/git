@@ -1,15 +1,25 @@
 https://wpruse.ru/plaginy/big-bundle-wordpress-plugin/
 
 
+//Child Theme
+Child Theme Configurator
+Orbisius Child Theme Creator
 
-** Установка плагинов **
+//plugin for hooks
+Woo Visual Hook Guide
+wp-inspect
+https://wordpress.org/plugins/wp-inspect/
+
+
+
+** пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ **
 19:17 Elementor
 19:30 Contact form 7
 19:47 Contact Form 7 styler for Elementor Page Builder
 20:00 Cyr to Lat enhanced
 20:20 Flamingo
 20:43 Easy WP SMTP
-21:52 Code Snippets и Code Snippets Extended
+21:52 Code Snippets пїЅ Code Snippets Extended
 22:45 To Top
 23:01 Updraft Plus
 23:40 Clearfy
@@ -22,7 +32,7 @@ https://wpruse.ru/plaginy/big-bundle-wordpress-plugin/
 //////////////////////////////////////////////////
 
 WordPress plugins
-Astra 
+Astra
 OceanWP
 
 
@@ -31,7 +41,7 @@ https://wordpress.org/plugins/asgaros-forum/
 
 
 
-             Безпека
+             пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 All In One WP Security & Firewall
 https://wordpress.org/plugins/all-in-one-wp-security-and-firewall/
 
@@ -47,8 +57,8 @@ https://wordpress.org/plugins/better-wp-security/
 
 
 
-      Створення резервних копій та міграція
-BackWPup 
+      пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+BackWPup
 https://wordpress.org/plugins/backwpup/
 
 UpdraftPlus WordPress Backup Plugin
@@ -57,10 +67,10 @@ https://wordpress.org/plugins/updraftplus/
 Duplicator
 https://wordpress.org/plugins/duplicator/
 
-All-in-One WP Migration 
+All-in-One WP Migration
 https://wordpress.org/plugins/all-in-one-wp-migration/
 
-WP Migrate DB 
+WP Migrate DB
 https://wordpress.org/plugins/wp-migrate-db/
 
 
@@ -69,17 +79,16 @@ https://wordpress.org/plugins/wp-migrate-db/
 
 
 
-              Антиспам
+              пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 Akismet Anti-Spam
 https://wordpress.org/plugins/akismet/
 
-Antispam Bee 
+Antispam Bee
 https://wordpress.org/plugins/antispam-bee/
 
-Kama SpamBlock 
+Kama SpamBlock
 https://wordpress.org/plugins/kama-spamblock/
 
-            
 
 
 
@@ -88,7 +97,8 @@ https://wordpress.org/plugins/kama-spamblock/
 
 
 
-            транслітерація
+
+            пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 Cyr to Lat reloaded
 https://wordpress.org/plugins/cyr-and-lat/
 
@@ -105,13 +115,13 @@ https://wordpress.org/plugins/cyr3lat/
 
 
                SEO
-Yoast SEO 
+Yoast SEO
 https://wordpress.org/plugins/wordpress-seo/
 
-All in One SEO Pack 
+All in One SEO Pack
 https://wordpress.org/plugins/all-in-one-seo-pack/
 
-The SEO Framework 
+The SEO Framework
 https://wordpress.org/plugins/autodescription/
 
 SEOPress
@@ -124,23 +134,23 @@ https://wordpress.org/plugins/wp-seopress/
 
 
 
-                Кешування і мініфікація
-WP Fastest Cache 
+                пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+WP Fastest Cache
 https://wordpress.org/plugins/wp-fastest-cache/
 
 WP Super Cache
 https://wordpress.org/plugins/wp-super-cache/
 
-W3 Total Cache 
+W3 Total Cache
 https://wordpress.org/plugins/w3-total-cache/
 
-Autoptimize 
+Autoptimize
 https://wordpress.org/plugins/autoptimize/
 
-JCH Optimize 
+JCH Optimize
 https://wordpress.org/plugins/jch-optimize/
 
-PageSpeed.Today 
+PageSpeed.Today
 https://wordpress.org/plugins/improve-pagespeed-today/
 
 
@@ -150,23 +160,23 @@ https://wordpress.org/plugins/improve-pagespeed-today/
 
 
 
-               оптимізація зображень
+               пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 Smush Image Compression and Optimization
 https://wordpress.org/plugins/wp-smushit/
 
-EWWW Image Optimizer 
+EWWW Image Optimizer
 https://wordpress.org/plugins/ewww-image-optimizer/
 
-ShortPixel Image Optimizer 
+ShortPixel Image Optimizer
 https://wordpress.org/plugins/shortpixel-image-optimiser/
 
-Imagify Image Optimizer 
+Imagify Image Optimizer
 https://wordpress.org/plugins/imagify/
 
 Compress JPEG & PNG images
 https//wordpress.org/plugins/tiny-compress-images/
 
-Optimus – WordPress Image Optimizer 
+Optimus пїЅ WordPress Image Optimizer
 https://wordpress.org/plugins/optimus/
 
 Robin image optimizer
@@ -179,13 +189,13 @@ https://ru.wordpress.org/plugins/robin-image-optimizer/
 Cookie Notice for GDPR
 https://wordpress.org/plugins/cookie-notice/
 
-LuckyWP Cookie Notice (GDPR) 
+LuckyWP Cookie Notice (GDPR)
 https://wordpress.org/plugins/luckywp-cookie-notice-gdpr/
 
 
 
 
-                коментування
+                пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 AnyComment
 https://wordpress.org/plugins/anycomment/
 
@@ -198,26 +208,26 @@ https://wordpress.org/plugins/anycomment/
 
 
 
-              Облік і контроль
+              пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 Header and Footer Scripts
 https://wordpress.org/plugins/header-and-footer-scripts/
 
-Head and Footer Scripts Inserter 
+Head and Footer Scripts Inserter
 https://wordpress.org/plugins/header-and-footer-scripts-inserter/
 
-Insert Headers and Footers 
+Insert Headers and Footers
 https://wordpress.org/plugins/insert-headers-and-footers/
 
-LuckyWP Scripts Control 
+LuckyWP Scripts Control
 https://wordpress.org/plugins/luckywp-scripts-control/
 
 
 
 
-             
 
 
-                  реферальні посилання
+
+                  пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 Easy Affiliate Links
 https://wordpress.org/plugins/easy-affiliate-links/
 
@@ -232,7 +242,7 @@ https://wpruse.ru/my-plugins/art-shortlinks-redirect/
 
 
 
-             управління завантаженнями
+             пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 Download Monitor
 https://wordpress.org/plugins/download-monitor/
 
@@ -246,8 +256,8 @@ https://wordpress.org/plugins/kama-clic-counter/
 
 
 
-            Форми зворотнього зв'язку
-Contact Form 7 
+            пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ'пїЅпїЅпїЅпїЅ
+Contact Form 7
 https://wordpress.org/plugins/contact-form-7/
 
 Ninja Forms
@@ -272,7 +282,7 @@ https://wordpress.org/plugins/simple-basic-contact-form/
 
 
 
-                таблиці
+                пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 TablePress
 https://wordpress.org/plugins/tablepress/
 
@@ -287,8 +297,8 @@ https://wordpress.org/plugins/wptables/
 
 
 
-               конструктори сторінок
-Elementor Page Builder 
+               пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+Elementor Page Builder
 https://wordpress.org/plugins/elementor/
 
 Page Builder by SiteOrigin
@@ -308,7 +318,7 @@ https://wordpress.org/plugins/brizy/
 
 
 
-                   Форуми
+                   пїЅпїЅпїЅпїЅпїЅпїЅ
 bbPress
 https://wordpress.org/plugins/bbpress/
 
@@ -322,7 +332,7 @@ https://wordpress.org/plugins/wp-recall/
 
 
 
-                   Різне
+                   РіпїЅпїЅпїЅ
 woocommerce
 https://wordpress.org/plugins/woocommerce/
 
