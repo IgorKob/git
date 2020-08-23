@@ -1,9 +1,17 @@
 https://wpruse.ru/plaginy/big-bundle-wordpress-plugin/
 
 
-//Child Theme
+
+//Themes shop
+Storefront
+Тема Shoptimizer WooCommerce
+GeneratePress
+Astra
+
+//Child Theme plugin
 Child Theme Configurator
 Orbisius Child Theme Creator
+
 
 //plugin for hooks
 Woo Visual Hook Guide

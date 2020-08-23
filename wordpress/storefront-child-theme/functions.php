@@ -33,3 +33,208 @@ function orbisius_ct_storefront_child_theme_child_theme_enqueue_styles() {
 }
 
 add_action( 'wp_enqueue_scripts', 'orbisius_ct_storefront_child_theme_child_theme_enqueue_styles' );
+
+
+
+
+
+
+
+
+
+//kim
+
+//добавляємо до назви товару артикль товару на сторіні магазину
+remove_filter('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10);
+add_action('woocommerce_shop_loop_item_title', 'mykim', 10);
+function mykim() {
+  global $product;
+  $sku = $product->get_sku() ? '-'.$product->get_sku():'';
+  $title = $product->get_title();
+  echo '<h2>'.$title.$sku.'</h2>';
+}
+// добавляємо до назви товару артикль товару на сторіні товару
+remove_filter('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
+add_action('woocommerce_single_product_summary', 'mykim', 5);
+function mykim() {
+  global $product;
+  $sku = $product->get_sku() ? '-'.$product->get_sku():'';
+  $title = $product->get_title();
+  echo '<h2>'.$title.$sku.'</h2>';
+}
+
+
+
+
+//kim - змінюємо розміщення поля 'city' на сторінці 'оформити замовлення', міняючи пріорітет
+add_action('woocommerce_default_address_fields', 'mykim2');
+function mykim2($v){
+  $v['city']['priority'] = 45;
+  return $v;
+}
+
+
+
+// // замінити текст кнопки замовлення
+// add_filter( 'woocommerce_order_button_text', 'misha_custom_button_text' );
+// function misha_custom_button_text( $button_text ) {
+//    return 'Submit'; // new text is here
+// }
+// // або
+// add_filter( 'woocommerce_order_button_text', 'misha_custom_button_text_for_product' );
+// function misha_custom_button_text_for_product( $button_text ) {
+// 	$product_id = 18; // a specific product ID you would like to check
+// 	if( WC()->cart->find_product_in_cart( WC()->cart->generate_cart_id( $product_id ) ) ) {
+// 		$button_text = 'Submit';
+// 	}
+// 	return $button_text;
+// }
+// // або
+// add_filter( 'woocommerce_order_button_html', 'misha_custom_button_html' );
+// function misha_custom_button_html( $button_html ) {
+// 	// $button_html = str_replace( 'Place order', 'Submit', $button_html );
+//   $order_button_text = 'Submit';
+//   $button_html = '<button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr( $order_button_text ) . '" data-value="' . esc_attr( $order_button_text ) . '">' . esc_html( $order_button_text ) . '</button>';
+// 	return $button_html;
+// }
+
+
+
+
+
+
+// // Видаліть поля оплати та доставки
+// add_filter( 'woocommerce_default_address_fields', 'misha_remove_fields' );
+// function misha_remove_fields( $fields ) {
+// 	unset( $fields[ 'company' ] );
+// // first_name,
+// // last_name,
+// // company,
+// // address_1,
+// // address_2,
+// // state,
+// // city,
+// // country,
+// // postcode
+// 	return $fields;
+// }
+
+// // Але зауважте, що якщо ви використовуєте woocommerce_shipping_fields
+// // або woocommerce_billing_fields фільтруєте гачок, до ідентифікатора поля
+// // повинен бути доданий відповідний префікс ( billing_або shipping_), наприклад:
+// add_filter( 'woocommerce_billing_fields', 'misha_remove_billing_fields' );
+// function misha_remove_billing_fields( $fields ) {
+// 	unset( $fields[ 'billing_address_2' ] ); // or shipping_address_2 for woocommerce_shipping_fields hook
+// 	return $fields;
+// }
+
+
+
+// // Вимкнути перевірку поля
+// // У цьому випадку вам не потрібно видаляти все поле, а лише певну властивість його ( required).
+// add_filter( 'woocommerce_default_address_fields', 'misha_remove_fields' );
+// function misha_remove_fields( $fields ) {
+// // $fields[ 'shipping_company' ]['required'] = true;
+// 	unset( $fields[ 'last_name' ]['required'] );
+// 	return $fields;
+// }
+
+
+// // змінюємо поля
+// //Але requiredце не єдиний параметр поля, який ми можемо змінити. Ось список:
+// // label (рядок)
+// // placeholder (рядок)
+// // class (масив)
+// // priority (ціле число)
+// add_filter( 'woocommerce_default_address_fields' , 'misha_change_fname_field' );
+// function misha_change_fname_field( $fields ) {
+// 	$fields['first_name']['label'] = 'Name';
+// 	$fields['first_name']['placeholder'] = 'Your mom calls you';
+// 	return $fields;
+// }
+
+
+
+
+
+
+
+// // Створіть власне поле адреси
+// add_filter( 'woocommerce_default_address_fields', 'misha_add_field' );
+// function misha_add_field( $fields ) {
+// 	$fields['fav_color']   = array(
+// 		'label'        => 'Favorite color',
+// 		'required'     => true,
+// 		'class'        => array( 'form-row-wide', 'my-custom-class' ),
+// // form-row-wide - повна ширина поля,
+// // form-row-first - поле з 2 стовпцями, перший стовпець,
+// // form-row-last - поле з 2 стовпцями, другий стовпчик;
+// 		'priority'     => 20,
+// 		'placeholder'  => 'Is it black or orange or maybe green?',
+// 	);
+// 	return $fields;
+// }
+
+
+
+
+
+// // додати поле на сторінки WordPress / wp-admin /
+// add_filter( 'woocommerce_customer_meta_fields', 'misha_admin_address_field' );
+// function misha_admin_address_field( $admin_fields ) {
+// 	$admin_fields['billing']['fields']['billing_fav_color'] = array(
+// 		'label' => 'Fav color',
+// 		'description' => 'Some field description will go here',
+// 	);
+// 	// or $admin_fields['shipping']['fields']['shipping_fav_color']
+// 	// or both
+// 	return $admin_fields;
+// }
+
+
+
+
+
+
+
+// //Видаліть перевірку за замовчуванням з полів
+// add_filter( 'woocommerce_checkout_fields', 'misha_no_email_validation' );
+// function misha_no_email_validation( $fields ){
+// 	unset( $fields['billing']['billing_email']['validate'] );
+// 	return $fields;
+// }
+
+
+
+
+// //Укажіть ім’я та прізвище, щоб містити лише літери
+// add_action( 'woocommerce_after_checkout_validation', 'misha_validate_fname_lname', 10, 2);
+// function misha_validate_fname_lname( $fields, $errors ){
+//     if ( preg_match( '/\\d/', $fields[ 'billing_first_name' ] ) || preg_match( '/\\d/', $fields[ 'billing_last_name' ] )  ){
+//         $errors->add( 'validation', 'Your first or last name contains a number. Really?' );
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+// //Сортування полів у групі
+// Перше, що потрібно пам’ятати, що поля розділені на групи, а насправді є 4 групи:
+// billing - платіжна адреса
+// shipping - Адреса доставки
+// account - Вхід в обліковий запис
+// order - Додаткова інформація
+
+// //Приклад - зробити поле електронної пошти першим
+// add_filter( 'woocommerce_checkout_fields', 'misha_email_first' );
+// function misha_email_first( $checkout_fields ) {
+// 	$checkout_fields['billing']['billing_email']['priority'] = 4;
+// 	return $checkout_fields;
+// }
