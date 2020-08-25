@@ -1151,4 +1151,11 @@ function misha_remove_reviews_tab( $tabs ) {
 
 
 
-// Змінення або видалення значка продажу
+// // Додайте логотипи довіри на сторінку оформлення замовлення
+add_action( 'woocommerce_review_order_after_submit', 'approved_trust_badges' );
+function approved_trust_badges() {
+echo '<div class="trust-badges">
+Add trust badges here
+</div>
+<div class="trust-badge-message">I added the trust badges above with a WooCommerce hook</div>';
+}

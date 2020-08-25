@@ -4,6 +4,7 @@ https://wpruse.ru/plaginy/big-bundle-wordpress-plugin/
 
 //Themes shop
 Storefront
+SalesZone
 Тема Shoptimizer WooCommerce
 GeneratePress
 Astra
@@ -17,6 +18,19 @@ Orbisius Child Theme Creator
 Woo Visual Hook Guide
 wp-inspect
 https://wordpress.org/plugins/wp-inspect/
+
+
+
+//plugin Snippets
+Code Snippets
+
+
+//WooCommerce Variation Swatches
+https://www.commercegurus.com/woocommerce-variation-swatches/
+
+
+//plugin
+WooCustomizer:
 
 
 
