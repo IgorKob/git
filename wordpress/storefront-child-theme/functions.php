@@ -1159,3 +1159,17 @@ Add trust badges here
 </div>
 <div class="trust-badge-message">I added the trust badges above with a WooCommerce hook</div>';
 }
+
+
+
+
+
+
+
+
+
+// // відключити верхнє меню
+add_action('after_setup_theme', 'art_removes_action');
+function art_removes_action() {
+  remove_action('storefront_header', 'storefront_secondary_navigation', 30);
+}

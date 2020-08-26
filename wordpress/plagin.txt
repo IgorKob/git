@@ -31,7 +31,8 @@ https://www.commercegurus.com/woocommerce-variation-swatches/
 
 //plugin
 WooCustomizer:
-
+Advanced Custom Fields
+Custom Post Type UI
 
 
 ** ��������� �������� **
