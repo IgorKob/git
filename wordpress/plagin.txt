@@ -8,10 +8,14 @@ SalesZone
 Тема Shoptimizer WooCommerce
 GeneratePress
 Astra
+OptionTree
+
+
 
 //Child Theme plugin
 Child Theme Configurator
 Orbisius Child Theme Creator
+
 
 
 //plugin for hooks
@@ -33,7 +37,8 @@ https://www.commercegurus.com/woocommerce-variation-swatches/
 WooCustomizer:
 Advanced Custom Fields
 Custom Post Type UI
-
+carbon fields
+OptionTree
 
 ** ��������� �������� **
 19:17 Elementor
