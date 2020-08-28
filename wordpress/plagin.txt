@@ -34,11 +34,14 @@ https://www.commercegurus.com/woocommerce-variation-swatches/
 
 
 //plugin
-WooCustomizer:
 Advanced Custom Fields
+WooCustomizer:
 Custom Post Type UI
 carbon fields
 OptionTree
+Query Monitor
+Theme Check
+
 
 ** ��������� �������� **
 19:17 Elementor
