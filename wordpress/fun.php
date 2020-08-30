@@ -171,7 +171,7 @@ name - назва сайту.
 description - короткий опис сайту, яке задається в настройках.
 template_url - урл директорії поточної теми.
 stylesheet_url - урл на файл стилів CSS (зазвичай style.css) поточної теми.
-rss2_url - урл RSS 2.0 фида (/ feed).
+// rss2_url - урл RSS 2.0 фида (/ feed).
 comments_rss2_url - урл RSS 2.0 фида коментарів (/ comments / feed).
 pingback_url - урл для повідомлень на XML-RPC файл (xmlrpc.php).
 charset - кодування сайту.
@@ -518,6 +518,9 @@ wp_reset_postdata(); // сбрасываем переменную $post
 //11-6-2011
 <?php echo get_the_date('n-j-Y'); ?>
 
+//"© 2020 Ваш веб-сайт"
+<p>&copy; <?php echo date("Y"); echo " "; echo bloginfo('name'); ?></p>
+
 //Выводит на экран или получает дату публикации поста или группы постов
 <?php the_date(); ?>
 // Выведем дату в формате 2007-07-23 и обрамим его в тег <h2>:
@@ -792,3 +795,63 @@ function create_taxonomy(){
 
 //Выводит список ссылок на термины (элементы таксономии), относящиеся к указанному посту.
 <?php the_terms( $id, $taxonomy, $before, $sep, $after ); ?>
+
+
+
+
+
+
+
+
+
+
+// Прячем Заголовки Для Всех Статей И Страниц
+.page-id-341 .entry-header {
+    display:none;
+}
+//or
+function devise_hidetitle_class($classes) {
+if ( is_single() || is_page() ) :
+$classes[] = 'hidetitle';
+return $classes;
+endif;
+return $classes;
+}
+add_filter('post_class', 'wpb_hidetitle_class');
+//css
+.hidetitle .entry-title {
+	display:none;
+}
+
+
+//убрать вывод заголовка на всех статичных страницах
+function themeslug_basic_before_page_title(){
+    ob_start();
+}
+add_action( 'basic_before_page_title', 'themeslug_basic_before_page_title' );
+function themeslug_basic_after_page_title(){
+    ob_clean();
+}
+add_action( 'basic_after_page_title', 'themeslug_basic_after_page_title' );
+
+
+//убрать вывод заголовка на определенных статичных страницах
+function themeslug_basic_before_page_title(){
+  ob_start();
+}
+add_action( 'basic_before_page_title', 'themeslug_basic_before_page_title' );
+function themeslug_basic_after_page_title(){
+  $title = ob_get_clean();
+  // set up conditions below where you want disable title
+  // disable title on page with slug 'contacts'
+  if ( is_page( 'contacts' ) ){
+    return;
+  }
+  // disable title on pages with slug 'contacts', title 'Out Contacts' or ID 42
+  if ( is_page( array('Page Comments','Out Contacts',1146) ) ){
+    return;
+  }
+  // else show page title by default
+  echo $title;
+}
+add_action( 'basic_after_page_title', 'themeslug_basic_after_page_title' );
