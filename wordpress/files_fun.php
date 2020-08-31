@@ -1,3 +1,6 @@
+Збільшити максимальний розмір медіафайлу в WordPress
+https://www.cloudways.com/blog/increase-media-file-maximum-upload-size-in-wordpress/
+
 https://wp-kama.ru/handbook/cheatsheet
 
                                   Файлы Темы (подключение)
