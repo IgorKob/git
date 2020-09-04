@@ -554,6 +554,10 @@ function new_excerpt_more( $more ){
 
 
 
+//image
+<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slideshow/image.png" style="width:100%;height:300px">
+
+
 
 
 //Миниатюра поста

@@ -32,6 +32,10 @@ Code Snippets
 //WooCommerce Variation Swatches
 https://www.commercegurus.com/woocommerce-variation-swatches/
 
+//import product
+Woocommerce CSV Importer
+
+
 
 //plugin
 Advanced Custom Fields
