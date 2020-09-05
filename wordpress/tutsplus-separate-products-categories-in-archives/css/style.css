@@ -1,0 +1,27 @@
+ul.product-cats li {
+ list-style: none;
+ margin-left: 0;
+ margin-bottom: 4.236em;
+ text-align: center;
+ position: relative;
+}
+ul.product-cats li img {
+ margin: 0 auto;
+}
+
+@media screen and (min-width:768px) {
+
+ ul.product-cats {
+ margin-left: 0;
+ clear: both;
+ }
+ ul.product-cats li {
+ width: 29.4117647059%;
+ float: left;
+ margin-right: 5.8823529412%;
+ }
+ ul.product-cats li:nth-of-type(3) {
+ margin-right: 0;
+ }
+
+}
