@@ -32,6 +32,16 @@ Code Snippets
 //WooCommerce Variation Swatches
 https://www.commercegurus.com/woocommerce-variation-swatches/
 
+//WooCommerce (кастомні поля для форми заказу товару)
+Flexible Checkout Fields
+
+//sale
+Art Woocommerce Custom Sale
+
+//Wishlist
+Wishlist
+
+
 //import product
 Woocommerce CSV Importer
 

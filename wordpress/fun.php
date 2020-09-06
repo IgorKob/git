@@ -859,3 +859,92 @@ function themeslug_basic_after_page_title(){
   echo $title;
 }
 add_action( 'basic_after_page_title', 'themeslug_basic_after_page_title' );
+
+
+
+
+
+
+
+
+
+
+
+
+//WooHelp.ru
+//WooCommerce 3.5.3
+//Вывод рейтинга в звездах в каталог
+add_filter('woocommerce_product_get_rating_html', 'your_get_rating_html', 10, 2);
+  function your_get_rating_html($rating_html, $rating) {
+    if ( $rating > 0 ) {
+      $title = sprintf( __( 'Rated %s out of 5', 'woocommerce' ), $rating );
+    } else {
+      $title = 'Not yet rated';
+      $rating = 0;
+    }
+    $rating_html  = '<div class="star-rating" title="' . $title . '">';
+    $rating_html .= '<span style="width:' . ( ( $rating / 5 ) * 100 ) . '%"><strong class="rating">' . $rating . '</strong> ' . __( 'out of 5', 'woocommerce' ) . '</span>';
+    $rating_html .= '</div>';
+    return $rating_html;
+  }
+
+
+
+  ////kim рейтинг 
+  function get_total_reviews_count(){
+    return get_comments(array(
+        'status'   => 'approve',
+        'post_status' => 'publish',
+        'post_type'   => 'product',
+        'count' => true
+    ));
+}
+
+function get_products_ratings(){
+    global $wpdb;
+
+    return $wpdb->get_results("
+        SELECT t.slug, tt.count
+        FROM {$wpdb->prefix}terms as t
+        JOIN {$wpdb->prefix}term_taxonomy as tt ON tt.term_id = t.term_id
+        WHERE t.slug LIKE 'rated-%' AND tt.taxonomy LIKE 'product_visibility'
+        ORDER BY t.slug
+    ");
+}
+
+function products_count_by_rating_html(){
+    $star = 1;
+    $html = '';
+    foreach( get_products_ratings() as $values ){
+        $star_text = '<strong>'.$star.' '._n('Star', 'Stars', $star, 'woocommerce').'<strong>: ';
+        $html .= '<li class="'.$values->slug.'">'.$star_text.$values->count.'</li>';
+        $star++;
+    }
+    return '<ul class="products-rating">'.$html.'</ul>';
+}
+
+function products_rating_average_html(){
+    $stars = 1;
+    $average = 0;
+    $total_count = 0;
+    if( sizeof(get_products_ratings()) > 0 ) :
+        foreach( get_products_ratings() as $values ){
+            $average += $stars * $values->count;
+            $total_count += $values->count;
+            $stars++;
+        }
+        return '<p class="rating-average">'.round($average / $total_count, 1).' / 5 '. __('Stars average').'</p>';
+    else :
+        return '<p class="rating-average">'. __('No reviews yet', 'woocommerce').'</p>';
+    endif;
+}
+// Код идет в файл function.php вашей активной дочерней темы (или активной темы). Проверено и работает.
+
+// Всего отзывов клиентов:
+echo '<p>'.__('Total reviews','woocommerce').': '.get_total_reviews_count().'</p>';
+
+// Количество продуктов по списку рейтингов:
+echo products_count_by_rating_html();
+
+// Средний рейтинг продуктов:
+echo products_rating_average_html();
