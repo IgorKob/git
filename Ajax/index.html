@@ -1,0 +1,214 @@
+<!-- ......................AJAX -->
+<p id="demo">Let AJAX change this text.</p>
+<button type="button" onclick="loadDoc()">Change Content</button>
+<script>
+function loadDoc() {
+  var xhttp;
+  if (window.XMLHttpRequest) {
+    // code for modern browsers
+    xhttp = new XMLHttpRequest();
+  } else {
+    // code for IE6, IE5
+    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "ajax_info.txt", true);
+  xhttp.send();
+}
+
+
+// ....надіслати запити AJAX за допомогою POST методу
+var obj, dbParam, xmlhttp, myObj, x, txt = "";
+obj = { "table":"customers", "limit":10 };
+dbParam = JSON.stringify(obj);
+xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    myObj = JSON.parse(this.responseText);
+    for (x in myObj) {
+      txt += myObj[x].name + "<br>";
+    }
+    document.getElementById("demo").innerHTML = txt;
+  }
+};
+xmlhttp.open("POST", "json_demo_db_post.php", true);
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xmlhttp.send("x=" + dbParam);
+// .................
+
+
+
+                     XMLHttpRequest Методи об’єктів
+new  XMLHttpRequest ()                Створює новий XMLHttpRequest об’єкт
+abort ()                              Скасовує поточний запит
+getAllResponseHeaders ()              Повертає інформацію заголовка
+getResponseHeader ()                  Повертає конкретну інформацію заголовка
+open (метод, URL, async, користувач, psw)       Вказує запит
+                                      метод: тип запиту GET або POST
+                                      url: розташування файлу
+                                      async: true (асинхронний) або false (синхронний)
+                                      користувач: необов’язкове ім’я користувача
+                                      psw: необов'язковий пароль
+send ()                                  Надсилає запит на сервер
+                                      Використовується для GET-запитів
+send (string)                         Надсилає запит на сервер.
+                                      Використовується для POST-запитів
+setRequestHeader ()                   Додає пару міток / значень до заголовка, що надсилається
+
+
+              Властивості об'єкта XMLHttpRequest
+onreadystatechange       Визначає функцію, яку потрібно викликати, коли змінюється властивість ReadyState
+readyState               Утримує статус XMLHttpRequest.
+                          0: запит не ініціалізовано
+                          1: встановлено підключення до сервера
+                          2: запит отримано
+                          3: запит на обробку
+                          4: запит закінчений і відповідь готова
+responseText            Повертає дані відповіді у вигляді рядка
+responseXML             Повертає дані відповідей у вигляді даних XML
+status                  Повертає номер статусу запиту
+                          200: "ОК"
+                          403 Заборонено"
+                          404 Не знайдено"
+
+statusText              Повертає текст статусу (наприклад, "ОК" або "Не знайдено")
+.....................
+
+
+
+
+// .......Динамічна HTML таблиця на основі значення випадаючого меню:
+<select id="myselect" onchange="change_myselect(this.value)">
+  <option value="">Choose an option:</option>
+  <option value="customers">Customers</option>
+  <option value="products">Products</option>
+  <option value="suppliers">Suppliers</option>
+</select>
+<p id="demo"></p>
+<script>
+function change_myselect(sel) {
+  var obj, dbParam, xmlhttp, myObj, x, txt = "";
+  obj = { table: sel, limit: 20 };
+  dbParam = JSON.stringify(obj);
+  xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myObj = JSON.parse(this.responseText);
+      txt += "<table border='1'>"
+      for (x in myObj) {
+        txt += "<tr><td>" + myObj[x].name + "</td></tr>";
+      }
+      txt += "</table>"
+      document.getElementById("demo").innerHTML = txt;
+      }
+    };
+  xmlhttp.open("POST", "json_demo_db_post.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send("x=" + dbParam);
+}
+
+
+
+
+
+// ..................спадний список HTML із даними, отриманими як JSON:
+var obj, dbParam, xmlhttp, myObj, x, txt = "";
+obj = { table: "customers", limit: 20 };
+dbParam = JSON.stringify(obj);
+xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    myObj = JSON.parse(this.responseText);
+    txt += "<select>"
+    for (x in myObj) {
+      txt += "<option>" + myObj[x].name;
+    }
+    txt += "</select>"
+    document.getElementById("demo").innerHTML = txt;
+  }
+};
+xmlhttp.open("POST", "json_demo_db_post.php", true);
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xmlhttp.send("x=" + dbParam);
+
+
+
+
+
+// ......щоб вітворити дату після перетворення з  JSON
+var text = '{"name":"John", "birth":"1986-12-14", "city":"New York"}';
+var obj = JSON.parse(text);
+obj.birth = new Date(obj.birth);
+document.getElementById("demo").innerHTML = obj.name + ", " + obj.birth;
+// .....функція я ка перевіряє кожен елемент чи він не є датою щоб його відновити як дату після перетворення
+var text = '{"name":"John", "birth":"1986-12-14", "city":"New York"}';
+var obj = JSON.parse(text, function (key, value) {
+  if (key == "birth") {
+    return new Date(value);
+  } else {
+    return value;
+  }
+});
+
+
+// ................для перетворення функції після перетворення
+var text = '{"name":"John", "age":"function() {return 30;}", "city":"New York"}';
+var obj = JSON.parse(text);
+obj.age = eval("(" + obj.age + ")");
+document.getElementById("demo").innerHTML = obj.name + ", " + obj.age();
+
+// .............перед перетворенням у JSON б фунткію потрібно перетворити
+var obj = { name: "John", age: function () {return 30;}, city: "New York" };
+obj.age = obj.age.toString();
+var myJSON = JSON.stringify(obj);
+document.getElementById("demo").innerHTML = myJSON;
+
+
+// .......запит на сторінку php
+var obj, dbParam, xmlhttp;
+obj = { "table":"customers", "limit":10 };
+dbParam = JSON.stringify(obj);
+xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    document.getElementById("demo").innerHTML = this.responseText;
+  }
+};
+xmlhttp.open("GET", "json_demo_db.php?x=" + dbParam, true);
+xmlhttp.send();
+
+
+
+
+// .........створення елемента скрипта
+function clickButton() {
+  var obj, s
+  obj = { table: "customers", limit: 10 };
+  s = document.createElement("script");
+  s.src = "jsonp_demo_db.php?x=" + JSON.stringify(obj);
+  document.body.appendChild(s);
+}
+function myFunc(myObj) {
+  var x, txt = "";
+  for (x in myObj) {
+    txt += myObj[x].name + "<br>";
+  }
+  document.getElementById("demo").innerHTML = txt;
+}
+
+
+// ..........функція зворотного виклику.
+function clickButton() {
+  var s = document.createElement("script");
+  s.src = "demo_jsonp2.php?callback=myDisplayFunction";
+  document.body.appendChild(s);
+}
+function myDisplayFunction(myObj) {
+  document.getElementById("demo").innerHTML = myObj.name;
+}
+
+</script>

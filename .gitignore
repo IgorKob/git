@@ -9,6 +9,7 @@ www__myprob/
 gulp/start/
 libs/
 
+package-lock.json
 
 # Numerous always-ignore extensions
 *.diff
