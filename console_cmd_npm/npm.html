@@ -1,0 +1,92 @@
+https://docs.npmjs.com/misc/config#shorthands-and-other-cli-niceties
+https://github.com/sindresorhus/awesome-npm#tips
+
+npm i → npm install
+npm i -D → npm install --save-dev
+npm t → npm test
+npm it → npm install && npm test
+npm r → npm uninstall
+npm un → npm uninstall
+npm up → npm update
+
+
+    встановити пакет:
+npm install pkg → npm i pkg.
+    встановити пакет глобально:
+npm i --global pkg  →  npm i -g pkg.
+    встановити пакет і зберегти як залежність:
+npm i --save pkg  →  npm i -S pkg.
+встановити пакет тільки для використання в розробці (devDependency):
+npm i --save-dev pkg  →   npm i -D pkg.
+
+
+    Ініціалізація нового пакета
+npm init
+Якщо питання треба проскочити, використовуйте
+npm init -y   →   npm init -f:
+
+
+      тестування
+npm test   →  npm t
+
+
+      список доступних скриптів
+npm run
+      встановити інтерактивне меню
+npm i -g ntl
+
+
+      Для перевірки залежностей
+npm ls --depth 0
+      Для перевірки пакетів, встановлених глобально
+npm ls -g --depth 0
+
+
+
+
+      Запуск локально встановлених модулів
+У node_modules/.bin локально встановлені пакети розміщують свої виконавчі модулі.
+Запускаємо ./node_modules/.bin/mocha в директорії проекту:
+Просто пишіть ./node_modules/.bin/<команда>, коли хочете запустити локально встановлений виконуваний модуль.
+
+
+
+
+
+          Знайти пакет в Інтернеті
+У файлі package.jsonви могли помітити запис repository.
+Для того, щоб відкрити відповідний репозиторій в браузері, запустіть команду npm repo.
+Команда npm homeвиконує ту ж функцію для запису homepage. Якщо ви хочете відкрити
+пакет на офіційному сайті , використовуйте команду npm docs
+
+
+
+
+          Оновити версію пакета
+npm version major - або (npm version minor, npm version patch)
+
+
+
+
+
+
+        Встановіть пакет із GitHub
+$ npm install sindresorhus/chalk
+
+   Давайте націлимося на конкретний коміт, оскільки master є рухомою метою:
+$ npm install 'sindresorhus/chalk#51b8f32'
+
+    встановити залежності Git за допомогою semver
+$ npm install 'sindresorhus/chalk#semver:^2.0.0'
+
+    Встановіть певну версію пакета
+$ npm install chalk@1.0.0
+
+    Перелічіть встановлені пакунки верхнього рівня та їх версію
+$ npm ls --depth=0
+
+
+    Командна допомога
+$ npm help <command>
+Приклад:
+$ npm help install
