@@ -1,0 +1,129 @@
+.horizontal-nav {
+  &:extend(.ul-unstyled);
+  // float: right;
+
+  li {
+    display: inline-block;
+    margin-left: 15px;
+
+    a {
+      .transition();
+      display: block;
+      border: 2px solid transparent;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 10px 17px;
+      line-height: 1;
+
+      &.active {
+        border-color: @accent;
+        color: @accent;
+      }
+
+      &:hover {
+        color: @accent;
+      }
+    }
+  }
+  &.black-font a {
+    color: @font;
+  }
+}
+
+
+
+
+// iframe responsive
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+}
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+//button
+.btn-ghost(@c:#353f46, @c-hover:#fff, @font:1em) {
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: @c;
+  border: 2px solid @c;
+  transition: all .3s ease-in-out;
+  line-height: 1;
+  padding: 1.07em 2.857em;
+  font-size: 1em;
+
+  &:hover {
+    text-decoration: none;
+    color: @c-hover;
+    border-color: @c-hover;
+  }
+}
+
+.btn-ghost-grey {
+  .btn-ghost();
+}
+
+
+
+// ...responsive
+.main-nav-trigger {
+  display: none;
+  font-size: 45px;
+  color: #fff;
+  float: right;
+  line-height: 1;
+  cursor: pointer;
+  transition: color .3s ease-in-out;
+
+  &:hover {
+    color: @accent;
+  }
+}
+
+@media (max-width:992px) {
+  .main-nav-trigger {
+    display: block;
+  }
+
+  .site-nav {
+    position: relative;
+  }
+
+  .site-nav .horizontal-nav {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    background-color: @overlay;
+    padding: 20px 0;
+
+    li {
+      display: block;
+      margin-left: 0;
+      width: 100%;
+      text-align: center;
+      border-bottom: 1px solid lighten(@overlay, 5%);
+    }
+
+    a {
+      display: inline-block;
+      padding: 20px 30px;
+
+      &.active {
+        border-color: transparent;
+      }
+    }
+  }
+}

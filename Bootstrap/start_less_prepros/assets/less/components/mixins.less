@@ -1,0 +1,39 @@
+//use http://www.font2web.com to generate all font formats
+.add-font(@font-url, @font-name, @font-weight: normal, @font-style: normal) {
+  font-family: @font-name;
+  src: url('@{font-folder}@{font-url}.eot'); // IE9 Compat Modes
+  src: url('@{font-folder}@{font-url}.eot?#iefix') format('embedded-opentype'), // IE6-IE8
+  url('@{font-folder}@{font-url}.woff') format('woff'), // Pretty Modern Browsers
+  url('@{font-folder}@{font-url}.ttf') format('truetype'), // Safari, Android, iOS
+  url('@{font-folder}@{font-url}.svg#@{font-name}') format('svg'); // Legacy iOS
+  font-weight: @font-weight;
+  font-style: @font-style;
+}
+
+.transition(@prop: all, @time: 0.3s, @ease: ease-in-out) {
+  transition: @prop @time @ease;
+}
+
+.bg-img(@img, @pos:center center, @att:scroll) {
+  background-image: url('@{img-folder}@{img}');
+  background-position: @pos;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: @att;
+}
+
+.overlay(@opacity:50%) {
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: fade(@overlay, @opacity);
+    z-index: -1;
+  }
+}
