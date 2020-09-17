@@ -25,3 +25,22 @@ function groupById(array) {
     return obj;
   }, {})
 }
+
+
+
+
+// 2. перетворює обєкт в масив
+const obj = {
+  name: 'Igor',
+  age: 11,
+  job: 'asd'
+}
+console.log(Object.entries(obj));
+//на виході буде масив
+const arr = [
+  ['name', 'Igor'],
+  ['age', 11],
+  ['job', 'asd']
+]
+//перетворює масив у обєкт
+console.log(Object.fromEntris(arr));

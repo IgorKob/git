@@ -1,0 +1,9 @@
+@import "./base/base";
+
+.logo {
+  background-color: rgba(@gray, .3);
+
+  &:hover {
+    color: red;
+  }
+}
