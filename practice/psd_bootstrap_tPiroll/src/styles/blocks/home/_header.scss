@@ -1,0 +1,114 @@
+header {
+  // background-image: url("../assets/img/laptop4.png"), linear-gradient(to bottom right, #EAF2F5, #DCE6E8);
+  background-image: linear-gradient(to bottom right, #EAF2F5, #DCE6E8);
+
+  // background-repeat: no-repeat;
+  // background-position: left;
+  // background-size: cover;
+  // background-size: 50% auto, 100% 100%;
+  background-size: 100% 100%;
+
+}
+
+.padding-top-38 {
+  padding-top: 38px;
+}
+
+.logo-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  display: block;
+  margin-left: -15px;
+}
+
+
+
+
+
+
+// header title
+.row {}
+
+.justify-content-end {}
+
+.col-6 {}
+
+.header-title {
+  margin-top: 180px;
+  margin-bottom: 35px;
+  font: 500 28px/48px 'Montserrat', sans-serif;
+  color: #1d1d1d;
+}
+
+.header-text {
+  font: 400 12px/28px 'Nunito Sans', sans-serif;
+  color: #787878;
+  margin-bottom: 35px;
+}
+
+.header-btn {
+  font: 500 12px 'Montserrat', sans-serif;
+  color: #ffffff;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  background-color: $blue;
+  margin-bottom: 200px;
+
+}
+
+#img-header {
+  margin-top: 180px;
+}
+
+@media (max-width: 629px) {
+  .header-btn {
+    margin-bottom: 80px;
+  }
+
+  header {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% auto;
+  }
+
+  #img-header {
+    margin-top: 10px;
+  }
+
+  .header-title {
+    margin-top: 10px;
+  }
+
+  #header-title__wrapper {
+    justify-content: center !important;
+
+    & .col-12 .col-sm-6 .col-md-6 {
+      width: 100% !important;
+      float: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+@media (min-width: 630px) {
+  .header-title {
+    font-size: 38px;
+  }
+
+  .header-text {
+    font-size: 18px;
+  }
+
+  .header-btn {
+
+    padding: 20px 43px;
+
+  }
+}
+

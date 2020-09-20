@@ -1,0 +1,46 @@
+.skills-footer {
+  background-color: $blue;
+}
+.container {
+}
+.row {
+}
+.col-12 {
+}
+.col-md-3 {
+}
+.col-sm-6 {
+}
+.skills-footer__img {
+  width: 40px;
+  height: 40px;
+  margin: 100px 20px 100px 0;
+  
+}
+.skills-footer__img:first-child {
+  margin-left: 10px;
+}
+.skills-footer__text {
+  font: 500 12px/30px 'Montserrat', sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+}
+.skills-footer__number {
+font-size: 18px; 
+// line-height: 72px;
+}
+.skills-footer__title {
+
+}
+.skills-footer .display-flex {
+  padding: 0;
+}
+@media (max-width: 1011px) {
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .skills-footer__img {
+    margin: 20px 10px 20px 0;   
+  }
+}

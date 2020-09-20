@@ -1,6 +1,19 @@
 // Base
+@import 'base/variables';
+@import 'base/mixins';
 @import 'base/base';
-
+ 
 // Blocks
-@import 'blocks/header';
-@import 'blocks/nav';   
+@import 'blocks/home/header';
+@import 'blocks/home/nav';   
+@import 'blocks/home/about';
+@import 'blocks/home/skills';
+@import 'blocks/home/skills-footer';
+@import 'blocks/home/work'; 
+@import 'blocks/home/work-process'; 
+@import 'blocks/home/work-list'; 
+@import 'blocks/home/slideshow'; 
+
+
+
+

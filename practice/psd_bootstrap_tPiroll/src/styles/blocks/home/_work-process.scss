@@ -1,0 +1,97 @@
+.work-process {
+  text-align: center;
+  padding-bottom: 100px;
+}
+
+.container {}
+
+.row {}
+
+.col-12 {}
+
+.work-title {
+  padding-top: 90px;
+  margin-bottom: 20px;
+}
+
+.work-text {
+  margin-bottom: 50px;
+}
+
+.adaptive-wrap {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+}
+
+.adaptive-wrap iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.work__video {}
+
+.kimafter {
+  background-image: url("../assets/img/laptops/1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 121;
+}
+
+.kimafter::before {
+  content: '';
+  background-image: url("../assets/img/icon/play.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 131;
+
+}
+
+.adaptive-wrap:hover {
+  cursor: pointer;
+
+  .kimafter {
+    content: '';
+    background: rgba(22, 22, 22, .4);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 141;
+  
+  }
+
+}
+
+@media (max-width: 630px) {
+  .work-process {
+    padding-bottom: 40px;
+  }
+  .work-title {
+    padding-top: 40px;
+    margin-bottom: 10px;
+  }
+
+  .work-text {
+    margin-bottom: 20px;
+  }
+}

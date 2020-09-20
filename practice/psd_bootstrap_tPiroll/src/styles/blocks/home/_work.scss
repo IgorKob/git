@@ -1,0 +1,70 @@
+.work {
+}
+.container {
+}
+.row {
+}
+.col-12 {
+}
+.col-md-3 {
+}
+.col-sm-6 {
+}
+.work .col-12, .work .col-md-3, .work .col-sm-6 {
+padding: 0;
+}
+.work__item {  
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.work__item:hover {
+  cursor: pointer;
+  &::after {
+  content: '';
+  background: rgba(20, 20, 20, .8);
+  position: absolute; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 111;
+
+  } 
+  &::before {
+    content: '';
+    background-image: url("../assets/img/icon/look.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 121;
+  }
+}
+.work__img {
+  margin: auto;
+
+}
+
+//work__load
+.row {
+}
+.col-12 {
+}
+.work__load {
+  background-color: #f5f5f5;
+  font: 500 12px 'Montserrat', sans-serif;
+  color: #8e8e8e;
+  text-transform: uppercase;
+  display: block;
+  text-align: center;
+  padding: 45px 0;
+  cursor: pointer;
+}

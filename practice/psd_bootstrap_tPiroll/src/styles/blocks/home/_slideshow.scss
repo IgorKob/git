@@ -1,0 +1,128 @@
+.mySlides {display: none;}
+// img {vertical-align: middle;}
+
+.slideshow-container {
+  max-width: 1000px;
+  max-height: 500px;
+  position: relative;
+  margin: auto;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+//kim
+.slideshow {
+  background-color: $blue;
+  padding-top: 170px;
+  padding-left: 170px;
+  padding-right: 170px;
+  padding-bottom: 60px;
+
+
+}
+.container {
+}
+.row {
+}
+.col-12 {
+}
+.slideshow-container {
+}
+.mySlides {
+  text-align: center;
+}
+.fade {
+}
+.slideshow__text {
+  font: 500 24px/36px 'Montserrat', sans-serif;
+  color: #fff;
+  padding-bottom: 20px;
+
+}
+.slideshow__user {
+  font: 500 12px/36px 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #fff;
+  padding-bottom: 100px;
+
+}
+.dot {
+  background-color: #b0e8e6;
+  height: 6px;
+  width: 6px;
+  margin: 0 4px;
+  vertical-align: middle;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active {
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@media only screen and (max-width: 900px) {
+  .slideshow {
+    padding-top: 120px;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-bottom: 30px;
+  
+  
+  }
+  .slideshow__text {
+    font-size: 18px;
+    padding-bottom: 10px;
+  
+  }
+  .slideshow__user {
+    padding-bottom: 70px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .slideshow {
+    padding-top: 70px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 25px;
+  
+  
+  }
+  .slideshow__text {
+    font-size: 15px;
+    padding-bottom: 10px;
+  
+  }
+  .slideshow__user {
+    padding-bottom: 50px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .slideshow {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+  
+  
+  }
+  .slideshow__user {
+    padding-bottom: 30px;
+  }
+}
