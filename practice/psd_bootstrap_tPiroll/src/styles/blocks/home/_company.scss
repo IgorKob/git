@@ -1,0 +1,26 @@
+.company {
+  text-align: center;
+  padding-top: 66px;
+}
+.container {
+}
+.row {
+}
+.col-12 {
+}
+.col-sm-6 {
+}
+.col-md-2 {
+}
+.company__img {
+  padding-bottom: 66px;
+}
+
+@media only screen and (max-width: 575px) {
+  .company {
+    padding-top: 36px;
+  }
+  .company__img {
+    padding-bottom: 36px;
+  }
+}

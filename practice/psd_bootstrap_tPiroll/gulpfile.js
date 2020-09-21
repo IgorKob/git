@@ -216,7 +216,9 @@ function watch() {
     browserSync.init({
         server: {
             baseDir: "./",
+            // index: "./dist/index.html"
             index: "./dist/index.html"
+
         }
     });
     // gulp.watch('./dist/styles/**/*.css', css);

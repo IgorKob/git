@@ -1,11 +1,6 @@
 header {
   // background-image: url("../assets/img/laptop4.png"), linear-gradient(to bottom right, #EAF2F5, #DCE6E8);
   background-image: linear-gradient(to bottom right, #EAF2F5, #DCE6E8);
-
-  // background-repeat: no-repeat;
-  // background-position: left;
-  // background-size: cover;
-  // background-size: 50% auto, 100% 100%;
   background-size: 100% 100%;
 
 }
@@ -61,12 +56,35 @@ header {
   margin-bottom: 200px;
 
 }
+.header-btn:hover {
+  opacity: .4;
+}
 
 #img-header {
   margin-top: 180px;
 }
 
-@media (max-width: 629px) {
+
+@media screen and (max-width: 1180px) and (min-width: 630px) {
+  .padding-top-38 {
+    // padding-top: 38px;
+    // padding-left: 5px;
+    // padding-right: 5px;
+  }
+ 
+}  
+
+@media (max-width: 630px) {
+  .logo-icon{
+    padding-left: 15px;
+
+  }
+  .padding-top-38 {
+    padding-top: 15px;
+    // padding-left: 15px;
+
+  }
+
   .header-btn {
     margin-bottom: 80px;
   }
@@ -96,7 +114,7 @@ header {
   }
 }
 
-@media (min-width: 630px) {
+@media (min-width: 629px) {
   .header-title {
     font-size: 38px;
   }
@@ -111,4 +129,3 @@ header {
 
   }
 }
-

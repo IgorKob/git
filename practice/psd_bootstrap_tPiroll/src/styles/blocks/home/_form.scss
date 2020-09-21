@@ -1,0 +1,99 @@
+.form {
+  background-color: #f5f5f5;
+  padding-top: 90px;
+  padding-left: 20%;
+  padding-right: 20%;
+  text-align: center;
+}
+.container {
+}
+.row {
+}
+.col {
+}
+.form__title_h4 {
+  font: 500 30px/84px 'Montserrat', sans-serif;
+  color: #1d1d1d;
+}
+.form__sabtitle {
+  font: 500 16px/24px 'Nunito Sans', sans-serif;
+  color: #787878;
+  margin-bottom: 30px;
+}
+.form-row {
+}
+.form-group {
+  margin-bottom: 25px;
+}
+.col-md-6 {
+}
+.form-control {
+}
+.form-name {
+
+  &::placeholder {
+    font: 500 15px/24px 'Nunito Sans', sans-serif;
+    color: #787878;
+  }
+}
+.form-email {
+
+  &::placeholder {
+    font: 500 15px/24px 'Nunito Sans', sans-serif;
+    color: #787878;
+  }
+}
+.form-title {
+
+  &::placeholder {
+    font: 500 15px/24px 'Nunito Sans', sans-serif;
+    color: #787878;
+  }
+}
+.form-comment {
+
+  &::placeholder {
+    font: 500 15px/24px 'Nunito Sans', sans-serif;
+    color: #787878;
+  }
+}
+.btn {
+}
+.btn-primary {
+}
+.mykimbtn {
+  font: 500 12px 'Montserrat', sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  background-color: $blue;
+  padding: 20px 33px;
+  margin-bottom: 90px;
+}
+
+@media only screen and (max-width: 780px) { 
+  .form {
+    padding-top: 40px;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .mykimbtn {
+    margin-bottom: 60px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .form {
+    padding-top: 30px;
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+  .form__title_h4 {
+    font-size: 22px;
+  }
+  .form__sabtitle {
+    font-size: 12;
+  }
+  .mykimbtn {
+    margin-bottom: 30px;
+  }
+} 

@@ -13,7 +13,20 @@
 @import 'blocks/home/work-process'; 
 @import 'blocks/home/work-list'; 
 @import 'blocks/home/slideshow'; 
+@import 'blocks/home/company'; 
+@import 'blocks/home/form'; 
+@import 'blocks/home/footer'; 
 
+//work
+@import 'blocks/work/work-page';
 
+//about
+@import 'blocks/about/header';
+@import 'blocks/about/need-project';
 
+//process
+@import 'blocks/process/process';
 
+//contact
+@import 'blocks/contact/page-contact';
+ 

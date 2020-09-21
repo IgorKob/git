@@ -4,7 +4,7 @@
   background-color: #ccc;
   position: absolute;
   left: 0;
-  right: 0;
+  // width: 100%;
   top: 100%;
   text-align: center;
   display: none;
@@ -46,7 +46,11 @@
 #icon-nav {
   display: block;
 }
-
+@media (max-width: 629px) {
+  #nav {
+      width: 100%;
+  }
+}
 @media (min-width: 630px) {
   #nav {
     position: relative;
