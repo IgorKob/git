@@ -1,0 +1,31 @@
+.footer {
+  background-color: #f0f0f0;
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+.footer__privacy-wrapper {
+  display: flex;
+}
+.footer__privacy {
+  color: #000;
+  margin-left: 16px;
+}
+.footer__social {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.fab {
+  margin-left: 18px;
+}
+@media (max-width: 575px) {
+  .footer__privacy-wrapper {
+    display: flex;
+    justify-content: center;
+
+  }
+  .footer__social {
+    justify-content: center;
+    padding-top: 20px;
+  }
+}

@@ -1,0 +1,34 @@
+.navbar {
+  max-width: 1070px;
+  padding-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.navbar-brand {
+  font: 400 30px/24px 'Inconsolata', monospace;
+  text-transform: uppercase;
+  color: #000;
+}
+.navbar-collapse {
+  flex-grow: inherit;
+}
+.nav-link {
+  color: $gray;
+  text-transform: uppercase;
+  margin-left: 3rem;
+}
+.header-img {
+  width: 1070px;
+  max-width: 100%;
+  height: auto;
+  height: 675px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 575px) {
+  .navbar {
+    padding-top: 20px;
+  }
+}

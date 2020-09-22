@@ -1,0 +1,36 @@
+.header-tag {
+  color: $gray2;
+  text-transform: uppercase;
+  padding-top: 90px;
+  margin-bottom: 20px;
+
+}
+.home-article__title a {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: $gray;
+
+}
+.home-article__text {
+  line-height: 24px;
+  margin-bottom: 40px;
+
+}
+.comments-title {
+  color: $gray2;
+  text-transform: uppercase;
+  margin-bottom: 130px;
+}
+@media (max-width: 767px) {
+  .header-tag {
+    padding-top: 30px;
+    margin-bottom: 20px;
+  
+  }
+}
+@media (max-width: 575px) {
+  .home-article__title a {
+    font-size: 23px;
+  
+  }
+}

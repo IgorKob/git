@@ -1,0 +1,50 @@
+.s-email {
+  background-color: #f0f0f0;
+  padding-top: 65px;
+  margin-bottom: 90px;
+}
+.s-email__title {
+  font-size: 30px;
+  color: #333;
+  text-align: center;
+  padding-bottom: 65px;
+
+}
+.s-email__wrapper {
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+
+  &::after {
+    content: '';
+    background-image: url('../assets/img/m8.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    width: 32px;
+    height: 17px;
+    position: absolute;
+    top: 27%;
+    right: 0;
+    z-index: 11;
+    
+  }
+}
+.s-email__input {
+  border: 0;
+  border-bottom: 1px solid #000;
+  border-radius: 0;
+  padding-left: 0;
+  outline: none;
+  margin-bottom: 70px;
+  background-color: #f0f0f0;;
+
+  &::placeholder {
+    font-size: 14px;
+    color: #626262;
+  }
+}
+.form-control {
+}
+.s-email__icon {
+}
