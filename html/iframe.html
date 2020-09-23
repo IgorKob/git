@@ -1,30 +1,121 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <title>How to define an inline frame</title>
+    <meta charset="utf-8">
+    <title>How to define an inline frame</title>
 </head>
+
 <body>
-<iframe src="https://www.w3resource.com/html-css-exercise/basic/solution/code-em-answer.html"
-width="70%" hight="300">
-</iframe>
+
+
+    <!--Для адаптивності відео, при вставці з ютуба, iframe потрібно обгорнути  .adaptive-wrap-->
+    <style>
+        .adaptive-wrap {
+            position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 30px;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .adaptive-wrap iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
 
 
 
 
-<!-- вказати ім'я елемента iframe -->
-<iframe src="https://www.w3resource.com/html-css-exercise/basic/solution/article-answer.html"
- name ="iframe_a">
-</iframe>
-<a href="https://www.w3resource.com/html-css-exercise/basic/solution/article-answer.html"
-target="iframe_a">w3resource</a>
 
 
-<!-- вказати вміст HTML сторінки для відображення в елементі iframe -->
-<iframe srcdoc="<p>w3resource</p>"
-src="https://www.w3resource.com/html-css-exercise/basic/solution/html-answer.html">
-</iframe>
+    <!--////kim iframe відео зі заставкою//////-->
+    <style>
+        .kimafter {
+            background-image: url("../assets/img/laptops/1.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 121;
+        }
+
+        .kimafter::before {
+            content: '';
+            background-image: url("../assets/img/icon/play.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 131;
+
+        }
+
+    </style>
+    <div id="adaptive-wrap" class="adaptive-wrap">
+        <div id="adaptive-wrap__img" class="kimafter"></div>>
+        <iframe id="work__video" class="work__video" width="1160" height="600" src="https://www.youtube.com/embed/OKM--8fzDpo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    </div>
+    <script>
+        //video
+        let times = 0,
+            playY;
+        let video = document.getElementById('adaptive-wrap');
+        video.addEventListener('click', function() {
+            let video_if = document.getElementById('work__video');
+            let img = document.getElementById('adaptive-wrap__img');
+
+            //play
+            if (times == 0) {
+                playY = video_if.src += '?autoplay=1';
+                times = 1;
+            }
+            //stop
+            // if(times !== 0) {
+            //   playY = playY.slice(0, -11);
+            //   video_if.src = playY
+            //   times = 0;
+            // }
+
+            //img - видаляємо заставку при натисканні(фонова картинка яка була в діві апсолютом)
+            img.classList.toggle("kimafter");
+
+        });
+
+    </script>
+    <!--///////////////-->
+
+
+    <iframe src="https://www.w3resource.com/html-css-exercise/basic/solution/code-em-answer.html" width="70%" hight="300">
+    </iframe>
+
+
+
+
+    <!-- вказати ім'я елемента iframe -->
+    <iframe src="https://www.w3resource.com/html-css-exercise/basic/solution/article-answer.html" name="iframe_a">
+    </iframe>
+    <a href="https://www.w3resource.com/html-css-exercise/basic/solution/article-answer.html" target="iframe_a">w3resource</a>
+
+
+    <!-- вказати вміст HTML сторінки для відображення в елементі iframe -->
+    <iframe srcdoc="<p>w3resource</p>" src="https://www.w3resource.com/html-css-exercise/basic/solution/html-answer.html">
+    </iframe>
 
 
 </body>
+
 </html>

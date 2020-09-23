@@ -1,9 +1,44 @@
 @import "./base/base";
 
 .logo {
-  background-color: rgba(@gray, .3);
+  background-color: rgba($gray, .3);
 
   &:hover {
     color: red;
   }
+}
+
+//mixins
+@mixin skills {
+  width: 100%;
+  height: 3px;
+  background-color: #d8d8d8;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+@mixin skills-after($width) {
+  content: '';
+  width: $width;
+  height: 3px;
+  left: 0;
+  top: 0;
+  background-color: $blue;
+  position: absolute;
+}
+
+.skills-1 {
+  @include skills;
+}
+
+.skills-1::after {
+  @include skills-after(75%);
+}
+
+.skills-2 {
+  @include skills;
+}
+
+.skills-2::after {
+  @include skills-after(90%);
 }

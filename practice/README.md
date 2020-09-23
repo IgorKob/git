@@ -1,10 +1,23 @@
 wordpress demo version - tOrange
 http://kobryn9.000webhostapp.com
+https://github.com/IgorKob/git/tree/master/practice/psd_avocode_tOrange/wp_tOrange
 
 
 wordpress demo version - consalt (UNDERSCORES BASED THEME, advanced-custom-fields, contact-form-7, duplicator)
 http://unparalleled-carbon.000webhostapp.com
+https://github.com/IgorKob/git/tree/master/practice/psd_consalt/wp_consalt
 
 
-wordpress demo version - tShop (woocommerce, storefront-child-theme, advanced-custom-fields, art-woocommerce-custom-sale, currency-switcher-woocommerce, gtranslate, wishlist)
+wordpress demo version - tShop (woocommerce, storefront-child-theme, advanced-custom-fields, art-woocommerce-custom-sale, currency-switcher-woocommerce, gtranslate, wishlist, sass)
 http://kobryn11.000webhostapp.com
+https://github.com/IgorKob/git/tree/master/practice/psd_tShop_scout_coala_avocode_PS/wp_tShop/storefront-child-QUANTUM
+
+
+demo version - tMinimo (psd, bootstrap, gulp, sass)
+https://git1-gules.vercel.app/dist
+https://github.com/IgorKob/git/tree/master/practice/psd_bootstrap_tMinimo
+
+
+demo version - tPiroll (psd, bootstrap, gulp, sass)
+https://git3-navy.vercel.app/dist
+https://github.com/IgorKob/git/tree/master/practice/psd_bootstrap_tPiroll

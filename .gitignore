@@ -9,6 +9,8 @@ www__myprob/
 gulp/start/
 libs/
 
+02_PREVIEWS/
+
 package-lock.json
 
 # Numerous always-ignore extensions
