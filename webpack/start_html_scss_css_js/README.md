@@ -6,4 +6,3 @@ npm run dev
 
 # Output will be at dist/ folder
 npm run build
-```

@@ -13,6 +13,62 @@ https://www.heroku.com
 
 
 
+Gulp.js includes:
+https://www.npmjs.com/package/gulp-rigger
+
+HTML:
+//= pages/header.html
+
+Javascript:
+//= includes/test
+
+CoffeeScript:
+#= includes/test 
+
+CSS:
+/*= includes/test */
+
+
+
+
+
+
+Webpack includes:
+https://www.npmjs.com/package/ejs
+https://www.npmjs.com/package/ejs-compiled-loader
+
+webpack.config.js:
+  module: {
+    rules: [
+      {
+        // html in html
+        test: /\.ejs$/,
+        use: {
+          loader: 'ejs-compiled-loader',
+          options: {
+            htmlmin: true,
+            htmlminOptions: {
+              removeComments: true
+            }
+          }
+        }
+      },
+...
+        new HtmlWebpackPlugin({
+          template: 'src/index.ejs',
+          filename: `./${page}`
+      })
+
+
+index.ejs:
+<header> 
+  <%- include ./pages/_header.ejs -%>
+</header>
+
+
+
+
+
 
 <!-- тема бравзера -->
 <!-- Chrome, Firefox, and Opera -->

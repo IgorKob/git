@@ -52,6 +52,28 @@ module.exports = {
   },
   module: {
     rules: [
+      // {
+      //   // html
+      //   test: /\.html$/i,
+      //   use: ['file-loader?name=[name].[ext]', 'extract-loader', 'html-loader'],
+      // },
+      // {
+      //   test: /\.html$/,
+      //   use: [{ loader: 'html-loader', options: { interpolate: true } }],
+      // },
+      {
+        // html in html
+        test: /\.ejs$/,
+        use: {
+          loader: 'ejs-compiled-loader',
+          options: {
+            htmlmin: true,
+            htmlminOptions: {
+              removeComments: true
+            }
+          }
+        }
+      },
       {
         // JavaScript
         test: /\.js$/,
@@ -164,10 +186,18 @@ module.exports = {
 
     ...PAGES.map(
       page =>
+        // new HtmlWebpackPlugin({
+        //   template: `${PAGES_DIR}/${page}`,
+        //   filename: `./${page}`
+        // })
         new HtmlWebpackPlugin({
-          template: `${PAGES_DIR}/${page}`,
+          template: 'src/index.ejs',
+          // filename: 'index.html',
           filename: `./${page}`
-        })
+
+          // title: 'Home',
+          // chunks: ['index']
+      })
     )
   ]
 }
