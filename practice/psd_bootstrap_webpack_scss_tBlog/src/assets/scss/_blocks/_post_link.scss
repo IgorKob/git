@@ -1,0 +1,16 @@
+.post.link {
+  background-color: #212429;
+  padding: 60px 4px;
+
+  .post__link {
+    color: #fff;
+    text-decoration: underline;
+    text-align: center;
+    display: block;
+  }
+
+  .post__link_icon {
+    color: #000;
+    background-color: #fff;
+  }
+}

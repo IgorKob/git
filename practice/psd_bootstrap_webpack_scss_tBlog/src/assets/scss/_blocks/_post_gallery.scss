@@ -1,0 +1,22 @@
+.post.gallery {
+  .row {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .col-6 {
+    padding: 0;
+    border: 1px solid #fafafa;
+  }
+
+  .post__img {
+    background-color: #ccc;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .post__footer_comment_title {
+    white-space: nowrap;
+  }
+}
