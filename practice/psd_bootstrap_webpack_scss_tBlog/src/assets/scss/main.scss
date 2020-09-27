@@ -1,24 +1,17 @@
+//bootstrap
+@import '../libs/bootstrap/scss/bootstrap';
+//fontawesome
+// @import '../libs/fontawesome/scss/fontawesome';
+@import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
+
 @import 'utils/libs';
 @import 'utils/vars';
 @import 'utils/mixins';
 @import 'utils/fonts';
 @import 'utils/reset';
 
-//bootstrap
-// @import '../libs/bootstrap/scss/bootstrap-grid';
-@import '../libs/bootstrap/scss/bootstrap';
-// @import '../libs/bootstrap/scss/card';
-
-//////
-
-
-//fontawesome
-@import '../libs/fontawesome/scss/fontawesome';
-
-//splide
-// @import '../libs/splide/sass/splide.min';
-
-//mmenu
+                                               
+//home
 @import '_blocks/nav';
 @import '_blocks/slideshow';
 @import '_blocks/top_form';
@@ -31,6 +24,8 @@
 @import '_blocks/post_link';
 @import '_blocks/post_audio';
 @import '_blocks/post_video';
+@import '_blocks/footer';
+
 
 
 
@@ -135,7 +130,7 @@ section,
   @media screen and (max-width: $phoneWidth) {
     // max-width: $smPhoneWidth;
   }
-}     
+}
 
 .fade:not(.show) {
   opacity: 1;

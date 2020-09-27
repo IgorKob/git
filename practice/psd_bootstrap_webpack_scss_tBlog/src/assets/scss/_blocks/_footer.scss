@@ -1,0 +1,140 @@
+.footer {
+  background-color: #212429;
+}
+
+.container .footer-top {
+  padding-bottom: 55px;
+}
+
+.footer__title {
+  padding-top: 55px;
+  margin-bottom: 35px;
+
+  & a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #f9f9fb;
+    text-transform: uppercase;
+  }
+}
+
+.footer__text {
+  font-weight: 300;
+  color: #f9f9fb;
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+
+.footer__img {
+  position: relative;
+}
+
+.footer__img_item {
+  width: 100%;
+}
+
+.footer__img-text {
+  font-family: 'Mrs Saint Delafield', sans-serif;
+  color: #f9f9fb;
+  position: absolute;
+  right: 9px;
+  transform: rotate(-13deg);
+  line-height: 0.6;
+  bottom: 16px;
+  font-size: 1.37rem!important;
+}
+
+.footer__list_item {
+  position: relative;
+  padding-left: 26px;
+
+  &::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #fff;
+    content: "\f099";
+    font-family: "Font Awesome 5 Brands";
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+  }
+}
+
+.footer__list_link {
+  font-weight: 300;
+  color: #fff;
+  font-size: 15px;
+  display: block;
+  padding-bottom: 8px;
+}
+
+.footer__list_text {
+  padding-bottom: 30px;
+}
+
+.footer__gallery {
+  .container-fluid .col-4 {
+    padding: 1px;
+  }
+}
+
+.footer__comment {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  color: #fff;
+}
+
+.footer__comment-title {
+  padding-bottom: 10px;
+}
+
+.footer__comment-text {
+  padding-bottom: 17px;
+}
+
+.footer__comment + .footer__comment {
+  padding-top: 17px;
+  border-top: 1px solid #65676a;
+}
+
+
+// footer-bottom
+.footer-bottom {
+  background-color: #17191c;
+}
+
+.footer-bottom {
+  padding: 7px 0;
+}
+
+.footer-copyright {
+  font-size: 14px;
+  font-weight: 300;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: end;
+  line-height: 2;
+}
+
+.footer-bottom__menu {
+  font-size: 14px;
+  font-weight: 300;
+  color: #fff;
+  text-transform: uppercase;
+  border-left: 1px solid #929293;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: inline-block;
+}
+
+@media (max-width: 991px) {
+  .footer-bottom__menu,
+  .footer-copyright {
+    text-align: center;
+  }
+  .align-center {
+    text-align: center;
+  }
+}
