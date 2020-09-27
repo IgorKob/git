@@ -5,10 +5,36 @@ https://www.w3schools.com/whatis/whatis_icons.asp
 <img src="https://placehold.it/379x257" alt="">
 
 Елемент HTML <picture>дозволяє визначати різні зображення для різних розмірів вікна браузера.
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<picture>
-  <source srcset="img_smallflower.jpg" media="(max-width: 600px)">
-  <source srcset="img_flowers.jpg" media="(max-width: 1000px)">
-  <source srcset="img_large_flowers.jpg">
-  <img src="../html/img_flowers.jpg" alt="Flowers" style="width:auto;">
-</picture>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <picture>
+    <source srcset="img_smallflower.jpg" media="(max-width: 600px)">
+    <source srcset="img_flowers.jpg" media="(max-width: 1000px)">
+    <source srcset="img_large_flowers.jpg">
+    <img src="../html/img_flowers.jpg" alt="Flowers" style="width:auto;">
+  </picture>
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  //Або в файлі CSS:
+  @import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css")
+
+  &::before {
+    color:#fff;
+    content: "\f099";
+    font-family: "Font Awesome 5 Brands";  //для значків бренду, таких як Facebook, Twitter і т.д.
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+  }
+  &::before {
+    color:#fff;
+    content: '\f35a';
+    font-family: "Font Awesome 5 Free"; /* для безкоштовних іконок.*/
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+  }
