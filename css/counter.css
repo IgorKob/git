@@ -1,0 +1,25 @@
+<!-- .....................лічильники......... -->
+counter-reset - Створює або скидає лічильник
+counter-increment - Збільшення лічильної величини
+content - Вставляє створений вміст
+counter() або counters() функція - додає елементу значення лічильника
+.......    приклад лічильника для впорядкованого списка
+ol {
+  counter-reset: section;
+  list-style-type: none;
+}
+li::before {
+  counter-increment: section;
+  content: counters(section,".") " ";
+} -->
+
+
+
+.....................лічильник
+body {
+  counter-reset: section;
+}
+h2::before {
+  counter-increment: section;
+  content: counter(section) ".";
+}

@@ -21,9 +21,6 @@ window.console.log(key); // = key2
 
 
 
-
-
-
 var obj = { 'bar' : 'baz' }
 var key = Object.keys(obj)[0];
 var value = obj[key];
@@ -34,4 +31,18 @@ var value = obj[key];
 
 
 
- 
+
+
+ //обєкти
+ var myObject = {
+   name: "Ігор",
+   surname: "Kobryn",
+   age: 29,
+   getFullName: function() {
+     return this.name +" "+ this.surname;
+   }
+ };
+
+ myObject.name = "Oleg";
+ console.log(myObject.name);
+ console.log(myObject.getFullName());

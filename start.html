@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Визначте опис веб-сторінки: -->
+  <meta name="description" content="Free Web tutorials">
+  <!-- Визначення ключових слів для пошукових систем: -->
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  <!-- Визначте автора сторінки: -->
+  <meta name="author" content="John Doe">
+  <!-- Оновлення документа кожні 30 секунд: -->
+  <meta http-equiv="refresh" content="30">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Page Title</title>
+
+<!-- styles -->
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="demo_print.css" media="print">
+  <!-- посилання на іконки -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+
+  <!-- hreflang --вказує, що пов'язаний документ англійською мовою -->
+  <link href="1.asp" rel="parent" rev="subsection" hreflang="en">
+  <!-- alternate	--Надає посилання на альтернативну версію документа (тобто сторінку друку, переклад або дзеркало). -->
+  <link rel="alternate" type="application/atom+xml" title="News" href="/blog/news/atom">
+  <!-- help	--Надає посилання на довідковий документ. -->
+  <link rel="help" href="/help/">
+
+  <!-- відображає ікону в заголовку сторінки -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <!-- HeightxWidth	--изначає один або більше розмірів для пов'язаної піктограми. -->
+  <link rel="icon" href="demo_icon.gif" sizes="16x16" type="image/gif">
+  <link rel="icon" href="favicon.png" sizes="16x16" type="image/png">
+  <link rel="icon" href="favicon.png" sizes="16x16 32x32" type="image/png">
+  <!-- any	--Вказує, що піктограма може бути масштабованою (як SVG-зображення) -->
+  <link rel="icon" href="icon.svg" sizes="any" type="image/svg+xml">
+
+
+
+  <!-- base -- Елемент визначає базовий URL і базову мета для всіх відносних URL - адрес в сторінку: -->
+  <!-- target --може бути  _blank, _parent, _self, _top, framename -->
+  <base href="https://www.w3schools.com/images/" target="_blank">
+
+
+  <style media="screen">
+/* елемент, обшивка та рамка включаються в ширину та висоту */
+* {
+  box-sizing: border-box;
+}
+  </style>
+
+  <script type="text/javascript">
+
+  </script>
+
+</head>
+
+<body>
+
+  <header>
+    <h1>Navigational Links</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#posts">Posts</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <section>
+
+      <article>
+        <h2>Facts About Dogs</h2>
+        <p>
+          Dogs have a sense of time. It's been proven that they know the difference between a hour and five. If conditioned to, they can predict future events, such as regular walk times.
+        </p>
+      </article>
+
+      <aside>
+        <p>A study was conducted on dogs being away from their owners for varying hours and the studies show that dogs who were away from their owners the longest showed the greatest amount of affection!
+        </p>
+      </aside>
+
+    </section>
+
+
+    <figure>
+      <img src="https://codecademy-content.s3.amazonaws.com/courses/Semantic+HTML/dogimage.jpeg" />
+      <figcaption>A cute dog.</figcaption>
+    </figure>
+
+    <audio controls>
+      <source src="https://codecademy-content.s3.amazonaws.com/courses/Semantic+HTML/dogBarking.mp3" type="audio/mp3">
+    </audio>
+
+    <video src="https://codecademy-content.s3.amazonaws.com/courses/Semantic+HTML/dog+video.mp4" controls>
+    </video>
+
+    <embed src="https://codecademy-content.s3.amazonaws.com/courses/Semantic+HTML/dog-on-beach.gif" />
+
+  </main>
+
+  <footer>
+    <p>Contact me at +1 234 567 8910 </p>
+  </footer>
+
+
+
+
+  <!-- async --Сценарій, який буде запущений асинхронно, як тільки він буде доступний: -->
+  <!-- defer --сценарій виконується після того, як сторінка закінчила розбір. -->
+  <script src="demo_async.js" async></script>
+
+</body>
+</html>

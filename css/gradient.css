@@ -1,0 +1,25 @@
+.................градієнт з ліва на право(за замлвчуванням з верху в низ)
+#grad1 {
+  height: 200px;
+  background-color: red;
+  background-image: linear-gradient(to right, red , orange, yellow);
+}
+..........градусами можна крутити початок градієнта і у відсотках задавати довжину кольорів
+#grad2 {
+  height: 100px;
+  background-color: red;
+  background-image: linear-gradient(90deg, red 10%, green 85%, blue 90%);
+}
+......
+#grad3 {
+  height: 200px;
+  background-color: red;
+  background-image: repeating-linear-gradient(190deg,red,yellow 7%,green 10%);
+}
+................radial по колу, circle круглий градіент
+#grad4 {
+  height: 150px;
+  width: 200px;
+  background-color: red;
+  background-image: radial-gradient(circle, red, yellow, green);
+}

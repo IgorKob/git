@@ -1,0 +1,13 @@
+Атрибут data- * використовується для зберігання користувальницьких даних,
+приватних на сторінці чи програмі.
+<script>
+function showDetails(asd) {
+  var asdType = asd.getAttribute("data-asd");
+  alert("The " + asd.innerHTML + " is a " + asdType + ".");
+}
+</script>
+<ul>
+  <li onclick="showDetails(this)" id="owl" data-asd="bird">Owl</li>
+  <li onclick="showDetails(this)" id="salmon" data-asd="fish">Salmon</li>
+  <li onclick="showDetails(this)" id="tarantula" data-asd="spider">Tarantula</li>
+</ul>

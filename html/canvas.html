@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+    Your browser does not support the HTML5 canvas tag.
+  </canvas>
+  <script>
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.moveTo(0, 0);
+    ctx.lineTo(200, 100);
+    ctx.stroke();
+  </script>
+
+
+  <canvas id="myCanvas3" width="200" height="100" style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.</canvas>
+  <script>
+    var c = document.getElementById("myCanvas3");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+    ctx.stroke();
+  </script>
+
+
+  <canvas id="myCanvas4" width="200" height="100" style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.</canvas>
+  <script>
+    var c = document.getElementById("myCanvas4");
+    var ctx = c.getContext("2d");
+    ctx.font = "30px Arial";
+    ctx.fillText("Hello World", 55, 55);
+  </script>
+
+  <canvas id="myCanvas5" width="200" height="100" style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.</canvas>
+  <script>
+    var c = document.getElementById("myCanvas5");
+    var ctx = c.getContext("2d");
+    ctx.font = "30px Arial";
+    ctx.strokeText("Hello World", 10, 50);
+  </script>
+
+  <canvas id="myCanvas6" width="200" height="100" style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.</canvas>
+  <script>
+    var c = document.getElementById("myCanvas6");
+    var ctx = c.getContext("2d");
+    // Create gradient
+    var grd = ctx.createLinearGradient(0, 0, 200, 0);
+    grd.addColorStop(0, "red");
+    grd.addColorStop(1, "white");
+    // Fill with gradient
+    ctx.fillStyle = grd;
+    ctx.fillRect(10, 10, 150, 80);
+  </script>
+
+
+  <canvas id="myCanvas7" width="200" height="100" style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.</canvas>
+  <script>
+    var c = document.getElementById("myCanvas7");
+    var ctx = c.getContext("2d");
+    // Create gradient
+    var grd = ctx.createRadialGradient(75, 50, 5, 90, 60, 100);
+    grd.addColorStop(0, "red");
+    grd.addColorStop(1, "white");
+    // Fill with gradient
+    ctx.fillStyle = grd;
+    ctx.fillRect(10, 10, 150, 80);
+  </script>
+
+
+</body>
+
+</html>

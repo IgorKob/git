@@ -1,0 +1,31 @@
+transition-timing-function: linear;
+transition-timing-function: ease;
+transition-timing-function: ease-in;
+transition-timing-function: ease-out;
+transition-timing-function: ease-in-out;  /* робить анімацію, строка вводу для пошуку збільшужьбся помало */
+transition-delay: 1s;                          затримка перед анімацією
+animation: asd 5s linear 2s infinite alternate;
+
+
+/* ............анімація для квадрата з div */
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: relative;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-delay: 2s;      затримка перед стартом
+  animation-iteration-count: 3;    Властивість визначає , скільки разів анімація повинна працювати.
+  animation-direction: reverse;       у зворотньому напряику
+  animation-direction: alternate;     вперед і потім назад
+  animation-fill-mode: forwards;        дозволяє елементу <div> зберігати значення стилю з останнього ключового кадру, коли анімація закінчується:
+  animation: myfirst 5s linear 2s infinite alternate;         скорочений запис
+}
+@keyframes example {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+}

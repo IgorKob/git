@@ -5,6 +5,12 @@
 <title>How to specify the type of media resource</title>
 </head>
 <body>
+  
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
 
   <!-- визначити тип медіаресурсу -->
 <video width="320" height="240" controls>
@@ -29,10 +35,55 @@ type="video/ogg" media="screen and (min-width:320px)">
 <video width="300" height="250" controls preload="auto">
 <source src="http://localhost/html-css-exercise/basic/solution/php-demo1.mp4" type="video/mp4">
 <source src="https://www.w3resource.com/html-css-exercise/basic/solution/php-demo1.ogg" type="video/ogg">
-</video>  
+</video>
 
 
+<video width="400" controls autoplay>
+  <source src="mov_bbb.mp4" type="video/mp4">
+  <source src="mov_bbb.ogg" type="video/ogg">
+  Your browser does not support HTML5 video.
+</video>
 
+<!-- <video> Визначає відео чи фільм
+<source> Визначає декілька медіаресурсів для медіа-елементів, наприклад <video> та <audio>
+<track> Визначає текстові доріжки в медіаплеєрах -->
+<!-- ........................................ -->
+
+<div style="text-align:center">
+  <button onclick="playPause()">Play/Pause</button>
+  <button onclick="makeBig()">Big</button>
+  <button onclick="makeSmall()">Small</button>
+  <button onclick="makeNormal()">Normal</button>
+  <br><br>
+  <video id="video1" width="420">
+    <source src="mov_bbb.mp4" type="video/mp4">
+    <source src="mov_bbb.ogg" type="video/ogg">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
+
+<script>
+  var myVideo = document.getElementById("video1");
+
+  function playPause() {
+    if (myVideo.paused)
+      myVideo.play();
+    else
+      myVideo.pause();
+  }
+
+  function makeBig() {
+    myVideo.width = 560;
+  }
+
+  function makeSmall() {
+    myVideo.width = 320;
+  }
+
+  function makeNormal() {
+    myVideo.width = 420;
+  }
+</script>
 
 </body>
 </html>

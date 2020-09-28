@@ -1,0 +1,110 @@
+
+                             <!-- Усі псевдокласи CSS
+:link	(a:link)	Вибирає всі непроглянуті посилання
+:hover	(a:hover)	використовується для вибору елементів при наведенні курсору миші на них
+:active	(a:active)	Вибирає активне посилання
+:visited	(a:visited)	Вибирає всі відвідані посилання
+:checked	(input:checked)	Вибирає кожен перевірений елемент (де є галочки) <input>
+:disabled	(input:disabled)	Вибирає кожен відключений елемент <input>
+:empty	(p:empty)	Вибирає кожен <p> елемент, у якого немає даних
+:enabled	(input:enabled)	Вибирає кожен включений елемент <input>
+:first-child	(p:first-child)	Вибирає кожен <p> елемент, який є першою дитиною свого батька
+:first-of-type	(p:first-of-type)	Вибирає кожен <p> елемент, який є першим <p> елементом його батьківського
+:focus	(input:focus)	Вибирає елемент <input>, який має фокус
+:in-range	(input:in-range)	Вибирає <input> елементи зі значенням у визначеному діапазоні
+:invalid	(input:invalid)	Вибирає всі елементи <input> з недійсним значенням
+:lang(language)	p:lang(it)	Вибирає кожен елемент <p> зі значенням атрибута lang, починаючи з "it"
+:last-child	(p:last-child)	Вибирає кожен <p> елемент, який є останньою дитиною свого батька
+:last-of-type	(p:last-of-type)	Вибирає кожен <p> елемент, який є останнім <p> елементом його батьківського елемента
+:not(selector)	(:not(p))	Вибирає кожен елемент, який не є <p> елементом
+:nth-child(n)	(p:nth-child(2))	Вибирає кожен <p> елемент, який є другою дочіркою свого батька
+:nth-last-child(n)	(p:nth-last-child(2))	Вибирає кожен <p> елемент, який є другою дитиною свого батька, рахуючи з останньою дитиною
+:nth-last-of-type(n)	(p:nth-last-of-type(2))	Вибирає кожен <p> елемент, який є другим <p> елементом його батьківського рахунку, рахуючи з останньою дочірньою
+:nth-of-type(n)	(p:nth-of-type(2))	Вибирає кожен <p> елемент, який є другим <p> елементом його батьківського
+:only-of-type	(p:only-of-type)	Вибирає кожен <p> елемент, який є єдиним <p> елементом його батьківського елемента
+:only-child	(p:only-child)	Вибирає кожен елемент <p>, який є єдиною дитиною свого батька
+:optional	(input:optional)	Вибирає <input> елементи без атрибута "обов'язковий"
+:out-of-range	(input:out-of-range)	Вибирає <input> елементи зі значенням поза визначеним діапазоном
+:read-only	(input:read-only)	Вибирає елементи <input> із вказаним атрибутом "лише для читання"
+:read-write	(input:read-write)	Вибирає <input> елементи без атрибута "тільки для читання"
+:required	(input:required)	Вибирає <input> елементи із заданим атрибутом "обов'язковий"
+:root	root	Вибирає кореневий елемент документа
+:target	()#news:target)	Вибирає поточний активний елемент #news (натиснув на URL-адресу, яка містить це ім'я якоря)
+:valid	(input:valid)	Вибирає всі елементи <input> з дійсним значенням -->
+
+
+                           <!-- Усі псевдоелементи CSS
+::after	(p::after)	Вставте вміст після кожного елемента <p>
+::before	(p::before)	Вставте вміст перед кожним <p> елементом
+::first-letter	(p::first-letter)	Вибирає першу букву кожного елемента <p>
+::first-line	(p::first-line)	Вибирає перший рядок кожного <p> елемента
+::selection	(p::selection)	Вибирає частину елемента, яку вибирає користувач -->
+
+<!-- .clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+наступний контент відображатиметься з нового рядка
+<div class="clearfix"></div> -->
+
+
+
+
+p:first-child {
+  color: blue;
+}
+...
+p i:first-child {
+  color: blue;
+}
+...
+p:first-child i {
+  color: blue;
+}
+...
+h1::before {
+  content: url(smiley.gif);
+}
+...
+p::first-letter {
+  color: #ff0000;
+  font-size: xx-large;
+}
+...
+p::first-line {
+  color: #ff0000;
+  font-variant: small-caps;
+}
+...............після силки вставляється в дужках значення href (весь адрес посилання)
+a:after {
+  content: " (" attr(href) ")";
+}
+...............вставляє знаки як цитата
+q:lang(en) {
+  quotes: "«" "»" "'" "'";
+}
+.............target="_blank", target="_top"..
+a[target] {
+  background-color: yellow;
+}
+.......................title="klematis top"
+[title~=top] {
+  border: 5px solid yellow;
+}
+.....................class="top", class="top-header"
+[class|=top] {
+  background: yellow;
+}
+....................class="top", class="top-header", class="topcontent"
+[class^="top"] {
+  background: yellow;
+}
+..............class="top", class="my top", class="mytop", class="my-top", class="my_top",  які знаходяться останні
+[class$="top"] {
+  background: yellow;
+}
+..............class="first_test", class="my-test", class="mytest"
+[class*="te"] {
+  background: yellow;
+}

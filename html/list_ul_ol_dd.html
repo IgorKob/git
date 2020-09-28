@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- Використовуйте <ul>елемент HTML для визначення не упорядкованого списку
+  Використовуйте list-style-typeвластивість CSS для визначення маркера елемента списку
+  Використовуйте <ol>елемент HTML для визначення упорядкованого списку
+  Використовуйте typeатрибут HTML для визначення типу нумерації
+  Використовуйте <li>елемент HTML для визначення елемента списку
+  Використовуйте HTML- <dl>елемент для визначення списку описів
+  Використовуйте <dt>елемент HTML для визначення терміну опису
+  Використовуйте <dd>елемент HTML, щоб описати термін у списку описів
+  Списки можна вкладати всередині списків
+  Елементи списку можуть містити інші елементи HTML
+  Використовуйте властивість CSS float:leftабо display:inlineвідображати список горизонтально -->
+
+
+  list-style-type Властивість CSS використовується для визначення стилю маркера елемента списку:
+  disc    	Sets the list item marker to a bullet (default)
+  circle   	Sets the list item marker to a circle
+  square	  Sets the list item marker to a square
+  none	    The list items will not be marked
+
+
+  <ol start="50">
+    <li>Coffee</li>
+    <li>Tea</li>
+  <ol type="1">
+    <li>Coffee</li>
+    <li>Tea</li>
+    type="1"	The list items will be numbered with numbers (default)
+    type="A"	The list items will be numbered with uppercase letters
+    type="a"	The list items will be numbered with lowercase letters
+    type="I"	The list items will be numbered with uppercase roman numbers
+    type="i"	The list items will be numbered with lowercase roman numbers
+
+
+
+
+    <p> Це впорядкований список: </p>
+    <ol> <li> елемент 1 </li>
+      <li> елемент 2 </li>
+       <li> елемент 3 </li> </ol>
+
+        <p> Це невпорядкований список: </p>
+         <ul> <li> елемент 1 </li>
+           <li> елемент 2 </li>
+           <li> елемент 3 </li> </ul>
+
+
+
+
+           <!-- <disc> Встановлює маркер елемента списку на кулю (за замовчуванням)
+           <circle> Встановлює маркер елемента списку в коло
+           <square> Встановлює маркер елемента списку на квадрат
+           <none> Елементи списку не будуть позначені -->
+           <ul style="list-style-type:square;">
+             <li>Coffee</li>
+             <li>Tea</li>
+             <li>Milk</li>
+           </ul>
+
+
+           <!-- type = "1" Елементи списку будуть пронумеровані цифрами (за замовчуванням)
+           type = "A" Елементи списку будуть пронумеровані великими літерами
+           type = "a" Елементи списку будуть пронумеровані малими літерами
+           type = "I" Елементи списку будуть пронумеровані великими римськими номерами
+           type = "i" Елементи списку будуть пронумеровані малими римськими номерами -->
+           <ol type="A">
+             <li>Coffee</li>
+             <li>Tea</li>
+             <li>Milk</li>
+           </ol>
+
+           <dl>
+             <dt>Coffee</dt>
+           <dd>- black hot drink</dd>
+             <dt>Milk</dt>
+           <dd>- white cold drink</dd>
+           </dl>
+
+
+
+           ......................................ol
+           <ol start="50">               нумерація почнеться з 50
+             <li>Coffee</li>
+             <li value="55">Tea</li>      нумерація почнеться з 55
+             <li>Milk</li>
+           </ol>
+           <ol type="I">                   нумерація буде римськими цифрами
+             <li>Coffee</li>
+             <li>Tea</li>
+             <li>Milk</li>
+           </ol>
+
+</body>
+</html>

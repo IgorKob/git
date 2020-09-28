@@ -1,0 +1,170 @@
+<article> Визначає статтю
+<aside> Визначає вміст окрім вмісту сторінки
+<details> Визначає додаткові дані, які користувач може переглядати або приховувати
+<figcaption> Визначає підпис для елемента <figure>
+<figure> Вказує автономний вміст, наприклад ілюстрації, схеми, фотографії, списки кодів тощо.
+<footer> Визначає колонтитул для документа або розділу
+<header> Вказує заголовок для документа чи розділу
+<main> Вказує основний вміст документа
+<mark> Визначає маркований / виділений текст
+<nav> Визначає навігаційні посилання
+<секція> Визначає розділ у документі
+<summary> Визначає видимий заголовок для елемента <details>
+<time> Визначає дату / час
+
+-----------------------Глобальні атрибути HTML
+<accesskey> - Вказує клавішу швидкого доступу для активації / фокусування елемента
+<class> - Вказує одне або кілька імен класів для елемента (відноситься до класу в таблиці стилів)
+<contenteditable> - Вказує, чи вміст елемента можна редагувати чи ні
+<data - *> - Використовується для зберігання користувацьких даних, приватних на сторінці чи програмі
+<dir> - Вказує текстовий напрямок для вмісту в елементі
+<draggable> - Вказує, перетягується елемент чи ні
+<dropzone> - Вказує, чи перетягуються дані копіюються, переміщуються чи пов’язуються при падінні
+<hidden> - Вказує, що елемент ще не є або вже не є релевантним
+<id> - Вказує унікальний ідентифікатор для елемента
+<lang> - Вказує мову вмісту елемента
+<spellcheck> - Вказує, чи повинен елемент перевірити написання та граматику чи ні
+<style> - Вказує вбудований стиль CSS для елемента
+<tabindex> - Вказує порядок вкладки елемента
+<title> - Вказує додаткову інформацію про елемент
+<translate> - Вказує, чи слід перекладати вміст елемента чи ні
+
+
+
+<p> Визначає абзац </p>
+<br> Вставляє один розрив рядка
+<hr> визначає тематичну перерву(малює лінію).
+<pre> Визначає попередньо відформатований текст з пробілами</pre>
+<b>Зробіть текст жирним шрифтом:</b>
+<mark>виділяє текст жовтим кольором.</mark>
+<sup>Текст відображається на пів символу вижжче звичайного рядка</sup>
+<sub>Текст відображається на пів символу нижче звичайного рядка</sub>
+<u>Підкреслений текст</u>
+<s>Перекреслений текст</s>
+<del>Перекреслений текст, слід використовувати для визначення заміненого чи видаленого тексту</del>
+<del datetime="2015-11-15T22:55:03Z">Цей текст видалено</del>
+<ins>Підкреслений текст</ins>
+<ins cite="why_inserted.htm">Вставний текст із URL-адресою до документа, який пояснює, чому текст був вставлений:</ins>
+<q>вставляє лапки навколо</q>
+<bdo dir="rtl">використовується для зміни напрямку тексту, справа наліво (dir="ltr" з ліва на право).</bdo>
+<abbr title="World Health Organization">WHO</abbr> --Абревіатура позначається таким чином:
+<address>визначає контактну інформацію для автора / власника документа чи статті.</address>
+<q cite="http://www.wwf.org">або цитати з інших джерел</q>
+<blockquote cite="http://www.wwf.org">Використовуйте щоб позначити розділ, який цитується з іншого джерела.</blockquote>
+<em> Підкреслений текст </em> <br>
+<strong> Сильний текст </strong> <br>
+<code> Частина комп'ютерного коду </code> <br>
+<samp> Зразок виводу з комп'ютерної програми </samp> <br>
+<kbd> Введення клавіатури </kbd> <br>
+<var> Змінна </var>
+<bdi>Виділіть імена користувачів</bdi>
+<cite>визначає назву твору (наприклад, книги, пісні, фільму тощо).</cite>
+<dfn>Представляє визначальний екземпляр терміна</dfn>
+<i>визначає частину тексту альтернативним голосом або настроєм. Вміст тегу відображається курсивом</i>
+<span>Елементи <i>та <span> елементи широко використовуються для значків, іконок.</span>
+
+
+
+
+----------------------------form
+<form action="/action_page.php">
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+-----------------------------textarea
+<textarea id="w3mission" rows="4" cols="50">
+Тег визначає багаторядковий елемент введення тексту.
+</textarea>
+
+-------------------------<select> використовується для створення випадаючого списку
+  <select id="cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+  </select>
+
+--------------------------<optgroup>
+використовується для групування пов'язаних параметрів у випадаючому списку.
+<label for="cars">Choose a car:</label>
+<select id="cars">
+  <optgroup label="Swedish Cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+  </optgroup>
+  <optgroup label="German Cars">
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </optgroup>
+</select>
+---------------------------<datalist> використовується для надання функції "автозаповнення" елементів <input>.
+Користувачі побачать випадаючий список попередньо визначених параметрів під час введення даних.
+<input list="browsers">
+<datalist id="browsers">
+    <option value="Internet Explorer">
+    <option value="Firefox">
+    <option value="Chrome">
+    <option value="Opera">
+    <option value="Safari">
+</datalist>
+---------------------------fieldset
+використовується для групування пов'язаних елементів у формі.
+<form action="/action_page.php">
+ <fieldset>
+  <legend>Personalia:</legend>
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname"><br><br>
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email"><br><br>
+  <label for="birthday">Birthday:</label>
+  <input type="date" id="birthday" name="birthday"><br><br>
+  <input type="submit" value="Submit">
+ </fieldset>
+</form>
+--------------------------------radio
+<form action="/action_page.php">
+  <label for="male">Male</label>
+  <input type="radio" name="gender" id="male" value="male"><br>
+  <label for="female">Female</label>
+  <input type="radio" name="gender" id="female" value="female"><br>
+  <label for="other">Other</label>
+  <input type="radio" name="gender" id="other" value="other"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+-----------------------------output
+Виконайте обчислення та покажіть результат у елементі
+<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">0
+<input type="range" id="a" value="50">100
++<input type="number" id="b" value="50">
+=<output name="x" for="a b"></output>
+</form>
+
+----------------------------input
+type	--button, checkbox, color, date, datetime-local, email, file, hidden,
+        image, month, number, password, radio, range, reset, search, submit, tel, text, time, url, week
+
+----------------------------button
+<button type="button" onclick="alert('Hello world!')">Click Me!</button>
+
+----------------------------iframe
+використовується для вбудовування іншого документа в поточний документ HTML.
+<iframe src="https://www.w3schools.com">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+
+
+
+<p contenteditable="true">визначає, чи вміст елемента можна редагувати чи ні.</p>
+
+<li onclick="ff(this)" id="salmon" data-asd-type="fish">Salmon</li> data для створення користувацьких даних
+
+<p dir="rtl">Write this text right-to-left!</p>
+
+<p hidden>Прихований абзац:</p>

@@ -1,0 +1,32 @@
+/* Чотири стану посилань:
+a:link - нормальне, невідоме посилання
+a:visited - посилання, яке відвідував користувач
+a:hover - посилання, коли користувач мишає над ним
+a:active - посилання в момент його натискання */
+/* unvisited link */
+a:link {
+  color: red;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+  background-color: transparent;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+
+
+
+/* приклад вставляє значення атрибута href в дужки після кожного посилання:  */
+a:after {
+  content: " ("attr(href) ")";
+}
