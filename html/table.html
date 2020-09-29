@@ -122,6 +122,29 @@
     tfoot {color:red;}
 
 
+
+
+
+    ...................для відображення даних з комірки в таблиці
+    function getCellContent(id) {
+      var x = document.getElementById(id).rows[1].cells[1];
+      document.getElementById("demo").innerHTML = x.innerHTML;
+    }
+
+
+
+    ............додає новий рядок спочатку до таблиці
+    function insRow(id) {
+      var x = document.getElementById(id).insertRow(0);
+      var y = x.insertCell(0);
+      var z = x.insertCell(1);
+      y.innerHTML = z.innerHTML = "New";
+    }
+
+    
+
+
+
   </style>
 
 </body>

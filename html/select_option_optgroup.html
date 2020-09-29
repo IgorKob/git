@@ -22,7 +22,7 @@
       <option value="audi">Audi</option>
     </optgroup>
   </select>
-  
+
   <!-- групa пов’язаних параметрів у спадному списку -->
   <select>
     <optgroup label="Computer
@@ -77,7 +77,28 @@ answer-demo.php">
 
 
 
-
+  ..............при натисканні на кнопку висвітлюється дані з селекту в текстовому рядку
+  <script>
+  function getOption() {
+    var obj = document.getElementById("mySelect");
+    document.getElementById("demo").innerHTML =
+    obj.options[obj.selectedIndex].text;
+  }
+  </script>
+  </head>
+  <body>
+  <form>
+  Select your favorite fruit:
+  <select id="mySelect">
+    <option>Apple</option>
+    <option>Orange</option>
+    <option>Pineapple</option>
+    <option>Banana</option>
+  </select>
+  <br><br>
+  <input type="button" onclick="getOption()" value="Click Me!">
+  </form>
+  <p id="demo"></p>
 
 
 </body>

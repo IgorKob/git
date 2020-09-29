@@ -1,5 +1,5 @@
-arr.push('asd');
-arr.pop();
+arr.push('asd');         //добавляє нові елементи в кінець масива
+arr.pop();               //витягує останній елемент з масива
 arr.shift();
 arr.unshift('asd');
 
@@ -110,3 +110,13 @@ console.log(Array.from([1, 2, 3], x => x + x));
 //умови функції. Він повертає булеве значення.
 [12, 5, 8, 130, 44].every(x => x >= 10);   // false
 [12, 54, 18, 130, 44].every(x => x >= 10); // true​
+
+
+
+
+
+..........додавання двох масивів
+var x = ["Cecilie", "Lone"];
+var y = ["Emil", "Tobias", "Linus"];
+var z = x.concat(y);
+document.getElementById("demo").innerHTML = z;

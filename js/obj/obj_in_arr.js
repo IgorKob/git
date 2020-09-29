@@ -1,3 +1,12 @@
+...............Обєкт   перетворуєьбся в масив
+var person = {name:"John", age:50, city:"New York"};
+var myArray = Object.values(person);
+console.log(myArray);      // ["John", 50, "New York"]
+...
+var myArray = Object.keys(person);
+console.log(myArray);      // ["name", "age", "city"]
+
+
 //функцію, яка приймає об’єкт і повертає ключі та значення у вигляді окремих масивів.
 keysAndValues({ a: 1, b: 2, c: 3 })
 ➞ [["a", "b", "c"], [1, 2, 3]]
