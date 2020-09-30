@@ -55,3 +55,5 @@ function flatten(arr) {
   return JSON.parse('['+JSON.stringify(arr).replace(/[^a-z\d\s,"]/gi, '')+']')
 }
 //
+const arr4 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
+arr4.flat(Infinity);     // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]

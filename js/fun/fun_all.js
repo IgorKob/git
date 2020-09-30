@@ -24,6 +24,56 @@ parseFloat()метод
 
 
 
+...arr
+//flat() - створює новий масив який містить всі елементи вкладених масивів до вказаної глибини.
+var arr1 = [1, 2, [3, 4]];
+arr1.flat();       // [1, 2, 3, 4]
+var arr2 = [1, 2, [3, 4, [5, 6]]];
+arr2.flat();      // [1, 2, 3, 4, [5, 6]]
+var arr3 = [1, 2, [3, 4, [5, 6]]];
+arr3.flat(2);     // [1, 2, 3, 4, 5, 6]
+const arr4 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
+arr4.flat(Infinity);     // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+//видаляє порожні слоти в масивах:
+const arr5 = [1, 2, , 4, , 5];
+arr5.flat();   // [1, 2, 4, 5]
+
+
+
+...Array.from() створює новий екземпляр Array (дрібну копію) з подібного до масиву або ітерабельного об'єкта.
+// Масив з а String
+Array.from('foo');    // [ "f", "o", "o" ]
+// Масив з а Set
+const set = new Set(['foo', 'bar', 'baz', 'foo']);
+Array.from(set);      // [ "foo", "bar", "baz" ]
+// Масив з а Map
+const map = new Map([[1, 2], [2, 4], [4, 8]]);
+Array.from(map);    // [[1, 2], [2, 4], [4, 8]]
+const mapper = new Map([['1', 'a'], ['2', 'b']]);
+Array.from(mapper.values());    // ['a', 'b'];
+Array.from(mapper.keys());      // ['1', '2'];
+// Масив з об’єкта, схожого на масив (аргументи)
+function f() {
+  return Array.from(arguments);
+}
+f(1, 2, 3);   // [ 1, 2, 3 ]
+// Використання функцій стрілок та Array.from()
+Array.from([1, 2, 3], x => x + x);       // [2, 4, 6]
+Array.from({length: 5}, (v, i) => i);   // [0, 1, 2, 3, 4]
+
+
+
+....RegExp
+var x = "The rain in SPAIN stays mainly in the plain";
+var y = x.match(/ain/g);
+console.log(y);    //Array(0: "ain", 1: "ain", 2: "ain", length:3);
+
+
+let str = 'asd w3Schools sd sa dsa d as d sad sa'
+var n = str.search(/w3Schools/i);
+console.log(n);    //4
+
+
 
  x.sort();                                  для сортування масиівв
  x.sort(function(a, b){return a - b});      для чисел в масиві

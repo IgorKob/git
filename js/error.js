@@ -38,3 +38,8 @@ function myFunction() {
   alert("The image could not be loaded.");
 }
 </script>
+
+
+
+<script type = "text / javascript" src = "scripts.js"> </script>
+<noscript> <p> На жаль! Сценарії відключені. </ P> </noscript>
