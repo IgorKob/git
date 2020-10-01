@@ -1,5 +1,4 @@
 // функція, яка повертає true якщо об’єкт порожній а інше false
-
 //kim
 function isEmpty(obj) {
 	let t = true;
@@ -20,8 +19,6 @@ function isEmpty(obj) {
 }
 
 
-
-
 //
 var myObj = {}; // Empty Object
 if(isEmpty(myObj)) {
@@ -29,15 +26,3 @@ if(isEmpty(myObj)) {
 } else {
     // Object is NOT empty
 }
-
-
-
-
-//keys object
-const object1 = {
-  a: 'somestring',
-  b: 42,
-  c: false
-};
-console.log(Object.keys(object1));
-// expected output: Array ["a", "b", "c"]

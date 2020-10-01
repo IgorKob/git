@@ -1,3 +1,10 @@
+//
+[0, 1, 2, 3, 4].reduce(function(accumulator, currentValue, currentIndex, array) {
+  return accumulator + currentValue
+})
+
+
+
 //kim
 function totalVolume(...boxes) {
 	return boxes.reduce((sum,el)=>sum += el.reduce((sum,el)=>sum*el), 0);
