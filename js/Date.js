@@ -67,3 +67,20 @@ document.getElementById("demo").innerHTML = obj.name + ", " + obj.birth;
 var d = new Date();
 var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 document.getElementById("demo").innerHTML = days[d.getDay()];
+
+
+
+
+
+.......Напишіть функцію, яка приймає число secondsта повертає час годинника цифрового формату
+//як рядок. Час слід відлічувати 00:00:00.
+digitalClock(5025) ➞ "01:23:45"
+// 5025 seconds is 1 hour, 23 mins, 45 secs.
+digitalClock(61201) ➞ "17:00:01"
+// No AM/PM. 24h format.
+digitalClock(87000) ➞ "00:10:00"
+// It's 00:10 next day.
+//kim
+function digitalClock(seconds) {
+	return (new Date(seconds * 1000)).toUTCString().match(/(\d\d:\d\d:\d\d)/)[0];
+}
