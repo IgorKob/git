@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.grid-container0 {
+  display: grid;
+  display: inline-grid;
+
+  grid-template-areas: 'myArea myArea myArea myArea myArea';
+  grid-template-areas: 'myArea myArea . . .' 'myArea myArea . . .';
+  grid-template-areas:
+  'header header header header header header'
+  'menu main main main right right'
+  'menu footer footer footer footer footer';
+  grid-template-areas:
+    'header header header header header'
+    '. . . . .'
+    'menu . content . sidebar'
+    '. . . . .'
+    'footer footer footer footer footer';
+  grid-template-columns: 130px 5px 1fr 5px 130px;
+  grid-template-rows: 90px 5px 1fr 5px 90px;
+  grid-template-columns: auto auto auto;   /*розмір солонок*/
+  grid-template-rows: 35px 8fr 50vw;   /*розмір рядків*/
+  grid: grid-template-rows / grid-template-columns;
+  grid: 5em 5em 5em 5em / 8em 8em 8em;
+  grid: repeat(4, 5em) / repeat(3, 8em);
+
+/* .div */
+  grid-area: header;
+  grid-area: menu;
+  grid-area: main;
+  grid-area: right;
+  grid-area: footer;
+
+
+                         /* розміщення елементів */
+  grid-row-start: 2;
+  grid-row-end: 5;
+  grid-row: grid-row-start / grid-row-end;
+  grid-row: 1 / 3;           /*комірка починається з 1 і закінчуєьбся перед 3 коміркою  */
+  grid-row: 1 / span 2;     /*span вказується, на яку кількість осередків треба розтягнути елемент*/
+
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-column: grid-column-start / grid-column-end;
+  grid-column: 3 / 5;      /*комірка починається з 3 і закінчуєьбся перед 5 коміркою  */
+  grid-column: 2 / span 2;
+
+  grid-area: row-start / column-start / row-end / column-end;
+  grid-area: 1 / 2 / 3 / 4;   /* top left bottom right */
+  grid-area: 2 / 1 / span 2 / span 3;
+
+
+                           /* можна змінити напрямок елементів */
+  grid-auto-flow: row; /*значення за замовчуванням, елементи розташовуються в рядок один за одним,
+  якщо місця в рядку не вистачає, елементи переносяться на наступний рядок*/
+  grid-auto-flow: column;  /*елементи розташовуються в стовпчик, якщо місця в стовпці не вистачає, то елементи переходять в наступний стовпець*/
+
+
+
+  order: -1;  /*буде на самому початку*/
+  order: 0; /*за замовчуванням*/
+  order: 1;  /*буде в кінці*/
+
+
+
+  grid-gap: 50px 100px;  /*відстань між комірками*/
+  grid-column-gap: 50px;
+  grid-row-gap: 100px;
+
+
+
+  justify-content: center;
+  justify-content: start;
+  justify-content: end;
+  justify-content: space-evenly;
+  justify-content: space-around;
+  justify-content: space-between;
+
+  align-content: center;
+  align-content: space-evenly;
+  align-content: space-around;
+  align-content: space-between;
+  align-content: start;
+  align-content: end;
+
+
+/* /////////////////////////// */
+.asd {
+  grid-template-columns: repeat(3, 8em);     /* grid-template-columns: 8em 8em 8em; */
+  grid-template-rows: repeat(4, 5em);     /* grid-template-rows: 5em 5em 5em 5em; */
+  grid-template-columns: repeat(2, 7em 8em);  /*два стовпці з шириною 7em і два стовпці з шириною 8em.*/
+  grid-template-rows: 6em repeat(3, 5em);   /*перша матиме висоту в 6em, а решта три - 5em.*/
+  grid-template-columns: repeat(4, 1fr);
+
+  grid: grid-template-rows / grid-template-columns;
+  grid: 5em 5em 5em 5em / 8em 8em 8em;
+  grid: repeat(4, 5em) / repeat(3, 8em);
+  grid-template-columns: 8em 8em 8em;
+  grid-template-rows: 5em 5em 5em 5em;
+
+  background-color: lighten($gray, 5%);
+  background-color: darken($gray, 5%);
+
+
+  &:nth-child(1) {
+    grid-column: 1 / 3;
+  }
+  &:nth-child(5) {
+    grid-column: 2 / 4;
+  }
+  &:nth-child(6) {
+    grid-column: 4;
+    grid-row:  2 / 4;
+  }
+}
+
+}
+@media only screen and (max-width: 500px) {
+  .item1 { grid-area: 1 / span 3 / 2 / 4; }
+  .item2 { grid-area: 3 / 3 / 4 / 4; }
+  .item3 { grid-area: 2 / 1 / 3 / 2; }
+  .item4 { grid-area: 2 / 2 / span 2 / 3; }
+  .item5 { grid-area: 3 / 1 / 4 / 2; }
+  .item6 { grid-area: 2 / 3 / 3 / 4; }
+}
+
+
+
+
+/* готовий шаблон */
+.grid-container {
+  height: 100vh;
+  display: grid;
+  grid-template-areas:
+    'header header header header header'
+    '. . . . .'
+    'menu . content . sidebar'
+    '. . . . .'
+    'footer footer footer footer footer';
+  grid-template-columns: 130px 5px 1fr 5px 130px;   /*5px це для ліній, які ми позначили крапочками*/
+  grid-template-rows: 90px 5px 1fr 5px 90px;
+}
+.header {
+  grid-area: header;
+  background-color: #bbb;
+}
+.menu {
+  grid-area: menu;
+  background-color: #ccc;
+} /* .footer,..... */
+
+</style>
+</head>
+<body>
+
+
+  <!-- .....готовий шаблон під тел і планшет).......... -->
+  <style>
+       * {
+         box-sizing: border-box;
+       }
+       html,
+       body {
+         margin: 0;
+         padding: 0;
+       }
+       .grid-container {
+         height: 100vh;
+         display: grid;
+         grid-template-areas:
+           'header'
+           '.'
+           'menu'
+           '.'
+           'content'
+           '.'
+           'sidebar'
+           '.'
+           'footer';
+         grid-template-columns: 1fr;
+         grid-template-rows: 80px 5px 80px 5px 1fr 5px 80px 5px 80px;
+       }
+       .header {
+         grid-area: header;
+         background-color: #bbb;
+       }
+       .menu {
+         grid-area: menu;
+         background-color: #ccc;
+       }
+       .sidebar {
+         grid-area: sidebar;
+         background-color: #ccc;
+       }
+       .content {
+         grid-area: content;
+         background-color: #eee;
+       }
+       .footer {
+         grid-area: footer;
+         background-color: #bbb;
+       }
+       h3 {
+         text-align: center;
+       }
+       @media screen and (min-width: 468px) {
+         .grid-container {
+           height: 100vh;
+           display: grid;
+           grid-template-areas:
+             'header header header header header'
+             '. . . . .'
+             'menu . content . sidebar'
+             '. . . . .'
+             'footer footer footer footer footer';
+           grid-template-columns: 130px 5px 1fr 5px 130px;
+           grid-template-rows: 90px 5px 1fr 5px 90px;
+         }
+       }
+     </style>
+    <div class="grid-container">
+       <div class="header"><h3>Header</h3></div>
+       <div class="content"><h3>Content</h3></div>
+       <div class="menu"><h3>Menu</h3></div>
+       <div class="sidebar"><h3>Sidebar</h3></div>
+       <div class="footer"><h3>Footer</h3></div>
+     </div>
+
+
+
+<!-- ........................................... -->
+
+<style>
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main; }
+.item4 { grid-area: right; }
+.item5 { grid-area: footer; }
+.grid-container1 {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'menu main main main right right'
+    'menu footer footer footer footer footer';
+  grid-gap: 12px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+.grid-container1 > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+</style>
+<div class="grid-container1">
+  <div class="item1">Header</div>
+  <div class="item2">Menu</div>
+  <div class="item3">Main</div>
+  <div class="item4">Right</div>
+  <div class="item5">Footer</div>
+</div>
+
+<!-- ................................................ -->
+
+
+
+<style>
+.grid-container2 {
+  display: grid;
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+.grid-item2 {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px;
+  font-size: 30px;
+}
+.item12 {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+.item22 {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+}
+.item52 {
+  grid-column: 1 / span 3;
+  grid-row: 3;
+}
+</style>
+<div class="grid-container2">
+  <div class="grid-item2 item12">1</div>
+  <div class="grid-item2 item22">2</div>
+  <div class="grid-item2 item32">3</div>
+  <div class="grid-item2 item42">4</div>
+  <div class="grid-item2 item52">5</div>
+</div>
+
+<!-- ......................................... -->
+
+
+
+
+<style>
+     .grid-container3 {
+       height: 100vh;
+       display: grid;
+       grid-template-areas:
+         'header header header header header'
+         '. . . . .'
+         'menu . content . sidebar'
+         '. . . . .'
+         'footer footer footer footer footer';
+       grid-template-columns: 130px 5px 1fr 5px 130px;
+       grid-template-rows: 90px 5px 1fr 5px 90px;
+     }
+     .header3 {
+       grid-area: header;
+       background-color: #bbb;
+     }
+     .menu3 {
+       grid-area: menu;
+       background-color: #ccc;
+     }
+     .sidebar3 {
+       grid-area: sidebar;
+       background-color: #ccc;
+     }
+     .content3 {
+       grid-area: content;
+       background-color: #eee;
+     }
+     .footer3 {
+       grid-area: footer;
+       background-color: #bbb;
+     }
+   </style>
+   <div class="grid-container3">
+     <div class="header3"></div>
+     <div class="content3"></div>
+     <div class="menu3"></div>
+     <div class="sidebar3"></div>
+     <div class="footer3"></div>
+   </div>
+
+
+</body>
+</html>
