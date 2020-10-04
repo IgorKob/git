@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    .wrapper {
+      min-height: 100vh;
+      display: grid;
+      grid-template: minmax(100px, auto) 1fr minmax(70px, auto) / 1fr;
+      grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    }
+
+    .header {
+      grid-area: header;
+      padding: 15px;
+      background-color: lightblue;
+      display: grid;
+      align-items: center;
+      grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+    }
+
+    .header__logo {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background-color: #eca;
+      grid-column: 2 / 3;
+    }
+
+    .header__menu {
+      display: grid;
+      justify-items: end;
+      background-color: gray;
+      grid-column: 3 / 4;
+    }
+
+    .header__list {
+      display: none;
+      grid-auto-flow: column;
+    }
+
+    .header__list li {
+      margin: 0 0 0 30px;
+    }
+
+    .header__link {
+      color: #fff;
+      font-size: 16px;
+      justify-items: end;
+    }
+
+    .header__burger {}
+
+    .header__burger span::after {
+      content: '\2630';
+    }
+
+    .main {
+      background-color: green;
+      padding: 30px 15px;
+    }
+
+    @media (min-width: 992px) {
+      .main {
+        grid-area: main;
+        display: grid;
+        grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+      }
+
+      .sidebar {
+        grid-column: 2 / 3;
+        margin: 0;
+      }
+
+      .content {
+        grid-column: 3 / 4;
+        padding: 0 0 0 30px;
+      }
+
+      .header__list {
+        display: grid;
+      }
+
+      .header__burger span::after {
+        display: none;
+      }
+    }
+
+    @media (min-width: 767px) {
+      .gallery__item_big {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+    }
+
+    .sidebar {
+      background-color: yellow;
+      padding: 30px 15px;
+      margin: 0 0 30px 0;
+
+    }
+
+    .sidebar__menu {}
+
+    .sidebar__list {}
+
+    .sidebar__list li {
+      margin: 0 0 15px 0;
+    }
+
+    .sidebar__link {
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .content {
+      background-color: red;
+    }
+
+    .content__title {}
+
+    .content__gallery {
+      margin: 0 0 30px 0;
+    }
+
+    .content__gallery.gallery {}
+
+    .gallery {}
+
+    .gallery__items {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .gallery__item {
+      position: relative;
+      padding: 0 0 85% 0;
+    }
+
+    .gallery__item img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery__item.gallery__item_big {}
+
+    .gallery__item_big {}
+
+    .content__products {}
+
+    .content__products.products {}
+
+    .products {}
+
+    .products__title {}
+
+    .products__items {
+      display: grid;
+      column-gap: 30px;
+      row-gap: 50px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      /*задає всім елементам однакову висоту (карточки товару будуть однакової висоти)*/
+      /* grid-auto-rows: 1fr;   */
+
+    }
+
+    .products__item {
+      display: grid;
+      grid-auto-flow: row;
+      grid-template: auto 1fr minmax(40px, auto) / 1fr;
+    }
+
+    .products__image {
+      position: relative;
+      padding: 0 0 90% 0;
+      margin: 0 0 20px 0;
+    }
+
+    .products__image img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .products__name {
+      font-size: 24px;
+      color: #fff;
+      line-height: 30px;
+      margin: 0 0 20px 0;
+    }
+
+    .products__button {
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-decoration: none;
+      background-color: #77608d;
+      padding: 0 20px;
+      line-height: 40px;
+      justify-self: start;
+    }
+
+    .footer {
+      background-color: lightgreen;
+      display: grid;
+      grid-area: footer;
+      grid-template: 1fr 1fr / 1fr;
+      padding: 15px;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer__copy {
+      order: 2;
+    }
+
+    .footer__text {
+      order: 1;
+    }
+
+    @media (min-width: 550px) {
+      .footer {
+        text-align: left;
+        grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+      }
+
+      .footer__copy {
+        grid-column: 2 / 3;
+        order: 0;
+      }
+
+      .footer__text {
+        text-align: right;
+        grid-column: 3 / 4;
+        order: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <header class="header">
+      <a href="" class="header__logo"></a>
+      <nav class="header__menu">
+        <ul class="header__list">
+          <li>
+            <a href="" class="header__link">menu1</a>
+            <a href="" class="header__link">menu2</a>
+            <a href="" class="header__link">menu3</a>
+            <a href="" class="header__link">menu4</a>
+          </li>
+        </ul>
+        <div class="header__burger">
+          <span></span>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <aside class="sidebar">
+        <nav class="sidebar__menu">
+          <ul class="sidebar__list">
+            <li>
+              <a href="" class="sidebar__link">sabmenu1</a>
+              <a href="" class="sidebar__link">sabmenu2</a>
+              <a href="" class="sidebar__link">sabmenu3</a>
+              <a href="" class="sidebar__link">sabmenu4</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <section class="content">
+        <h1 class="content__title">Title h1</h1>
+        <section class="content__gallery gallery">
+          <div class="gallery__items">
+            <div class="gallery__item gallery__item_big">
+              <img src="https://via.placeholder.com/359x255" alt="">
+            </div>
+            <div class="gallery__item">
+              <img src="https://via.placeholder.com/359x255" alt="">
+            </div>
+            <div class="gallery__item">
+              <img src="https://via.placeholder.com/359x255" alt="">
+            </div>
+            <div class="gallery__item">
+              <img src="https://via.placeholder.com/359x255" alt="">
+            </div>
+            <div class="gallery__item">
+              <img src="https://via.placeholder.com/359x255" alt="">
+            </div>
+            <div class="gallery__item">
+              <img src="https://via.placeholder.com/359x255" alt="">
+            </div>
+            <div class="gallery__item">
+              <img src="https://via.placeholder.com/359x255" alt="">
+            </div>
+            <div class="gallery__item gallery__item_big">
+              <img src="https://via.placeholder.com/359x255" alt="">
+            </div>
+            <div class="gallery__item">
+              <img src="https://via.placeholder.com/359x255" alt="">
+            </div>
+            <div class="gallery__item">
+              <img src="https://via.placeholder.com/359x255" alt="">
+            </div>
+
+          </div>
+        </section>
+        <section class="content__products products">
+          <h2 class="products__title">Products</h2>
+          <div class="products__items">
+            <div class="products__item">
+              <a href="#" class="products__image">
+                <img src="https://via.placeholder.com/300x255" alt="">
+              </a>
+              <a href="#" class="products__name">Product name</a>
+              <a href="#" class="products__button">Shop</a>
+            </div>
+
+            <div class="products__item">
+              <a href="#" class="products__image">
+                <img src="https://via.placeholder.com/300x255" alt="">
+              </a>
+              <a href="#" class="products__name">Product name</a>
+              <a href="#" class="products__button">Shop</a>
+            </div>
+
+            <div class="products__item">
+              <a href="#" class="products__image">
+                <img src="https://via.placeholder.com/300x255" alt="">
+              </a>
+              <a href="#" class="products__name">Product name</a>
+              <a href="#" class="products__button">Shop</a>
+            </div>
+
+            <div class="products__item">
+              <a href="#" class="products__image">
+                <img src="https://via.placeholder.com/300x255" alt="">
+              </a>
+              <a href="#" class="products__name">Product name</a>
+              <a href="#" class="products__button">Shop</a>
+            </div>
+
+            <div class="products__item">
+              <a href="#" class="products__image">
+                <img src="https://via.placeholder.com/300x255" alt="">
+              </a>
+              <a href="#" class="products__name">Product name</a>
+              <a href="#" class="products__button">Shop</a>
+            </div>
+
+            <div class="products__item">
+              <a href="#" class="products__image">
+                <img src="https://via.placeholder.com/300x255" alt="">
+              </a>
+              <a href="#" class="products__name">Product name</a>
+              <a href="#" class="products__button">Shop</a>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__copy">
+        Copy, 2020
+      </div>
+      <div class="footer__text">Lorem ipsum dolor sit amet.</div>
+    </footer>
+
+
+  </div>
+
+
+</body>
+
+</html>

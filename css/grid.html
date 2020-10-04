@@ -6,6 +6,13 @@
   display: grid;
   display: inline-grid;
 
+  grid-template: minmax(100px, auto) 1fr minmax(70px, auto) / 1fr;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-area: header; /*...*/
+
   grid-template-areas: 'myArea myArea myArea myArea myArea';
   grid-template-areas: 'myArea myArea . . .' 'myArea myArea . . .';
   grid-template-areas:
@@ -26,13 +33,19 @@
   grid: 5em 5em 5em 5em / 8em 8em 8em;
   grid: repeat(4, 5em) / repeat(3, 8em);
 
+ grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));  /*клітинки будуть переходити на наступний рядок*/
+ grid-template-columns: repeat(auto-fiе, minmax(150px, 1fr));  /*будуть розтягуватися при потребі і клітинки будуть переходити на наступний рядок*/
+ grid-auto-rows: minmax(100px, auto);  /*задає висоту стовпця 100pxб але якщо контенту багато то вся колонка підлаштовується під потрібну висоту*/
+
+
 /* .div */
   grid-area: header;
   grid-area: menu;
   grid-area: main;
   grid-area: right;
   grid-area: footer;
-
+  grid-column: span 2;
+  grid-row: span 2;
 
                          /* розміщення елементів */
   grid-row-start: 2;
@@ -64,7 +77,7 @@
   order: 1;  /*буде в кінці*/
 
 
-
+  grid-gap: 50px;
   grid-gap: 50px 100px;  /*відстань між комірками*/
   grid-column-gap: 50px;
   grid-row-gap: 100px;
@@ -85,6 +98,15 @@
   align-content: start;
   align-content: end;
 
+  justify-items: center;
+  align-items: center;
+
+  justify-self: start;
+  align-self: end;
+
+/* img */
+gap: 10px;
+object-fit: cover;
 
 /* /////////////////////////// */
 .asd {
