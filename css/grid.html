@@ -3,6 +3,7 @@
 <head>
 <style>
 .grid-container0 {
+  min-height: 100vh;
   display: grid;
   display: inline-grid;
 
@@ -34,7 +35,11 @@
   grid: repeat(4, 5em) / repeat(3, 8em);
 
  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));  /*клітинки будуть переходити на наступний рядок*/
- grid-template-columns: repeat(auto-fiе, minmax(150px, 1fr));  /*будуть розтягуватися при потребі і клітинки будуть переходити на наступний рядок*/
+ grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));  /*будуть розтягуватися при потребі і клітинки будуть переходити на наступний рядок*/
+/* auto-fitбуде вести себе майже як auto-fill, але якщо є тільки один рядок і є місце
+для додаткових колонок, але немає елементів, які можна вставити ці колонки, то тоді
+він зробить ширину порожніх колонок рівну нулю. А якщо виставити максимальну ширину
+колонок на 1fr, то браузер розділить місце, що залишилося порівну між ними. */
  grid-auto-rows: minmax(100px, auto);  /*задає висоту стовпця 100pxб але якщо контенту багато то вся колонка підлаштовується під потрібну висоту*/
 
 
@@ -60,6 +65,10 @@
   grid-column: 3 / 5;      /*комірка починається з 3 і закінчуєьбся перед 5 коміркою  */
   grid-column: 2 / span 2;
 
+
+
+/* Дає назву елементу щоб можна було посилатися на нього за допомогою шаблону створеного через властивість grid-template-areas. */
+  grid-area: header;
   grid-area: row-start / column-start / row-end / column-end;
   grid-area: 1 / 2 / 3 / 4;   /* top left bottom right */
   grid-area: 2 / 1 / span 2 / span 3;
@@ -69,40 +78,67 @@
   grid-auto-flow: row; /*значення за замовчуванням, елементи розташовуються в рядок один за одним,
   якщо місця в рядку не вистачає, елементи переносяться на наступний рядок*/
   grid-auto-flow: column;  /*елементи розташовуються в стовпчик, якщо місця в стовпці не вистачає, то елементи переходять в наступний стовпець*/
+  grid-auto-flow: row dense;  /*dense - заповняє порожні клітинки нпступними елементами які підходять по розміру*/
 
 
+                     /* Визначає розмір рядків або стовпців за умовчанням. */
+/* Працює якщо не вказані властивості grid-template-rows і grid-template-columns відповідно, а так само для треків створених автоматично. */
+  grid-auto-columns: 320px;
+  grid-auto-rows: 1fr;
 
   order: -1;  /*буде на самому початку*/
   order: 0; /*за замовчуванням*/
   order: 1;  /*буде в кінці*/
 
-
+                    /*відстань між комірками*/
   grid-gap: 50px;
-  grid-gap: 50px 100px;  /*відстань між комірками*/
+  grid-gap: 50px 100px;
   grid-column-gap: 50px;
   grid-row-gap: 100px;
 
 
+                  /* Вирівнює елементи всередині клітинок. */
+/* start - розміщує все елементи на початку осередків (зліва / зверху) */
+/* end - розміщує все елементи в кінці осередків (праворуч / знизу) */
+/* center - розміщує все елементи по центру осередків */
+/* stretch - розтягує всі елементи на всю ширину / висоту осередків */
+align-items: center;
+justify-items: end;
+place-items: start;
+place-items: align-items justify-items;
 
-  justify-content: center;
-  justify-content: start;
-  justify-content: end;
-  justify-content: space-evenly;
-  justify-content: space-around;
-  justify-content: space-between;
 
-  align-content: center;
-  align-content: space-evenly;
-  align-content: space-around;
-  align-content: space-between;
-  align-content: start;
-  align-content: end;
+                  /* Вирівнює сітку всередині контейнера. */
+/* start - розміщує все елементи на початку осередків (зліва / зверху) */
+/* end - розміщує все елементи в кінці осередків (праворуч / знизу) */
+/* center - розміщує все елементи по центру осередків */
+/* stretch - розтягує всі елементи на всю ширину / висоту контейнера */
+/* space-around - однакове простір між елементами, і напіврозмірна відступи по краях */
+/* space-between - однакове простір між елементами, без відступів по краях */
+/* space-evenly - однакове простір між елементами і повнорозмірні відступи по краях */
+align-content: center;
+justify-content: end;
+place-content: start;
+place-content: align-content justify-content;
 
-  justify-items: center;
-  align-items: center;
+
+            /* justify-self - Вирівнює вміст елемента уздовж осі рядка.  */
+            /* align-self - Вирівнює вміст елемента уздовж осі стовпчика.  */
+            /* place-self - Вирівнює поточний елемент всередині осередку по двох осях відразу. */
+/* start - выравнивает содержимое по верхней / левой части области */
+/* end - выравнивает содержимое по нижней / правой части области */
+/* center - выравнивает содержимое по центру области */
+/* stretch (default) - заполняет всю высоту / ширину области */
+align-self: center;
+justify-self: start;
+place-self: end;
+place-self: align-self justify-self;
 
   justify-self: start;
   align-self: end;
+
+  place-content: start end;
+  place-items: start end;
 
 /* img */
 gap: 10px;
