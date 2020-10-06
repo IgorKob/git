@@ -1,0 +1,15 @@
+// Base
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/base';
+@import 'base/fonts';
+
+// Blocks
+@import 'blocks/top_nav';
+@import 'blocks/header';
+
+
+body {
+  background-color: lightblue;
+  padding-top: 36px;
+}

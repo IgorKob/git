@@ -1,0 +1,150 @@
+#navbar {
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: top 0.3s;
+  display: grid;
+  grid-template: 1fr / 1fr minmax(50px, 140px) minmax(auto, 1160px) 1fr;
+  justify-content: space-around;
+  padding: 0 5px;
+}
+
+.custom-select__wrapper {
+  grid-column: 2;
+  display: grid;
+  grid-template: 1fr / 1fr;
+  color: #777;
+  font-size: 13px;
+  align-items: center;
+}
+
+.custom-select__title {
+  display: none;
+}
+
+.custom-select {}
+
+.top-nav__items {
+  grid-column: 3;
+  display: grid;
+  grid-template: 1fr / 1fr minmax(auto, 100px) minmax(auto, 100px) minmax(auto, 150px);
+  justify-content: end;
+
+  a {
+    white-space: nowrap;
+  }
+}
+
+.top-nav__item {
+  grid-column: 2;
+}
+
+.shop-title {
+  display: none;
+  text-align: right;
+}
+
+#navbar a {
+  display: grid;
+  color: #f2f2f2;
+  color: #999;
+  text-align: end;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.custom-select__wrapper:hover, #navbar a:hover {
+  background-color: $blue;
+  color: #fff;
+}
+
+.top-nav__item_shop {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+//////select
+
+.custom-select {
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.custom-select select {
+  display: none;
+}
+
+.select-selected {}
+
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 5px;
+  left: 40px;
+  width: 5px;
+  height: 5px;
+  border-right: 2px solid #777;
+  border-bottom: 2px solid #777;
+  transform: rotate(45deg);
+}
+
+.select-selected.select-arrow-active:after {
+  transform: rotate(-135deg);
+}
+
+.select-items div,
+.select-selected {
+  cursor: pointer;
+  user-select: none;
+}
+
+.select-items {
+  position: absolute;
+  background-color: #f8f8f8;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  color: #575153;
+  div {
+    padding: 5px 5px;
+
+  }
+}
+
+
+
+.select-hide {
+  display: none;
+}
+
+.same-as-selected,
+.select-items div:hover {
+  color: #fff;
+  background-color: $blue;
+}
+@media (min-width: 500px) {
+  .custom-select__wrapper {
+    grid-template: 1fr / 1fr 1fr;
+  }
+
+  .custom-select__title {
+    display: block;
+  }
+
+  .select-selected:after {
+    right: 20px;
+  }
+
+  .shop-title {
+    display: block;
+  }
+
+  .top-nav__item_shop {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+  }
+}
