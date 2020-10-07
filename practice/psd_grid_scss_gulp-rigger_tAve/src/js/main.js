@@ -1,8 +1,7 @@
-
 // TOP NAV
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
-var currentScrollPos = window.pageYOffset;
+  var currentScrollPos = window.pageYOffset;
   if (prevScrollpos > currentScrollPos) {
     document.getElementById("navbar").style.top = "0";
   } else {
@@ -14,62 +13,52 @@ var currentScrollPos = window.pageYOffset;
 
 // top nav select
 var x, i, j, l, ll, selElmnt, a, b, c;
-/*look for any elements with the class "custom-select":*/
 x = document.getElementsByClassName("custom-select");
 l = x.length;
 for (i = 0; i < l; i++) {
   selElmnt = x[i].getElementsByTagName("select")[0];
   ll = selElmnt.length;
-  /*for each element, create a new DIV that will act as the selected item:*/
   a = document.createElement("DIV");
   a.setAttribute("class", "select-selected");
   a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
   x[i].appendChild(a);
-  /*for each element, create a new DIV that will contain the option list:*/
   b = document.createElement("DIV");
   b.setAttribute("class", "select-items select-hide");
   for (j = 1; j < ll; j++) {
-    /*for each option in the original select element,
-    create a new DIV that will act as an option item:*/
-    c = document.createElement("DIV");
+  c = document.createElement("DIV");
     c.innerHTML = selElmnt.options[j].innerHTML;
     c.addEventListener("click", function(e) {
-        /*when an item is clicked, update the original select box,
-        and the selected item:*/
-        var y, i, k, s, h, sl, yl;
-        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-        sl = s.length;
-        h = this.parentNode.previousSibling;
-        for (i = 0; i < sl; i++) {
-          if (s.options[i].innerHTML == this.innerHTML) {
-            s.selectedIndex = i;
-            h.innerHTML = this.innerHTML;
-            y = this.parentNode.getElementsByClassName("same-as-selected");
-            yl = y.length;
-            for (k = 0; k < yl; k++) {
-              y[k].removeAttribute("class");
-            }
-            this.setAttribute("class", "same-as-selected");
-            break;
+      var y, i, k, s, h, sl, yl;
+      s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+      sl = s.length;
+      h = this.parentNode.previousSibling;
+      for (i = 0; i < sl; i++) {
+        if (s.options[i].innerHTML == this.innerHTML) {
+          s.selectedIndex = i;
+          h.innerHTML = this.innerHTML;
+          y = this.parentNode.getElementsByClassName("same-as-selected");
+          yl = y.length;
+          for (k = 0; k < yl; k++) {
+            y[k].removeAttribute("class");
           }
+          this.setAttribute("class", "same-as-selected");
+          break;
         }
-        h.click();
+      }
+      h.click();
     });
     b.appendChild(c);
   }
   x[i].appendChild(b);
   a.addEventListener("click", function(e) {
-      /*when the select box is clicked, close any other select boxes,
-      and open/close the current select box:*/
-      e.stopPropagation();
-      closeAllSelect(this);
-      this.nextSibling.classList.toggle("select-hide");
-      this.classList.toggle("select-arrow-active");
-    });
+    e.stopPropagation();
+    closeAllSelect(this);
+    this.nextSibling.classList.toggle("select-hide");
+    this.classList.toggle("select-arrow-active");
+  });
 }
+
 function closeAllSelect(elmnt) {
-  /*a function that will close all select boxes in the document,
-  except the current select box:*/
   var x, y, i, xl, yl, arrNo = [];
   x = document.getElementsByClassName("select-items");
   y = document.getElementsByClassName("select-selected");
@@ -88,6 +77,51 @@ function closeAllSelect(elmnt) {
     }
   }
 }
-/*if the user clicks anywhere outside the select box,
-then close all select boxes:*/
+
 document.addEventListener("click", closeAllSelect);
+
+
+
+
+////header__nav
+let nav_btn = document.getElementById('nav_btn');
+let header__nav = document.getElementById("header__nav");
+let header = document.getElementById("header");
+let closebtn = document.getElementById('closebtn');
+
+closebtn.addEventListener('click', function(e) {
+  nav_btn.classList.toggle("change");
+  header__nav.style.width = "0px";
+  header__nav.style.right = "-50px";
+  closebtn.style.display = 'none';
+  header.style.marginRight = "0";
+  document.body.style.backgroundColor = "white";
+});
+
+nav_btn.addEventListener('click', function(e) {
+
+  if (header__nav.style.width == "320px") {
+    nav_btn.classList.toggle("change");
+    header__nav.style.width = "0px";
+    header__nav.style.right = "-50px";
+    header.style.marginRight = "0";
+    // document.body.style.backgroundColor = "white";
+    closebtn.style.display = 'none';
+
+  } else {
+
+    if (document.documentElement.clientWidth < '630') {
+      console.log('kim min');
+      header__nav.style.width = "100%";
+    } else {
+      header__nav.style.width = "320px";
+    }
+
+    nav_btn.classList.toggle("change");
+    header__nav.style.right = "0px";
+    header.style.marginRight = "320px";
+    // document.body.style.background = "rgba(0,0,0,0.4)";
+    closebtn.style.display = 'block';
+  }
+
+});

@@ -1,16 +1,135 @@
 <section class="header-wrapper">
-  <header class="header" style="background-image: url(./dist/assets/img/photo.png)">
+  <header class="header" id='header' style="background-image: url(./dist/assets/img/photo.png)">
+  <!-- <header class="header" id='header' > -->
 
-    <a href="#" class="header__logo">avenue <span>fashion</span></a>
+    <div class="header__logo-wrapper">
+      <a href="#" class="header__logo">avenue <span>fashion</span></a>
+    </div>
 
     <div class="header__nav-wrapper">
-      <nav class="header__nav">
-        <ul class="header__nav-ul">
-          <li class="header__nav-li"><a href="" class="header__nav-link">mens <i class="fas fa-angle-down"></i></a></li>
-          <li class="header__nav-li"><a href="" class="header__nav-link">womens <i class="fas fa-angle-down"></i></a></li>
+
+      <nav class="header__nav" id="header__nav">
+
+        <a href="javascript:void(0)" class="closebtn" id="closebtn">&times;</a>
+
+
+        <ul class="header__nav-ul" >
+
+          <li class="header__nav-li dropdown">
+            <a href="" class="header__nav-link">mens <i class="fas fa-angle-down"></i></a>
+
+            <div class="dropdown-content">
+              <div class="row">
+                <div class="column">
+                  <h3>casuals</h3>
+                  <a href="#">Jackets</a>
+                  <a href="#">Hoodies & Sweatshirts</a>
+                  <a href="#">Polo Shirts</a>
+                  <a href="#">Sportswear</a>
+                  <a href="#">Trousers & Chinos</a>
+                  <a href="#">T-Shirts</a>
+                </div>
+                <div class="column">
+                  <h3>Formal</h3>
+                  <a href="#">Jackets</a>
+                  <a href="#">Shirts</a>
+                  <a href="#">Suits</a>
+                  <a href="#">Trousers</a>
+                </div>
+              </div>
+              <div class="dropdown-content__footer">
+                <a href="#"><h3>Autumn sale! <br><span>up to 50% off</span></h3></a>
+              </div>
+            </div>
+
+          </li>
+
+          <li class="header__nav-li dropdown"><a href="" class="header__nav-link">womens <i class="fas fa-angle-down"></i></a>
+
+            <div class="dropdown-content">
+              <div class="row">
+                <div class="column">
+                  <h3>casuals</h3>
+                  <a href="#">Jackets</a>
+                  <a href="#">Hoodies & Sweatshirts</a>
+                  <a href="#">Polo Shirts</a>
+                  <a href="#">Sportswear</a>
+                  <a href="#">Trousers & Chinos</a>
+                  <a href="#">T-Shirts</a>
+                </div>
+                <div class="column">
+                  <h3>Formal</h3>
+                  <a href="#">Jackets</a>
+                  <a href="#">Shirts</a>
+                  <a href="#">Suits</a>
+                  <a href="#">Trousers</a>
+                </div>
+              </div>
+              <div class="dropdown-content__footer">
+                <a href="#"><h3>Autumn sale! <br><span>up to 50% off</span></h3></a>
+              </div>
+            </div>
+
+          </li>
+
           <li class="header__nav-li"><a href="" class="header__nav-link">the brand</a></li>
-          <li class="header__nav-li"><a href="" class="header__nav-link">local stores <i class="fas fa-angle-down"></i></a></li>
-          <li class="header__nav-li"><a href="" class="header__nav-link">look book <i class="fas fa-angle-down"></i></a></li>
+
+          <li class="header__nav-li dropdown"><a href="" class="header__nav-link">local stores <i class="fas fa-angle-down"></i></a>
+
+            <div class="dropdown-content">
+              <div class="row">
+                <div class="column">
+                  <h3>casuals</h3>
+                  <a href="#">Jackets</a>
+                  <a href="#">Hoodies & Sweatshirts</a>
+                  <a href="#">Polo Shirts</a>
+                  <a href="#">Sportswear</a>
+                  <a href="#">Trousers & Chinos</a>
+                  <a href="#">T-Shirts</a>
+                </div>
+                <div class="column">
+                  <h3>Formal</h3>
+                  <a href="#">Jackets</a>
+                  <a href="#">Shirts</a>
+                  <a href="#">Suits</a>
+                  <a href="#">Trousers</a>
+                </div>
+              </div>
+              <div class="dropdown-content__footer">
+                <a href="#"><h3>Autumn sale! <br><span>up to 50% off</span></h3></a>
+              </div>
+            </div>
+
+          </li>
+
+          <li class="header__nav-li dropdown"><a href="" class="header__nav-link">look book <i class="fas fa-angle-down"></i></a>
+
+            <div class="dropdown-content">
+              <div class="row">
+                <div class="column">
+                  <h3>casuals</h3>
+                  <a href="#">Jackets</a>
+                  <a href="#">Hoodies & Sweatshirts</a>
+                  <a href="#">Polo Shirts</a>
+                  <a href="#">Sportswear</a>
+                  <a href="#">Trousers & Chinos</a>
+                  <a href="#">T-Shirts</a>
+                </div>
+                <div class="column">
+                  <h3>Formal</h3>
+                  <a href="#">Jackets</a>
+                  <a href="#">Shirts</a>
+                  <a href="#">Suits</a>
+                  <a href="#">Trousers</a>
+                </div>
+              </div>
+              <div class="dropdown-content__footer">
+                <a href="#"><h3>Autumn sale! <br><span>up to 50% off</span></h3></a>
+              </div>
+            </div>
+
+          </li>
+
         </ul>
       </nav>
 
@@ -20,7 +139,28 @@
         </form>
       </div>
 
+      <div class="header__nav-btn_wrapper">
+        <div class="header__nav-btn" id="nav_btn">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+      </div>
+
     </div>
+
+
+  <div class="header-title__wrapper">
+    <h1 class="header-title">AVE</h1>
+  </div>
+
+
+  <div class="header-btn__wrapper">
+    <a href="#" class="header-btn">shop men’s collection</a>
+  </div>
+
+
+
   </header>
 
 </section>
