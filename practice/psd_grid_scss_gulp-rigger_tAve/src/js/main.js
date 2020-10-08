@@ -125,3 +125,13 @@ nav_btn.addEventListener('click', function(e) {
   }
 
 });
+
+
+
+/////////////
+let btnmenu = document.getElementsByClassName('products__nav-icon')[0];
+let menu = document.getElementById('products__nav_ul');
+
+btnmenu.addEventListener('click', function() {
+    menu.classList.toggle("dgrid");
+});
