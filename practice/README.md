@@ -15,9 +15,14 @@ https://github.com/IgorKob/git/tree/master/practice/psd_tShop_scout_coala_avocod
 
 demo version - tMinimo (psd, bootstrap, gulp, sass)
 https://git1-gules.vercel.app/dist
-https://github.com/IgorKob/git/tree/master/practice/psd_bootstrap_tMinimo
+https://github.com/IgorKob/git/tree/master/practice/psd_bootstrap_scss_gulp-rigger_tMinimo
 
 
 demo version - tPiroll (psd, bootstrap, gulp, sass)
-https://git3-navy.vercel.app/dist
-https://github.com/IgorKob/git/tree/master/practice/psd_bootstrap_tPiroll
+https://piroll.vercel.app/dist
+https://github.com/IgorKob/git/tree/master/practice/psd_bootstrap_scss_gulp-rigger_tPiroll
+
+
+demo version - tAve (psd, grid, gulp, sass)
+https://grid-ten.vercel.app/dist
+https://github.com/IgorKob/git/tree/master/practice/psd_grid_scss_gulp-rigger_tAve
