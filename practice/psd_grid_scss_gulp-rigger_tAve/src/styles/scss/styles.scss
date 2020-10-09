@@ -8,9 +8,12 @@
 @import 'blocks/top_nav';
 @import 'blocks/header';
 @import 'blocks/products';
+@import 'blocks/look';
+@import 'blocks/footer_nav';
+@import 'blocks/footer';
 
 
 body {
-  background-color: lightblue;
+  background-color: #fff;
   padding-top: 36px;
 }
