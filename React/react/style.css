@@ -1,0 +1,63 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './style.css';
+import Button from '@material-ui/core/Button';
+
+/* 1 */
+class Asd extends React.Component {
+  render() {
+    return (
+      <>
+        <h1 style={{color: 'red', backgroundColor: 'blue'}}>asdsdasdsda</h1>
+      </>
+    )
+  }
+}
+
+/* 2 */
+class Asd extends React.Component {
+  render() {
+    const styleH1 = {
+      color: 'blue',
+      fontSize: '2rem',
+      fontWeight: 400
+    };
+    return (
+      <>
+        <h1 style={styleH1}>asdsdasdsda</h1>
+      </>
+    )
+  }
+}
+
+/* 3 */
+import './style.css';
+class Asd extends React.Component {
+  render() {
+    return (
+      <>
+        <h1 clasName='mytitle'>asdsdasdsda</h1>
+      </>
+    )
+  }
+}
+
+/* 4 */
+import Button from '@material-ui/core/Button';
+class Asd extends React.Component {
+  render() {
+    return (
+      <>
+        <Button variant="contained" color="primary">
+          Primary
+        </Button>
+        <Button variant="contained" color="secondary">
+          Secondary
+        </Button>
+      </>
+    )
+  }
+}
+
+
+export default Asd;
