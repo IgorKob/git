@@ -1,0 +1,44 @@
+<!-- https://yarnpkg.com/getting-started/install -->
+//глобальнo встановлення
+npm install -g yarn
+
+//Встановлення nа проектом
+npm install -g yarn
+cd ~/path/to/project
+yarn set version berry
+
+
+//Оновлення до останніх версій
+yarn set version latest
+
+
+//Доступ до списку команд
+yarn help
+
+//Початок нового проекту
+yarn init
+
+//Встановлення всіх залежностей
+yarn
+yarn install
+
+//Додавання залежності
+yarn add [package]
+yarn add [package]@[version]
+yarn add [package]@[tag]
+
+//Додавання залежності до різних категорій залежностей
+yarn add [package] --dev  # dev dependencies
+yarn add [package] --peer # peer dependencies
+
+//Оновлення залежності
+yarn up [package]
+yarn up [package]@[version]
+yarn up [package]@[tag]
+
+//Видалення залежності
+yarn remove [package]
+
+//Модернізація самої пряжі
+yarn set version latest
+yarn set version from sources
