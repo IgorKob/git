@@ -1,0 +1,16 @@
+.nav {
+  background-color: rgb(19, 141, 125);
+  grid-area: nav;
+  display: grid;
+  grid-template-rows: repeat(5, minmax(30px, auto)) 1fr;
+  padding-left: 8px;
+  padding-top: 8px;
+}
+
+.nav_link {
+  text-decoration: none;
+}
+
+.active {
+  color: red;
+}

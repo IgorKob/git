@@ -1,0 +1,28 @@
+.messages_wrapper {
+background-color: #68b92e;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+.messages_dialogs {
+  background-color: #2fcf6d;
+
+}
+.messages_dialog {
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+
+.messages_items {
+  background-color: #d8c60d;
+
+}
+.messages_item {
+  background-color: #1daf8c;
+padding: 4px;
+  margin: 5px;
+}
+
+.textarea {
+  width: 600px;
+  margin: 4px;
+}
