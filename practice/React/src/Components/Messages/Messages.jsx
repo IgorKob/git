@@ -1,25 +1,32 @@
 import React from 'react';
 import classes from './messages.module.css';
 import Dialog from "../Dialog/Dialog";
+import {addMessageActionCreator, newMessageChangeActionCreator} from "../../Redux/State";
+
+
 
 const Messages = (props) => {
 // debugger
 
   let newMessage = React.createRef();
   let addMessage = () => {
-    let text = newMessage.current.value;
+    // let text = newMessage.current.value;
     // alert(text);
     // debugger
     // props.addMessage(text);
-    props.addMessage();
+    // props.addMessage();
     // debugger
-
+    props.dispatch(addMessageActionCreator());
   }
 
   let newMessageChange = () => {
+    // debugger
 // alert(newMessage.current.value)
     let text = newMessage.current.value;
-    props.newMessageChange(text);
+    // props.newMessageChange(text);
+
+    // let action = {type: 'NEW-MESSAGE-CHANGE', text: text};
+    props.dispatch(newMessageChangeActionCreator(text));
   }
 
   return (
@@ -36,10 +43,17 @@ const Messages = (props) => {
         <div className={classes.messages_items}>
           {/*<div className={classes.messages_item}>asd</div>*/}
           {/*<div className={classes.messages_item}>dsad</div>*/}
-          {props.messages.igor.map(el => (
+          {props.state.messagesPages.igor.map(el => (
             <div className={classes.messages_item} key={el.id}>{el.message}</div>
           ))}
-          <textarea ref={newMessage} onChange={newMessageChange} value={props.messages.messStart} className={classes.textarea} name="" id=""  rows="5"></textarea>
+          <textarea ref={newMessage}
+                    onChange={newMessageChange}
+                    value={props.state.messagesPages.messStart}
+                    className={classes.textarea}
+                    name=""
+                    id=""
+                    rows="5"
+          ></textarea>
           <button onClick={addMessage} className={classes.btn}>Send</button>
         </div>
       </div>

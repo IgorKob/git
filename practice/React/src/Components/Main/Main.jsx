@@ -14,15 +14,23 @@ const Main = (props) => {
 
       <Switch>
         <Route exact path="/profile">
-          <Profile posts={props.posts}
-                   newPost={props.newPost}
-                   newPostText={props.newPostText}
-                   addPost={props.addPost}/>
+          <Profile
+                   // posts={props.posts}
+                   // newPost={props.newPost}
+                   // newPostText={props.newPostText}
+                   // addPost={props.addPost}
+                   state={props.state}
+                   dispatch={props.dispatch}
+          />
         </Route>
         <Route exact path="/messages">
-          <Messages  messages={props.messages}
-                     addMessage={props.addMessage}
-                     newMessageChange={props.newMessageChange}
+          <Messages
+                     // messages={props.messages}
+                     // addMessage={props.addMessage}
+                     // newMessageChange={props.newMessageChange}
+                     state={props.state}
+                     dispatch={props.dispatch}
+
 
           />
         </Route>
