@@ -35,7 +35,11 @@ const Main = (props) => {
           />
         </Route>
         <Route exact path="/news">
-          <News />
+          <News
+            state={props.state}
+            dispatch={props.dispatch}
+
+          />
         </Route>
         <Route exact path="/music">
           <Music />

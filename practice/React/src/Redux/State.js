@@ -1,7 +1,15 @@
+import postPagesReduce from "./postPages_reduce";
+import messagesPagesReduce from "./messagesPages_reduce";
+import newsPagesReduce from "./newsPages_reduce";
+
 const ADD_POST = 'ADD-POST';
 const NEW_POST_TEXT = 'NEW-POST-TEXT';
+
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const NEW_MESSAGE_CHANGE = 'NEW-MESSAGE-CHANGE';
+
+const ADD_NEW_POST_TEXT = 'ADD_NEW_POST_TEXT';
+const ADD_NEW_POST = 'ADD_NEW_POST';
 
 
 let store = {
@@ -27,7 +35,12 @@ let store = {
         {id : 4, message: 'sdfd hello'},
       ]
     },
-
+    newsPages: {
+      newPostText: '',
+      newPost: [
+        {id: 1, name: 'Admin', text: 'hello world'},
+      ],
+    },
   },
   getState() {
     return this._state;
@@ -38,71 +51,43 @@ let store = {
   renderKimState(render) {
     this.renderKim = render
   },
-  _addPost() {
-    let newPost = {id : 7, name: 'Admin', text : this._state.postPages.newPost, like : 0};
-    this._state.postPages.posts.push(newPost);
-    this._state.postPages.newPost = '';
-    this.renderKim(this._state);
-  },
-  _newPostText(text) {
-    this._state.postPages.newPost = text;
-    this.renderKim(this._state);
-  },
-  // addMessage() {
-  //   let message = {id : 5, message: this._state.messagesPages.messStart};
-  //   this._state.messagesPages.igor.push(message);
-  //   this._state.messagesPages.messStart = '';
-  //   this.renderKim(this._state);
-  // },
-  // newMessageChange(text) {
-  //   this._state.messagesPages.messStart = text;
-  //   this.renderKim(this._state);
-  // },
 
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      // let newPost = {id : 7, name: 'Admin', text : this._state.postPages.newPost, like : 0};
-      // this._state.postPages.posts.push(newPost);
-      // this._state.postPages.newPost = '';
-      // this.renderKim(this._state);
-      this._addPost()
-    } else {
-      if(action.type === NEW_POST_TEXT) {
-            // this._state.postPages.newPost = action.text;
-            // this.renderKim(this._state);
-            this._newPostText(action.text);
-          } else {
-        if ( action.type === ADD_MESSAGE) {
-                    let message = {id : 5, message: this._state.messagesPages.messStart};
-                    this._state.messagesPages.igor.push(message);
-                    this._state.messagesPages.messStart = '';
-                    this.renderKim(this._state);
-                  } else {
-          if ( action.type === NEW_MESSAGE_CHANGE) {
-                              this._state.messagesPages.messStart = action.text;
-                              this.renderKim(this._state);
-                            }
-        }
-      }
-    }
-  },
-};
+
+    this._state.postPages = postPagesReduce(this._state.postPages, action);
+    this._state.messagesPages = messagesPagesReduce(this._state.messagesPages, action);
+    this._state.newsPages = newsPagesReduce(this._state.newsPages, action);
+
+    this.renderKim(this._state);
+
+  }
+}
+
 
 export default store;
 window.store = store;
 
-//post.jsx
-export const addPostActionCreator = () => {
-  return {type: ADD_POST}
-}
-export const newPostTextActionCreator = (text) => {
-  return {type: NEW_POST_TEXT, text: text}
-}
+// //post.jsx
+// export const addPostActionCreator = () => {
+//   return {type: ADD_POST}
+// }
+// export const newPostTextActionCreator = (text) => {
+//   return {type: NEW_POST_TEXT, text: text}
+// }
 
-//message.jsx
-export const addMessageActionCreator = () => {
-  return {type: 'ADD-MESSAGE'}
-}
-export const newMessageChangeActionCreator = (text) => {
-  return {type: 'NEW-MESSAGE-CHANGE', text: text}
-}
+// //message.jsx
+// export const addMessageActionCreator = () => {
+//   return {type: ADD_MESSAGE}
+// }
+// export const newMessageChangeActionCreator = (text) => {
+//   return {type: NEW_MESSAGE_CHANGE, text: text}
+// }
+
+// //newsPages.jsx
+// export const addNewsPostTextActionCreator = (text) => {
+//   return {type: ADD_NEW_POST_TEXT, text: text};
+// }
+// export const addNewsPostActionCreator = () => {
+//   return {type: ADD_NEW_POST};
+// }
+
