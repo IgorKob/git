@@ -6,25 +6,30 @@ import Messages from "../Messages/Messages";
 import News from "../News/News";
 import Music from "../Music/Music";
 import Settingss from "../Settings/Settingss";
+import ProfileContainer from "../Profile/ProfileContainer";
+import MessagesContainer from "../Messages/MessagesContainer";
+import NewsContainer from "../News/NewsContainer";
 
 const Main = (props) => {
-  // debugger
+  debugger
   return (
     <main className={classes.main}>
 
       <Switch>
         <Route exact path="/profile">
-          <Profile
-                   // posts={props.posts}
-                   // newPost={props.newPost}
-                   // newPostText={props.newPostText}
-                   // addPost={props.addPost}
-                   state={props.state}
-                   dispatch={props.dispatch}
-          />
+          {/*<ProfileContainer*/}
+          {/*         // posts={props.posts}*/}
+          {/*         // newPost={props.newPost}*/}
+          {/*         // newPostText={props.newPostText}*/}
+          {/*         // addPost={props.addPost}*/}
+          {/*         // state={props.state}*/}
+          {/*         dispatch={props.dispatch}*/}
+          {/*         store={props.state}*/}
+          {/*/>          */}
+          <ProfileContainer />
         </Route>
         <Route exact path="/messages">
-          <Messages
+          <MessagesContainer
                      // messages={props.messages}
                      // addMessage={props.addMessage}
                      // newMessageChange={props.newMessageChange}
@@ -35,7 +40,7 @@ const Main = (props) => {
           />
         </Route>
         <Route exact path="/news">
-          <News
+          <NewsContainer
             state={props.state}
             dispatch={props.dispatch}
 

@@ -1,4 +1,4 @@
-import {NavLink, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, NavLink, Route, Switch} from "react-router-dom";
 
 5. SPA - маленька напівпорожня HTML сторінка, в яку приходить багато JS.
   Цей JS працює на клієнта і створюємо динамічно потрібну сторінку.
@@ -13,9 +13,12 @@ import News from "./src/Components/News/News";
 import Music from "./src/Components/Music/Music";
 import Settingss from "./src/Components/Settings/Settingss";
 import React from "react";
-import state, {addPost} from "./src/Redux/State";
+import state, {addPost} from "./src/Redux/store";
 import ReactDOM from "react-dom";
 import App from "./src/App";
+import StoreContext from "./src/StoreContext";
+import store from "./src/Redux/redux_store";
+import {addPostActionCreator, newPostTextActionCreator} from "./src/Redux/postPages_reduce";
 <nav className={classes.nav}></nav>
 <nav className={`${classes.nav} ${classes.active}`}></nav>
 
@@ -152,3 +155,51 @@ export const addMessageActionCreator = () => ({type: 'ADD-MESSAGE'});
 export const addMessageActionCreator = () => {
   return {type: 'ADD-MESSAGE'}
 }
+
+42. Redux - це проста бібліотека, яка допомагає керувати станом додатка JavaScript.
+Redux - це бібліотека для управління глобальним станом програми
+Redux використовує структуру програми "односторонній потік даних"
+State описує стан програми в певний момент часу, а UI відображає на основі цього стану
+Коли щось відбувається в додатку:
+Інтерфейс користувача надсилає дію
+У магазині працюють редуктори, і стан оновлюється залежно від того, що сталося
+Магазин повідомляє інтерфейс користувача про те, що стан змінився
+Інтерфейс користувача рендерірується на основі нового стану
+
+Redux використовує кілька типів коду
+Дії є звичайними об'єктами з typeполем і описують "що сталося" в додатку
+Редуктори - це функції, які обчислюють нове значення стану на основі попереднього стану + дії
+Redux магазин запускає кореневої редуктор щоразу , коли дія передану
+
+44. Context
+// Створює контекстний об'єкт
+//StoreContext.js
+import React from 'react';
+const StoreContext = React.createContext(null);
+export default StoreContext;
+
+//index.js
+<StoreContext.Provider value={store}>
+  <App />
+</StoreContext.Provider>
+
+//ProfileContainer.js
+<StoreContext.Consumer>
+  {(store) => {
+    let addPost = () => {
+      store.dispatch(addPostActionCreator());
+    }
+    let newPostText = (text) => {
+      let action = newPostTextActionCreator(text);
+      store.dispatch(action);
+    }
+    return (
+      <Profile newPostText={newPostText}
+        addPost={addPost}
+        posts={store.getState().postPages.posts}
+        newPost={store.getState().postPages.newPost}
+      />
+    )}
+  }
+</StoreContext.Consumer>
+

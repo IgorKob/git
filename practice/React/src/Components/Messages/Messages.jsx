@@ -16,7 +16,8 @@ const Messages = (props) => {
     // props.addMessage(text);
     // props.addMessage();
     // debugger
-    props.dispatch(addMessageActionCreator());
+    // props.dispatch(addMessageActionCreator());
+    props.addMessageActionCreator();
   }
 
   let newMessageChange = () => {
@@ -26,7 +27,8 @@ const Messages = (props) => {
     // props.newMessageChange(text);
 
     // let action = {type: 'NEW-MESSAGE-CHANGE', text: text};
-    props.dispatch(newMessageChangeActionCreator(text));
+    // props.dispatch(newMessageChangeActionCreator(text));
+    props.newMessageChangeActionCreator(text);
   }
 
   return (
@@ -43,12 +45,12 @@ const Messages = (props) => {
         <div className={classes.messages_items}>
           {/*<div className={classes.messages_item}>asd</div>*/}
           {/*<div className={classes.messages_item}>dsad</div>*/}
-          {props.state.messagesPages.igor.map(el => (
+          {props.igor.map(el => (
             <div className={classes.messages_item} key={el.id}>{el.message}</div>
           ))}
           <textarea ref={newMessage}
                     onChange={newMessageChange}
-                    value={props.state.messagesPages.messStart}
+                    value={props.messStart}
                     className={classes.textarea}
                     name=""
                     id=""

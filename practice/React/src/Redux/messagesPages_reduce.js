@@ -1,8 +1,17 @@
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const NEW_MESSAGE_CHANGE = 'NEW-MESSAGE-CHANGE';
 
+let initialState = {
+  messStart: '',
+  igor: [
+    {id : 1, message: 'Art hello'},
+    {id : 2, message: 'Art sdf hello'},
+    {id : 3, message: 'hello'},
+    {id : 4, message: 'sdfd hello'},
+  ]
+};
 
-const messagesPagesReduce = (state, action) => {
+const messagesPagesReduce = (state = initialState, action) => {
   // if ( action.type === ADD_MESSAGE) {
   //   let message = {id : 5, message: state.messStart};
   //   state.igor.push(message);

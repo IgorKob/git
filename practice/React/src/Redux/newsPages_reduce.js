@@ -1,7 +1,15 @@
 const ADD_NEW_POST_TEXT = 'ADD_NEW_POST_TEXT';
 const ADD_NEW_POST = 'ADD_NEW_POST';
 
-const newsPagesReduce = (state, action) => {
+
+let initialState = {
+  newPostText: '',
+  newPost: [
+    {id: 1, name: 'Admin', text: 'hello world'},
+  ]
+};
+
+const newsPagesReduce = (state = initialState, action) => {
   // if (action.type === ADD_NEW_POST_TEXT) {
   //   state.newPostText = action.text;
   //   // this.renderKim(this._state);

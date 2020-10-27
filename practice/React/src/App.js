@@ -14,21 +14,22 @@ export default function App(props) {
 
       <Nav />
 
-      <Main
-            // posts={props.state.postPages.posts}
-            // newPost={props.state.postPages.newPost}
+      {/*<Main*/}
+      {/*      // posts={props.state.postPages.posts}*/}
+      {/*      // newPost={props.state.postPages.newPost}*/}
 
-            // newPostText={props.newPostText}
-            // addPost={props.addPost}
+      {/*      // newPostText={props.newPostText}*/}
+      {/*      // addPost={props.addPost}*/}
 
-            // messages={props.state.messagesPages}
-            // addMessage={props.addMessage}
-            // newMessageChange={props.newMessageChange}
+      {/*      // messages={props.state.messagesPages}*/}
+      {/*      // addMessage={props.addMessage}*/}
+      {/*      // newMessageChange={props.newMessageChange}*/}
 
-            state={props.state}
-            dispatch={props.dispatch}
+      {/*      state={props.state}*/}
+      {/*      dispatch={props.dispatch}*/}
 
-      />
+      {/*/>      */}
+      <Main />
 
     </section>
   );

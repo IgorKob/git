@@ -8,7 +8,7 @@ import {addPostActionCreator, newPostTextActionCreator} from "../../Redux/postPa
 
 // {id : 0, name: 'Admin', text : 'my post', like : 1},
 const Profile = (props) => {
-  // debugger
+  debugger
 
   let newPostElement = React.createRef();
   let addPost = () => {
@@ -18,17 +18,23 @@ const Profile = (props) => {
     // props.addPost(text);
     // props.addPost();
     // props.dispatch({type: 'ADD-POST'});
-    props.dispatch(addPostActionCreator());
-    // newPostElement.current.value = '';
+
+    // props.dispatch(addPostActionCreator());
+    newPostElement.current.value = '';
+    props.addPost();
+
   }
 
   let newPostText = () => {
+//     let text = newPostElement.current.value;
+//     // props.newPostText(text);
+// // debugger
+// //     let action = {type: 'NEW-POST-TEXT', text: text};
+// //     props.dispatch(action);
+//     props.dispatch(newPostTextActionCreator(text));
     let text = newPostElement.current.value;
-    // props.newPostText(text);
-// debugger
-//     let action = {type: 'NEW-POST-TEXT', text: text};
-//     props.dispatch(action);
-    props.dispatch(newPostTextActionCreator(text));
+    props.newPostText(text);
+
   }
   // debugger
   return (
@@ -41,7 +47,8 @@ const Profile = (props) => {
       <div className={classes.NewMyPost}>
         <textarea ref={newPostElement}
                   // value={props.newPost}
-                  value={props.state.postPages.newPost}
+                  // value={props.state.postPages.newPost}
+                  value={props.newPost}
                   onChange={newPostText}
                   className={classes.NewMyPost_text}
                   name=""
@@ -55,7 +62,8 @@ const Profile = (props) => {
 
       {/*<Post  name='admin' text='' like='' />*/}
       {/*{props.posts.map((el) => (*/}
-      {props.state.postPages.posts.map((el) => (
+      {/*{props.state.postPages.posts.map((el) => (*/}
+      {props.posts.map((el) => (
         <Post key={el.id}  name={el.name} text={el.text} like={el.like} />
       ))}
 

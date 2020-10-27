@@ -2,38 +2,38 @@ import postPagesReduce from "./postPages_reduce";
 import messagesPagesReduce from "./messagesPages_reduce";
 import newsPagesReduce from "./newsPages_reduce";
 
-const ADD_POST = 'ADD-POST';
-const NEW_POST_TEXT = 'NEW-POST-TEXT';
-
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const NEW_MESSAGE_CHANGE = 'NEW-MESSAGE-CHANGE';
-
-const ADD_NEW_POST_TEXT = 'ADD_NEW_POST_TEXT';
-const ADD_NEW_POST = 'ADD_NEW_POST';
+// const ADD_POST = 'ADD-POST';
+// const NEW_POST_TEXT = 'NEW-POST-TEXT';
+//
+// const ADD_MESSAGE = 'ADD-MESSAGE';
+// const NEW_MESSAGE_CHANGE = 'NEW-MESSAGE-CHANGE';
+//
+// const ADD_NEW_POST_TEXT = 'ADD_NEW_POST_TEXT';
+// const ADD_NEW_POST = 'ADD_NEW_POST';
 
 
 let store = {
   _state: {
     postPages : {
-      posts: [
-        {id : 0, name: 'Admin', text : 'my post', like : 1},
-        {id : 1, name: 'Igor', text : 'my post asd', like : 11},
-        {id : 2, name: 'Anna', text : 'my post sad', like : 6},
-        {id : 3, name: 'Vala', text : 'my post fsa', like : 5},
-        {id : 4, name: 'Oleg', text : 'my post dfefe', like : 8},
-        {id : 5, name: 'Igor', text : 'my post grg', like : 4},
-        {id : 6, name: 'Art', text : 'my post hthtr', like : 5},
-      ],
-      newPost: '...'
+      // posts: [
+      //   {id : 0, name: 'Admin', text : 'my post', like : 1},
+      //   {id : 1, name: 'Igor', text : 'my post asd', like : 11},
+      //   {id : 2, name: 'Anna', text : 'my post sad', like : 6},
+      //   {id : 3, name: 'Vala', text : 'my post fsa', like : 5},
+      //   {id : 4, name: 'Oleg', text : 'my post dfefe', like : 8},
+      //   {id : 5, name: 'Igor', text : 'my post grg', like : 4},
+      //   {id : 6, name: 'Art', text : 'my post hthtr', like : 5},
+      // ],
+      // newPost: '...'
     },
     messagesPages : {
-      messStart: '',
-      igor: [
-        {id : 1, message: 'Art hello'},
-        {id : 2, message: 'Art sdf hello'},
-        {id : 3, message: 'hello'},
-        {id : 4, message: 'sdfd hello'},
-      ]
+      // messStart: '',
+      // igor: [
+      //   {id : 1, message: 'Art hello'},
+      //   {id : 2, message: 'Art sdf hello'},
+      //   {id : 3, message: 'hello'},
+      //   {id : 4, message: 'sdfd hello'},
+      // ]
     },
     newsPages: {
       newPostText: '',
@@ -48,7 +48,7 @@ let store = {
   renderKim(state) {
     console.log('renderKim state1');
   },
-  renderKimState(render) {
+  subscribe(render) {
     this.renderKim = render
   },
 
