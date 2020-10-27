@@ -8,7 +8,7 @@ import {addPostActionCreator, newPostTextActionCreator} from "../../Redux/postPa
 
 // {id : 0, name: 'Admin', text : 'my post', like : 1},
 const Profile = (props) => {
-  debugger
+  // debugger
 
   let newPostElement = React.createRef();
   let addPost = () => {
@@ -63,7 +63,8 @@ const Profile = (props) => {
       {/*<Post  name='admin' text='' like='' />*/}
       {/*{props.posts.map((el) => (*/}
       {/*{props.state.postPages.posts.map((el) => (*/}
-      {props.posts.map((el) => (
+      {/*{props.posts.map((el) => (*/}
+      {props.postPages.map((el) => (
         <Post key={el.id}  name={el.name} text={el.text} like={el.like} />
       ))}
 

@@ -7,6 +7,7 @@ import store from './Redux/redux_store';
 // import {renderKim} from './render';
 import {BrowserRouter as Router} from "react-router-dom";
 import StoreContext from "./StoreContext";
+import {Provider} from "react-redux";
 // addPost('asd asd asd')
 // debugger
 // ReactDOM.render(
@@ -16,11 +17,14 @@ import StoreContext from "./StoreContext";
 //   document.getElementById('root')
 // );
 // debugger
-let renderKim = (state) => {
+// let renderKim = (state) => {
+// let renderKim = () => {
+  // debugger
   ReactDOM.render(
     <Router>
       <React.StrictMode>
-        <StoreContext.Provider value={store}>
+        {/*<StoreContext.Provider value={store}>*/}
+        <Provider store={store}>
           {/*<App state={state}*/}
           {/*     dispatch={store.dispatch.bind(store)}*/}
           {/*     // newPostText={store.newPostText.bind(store)}*/}
@@ -29,18 +33,18 @@ let renderKim = (state) => {
 
           {/*/>          */}
           <App />
-        </StoreContext.Provider>
+        </Provider>
       </React.StrictMode>
     </Router>,
     document.getElementById('root')
   );
 
-}
+// }
 
-renderKim(store.getState())
-
-// store.renderKimState(renderKim)
-store.subscribe(() => {
-  let state = store.getState();
-  renderKim(state);
-});
+// renderKim();
+//
+// // store.renderKimState(renderKim)
+// store.subscribe(() => {
+//   // let state = store.getState();
+//   renderKim();
+// });

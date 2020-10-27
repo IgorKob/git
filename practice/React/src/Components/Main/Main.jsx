@@ -11,7 +11,7 @@ import MessagesContainer from "../Messages/MessagesContainer";
 import NewsContainer from "../News/NewsContainer";
 
 const Main = (props) => {
-  debugger
+  // debugger
   return (
     <main className={classes.main}>
 
@@ -33,8 +33,8 @@ const Main = (props) => {
                      // messages={props.messages}
                      // addMessage={props.addMessage}
                      // newMessageChange={props.newMessageChange}
-                     state={props.state}
-                     dispatch={props.dispatch}
+                     // state={props.state}
+                     // dispatch={props.dispatch}
 
 
           />

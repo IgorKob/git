@@ -10,28 +10,19 @@ let initialState = {
 };
 
 const newsPagesReduce = (state = initialState, action) => {
-  // if (action.type === ADD_NEW_POST_TEXT) {
-  //   state.newPostText = action.text;
-  //   // this.renderKim(this._state);
-  // } else if (action.type === ADD_NEW_POST) {
-  //   let text = state.newPostText;
-  //   let post = {id: 2, name: 'Administrator', text: text};
-  //   state.newPost.push(post);
-  //   state.newPostText = '';
-  //   // this.renderKim(this._state);
-  // }
-  // return state;
 
   switch (action.type) {
     case ADD_NEW_POST_TEXT:
-      state.newPostText = action.text;
-      return state;
+      return {
+        ...state,
+        newPostText: action.text
+    }
     case ADD_NEW_POST:
-      let text = state.newPostText;
-      let post = {id: 2, name: 'Administrator', text: text};
-      state.newPost.push(post);
-      state.newPostText = '';
-      return state;
+      return {
+        ...state,
+        newPostText: '',
+        newPost: [...state.newPost, {id: 2, name: 'Administrator', text: state.newPostText}]
+    }
     default:
       return state;
   }

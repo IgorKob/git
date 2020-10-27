@@ -28,15 +28,40 @@ const postPagesReduce = (state = initialState, action) => {
   //   // this.renderKim(this._state);
   // }
   // return state;
+
+  // let stateCopy = {...state};
+  // stateCopy.posts = [...stateCopy.posts];
+
+  // switch (action.type) {
+  //
+  //   case ADD_POST: {
+  //   // let stateCopy = {...state};
+  //     let newPost = {id : 7, name: 'Admin', text : stateCopy.newPost, like : 0};
+  //     stateCopy.posts.push(newPost);
+  //     stateCopy.newPost = '';
+  //     return stateCopy;
+  //   }
+  //   case NEW_POST_TEXT: {
+  //     // let stateCopy = {...state};
+  //     stateCopy.newPost = action.text;
+  //     return stateCopy;
+  //   }
+  //   default:
+  //     return state;
+  // }
   switch (action.type) {
+
     case ADD_POST:
-      let newPost = {id : 7, name: 'Admin', text : state.newPost, like : 0};
-      state.posts.push(newPost);
-      state.newPost = '';
-      return state;
+      return {
+      ...state,
+      newPost: '',
+      posts:[...state.posts, {id : 7, name: 'Admin', text : state.newPost, like : 0}]
+    }
     case NEW_POST_TEXT:
-      state.newPost = action.text;
-      return state;
+      return  {
+      ...state,
+      newPost: action.text
+    }
     default:
       return state;
   }

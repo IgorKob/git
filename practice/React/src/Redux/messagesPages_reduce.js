@@ -12,26 +12,19 @@ let initialState = {
 };
 
 const messagesPagesReduce = (state = initialState, action) => {
-  // if ( action.type === ADD_MESSAGE) {
-  //   let message = {id : 5, message: state.messStart};
-  //   state.igor.push(message);
-  //   state.messStart = '';
-  //   // this.renderKim(this._state);
-  // } else
-  //   if ( action.type === NEW_MESSAGE_CHANGE) {
-  //     state.messStart = action.text;
-  //     // this.renderKim(this._state);
-  //   }
-  // return state;
+
   switch (action.type) {
     case ADD_MESSAGE:
-      let message = {id : 5, message: state.messStart};
-      state.igor.push(message);
-      state.messStart = '';
-      return state;
+      return {
+        ...state,
+        messStart: '',
+        igor: [...state.igor, {id : 5, message: state.messStart}]
+    }
     case NEW_MESSAGE_CHANGE:
-      state.messStart = action.text;
-      return state;
+      return {
+        ...state,
+        messStart: action.text
+    }
     default:
       return state;
   }
