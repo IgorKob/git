@@ -1,0 +1,14 @@
+.header {
+  background-color: rgb(14, 119, 75);
+  grid-area: header;
+}
+
+.header_logo {
+  
+}
+
+.header_logo__img {
+  max-width: 50px;
+  max-height: 50px;
+  margin: 10px;
+}
