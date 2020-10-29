@@ -1,0 +1,47 @@
+.user_wrapper {
+  margin: 20px;
+  background-color: #218002;
+  display: grid;
+  grid-template: 1fr / 100px 1fr;
+}
+.user_box_left {
+ background-color: #beb8c4;
+  display: grid;
+}
+.user_img {
+width: 100px;
+}
+.user_follow_btn {
+
+}
+.user_box_right {
+  background-color: #89c414;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.user_box_right_1 {
+  background-color: #c45214;
+
+  display: grid;
+}
+.user_fullname {
+
+}
+.user_text {
+
+}
+.user_box_right_2 {
+  background-color: #250672;
+
+  display: grid;
+  text-align: end;
+}
+.user_country {
+
+}
+.user_city {
+
+}
+.selectedPage {
+  color: red;
+}
