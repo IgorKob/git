@@ -1,42 +1,28 @@
 import React from 'react';
 import classes from './profile.module.css';
 import Post from "../Post/Post";
-import {addPostActionCreator, newPostTextActionCreator} from "../../Redux/postPages_reduce";
+import Preloader from "../all/Preloader/Preloader";
 
-
-
-
-// {id : 0, name: 'Admin', text : 'my post', like : 1},
 const Profile = (props) => {
-  // debugger
+
+  if (!props.profile) {
+    return <Preloader />
+  }
 
   let newPostElement = React.createRef();
   let addPost = () => {
-    // debugger
-
-    // let text = newPostElement.current.value;
-    // props.addPost(text);
-    // props.addPost();
-    // props.dispatch({type: 'ADD-POST'});
-
-    // props.dispatch(addPostActionCreator());
     newPostElement.current.value = '';
     props.addPost();
-
   }
 
   let newPostText = () => {
-//     let text = newPostElement.current.value;
-//     // props.newPostText(text);
-// // debugger
-// //     let action = {type: 'NEW-POST-TEXT', text: text};
-// //     props.dispatch(action);
-//     props.dispatch(newPostTextActionCreator(text));
     let text = newPostElement.current.value;
     props.newPostText(text);
-
   }
-  // debugger
+
+//contact
+  let arr = Object.entries(props.profile.contacts)
+
   return (
     <>
       <header className={classes.profile_header}>
@@ -44,10 +30,25 @@ const Profile = (props) => {
       </header>
       <h3 className={classes.profile}>Profile</h3>
 
+      <div>
+        <div>fullName: {props.profile.fullName}</div>
+        <div>userId: {props.profile.userId}</div>
+        <img src={props.profile.photos.large} />
+        <div>aboutMe: {props.profile.aboutMe}</div>
+        <div>lookingForAJob: {props.profile.lookingForAJob}</div>
+        <div>lookingForAJobDescription: {props.profile.lookingForAJobDescription}</div>
+        <div>contacts: {arr.map(el=>{
+          return (
+            <div>{el[0]}: {el[1]}</div>
+          )
+        })}
+        </div>
+
+
+      </div>
+
       <div className={classes.NewMyPost}>
         <textarea ref={newPostElement}
-                  // value={props.newPost}
-                  // value={props.state.postPages.newPost}
                   value={props.newPost}
                   onChange={newPostText}
                   className={classes.NewMyPost_text}
@@ -59,11 +60,6 @@ const Profile = (props) => {
         </textarea>
         <button onClick={addPost} className={classes.NewMyPost_btn}>Send</button>
       </div>
-
-      {/*<Post  name='admin' text='' like='' />*/}
-      {/*{props.posts.map((el) => (*/}
-      {/*{props.state.postPages.posts.map((el) => (*/}
-      {/*{props.posts.map((el) => (*/}
       {props.postPages.map((el) => (
         <Post key={el.id}  name={el.name} text={el.text} like={el.like} />
       ))}

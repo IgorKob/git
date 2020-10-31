@@ -15,7 +15,11 @@ const Main = (props) => {
     <main className={classes.main}>
 
       <Switch>
-        <Route exact path="/profile">
+        <Route exact path="/">
+          <ProfileContainer />
+        </Route>
+        {/*/:userId? - є не обовязковим*/}
+        <Route path="/profile/:userId?">
           <ProfileContainer />
         </Route>
         <Route exact path="/messages">
@@ -36,6 +40,13 @@ const Main = (props) => {
         <Route exact path="/settings">
           <Settingss />
         </Route>
+        <Route path="/finduser">
+          <FindUserContainer />
+        </Route>
+
+        {/*<Route path="/profile">*/}
+        {/*  <ProfileContainer />*/}
+        {/*</Route>*/}
       </Switch>
 
     </main>

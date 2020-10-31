@@ -3,37 +3,14 @@ const ADD_UNFOLLOW = 'ADD_UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_USER_COUNT = 'SET_TOTAL_USER_COUNT';
+const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 let initialState = {
-  users: [
-    // {
-    //   id: 1,
-    //   fullName: 'Admin',
-    //   src: 'https://source.unsplash.com/random',
-    //   followBtn: true,
-    //   text: 'My follow is ...',
-    //   location: {country: 'Urkaine', city: 'Lviv'},
-    // },
-    // {
-    //   id: 2,
-    //   fullName: 'Admin',
-    //   src: 'https://source.unsplash.com/random',
-    //   followBtn: false,
-    //   text: 'My car ...',
-    //   location: {country: 'Urkaine', city: 'Kyiv'},
-    // },
-    // {
-    //   id: 3,
-    //   fullName: 'Admin',
-    //   src: 'https://source.unsplash.com/random',
-    //   followBtn: true,
-    //   text: 'My asd...',
-    //   location: {country: 'Urkaine', city: 'Lviv'},
-    // },
-  ],
+  users: [],
   pageSize: 5,
   totalUsersCount: 0,
-  currentPage: 1
+  currentPage: 1,
+  isFetching: false
 };
 
 const findUserReduce = (state = initialState, action) => {
@@ -71,6 +48,11 @@ const findUserReduce = (state = initialState, action) => {
       ...state,
       totalUsersCount: action.count
     }
+    case TOGGLE_IS_FETCHING:
+    return {
+      ...state,
+      isFetching: action.isFetching
+    }
     default:
       return state;
   }
@@ -79,19 +61,21 @@ const findUserReduce = (state = initialState, action) => {
 export default findUserReduce;
 
 
-export const addFwollowActionCreator = (userId) => {
+export const followBtn = (userId) => {
   return {type: ADD_FOLLOW, userId: userId}
 }
-export const addUnFollowActionCreator = (userId) => {
-  // debugger
+export const unfollowBtn = (userId) => {
   return {type: ADD_UNFOLLOW, userId: userId}
 }
-export const setUsersActionCreator = (users) => {
+export const setUsers = (users) => {
   return {type: SET_USERS, users: users}
 }
-export const setCurrentPageActionCreator = (currentPage) => {
+export const setCurrentPage = (currentPage) => {
   return {type: SET_CURRENT_PAGE, currentPage: currentPage}
 }
-export const setTotalUsersCountActionCreator = (totalUsersCount) => {
+export const setTotalUsersCount = (totalUsersCount) => {
   return {type: SET_TOTAL_USER_COUNT, count: totalUsersCount}
+}
+export const toggleIsFetching = (isFetching) => {
+  return {type: TOGGLE_IS_FETCHING, isFetching: isFetching}
 }
