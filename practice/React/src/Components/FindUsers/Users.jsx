@@ -32,9 +32,17 @@ const Users = (props) => {
             <NavLink to={'/profile/' + el.id}>
               <img src={el.photos.small || 'https://source.unsplash.com/random'} alt="" className={classes.user_img}/>
             </NavLink>
-            {el.followBtn
-              ? <button onClick={() => { props.unfollowBtn(el.id)}} className={classes.user_follow_btn}>UnFollow</button>
-              : <button onClick={() => { props.followBtn(el.id)}} className={classes.user_follow_btn}>Follow</button>
+            {el.followBtn ?
+
+              <button disabled={props.followingInProgress.some(el => el === el.id)}
+                      // onClick={() => props.toggleFollowingInProgress(true, el.id)}
+                      onClick={() => {props.follow(el.id)}}
+                      className={classes.user_follow_btn}>UnFollow</button>
+
+            : <button disabled={props.followingInProgress.some(el => el === el.id)}
+                      // onClick={() => props.toggleFollowingInProgress(true, el.id)}
+                      onClick={() => {props.unfollow(el.id)}}
+                      className={classes.user_follow_btn}>Follow</button>
             }
 
           </div>

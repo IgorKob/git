@@ -1,16 +1,20 @@
+import {usersAPI} from "../api/api";
+
 const ADD_FOLLOW = 'ADD_FOLLOW';
 const ADD_UNFOLLOW = 'ADD_UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_USER_COUNT = 'SET_TOTAL_USER_COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
 
 let initialState = {
   users: [],
   pageSize: 5,
   totalUsersCount: 0,
   currentPage: 1,
-  isFetching: false
+  isFetching: true,
+  followingInProgress: [12334, 12333, 12332],
 };
 
 const findUserReduce = (state = initialState, action) => {
@@ -53,6 +57,13 @@ const findUserReduce = (state = initialState, action) => {
       ...state,
       isFetching: action.isFetching
     }
+    case TOGGLE_IS_FOLLOWING_PROGRESS:
+    return {
+      ...state,
+      followingInProgress: action.followingInProgress ?
+        [...state.followingInProgress, action.userId] :
+        state.followingInProgress.filter(el => el != action.userId)
+    }
     default:
       return state;
   }
@@ -78,4 +89,47 @@ export const setTotalUsersCount = (totalUsersCount) => {
 }
 export const toggleIsFetching = (isFetching) => {
   return {type: TOGGLE_IS_FETCHING, isFetching: isFetching}
+}
+export const toggleFollowingInProgress = (followingInProgress, userId) => {
+  return {type: TOGGLE_IS_FOLLOWING_PROGRESS, followingInProgress, userId}
+}
+
+
+export const getUsersThunkCreater = (currentPage, pageSize) => {
+  return (dispatch) => {
+    dispatch(toggleIsFetching(true));
+
+    usersAPI.getUsers(currentPage, pageSize)
+      .then((data) => {
+        dispatch(toggleIsFetching(false));
+        dispatch(setUsers(data.items));
+        dispatch(setTotalUsersCount(data.totalCount));
+      });
+  }
+}
+
+export const follow = (userId) => {
+  return (dispatch) => {
+    dispatch(toggleFollowingInProgress(true, userId));
+    usersAPI.follow(userId)
+      .then((response) => {
+        if (response.data.resultCode === 0) {
+          dispatch(followBtn(userId));
+        }
+        dispatch(toggleFollowingInProgress(false, userId));
+      });
+  }
+}
+
+export const unfollow = (userId) => {
+  return (dispatch) => {
+    dispatch(toggleFollowingInProgress(true, userId));
+    usersAPI.unfollow(userId)
+      .then((response) => {
+        if (response.data.resultCode === 0) {
+          dispatch(unfollowBtn(userId));
+        }
+        dispatch(toggleFollowingInProgress(false, userId));
+      });
+  }
 }

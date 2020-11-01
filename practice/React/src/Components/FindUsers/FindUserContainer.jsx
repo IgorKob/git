@@ -1,39 +1,36 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {
-  followBtn,
+  follow,
+  followBtn, getUsersThunkCreater,
   setCurrentPage,
   setTotalUsersCount,
-  setUsers,
-  toggleIsFetching,
+  setUsers, toggleFollowingInProgress,
+  toggleIsFetching, unfollow,
   unfollowBtn
-} from "../../Redux/findUser_reduce";
-import * as axios from "axios";
+} from "../../Redux/findUser_reducer";
 import Users from "./Users";
 import Preloader from "../all/Preloader/Preloader";
+import {usersAPI} from "../../api/api";
 
 class FindUserAPIComponenta extends React.Component {
 
   componentDidMount() {
-    this.props.toggleIsFetching(true);
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-      .then((response) => {
-        this.props.toggleIsFetching(false);
 
-        this.props.setUsers(response.data.items);
-        this.props.setTotalUsersCount(response.data.totalCount);
-      });
+    this.props.getUsersThunkCreater(this.props.currentPage, this.props.pageSize);
+
+    // this.props.toggleIsFetching(true);
+    // usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
+    //   .then((data) => {
+    //     this.props.toggleIsFetching(false);
+    //     this.props.setUsers(data.items);
+    //     this.props.setTotalUsersCount(data.totalCount);
+    //   });
   }
-
-
   onPageChanged = (pageNumber) => {
     this.props.setCurrentPage(pageNumber);
-    this.props.toggleIsFetching(true);
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
-      .then((response) => {
-        this.props.toggleIsFetching(false);
-        this.props.setUsers(response.data.items);
-      });
+    this.props.getUsersThunkCreater(pageNumber, this.props.pageSize);
+
   }
 
 
@@ -49,6 +46,10 @@ class FindUserAPIComponenta extends React.Component {
                followBtn={this.props.followBtn}
                totalUsersCount={this.props.totalUsersCount}
                pageSize={this.props.pageSize}
+               followingInProgress={this.props.followingInProgress}
+               // toggleFollowingInProgress={this.props.toggleFollowingInProgress}
+               follow={this.props.follow}
+               unfollow={this.props.unfollow}
 
 
         />
@@ -67,42 +68,9 @@ const mapStateToProps = (state) => {
     totalUsersCount: state.findUser.totalUsersCount,
     currentPage: state.findUser.currentPage,
     isFetching: state.findUser.isFetching,
+    followingInProgress: state.findUser.followingInProgress,
   }
 }
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     followBtn: (userId) => {
-//       dispatch(addFwollowActionCreator(userId))
-//     },
-//     unfollowBtn: (userId) => {
-//       dispatch(addUnFollowActionCreator(userId))
-//     },
-//     setUsers: (users) => {
-//       dispatch(setUsersActionCreator(users))
-//     },
-//     setCurrentPage: (pageNumber) => {
-//       dispatch(setCurrentPageActionCreator(pageNumber))
-//     },
-//     setTotalUsersCount: (totalCount) => {
-//       dispatch(setTotalUsersCountActionCreator(totalCount))
-//     },
-//     toggleIsFetching: (isFetching) => {
-//       dispatch(toggleIsFetchingCountActionCreator(isFetching))
-//     },
-//   }
-// }
-
-// const FindUserContainer = connect(mapStateToProps, mapDispatchToProps)(FindUserAPIComponenta);
-
-// const FindUserContainer = connect(mapStateToProps, {
-//       followBtn: addFwollowActionCreator,
-//       unfollowBtn: addUnFollowActionCreator,
-//       setUsers: setUsersActionCreator,
-//       setCurrentPage: setCurrentPageActionCreator,
-//       setTotalUsersCount: setTotalUsersCountActionCreator,
-//       toggleIsFetching: toggleIsFetchingCountActionCreator,
-// })(FindUserAPIComponenta);
 
 const FindUserContainer = connect(mapStateToProps, {
   followBtn,
@@ -111,6 +79,10 @@ const FindUserContainer = connect(mapStateToProps, {
   setCurrentPage,
   setTotalUsersCount,
   toggleIsFetching,
+  toggleFollowingInProgress,
+  getUsersThunkCreater,
+  follow,
+  unfollow,
 })(FindUserAPIComponenta);
 
 export default FindUserContainer;

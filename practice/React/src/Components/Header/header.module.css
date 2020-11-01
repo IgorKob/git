@@ -1,14 +1,25 @@
 .header {
   background-color: rgb(14, 119, 75);
   grid-area: header;
+  display: grid;
+  grid-template-columns: minmax(auto, 100px) 1fr minmax(auto, 100px);
 }
 
 .header_logo {
-  
+  background-color: rgb(95, 119, 14);
+
 }
 
 .header_logo__img {
   max-width: 50px;
   max-height: 50px;
   margin: 10px;
+}
+
+.loginBlock {
+  grid-column: 3 / 4;
+  background-color: rgb(73, 14, 119);
+}
+.loginBlock a {
+  color: #fff;
 }

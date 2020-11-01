@@ -1,5 +1,5 @@
 import React from 'react';
-import {addMessageActionCreator, newMessageChangeActionCreator} from "../../Redux/messagesPages_reduce";
+import {addMessageActionCreator, newMessageChangeActionCreator} from "../../Redux/messagesPages_reducer";
 import Messages from "./Messages";
 import {connect} from "react-redux";
 

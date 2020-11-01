@@ -1,9 +1,11 @@
-import {combineReducers, createStore} from "redux";
-import postPagesReduce from "./postPages_reduce";
-import messagesPagesReduce from "./messagesPages_reduce";
-import newsPagesReduce from "./newsPages_reduce";
-import findUserReduce from "./findUser_reduce";
+import {applyMiddleware, combineReducers, createStore} from "redux";
+import postPagesReduce from "./postPages_reducer";
+import messagesPagesReduce from "./messagesPages_reducer";
+import newsPagesReduce from "./newsPages_reducer";
+import findUserReduce from "./findUser_reducer";
 import mytestPages_reduce from "./mytestPages_reduce";
+import authReducer from "./auth_reducer";
+import thunkMiddleware from 'redux-thunk';
 
 let reducers = combineReducers({
   postPages: postPagesReduce,
@@ -11,9 +13,11 @@ let reducers = combineReducers({
   newsPages: newsPagesReduce,
   findUser: findUserReduce,
   mytestPages: mytestPages_reduce,
+  authUser: authReducer,
 });
 
-let store = createStore(reducers);
+// let store = createStore(reducers, applyMiddleware);
+let store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
 window.store = store;
 

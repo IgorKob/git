@@ -1,20 +1,20 @@
 import React from 'react';
-import {addPost, newPostText, setUsersProfile} from "../../Redux/postPages_reduce";
+import {addPost, newPostText, setUsersProfile} from "../../Redux/postPages_reducer";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import * as axios from "axios";
-// import withRouter from "react-router-dom";
 import { withRouter } from "react-router";
+import {usersAPI} from "../../api/api";
 
 class ProfileContainerClass extends React.Component {
 
   componentDidMount() {
-    let userId = this.props.match.params.id || 2
-    // debugger
-    axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-      .then((response) => {
-        this.props.setUsersProfile(response.data);
+    let userId = this.props.match.params.userId || 2;
+
+    usersAPI.getProfile(userId)
+      .then((data) => {
+        this.props.setUsersProfile(data);
       });
+
   }
 
   render() {
