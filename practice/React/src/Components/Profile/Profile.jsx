@@ -3,6 +3,7 @@ import classes from './profile.module.css';
 import Post from "../Post/Post";
 import Preloader from "../all/Preloader/Preloader";
 
+
 const Profile = (props) => {
 
   if (!props.profile) {
@@ -22,6 +23,9 @@ const Profile = (props) => {
 
 //contact
   let arr = Object.entries(props.profile.contacts)
+
+
+
 
   return (
     <>

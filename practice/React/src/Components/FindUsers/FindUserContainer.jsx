@@ -12,6 +12,9 @@ import {
 import Users from "./Users";
 import Preloader from "../all/Preloader/Preloader";
 import {usersAPI} from "../../api/api";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import Messages from "../Messages/Messages";
+import {compose} from "redux";
 
 class FindUserAPIComponenta extends React.Component {
 
@@ -58,6 +61,7 @@ class FindUserAPIComponenta extends React.Component {
   }
 }
 
+// let AuthRedirectComponent = withAuthRedirect(FindUserAPIComponenta)
 
 
 
@@ -72,17 +76,33 @@ const mapStateToProps = (state) => {
   }
 }
 
-const FindUserContainer = connect(mapStateToProps, {
-  followBtn,
-  unfollowBtn,
-  setUsers,
-  setCurrentPage,
-  setTotalUsersCount,
-  toggleIsFetching,
-  toggleFollowingInProgress,
-  getUsersThunkCreater,
-  follow,
-  unfollow,
-})(FindUserAPIComponenta);
+// const FindUserContainer = connect(mapStateToProps, {
+//   followBtn,
+//   unfollowBtn,
+//   setUsers,
+//   setCurrentPage,
+//   setTotalUsersCount,
+//   toggleIsFetching,
+//   toggleFollowingInProgress,
+//   getUsersThunkCreater,
+//   follow,
+//   unfollow,
+// })(AuthRedirectComponent);
+//
+// export default FindUserContainer;
 
-export default FindUserContainer;
+export default compose(
+  connect(mapStateToProps, {
+    followBtn,
+    unfollowBtn,
+    setUsers,
+    setCurrentPage,
+    setTotalUsersCount,
+    toggleIsFetching,
+    toggleFollowingInProgress,
+    getUsersThunkCreater,
+    follow,
+    unfollow,
+  }),
+  withAuthRedirect
+)(FindUserAPIComponenta);

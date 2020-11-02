@@ -1,35 +1,26 @@
 import React from 'react';
 import classes from './messages.module.css';
 import Dialog from "../Dialog/Dialog";
-import {addMessageActionCreator, newMessageChangeActionCreator} from "../../Redux/messagesPages_reducer";
-
-
+import {Redirect} from "react-router-dom";
 
 const Messages = (props) => {
 // debugger
 
   let newMessage = React.createRef();
   let addMessage = () => {
-    // let text = newMessage.current.value;
-    // alert(text);
-    // debugger
-    // props.addMessage(text);
-    // props.addMessage();
-    // debugger
-    // props.dispatch(addMessageActionCreator());
     props.addMessageActionCreator();
   }
 
   let newMessageChange = () => {
     // debugger
-// alert(newMessage.current.value)
     let text = newMessage.current.value;
-    // props.newMessageChange(text);
-
-    // let action = {type: 'NEW-MESSAGE-CHANGE', text: text};
-    // props.dispatch(newMessageChangeActionCreator(text));
     props.newMessageChangeActionCreator(text);
   }
+
+  if (props.isAuth === false) {
+    return (<Redirect to={'/login'} />)
+  }
+
 
   return (
     <>

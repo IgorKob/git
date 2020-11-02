@@ -8,6 +8,7 @@ import MessagesContainer from "../Messages/MessagesContainer";
 import NewsContainer from "../News/NewsContainer";
 import FindUserContainer from "../FindUsers/FindUserContainer";
 import MytestPagesContainer from "../MytestPages/MytestPagesContainer";
+import Login from "../Login/Login";
 
 const Main = (props) => {
   // debugger
@@ -43,6 +44,17 @@ const Main = (props) => {
         <Route path="/finduser">
           <FindUserContainer />
         </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+
+
+        {/*<Route exact path="/">*/}
+        {/*  {state.authUser.isAuth ? <Redirect to="/login" /> : <Settingss />}*/}
+        {/*</Route>*/}
+        {/*<Route exact path="/">*/}
+        {/*  {loggedIn ? <Redirect to="/dashboard" /> : <PublicHomePage />}*/}
+        {/*</Route>*/}
 
         {/*<Route path="/profile">*/}
         {/*  <ProfileContainer />*/}

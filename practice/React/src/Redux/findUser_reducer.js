@@ -109,6 +109,7 @@ export const getUsersThunkCreater = (currentPage, pageSize) => {
 }
 
 export const follow = (userId) => {
+  // debugger
   return (dispatch) => {
     dispatch(toggleFollowingInProgress(true, userId));
     usersAPI.follow(userId)
@@ -122,6 +123,7 @@ export const follow = (userId) => {
 }
 
 export const unfollow = (userId) => {
+  // debugger
   return (dispatch) => {
     dispatch(toggleFollowingInProgress(true, userId));
     usersAPI.unfollow(userId)
