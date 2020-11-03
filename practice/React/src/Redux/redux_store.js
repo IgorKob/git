@@ -6,6 +6,7 @@ import findUserReduce from "./findUser_reducer";
 import mytestPages_reduce from "./mytestPages_reduce";
 import authReducer from "./auth_reducer";
 import thunkMiddleware from 'redux-thunk';
+import { reducer as formReducer } from 'redux-form';
 
 let reducers = combineReducers({
   postPages: postPagesReduce,
@@ -14,6 +15,7 @@ let reducers = combineReducers({
   findUser: findUserReduce,
   mytestPages: mytestPages_reduce,
   authUser: authReducer,
+  form: formReducer
 });
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

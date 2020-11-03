@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './profile.module.css';
 import Post from "../Post/Post";
 import Preloader from "../all/Preloader/Preloader";
+import ProfileStatus from "./ProfileStatus";
 
 
 const Profile = (props) => {
@@ -29,10 +30,14 @@ const Profile = (props) => {
 
   return (
     <>
-      <header className={classes.profile_header}>
-        <img className={classes.profile_header__img} src='https://source.unsplash.com/random' />
-      </header>
+      {/*<header className={classes.profile_header}>*/}
+      {/*  <img className={classes.profile_header__img} src='https://source.unsplash.com/random' />*/}
+      {/*</header>*/}
       <h3 className={classes.profile}>Profile</h3>
+
+      <ProfileStatus status={props.status}
+        updateStatus={props.updateStatus}
+      />
 
       <div>
         <div>fullName: {props.profile.fullName}</div>
@@ -51,6 +56,10 @@ const Profile = (props) => {
 
       </div>
 
+
+
+
+
       <div className={classes.NewMyPost}>
         <textarea ref={newPostElement}
                   value={props.newPost}
@@ -67,6 +76,9 @@ const Profile = (props) => {
       {props.postPages.map((el) => (
         <Post key={el.id}  name={el.name} text={el.text} like={el.like} />
       ))}
+
+
+
 
 
     </>
