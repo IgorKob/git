@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<button id="asd0" onclick="myff()">ok</button>
+<input type="number" id="asd" />
+<button id="asd00" onclick="myff00()">OK 2</button>
+<button id="del" onclick="del()">delete</button>
+<input type="text" id="delinput" placeholder="id ... "/>
+<input type="text" id="updatainput" placeholder="new text updata ... "/>
+
+
+<button id="updata" onclick="updata()">updata</button>
+
+<div class="asd2"></div>
+<ul id="myul">
+    <li>my li 1</li>
+</ul>
+
+<!--axios-->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+// // 6    axios           promise
+// let src = document.getElementById('asd').value;
+// let asd0 = document.getElementById('asd0');
+//
+// asd0.addEventListener('click', () => {
+//   const promise = myff2(src);
+//   promise.then(myff3);
+// });
+//
+// function myff3(data) {
+//   data.forEach(el => {
+//     let img = document.createElement('IMG');
+//     img.src = el.thumbnail;
+//     document.querySelector('body').appendChild(img);
+//   })
+// }
+// function myff2(src) {
+//   const promise = axios.get(`https://repetitora.net/api/JS/Images?page=${src}&count=2`);
+//   // return promise.then(data => data.data);
+//   return promise.then((response) => { return response.data});
+// }
+
+
+
+// //66   promise
+// myff(2)
+//   .then((message) => console.log('then 1: '+ message))
+//   .then(() => console.log('then 2'))
+//   .catch(() => {console.log('Error')})    //відноситься до верхніх функцій і спрацює якщо буде помилка в них і всеодно програма піде до наступного then
+//   .then(() => console.log('then 3'));
+//
+// function myff(seconds) {
+//   let promise = new Promise((resolve, reject) => {
+//     console.log('promise')
+//     setTimeout(() => {
+// //ставимо цю команду коли сталася якась помилка і програма не буде йти дальше до then а відразу до catch()
+//       // reject();
+// //коли ми все виконали то цією командою даємо знати, що програма може передаватися далі до then
+// //       resolve();
+//       resolve('resolve ok');
+//     }, seconds * 1000);
+//   });
+//   return promise;
+// }
+
+
+
+
+// //7 post
+// let asd00 = document.getElementById('asd00');
+//
+// asd00.addEventListener('click', () => {
+//   const promise = myff22();
+//   promise.then(myff33);
+// });
+//
+// function myff33(data) {
+//   data.forEach(el => {
+//     let li = document.createElement('li');
+//     li.innerHTML = el;
+//     document.querySelector('#myul').appendChild(li);
+//   })
+// }
+//
+// function myff22(title) {
+//   const promise = axios.post(`https://repetitora.net/api/JS/Tasks?widgetId=321321&title=${title}`);
+//   return promise.then((response) => { return response.data});
+// }
+// myff22('my first task').then((data)=>{
+//   console.log(data)
+// });
+
+
+
+
+//8 post
+let asd00 = document.getElementById('asd00');
+
+// asd00.addEventListener('click', () => {
+//   const promise = myff22('my title 2');
+//   promise.then(myff33);
+// });
+asd00.addEventListener('click', () => {
+  const promise = myff222();
+  promise.then(myff33);
+});
+
+function myff33(data) {
+  data.forEach(el => {
+    let li = document.createElement('li');
+    // li.innerHTML = el.title;
+    // li.innerHTML = el.id;
+    li.innerHTML = el.id + ':' + el.title;
+    document.querySelector('#myul').appendChild(li);
+  });
+}
+
+function myff22(title) {
+  const promise = axios.post(`https://repetitora.net/api/JS/Tasks`, {
+    widgetId: 321322,
+    title: title
+  });
+  return promise.then((response) => { return response});
+}
+
+myff22('my first task').then((data)=>{
+  console.log(data)
+});
+
+function myff222() {
+  const promise = axios.get('https://repetitora.net/api/JS/Tasks?widgetId=321322');
+  return promise.then((response) => {
+    return response.data;
+  });
+}
+
+//delete
+function del() {
+let id = document.getElementById('delinput').value;
+// let id = 'b5e471f3-47bb-4c81-82b6-bfcbea162c27';
+  const promise = axios.delete(`https://repetitora.net/api/JS/Tasks?widgetId=321322&taskId=${id}`);
+  return promise.then((response) => { return response});
+}
+
+//updata
+function updata() {
+  let id = document.getElementById('delinput').value;
+  let title = document.getElementById('updatainput').value;
+  const promise = axios.put(`https://repetitora.net/api/JS/Tasks`, {
+    widgetId: 321322,
+    title: title,
+    taskId: id
+  });
+  return promise.then((response) => { return response});
+}
+</script>
+</body>
+</html>
