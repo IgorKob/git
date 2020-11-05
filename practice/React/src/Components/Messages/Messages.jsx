@@ -2,19 +2,17 @@ import React from 'react';
 import classes from './messages.module.css';
 import Dialog from "../Dialog/Dialog";
 import {Redirect} from "react-router-dom";
+import {Field, reduxForm} from "redux-form";
+import {maxLengthCreater, required} from "../../utils/validators";
+import {Textarea} from "../all/FormsControls/FormsControls";
 
 const Messages = (props) => {
 // debugger
 
   let newMessage = React.createRef();
-  let addMessage = () => {
-    props.addMessageActionCreator();
-  }
 
-  let newMessageChange = () => {
-    // debugger
-    let text = newMessage.current.value;
-    props.newMessageChangeActionCreator(text);
+  let addNewMessage = (value) => {
+    props.addMessageActionCreator(value.newMessage);
   }
 
   if (props.isAuth === false) {
@@ -34,24 +32,36 @@ const Messages = (props) => {
           </div>
         </div>
         <div className={classes.messages_items}>
-          {/*<div className={classes.messages_item}>asd</div>*/}
-          {/*<div className={classes.messages_item}>dsad</div>*/}
-          {props.igor.map(el => (
-            <div className={classes.messages_item} key={el.id}>{el.message}</div>
-          ))}
-          <textarea ref={newMessage}
-                    onChange={newMessageChange}
-                    value={props.messStart}
-                    className={classes.textarea}
-                    name=""
-                    id=""
-                    rows="5"
-          ></textarea>
-          <button onClick={addMessage} className={classes.btn}>Send</button>
+          <div>
+            {props.igor.map(el => (
+              <div className={classes.messages_item} key={el.id}>{el.message}</div>
+            ))}
+          </div>
+
+          <AddMessageFormRedux onSubmit={addNewMessage}/>
+
         </div>
       </div>
     </>
   );
 }
+
+
+let maxLength30 = maxLengthCreater(30);
+
+const AddMessageForm = (props) => {
+  return (
+    <form onSubmit={props.handleSubmit}>
+      <Field component={Textarea}
+             name='newMessage'
+             placeholder='Add message..'
+             validate={[required, maxLength30]}
+      />
+          <button className={classes.btn}>Send</button>
+      </form>
+  );
+}
+
+const AddMessageFormRedux = reduxForm({form: 'MessageFormPage'})(AddMessageForm);
 
 export default Messages;

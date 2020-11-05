@@ -3,20 +3,46 @@ import Main from "./Components/Main/Main";
 import Nav from "./Components/Nav/Nav";
 import './styles.css';
 import HeaderContainer from "./Components/Header/HeaderContainer";
-import {Route} from "react-router-dom";
-import Login from "./Components/Login/Login";
+import {withRouter, Route} from "react-router-dom";
+import {connect} from "react-redux";
+import {getAuthUserData, logout} from "./Redux/auth_reducer";
+import {compose} from "redux";
+import Preloader from "./Components/all/Preloader/Preloader";
+import {InitializeApp} from "./Redux/app_reducer";
 
-export default function App(props) {
-  // debugger
-  return (
-    <section className='container'>
+class App extends React.Component {
 
-      <HeaderContainer />
+  componentDidMount() {
+    // debugger
+    this.props.InitializeApp();
+  }
 
-      <Nav />
+  render() {
+    // debugger
+    if (!this.props.initialized) {
+      return <Preloader />
+    }
+    return (
+      <section className='container'>
 
-      <Main />
+        <HeaderContainer/>
 
-    </section>
-  );
+        <Nav/>
+
+        <Main/>
+
+      </section>
+    );
+  }
 }
+
+const mapStateToProps = (state) => ({
+  initialized: state.app.initialized
+})
+
+// export default connect(null, {
+//   getAuthUserData,
+// })(App);
+export default compose(
+  withRouter,
+  connect(mapStateToProps, {InitializeApp}))(App);

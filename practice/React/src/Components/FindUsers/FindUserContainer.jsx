@@ -104,5 +104,5 @@ export default compose(
     follow,
     unfollow,
   }),
-  withAuthRedirect
+  // withAuthRedirect
 )(FindUserAPIComponenta);

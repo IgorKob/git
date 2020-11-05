@@ -1,7 +1,6 @@
 import {profileAPI, usersAPI} from "../api/api";
 
 const ADD_POST = 'ADD-POST';
-const NEW_POST_TEXT = 'NEW-POST-TEXT';
 const SET_USERS_PROFILE = 'SET_USERS_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 
@@ -10,7 +9,6 @@ let initialState = {
     {id : 0, name: 'Admin', text : 'my post', like : 1},
     {id : 1, name: 'Igor', text : 'my post asd', like : 11},
   ],
-  newPost: '...',
   profile: null,
   status: ''
 };
@@ -20,13 +18,7 @@ const postPagesReduce = (state = initialState, action) => {
     case ADD_POST:
       return {
       ...state,
-      newPost: '',
-      posts:[...state.posts, {id : 7, name: 'Admin', text : state.newPost, like : 0}]
-    }
-    case NEW_POST_TEXT:
-      return  {
-      ...state,
-      newPost: action.text
+      posts:[...state.posts, {id : 7, name: 'Admin', text : action.newPost, like : 0}]
     }
     case SET_USERS_PROFILE:
       return  {
@@ -45,12 +37,8 @@ const postPagesReduce = (state = initialState, action) => {
 
 export default postPagesReduce;
 
-export const addPost = () => {
-  return {type: ADD_POST}
-}
-
-export const newPostText = (text) => {
-  return {type: NEW_POST_TEXT, text: text}
+export const addPost = (newPost) => {
+  return {type: ADD_POST, newPost}
 }
 
 export const setUsersProfile = (profile) => {
@@ -77,7 +65,6 @@ export const updateStatus = (status) => (dispatch) => {
     .then((response) => {
       // debugger
       if (response.data.resultCode === 0) {
-        // dispatch(setStatus(response.data));
         dispatch(setStatus(status));
       }
     });

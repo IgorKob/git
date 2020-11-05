@@ -5,6 +5,7 @@ import newsPagesReduce from "./newsPages_reducer";
 import findUserReduce from "./findUser_reducer";
 import mytestPages_reduce from "./mytestPages_reduce";
 import authReducer from "./auth_reducer";
+import appReducer from "./app_reducer";
 import thunkMiddleware from 'redux-thunk';
 import { reducer as formReducer } from 'redux-form';
 
@@ -15,7 +16,8 @@ let reducers = combineReducers({
   findUser: findUserReduce,
   mytestPages: mytestPages_reduce,
   authUser: authReducer,
-  form: formReducer
+  form: formReducer,
+  app: appReducer
 });
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

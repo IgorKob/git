@@ -1,17 +1,21 @@
 import React from 'react';
-import {addPost, getStatus, getUserProfile, newPostText, updateStatus} from "../../Redux/postPages_reducer";
+import {addPost, getStatus, getUserProfile, updateStatus} from "../../Redux/postPages_reducer";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-// import {withRouter, Redirect} from "react-router";
-import {withRouter, Redirect} from "react-router-dom";
-import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {withRouter} from "react-router-dom";
 import {compose} from "redux";
-// import Redirect from "react-router-dom";
 
 class ProfileContainerClass extends React.Component {
 
   componentDidMount() {
-    let userId = this.props.match.params.userId || 2;
+    // debugger
+    let userId = this.props.match.params.userId;
+    if (!userId) {
+      userId = this.props.authorizedUserId;
+      if (!userId) {
+        userId = this.props.history.push('/login');
+      }
+    }
     this.props.getUserProfile(userId);
     this.props.getStatus(userId);
 
@@ -29,27 +33,18 @@ class ProfileContainerClass extends React.Component {
   }
 }
 
-// let AuthRedirectComponent = withAuthRedirect(ProfileContainerClass)
-
-
 let mapStateToProps = (state) => {
   return {
     postPages: state.postPages.posts,
-    newPost: state.postPages.newPost,
     profile: state.postPages.profile,
     isAuth: state.authUser.isAuth,
     status: state.postPages.status,
+    authorizedUserId: state.authUser.userId,
   }
 }
 
-// let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent);
-//
-// const ProfileContainer = connect(mapStateToProps, {newPostText, addPost, getUserProfile})(WithUrlDataContainerComponent);
-//
-// export default ProfileContainer;
-
 export default compose(
-  connect(mapStateToProps, {newPostText, addPost, getUserProfile, getStatus, updateStatus}),
+  connect(mapStateToProps, {addPost, getUserProfile, getStatus, updateStatus}),
   withRouter,
   // withAuthRedirect
 )(ProfileContainerClass);
