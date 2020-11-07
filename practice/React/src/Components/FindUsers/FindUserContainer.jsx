@@ -11,10 +11,15 @@ import {
 } from "../../Redux/findUser_reducer";
 import Users from "./Users";
 import Preloader from "../all/Preloader/Preloader";
-import {usersAPI} from "../../api/api";
-import {withAuthRedirect} from "../../hoc/withAuthRedirect";
-import Messages from "../Messages/Messages";
 import {compose} from "redux";
+import {
+  getCurrentPage,
+  getFollowingInProgress,
+  getIsFetching,
+  getPageSize,
+  getTotalUsersCount,
+  getUsers
+} from "../../Redux/users_selectors";
 
 class FindUserAPIComponenta extends React.Component {
 
@@ -65,32 +70,26 @@ class FindUserAPIComponenta extends React.Component {
 
 
 
+// const mapStateToProps = (state) => {
+//   return {
+//     users: state.findUser.users,
+//     pageSize: state.findUser.pageSize,
+//     totalUsersCount: state.findUser.totalUsersCount,
+//     currentPage: state.findUser.currentPage,
+//     isFetching: state.findUser.isFetching,
+//     followingInProgress: state.findUser.followingInProgress,
+//   }
+// }
 const mapStateToProps = (state) => {
   return {
-    users: state.findUser.users,
-    pageSize: state.findUser.pageSize,
-    totalUsersCount: state.findUser.totalUsersCount,
-    currentPage: state.findUser.currentPage,
-    isFetching: state.findUser.isFetching,
-    followingInProgress: state.findUser.followingInProgress,
+    users: getUsers(state),
+    pageSize: getPageSize(state),
+    totalUsersCount: getTotalUsersCount(state),
+    currentPage: getCurrentPage(state),
+    isFetching: getIsFetching(state),
+    followingInProgress: getFollowingInProgress(state),
   }
 }
-
-// const FindUserContainer = connect(mapStateToProps, {
-//   followBtn,
-//   unfollowBtn,
-//   setUsers,
-//   setCurrentPage,
-//   setTotalUsersCount,
-//   toggleIsFetching,
-//   toggleFollowingInProgress,
-//   getUsersThunkCreater,
-//   follow,
-//   unfollow,
-// })(AuthRedirectComponent);
-//
-// export default FindUserContainer;
-
 export default compose(
   connect(mapStateToProps, {
     followBtn,

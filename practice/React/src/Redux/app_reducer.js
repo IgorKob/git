@@ -22,12 +22,17 @@ export const initializedSuccess = () => {
   return {type: INITIALIZED_SUCCESS}
 }
 
-export const InitializeApp = () => (dispatch) => {
+// export const InitializeApp = () => (dispatch) => {
+//   let promise = dispatch(getAuthUserData());
+//   Promise.all([promise])
+//     .then(()=>{
+//       dispatch(initializedSuccess());
+//     });
+// }
+export const InitializeApp = () => async (dispatch) => {
   let promise = dispatch(getAuthUserData());
-  Promise.all([promise])
-    .then(()=>{
+  let data = await Promise.all([promise]);
       dispatch(initializedSuccess());
-    });
 }
 
 export default appReducer;

@@ -1,30 +1,20 @@
 import React from 'react'
 import classes from "./FindUser.module.css";
 import {NavLink} from "react-router-dom";
+import Paginator from "../all/Paginator/Paginator";
 
-const Users = (props) => {
-  let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-
-  let pages = [];
-  for (let i = 1; i <= pagesCount; i++) {
-    pages.push(i);
-  }
+const Users = ({totalUsersCount, pageSize, onPageChanged, currentPage,...props}) => {
 
   return (
     <div>
 
       <h3>Users</h3>
 
-      <div>
-        {pages.map(el => {
-          return (
-            <span className={props.currentPage === el && classes.selectedPage}
-                  onClick={() => {props.onPageChanged(el)}}
-
-            >{el}</span>
-          )
-        })}
-      </div>
+      <Paginator currentPage={currentPage}
+                 onPageChanged={onPageChanged}
+                 totalUsersCount={totalUsersCount}
+                 pageSize={pageSize}
+      />
 
       {props.users.map(el=>(
         <div key={el.id} className={classes.user_wrapper}>

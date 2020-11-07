@@ -6,6 +6,7 @@ import ProfileStatus from "./ProfileStatus";
 import {Field, reduxForm} from "redux-form";
 import {maxLengthCreater, required} from "../../utils/validators";
 import {Textarea} from "../all/FormsControls/FormsControls";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 
 const Profile = (props) => {
@@ -26,7 +27,10 @@ const Profile = (props) => {
     <>
       <h3 className={classes.profile}>Profile</h3>
 
-      <ProfileStatus status={props.status}
+      {/*<ProfileStatus status={props.status}*/}
+      {/*  updateStatus={props.updateStatus}*/}
+      {/*/>      */}
+      <ProfileStatusWithHooks status={props.status}
         updateStatus={props.updateStatus}
       />
 
