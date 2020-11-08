@@ -29,7 +29,7 @@
 //              users={this.props.users}
 //              unfollowBtn={this.props.unfollowBtn}
 //              followBtn={this.props.followBtn}
-//              totalUsersCount={this.props.totalUsersCount}
+//              totalItemsCount={this.props.totalItemsCount}
 //              pageSize={this.props.pageSize}
 //
 //

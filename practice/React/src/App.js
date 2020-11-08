@@ -5,7 +5,6 @@ import './styles.css';
 import HeaderContainer from "./Components/Header/HeaderContainer";
 import {withRouter, Route} from "react-router-dom";
 import {connect} from "react-redux";
-import {getAuthUserData, logout} from "./Redux/auth_reducer";
 import {compose} from "redux";
 import Preloader from "./Components/all/Preloader/Preloader";
 import {InitializeApp} from "./Redux/app_reducer";

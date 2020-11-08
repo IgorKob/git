@@ -52,7 +52,7 @@ class FindUserAPIComponenta extends React.Component {
                users={this.props.users}
                unfollowBtn={this.props.unfollowBtn}
                followBtn={this.props.followBtn}
-               totalUsersCount={this.props.totalUsersCount}
+               totalItemsCount={this.props.totalUsersCount}
                pageSize={this.props.pageSize}
                followingInProgress={this.props.followingInProgress}
                // toggleFollowingInProgress={this.props.toggleFollowingInProgress}
@@ -74,7 +74,7 @@ class FindUserAPIComponenta extends React.Component {
 //   return {
 //     users: state.findUser.users,
 //     pageSize: state.findUser.pageSize,
-//     totalUsersCount: state.findUser.totalUsersCount,
+//     totalItemsCount: state.findUser.totalItemsCount,
 //     currentPage: state.findUser.currentPage,
 //     isFetching: state.findUser.isFetching,
 //     followingInProgress: state.findUser.followingInProgress,

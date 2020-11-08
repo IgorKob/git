@@ -3,7 +3,7 @@ import classes from "./FindUser.module.css";
 import {NavLink} from "react-router-dom";
 import Paginator from "../all/Paginator/Paginator";
 
-const Users = ({totalUsersCount, pageSize, onPageChanged, currentPage,...props}) => {
+const Users = ({totalItemsCount, pageSize, onPageChanged, currentPage,...props}) => {
 
   return (
     <div>
@@ -12,7 +12,7 @@ const Users = ({totalUsersCount, pageSize, onPageChanged, currentPage,...props})
 
       <Paginator currentPage={currentPage}
                  onPageChanged={onPageChanged}
-                 totalUsersCount={totalUsersCount}
+                 totalItemsCount={totalItemsCount}
                  pageSize={pageSize}
       />
 

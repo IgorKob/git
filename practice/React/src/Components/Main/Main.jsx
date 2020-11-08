@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import classes from './main.module.css';
 import {Route, Switch} from "react-router-dom";
 import Music from "../Music/Music";
 import Settingss from "../Settings/Settingss";
-import ProfileContainer from "../Profile/ProfileContainer";
+// import ProfileContainer from "../Profile/ProfileContainer";
 import MessagesContainer from "../Messages/MessagesContainer";
 import NewsContainer from "../News/NewsContainer";
 import FindUserContainer from "../FindUsers/FindUserContainer";
 import MytestPagesContainer from "../MytestPages/MytestPagesContainer";
 import Login from "../Login/Login";
+
+const ProfileContainer = React.lazy(() => import('../Profile/ProfileContainer'));
+
 
 const Main = (props) => {
   // debugger
@@ -17,11 +20,15 @@ const Main = (props) => {
 
       <Switch>
         <Route exact path="/">
-          <ProfileContainer />
+          <Suspense fallback={<div>Завантаження...</div>}>
+            <ProfileContainer />
+          </Suspense>
         </Route>
         {/*/:userId? - є не обовязковим*/}
         <Route path="/profile/:userId?">
-          <ProfileContainer />
+          <Suspense fallback={<div>Завантаження...</div>}>
+            <ProfileContainer />
+          </Suspense>
         </Route>
         <Route exact path="/messages">
           <MessagesContainer />
