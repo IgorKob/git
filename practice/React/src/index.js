@@ -6,9 +6,9 @@ import {BrowserRouter as Router} from "react-router-dom";
 import {Provider} from "react-redux";
 
 ReactDOM.render(
-  // <Router>
-  // <Router history={history}>
-  <Router basename={process.env.PUBLIC_URL}>
+  <Router>
+  {/*// <Router history={history}>*/}
+  {/*// <Router basename={process.env.PUBLIC_URL}>*/}
     <React.StrictMode>
       <Provider store={store}>
         <App />

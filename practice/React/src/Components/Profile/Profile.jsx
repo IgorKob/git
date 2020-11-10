@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import classes from './profile.module.css';
 import Post from "../Post/Post";
 import Preloader from "../all/Preloader/Preloader";
@@ -7,10 +7,16 @@ import {Field, reduxForm} from "redux-form";
 import {maxLengthCreater, required} from "../../utils/validators";
 import {Textarea} from "../all/FormsControls/FormsControls";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+import {ProfileData} from "./ProfileData";
+import {ProfileDataForm} from "./ProfileDataForm";
 
 
 const Profile = (props) => {
 
+  const [editMode, setEditMode] = useState(false);
+
+
+// debugger
   if (!props.profile) {
     return <Preloader />
   }
@@ -20,8 +26,8 @@ const Profile = (props) => {
     props.addPost(value.newPost);
   }
 
-//contact
-  let arr = Object.entries(props.profile.contacts)
+
+
 
   return (
     <>
@@ -34,21 +40,7 @@ const Profile = (props) => {
         updateStatus={props.updateStatus}
       />
 
-      <div>
-        <div>fullName: {props.profile.fullName}</div>
-        <div>userId: {props.profile.userId}</div>
-        <img src={props.profile.photos.large} />
-        <div>aboutMe: {props.profile.aboutMe}</div>
-        <div>lookingForAJob: {props.profile.lookingForAJob}</div>
-        <div>lookingForAJobDescription: {props.profile.lookingForAJobDescription}</div>
-        <div>contacts: {arr.map(el=>{
-          return (
-            <div>{el[0]}: {el[1]}</div>
-          )
-        })}
-        </div>
-      </div>
-
+      {editMode ? <ProfileDataForm {...props}/> : <ProfileData {...props} goToEditMode={() => setEditMode(true)}/>}
 
       <div className={classes.NewMyPost}>
 
@@ -66,7 +58,10 @@ const Profile = (props) => {
 
 let maxLength10 = maxLengthCreater(10);
 
+
+
 const AddNewPostForm = (props) => {
+
   return (
     <form onSubmit={props.handleSubmit}>
       <Field component={Textarea}
@@ -82,3 +77,5 @@ const AddNewPostForm = (props) => {
 const AddNewPostFormRedux = reduxForm({form: 'PostFormPage'})(AddNewPostForm);
 
 export default Profile;
+
+
