@@ -8,7 +8,7 @@ import {maxLengthCreater, required} from "../../utils/validators";
 import {Textarea} from "../all/FormsControls/FormsControls";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import {ProfileData} from "./ProfileData";
-import {ProfileDataForm} from "./ProfileDataForm";
+import {ProfileDataForm, ProfileDataReduxForm} from "./ProfileDataForm";
 
 
 const Profile = (props) => {
@@ -27,6 +27,11 @@ const Profile = (props) => {
   }
 
 
+  const onSubmit = (formData) => {
+      props.saveProfile(formData).then(() => {
+          setEditMode(false);
+      });
+  }
 
 
   return (
@@ -40,7 +45,11 @@ const Profile = (props) => {
         updateStatus={props.updateStatus}
       />
 
-      {editMode ? <ProfileDataForm {...props}/> : <ProfileData {...props} goToEditMode={() => setEditMode(true)}/>}
+      {editMode ? <ProfileDataReduxForm {...props}
+                                        onSubmit={onSubmit}
+                                        initialValues={props.profile}
+                                />
+                : <ProfileData {...props} goToEditMode={() => setEditMode(true)}/>}
 
       <div className={classes.NewMyPost}>
 

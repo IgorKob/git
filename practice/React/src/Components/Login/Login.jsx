@@ -12,6 +12,7 @@ import classes from './login.module.css'
 let maxLength30 = maxLengthCreater(30);
 
 const LoginForm = (props) => {
+    debugger
   return (
       <form onSubmit={props.handleSubmit}>
         <div><Field component={Input}
@@ -31,6 +32,13 @@ const LoginForm = (props) => {
                     name={'rememberMe'}
         /> remember me</div>
 
+          {props.captchaUrl && <img src={props.captchaUrl} />}
+          {props.captchaUrl && <Field component={'input'}
+                                      type="text"
+                                      name={'captcha'}
+                                      validate={[required]}
+          />}
+
         {props.error && <div className={classes.error}>{props.error}</div>}
 
         <div><button >Login</button ></div>
@@ -46,7 +54,7 @@ const Login = (props) => {
   const onSubmit = (formData) => {
     // debugger
     // console.log(formData);
-    props.Loginkim(formData.email, formData.password, formData.rememberMe);
+    props.Loginkim(formData.email, formData.password, formData.rememberMe, formData.captcha);
   }
 
   if (props.isAuth) {
@@ -56,7 +64,9 @@ const Login = (props) => {
   return (
     <>
       <h1>Login</h1>
-      <LoginReduxForm onSubmit={onSubmit} />
+      <LoginReduxForm onSubmit={onSubmit}
+                      captchaUrl={props.captchaUrl}
+      />
     </>
   )
 }
@@ -65,6 +75,7 @@ const mapStateToProps = (state) => {
   // debugger
   return  {
     isAuth: state.authUser.isAuth,
+      captchaUrl: state.authUser.captchaUrl,
   }
 }
 

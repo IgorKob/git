@@ -27,3 +27,6 @@
 .userPhoto {
   width: 40%;
 }
+.error {
+    color: red;
+}

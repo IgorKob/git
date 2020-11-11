@@ -26,7 +26,7 @@ export const ProfileData = (props) => {
       <div>lookingForAJobDescription: {props.profile.lookingForAJobDescription}</div>
       <div>contacts: {arr.map(el=>{
         return (
-          <div>{el[0]}: {el[1]}</div>
+            <div><b>{el[0]}</b>: {el[1]}</div>
         )
       })}
       </div>
