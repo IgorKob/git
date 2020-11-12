@@ -9,6 +9,10 @@ JS ловить зміна url, відправляє AJAX запит на сер
 
 14.
 import classes from './../css/nav.module.css';
+import {ProfileDataForm, ProfileDataReduxForm} from "./src/Components/Profile/ProfileDataForm";
+import React from "react";
+import {Field, reduxForm} from "redux-form";
+import {Input} from "./src/Components/all/FormsControls/FormsControls";
 <nav className={classes.nav}></nav>
 <nav className={`${classes.nav} ${classes.active}`}></nav>
 
@@ -251,7 +255,7 @@ return <Greeting {...props} />;
 }
 
 
-/////////useState(), useEffect(), useContext(), useReducer(), і useRef()
+/////////useState(), useEffect(), useContext(), useReducer(), і useRef(), useCallback
 I.)
 useState() - повертає масив із двома значеннями:
 поточний стан - поточне значення цього стану
@@ -311,3 +315,105 @@ II.)
 
 
 /////////
+83.
+///Selectors.js
+export const getUsers = (state) => {
+  return state.findUser.users;
+}
+export const getUsersSelector = (state) => {
+  return getUsers(state).filter(el => el>12);
+}
+//Reselect - дає змогу створювати складні селектори,
+// де в перших параметрах ми вказуємо простіші селектори
+// а в другому параметрі функцію стрілку де аргументами є повернуті значення простіших селекторів
+export const getUsersSuperSelector = createSelector(getUsers, getIsFatching,
+  (users, isFatching) => {
+    return users.filter(el => el>12);
+  }
+)
+
+84.
+onClick={myff}
+inputValue = e.currentTarget.value;
+
+
+88.
+1. immutability (имьютабельность, неизменяемость) - входные данные, пришедшие в функцию, эта функция не должна менять (речь про объекты и массивы, так как по ссылке они передаются, поэтому делаем копию)
+2. отсутствие side-effects (пункт 1 связан с этим, а так же использование глобальных переменных, их модификация, асинхронные операции и что-то может быть ещё)
+3. детерменированность\идемпотентность  -  сколько бы раз на вход чистой функции не подавали одно и тоже, на выходе чистой функции должен быть один и тот же результат
+4. чистая функция должна вернуть (return) что-либо)))
+
+Pure function
+reducer это тоже чистая функция, не меняет state и action
+правила которых должна придерживаться чистая функция:
+1.иммутабельность - не имеет права изменять входные ссылочные типы данных (props)
+2.возвращает данные
+3. no side effect - не оставляет какого-то мусора во внешнем мире
+4. детерминированность (идемпотентность) - это значит что сколько ни пускай мне на вход одни и те же данные я тебе всегда верну один и тот же ответ
+
+
+
+
+
+
+97.
+//initialValues={props.profile} - завдяки цьому, при редагуванні поля, буде відображатися в ньому старі дані з початку
+/profile.js
+<ProfileDataReduxForm {...props}
+  onSubmit={onSubmit}
+  initialValues={props.profile} />
+
+/ProfileDataReduxForm.js
+export const ProfileDataReduxForm = reduxForm({
+  form: 'ProfileDataForm'
+})(ProfileDataForm)
+
+/ProfileDataForm.js
+<div>fullName: <Field component={Input}
+type="text"
+name={'fullName'}
+placeholder={'fullName ...'}
+/></div>
+
+
+99.
+<Redirect exact from="/" to="/profile" />
+
+
+100.
+два минуса, первое что весь рендер происходит на клиенте а не на сервере (если я правильно понял),
+а второе что у реакта нет SEO оптимизации и для этого есть решения
+
+......................
+classnames - це бібліотека, яка забезпечує нам умовний вибір класу в React.
+cn - це функція, яка може приймати n кількість аргументів, і кожен аргумент є визначеним класом css.
+Ця функція після завершення повертає рядок усіх об'єднаних аргументів.
+npm install classnames --save
+import cn from 'classnames'
+className={cn("btn","h-100",w-100")}
+className={cn(
+{ "btn-green": this.state.flag },
+{ "btn-red": !this.state.flag }
+)}
+  //
+  import React, { Component } from "react";
+  import cn from "classnames";
+  class App extends Component {
+    state = {flag: false};
+    onClickHandler = () => {
+     this.setState({flag: !this.state.flag});
+    };
+    render() {
+      return (
+        <div className="align-center ">
+          <button className={cn("btn",
+            { "btn-green": this.state.flag },
+            { "btn-red": !this.state.flag }
+           )}
+            onClick={this.onClickHandler}>
+            Click me!</button>
+        </div>
+      );
+    }
+  }
+export default App;

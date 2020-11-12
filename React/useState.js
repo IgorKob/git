@@ -20,3 +20,16 @@ function App() {
     </ul>
   );
 }
+
+
+2.
+Якщо стейт є обєктом
+const [mystate, setMystate] = React.useState({id:1, text: 'asd'})
+<button onClick={() => {
+  setMystate((prevMystate) => {
+    return {
+      ...prevMystate,
+      text: 'asd2'
+    }
+  })
+}}>Send</button>
