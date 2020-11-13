@@ -90,3 +90,14 @@ React.useEffect(() => {
       window.removeEventListener('mousemove', mouseMoveHandler)
     }
 }, [type]);
+
+
+3.
+useEffect(() => {
+  const row = localStorage.getItem('myrow') || [];
+  setMyrow(JSON.parse(row));
+});
+
+useEffect(() => {
+  localStorage.setItem('myrow', JSON.stringify(myrow));
+}, [myrow]);
