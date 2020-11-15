@@ -1,3 +1,43 @@
+// функція редуктора приймає стан і дію як вхідні дані і повертає новий стан на основі цієї інформації як вихід. Крім того, він має гілку для кожного типу дії.
+// 1.
+const initialState = { count: 0 }
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 }
+    case 'decrement':
+      return { count: state.count - 1 }
+    default:
+      throw new Error()
+  }
+}
+
+function Counter() {
+  const [state, dispatch] = useReducer(
+    reducer,
+    initialState
+  )
+  return (
+    <>
+      Count: {state.count}
+      <button
+        onClick={() => dispatch({ type: 'increment' })}
+      >
+        +
+      </button>
+      <button
+        onClick={() => dispatch({ type: 'decrement' })}
+      >
+        -
+      </button>
+    </>
+  )
+}
+
+
+
+// 2.
 import React from 'react';
 
 const initialTodos = [...];
@@ -46,9 +86,9 @@ const App = () => {
 
 export default App;
 
-////////////
 
 
+// 3.
 const App = () => {
   const [todos, dispatch] = React.useReducer(
     todoReducer,
@@ -81,7 +121,7 @@ const App = () => {
 };
 
 
-/////////////
+// 4.
 import React from 'react';
 import { useTheme } from 'styled-components';
 import { useRouter } from 'react-router-dom';
@@ -99,6 +139,3 @@ function App() {
 }
 
 export default App;
-
-/////////////////////
-

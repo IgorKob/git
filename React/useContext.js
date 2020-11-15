@@ -1,4 +1,20 @@
+// I.
+// 1. 
+const TodoContext = createContext ( null ) ;
+// 2.
+<TodoContext.Provider value={dispatchTodos}>
+    <Filter dispatch={dispatchFilter} />
+    <TodoList dispatch={dispatchTodos} todos={filteredTodos} />
+    <AddTodo dispatch={dispatchTodos} />
+</TodoContext.Provider>
+// 3.
+const dispatch = useContext(TodoContext);
+//33.
+<TodoContext.Consumer>
+        <p style={{ color }}>Hello World</p>
+</TodoContext.Consumer>
 
+// II.
 const themes = {
   light: {
     foreground: "#000000",
@@ -36,3 +52,5 @@ function ThemedButton() {
     </button>
   );
 }
+
+

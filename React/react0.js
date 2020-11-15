@@ -1,3 +1,10 @@
+// Чтобы передать параметры обработчику событий, оберните его в стрелочную функцию:
+<button onClick={() => this.handleClick(id)} />
+// Это действие равносильно использованию .bind:
+<button onClick={this.handleClick.bind(this, id)} />
+
+
+
 import {BrowserRouter as Router, NavLink, Route, Switch} from "react-router-dom";
 
 5.
