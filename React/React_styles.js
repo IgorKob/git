@@ -21,3 +21,67 @@ export const Asdd = (props) =>{
         </ul>
     )
 }
+
+
+// 2.                  styled-components
+// npm install styled-components
+import React, { Component } from 'react';
+import styled from 'styled-components';
+ 
+// const Input = styled.div`
+const Input2 = styled.input`
+  padding: 0.5em;
+  margin: 0.5em;
+  color: palevioletred;
+  background: papayawhip;
+  border: none;
+  border-radius: ${props => props.hasRadius ? '3px' : '0px'};
+`;
+ 
+class App extends Component {
+  ...
+ 
+  render() {
+    return (
+      <div>
+        <Input2
+          value={this.state.value}
+          onChange={this.onChange}
+          hasRadius={true}
+        />
+      </div>
+    );
+  }
+}
+
+
+//https://styled-components.com/docs/basics#adapting-based-on-props
+// надайте якорю теж деякий стиль, тоді як вибраний 
+const Anchor = styled.a`
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  background-color: papayawhip;
+ 
+  ${props =>
+    props.selected
+      ? css`
+          border-bottom: 1px solid #000;
+          font-weight: bold;
+        `
+      : null};
+`;
+ 
+class App extends Component {
+  constructor(props) {
+    ...
+  }
+ 
+  render() {
+    return (
+      <Anchor
+        href={`#${thing.id}`}
+        selected={thing.id === 'a'}
+      >
+        {thing.headline}
+      </Anchor>
