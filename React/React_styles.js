@@ -38,6 +38,30 @@ const Input2 = styled.input`
   border-radius: ${props => props.hasRadius ? '3px' : '0px'};
 `;
  
+const Button = styled.button`
+  cursor: pointer;
+  background: transparent;
+  font-size: 16px;
+  border-radius: 3px;
+  color: ${props => (props.primary ? 'violet' : 'palevioletred')};
+  border: ${props =>
+    props.primary ? '2px solid violet' : '2px solid palevioletred'};
+  margin: 0 1em;
+  padding: 0.25em 1em;
+  transition: 0.5s all ease-out;
+
+  &:active,
+  &:focus {
+    text-align: left;
+  }
+ 
+  &:hover {
+    color: white;
+    background-color: ${props =>
+      props.primary ? 'violet' : 'palevioletred'};
+  }
+`;
+
 class App extends Component {
   ...
  
@@ -49,6 +73,8 @@ class App extends Component {
           onChange={this.onChange}
           hasRadius={true}
         />
+        <Button>I am a Button</Button>
+        <Button primary>I am a Primary Button</Button>
       </div>
     );
   }
