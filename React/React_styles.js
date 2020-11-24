@@ -49,6 +49,8 @@ const Button = styled.button`
   margin: 0 1em;
   padding: 0.25em 1em;
   transition: 0.5s all ease-out;
+  display: flex !important;
+  flex-basis: calc(33.333% - 20px);
 
   &:active,
   &:focus {

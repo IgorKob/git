@@ -54,3 +54,32 @@ function App() {
 }
 
 export default App;
+
+
+// 3.
+import React from 'react';
+ 
+import 'road-dropdown';
+ 
+const Dropdown = ({ label, option, options, onChange }) => {
+  const ref = React.useRef();
+ 
+  React.useLayoutEffect(() => {
+    const handleChange = customEvent => onChange(customEvent.detail);
+ 
+    const { current } = ref;
+ 
+    current.addEventListener('onChange', handleChange);
+ 
+    return () => current.removeEventListener('onChange', handleChange);
+  }, [ref]);
+ 
+  return (
+    <road-dropdown
+      ref={ref}
+      label={label}
+      option={option}
+      options={JSON.stringify(options)}
+    />
+  );
+};
