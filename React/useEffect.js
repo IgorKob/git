@@ -92,7 +92,7 @@ React.useEffect(() => {
 }, [type]);
 
 
-3.
+// 4.
 useEffect(() => {
   const row = localStorage.getItem('myrow') || [];
   setMyrow(JSON.parse(row));
@@ -101,3 +101,18 @@ useEffect(() => {
 useEffect(() => {
   localStorage.setItem('myrow', JSON.stringify(myrow));
 }, [myrow]);
+
+
+// 5.
+const [menuItems, setMenuItems] = useState(null);
+useEffect(() => {
+  get('/menu').then((response) => setMenuItems(response.data));
+}, []);
+ 
+const [position, setPosition] = useState({ x: 0, y: 0 });
+useEffect(() => {
+  const handleMove = (event) =>
+    setPosition({ x: event.clientX, y: event.clientY });
+  window.addEventListener('mousemove', handleMove);
+  return () => window.removeEventListener('mousemove', handleMove);
+}, []);
