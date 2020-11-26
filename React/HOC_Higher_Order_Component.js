@@ -1,6 +1,21 @@
 // компонент вищого порядку - це функція, яка приймає компонент і повертає новий компонент.
 // Якщо звичайний компонент перетворює пропси в UI, то компонент вищого порядку перетворює компонент в інший компонент.
 
+// 0.
+// Замість цього ...
+const EnhancedComponent = withRouter(connect(commentSelector)(WrappedComponent))
+
+// ... можете використати композиційну функцію
+// compose(f, g, h) теж саме, що (...args) => f(g(h(...args)))
+const enhance = compose(
+  // Обидва параметра є КВП та приймають лише один аргумент
+  withRouter,
+  connect(commentSelector)
+)
+const EnhancedComponent = enhance(WrappedComponent)
+
+
+
 1.
 const EnhancedComponent = higherOrderComponent(
   WrappedComponent

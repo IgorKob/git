@@ -1,3 +1,4 @@
+// https://uk.reactjs.org/docs/typechecking-with-proptypes.html
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -18,6 +19,13 @@ Asd.propTypes = {
     asd3: PropTypes.object.isRequired,
     asd4: PropTypes.number,
     myff: PropTypes.func.isRequired,
+    
+    message:   PropTypes.string.isRequired,
+    style:     PropTypes.object.isRequired,
+    isMetric:  PropTypes.bool.isRequired,
+    miles:     PropTypes.number.isRequired,
+    milesToKM: PropTypes.func.isRequired,
+    races:     PropTypes.array.isRequired
 }
 
 export default Asddd;

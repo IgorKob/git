@@ -83,3 +83,16 @@ const Dropdown = ({ label, option, options, onChange }) => {
     />
   );
 };
+
+// 4.                          forwardRef
+// React.forwardRef створює React-компонент, що передає атрибут ref, який він отримав, 
+// іншому компоненту, розташованому нижче у дереві. 
+const FancyButton = React.forwardRef((props, ref) => (
+  <button ref={ref} className="FancyButton">
+    {props.children}
+  </button>
+));
+
+// Тепер ви можете отримати реф беспосередньо на DOM button
+const ref = React.createRef();
+<FancyButton ref={ref}>Click me!</FancyButton>;
