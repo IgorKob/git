@@ -1,3 +1,5 @@
+// https://styled-components.com/docs/basics
+
 import React from 'react';
 
 const styles = {
@@ -51,6 +53,7 @@ const Button = styled.button`
   transition: 0.5s all ease-out;
   display: flex !important;
   flex-basis: calc(33.333% - 20px);
+  padding: ${props => props.size};
 
   &:active,
   &:focus {
@@ -113,3 +116,33 @@ class App extends Component {
       >
         {thing.headline}
       </Anchor>
+
+
+/////////////////////
+
+const Button = styled.button`
+  color: palevioletred;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`;
+
+// успадеовує стилі Button і добавляє своїх 2 стилі
+const TomatoButton = styled(Button)`
+  color: blue;
+  border-color: tomato;
+`;
+
+render(
+  <div>
+    <Button>Normal Button</Button>
+    <TomatoButton>Tomato Bton</TomatoButton>
+  </div>
+
+
+
+
+// as - для присвоєнню стилю з елементу "а"
+<Button as="a" href="/">Link with Button styles</Button>

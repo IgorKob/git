@@ -41,3 +41,43 @@ export { MyComponent as default } from "./ManyComponents.js";
 // MyApp.js
 import React, { lazy } from 'react';
 const MyComponent = lazy(() => import("./MyComponent.js")); 
+
+
+
+
+
+// 0.            Розбиття коду
+// Замість того, щоб завантажувати всю програму, перш ніж користувачі зможуть її використовувати, 
+// розбиття коду дозволяє розділити ваш код на невеликі фрагменти, які потім можна завантажити на вимогу.
+
+// Це зробить moduleA.jsі всі його унікальні залежності як окремий шматок, 
+// який завантажується лише після натискання користувачем кнопки "Завантажити".
+
+// /moduleA.js
+const moduleA = 'Hello';
+export { moduleA };
+
+// /App.js
+import React, { Component } from 'react';
+
+class App extends Component {
+  handleClick = () => {
+    import('./moduleA')
+      .then(({ moduleA }) => {
+        // Use moduleA
+      })
+      .catch(err => {
+        // Handle failure
+      });
+  };
+
+  render() {
+    return (
+      <div>
+        <button onClick={this.handleClick}>Load</button>
+      </div>
+    );
+  }
+}
+
+export default App;
