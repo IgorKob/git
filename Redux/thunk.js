@@ -68,3 +68,37 @@ function fetchUser(id) {
     // you can use api and something else here
   };
 }
+
+
+
+
+// 5.    createAsyncThunk
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+
+export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
+  const response = await client.get('/fakeApi/posts')
+  return response.posts
+})
+
+
+// 55.
+export const addNewPost = createAsyncThunk(
+  'posts/addNewPost', async initialPost => {
+    const response = await client.post('/fakeApi/posts', { post: initialPost })
+    return response.post
+  }
+)
+
+const postsSlice = createSlice({
+  name: 'posts',
+  initialState,
+  reducers: {
+    reactionAdded(state, action) {}, // omit logic
+    postUpdated(state, action) {} // omit logic
+  },
+  extraReducers: {
+    [addNewPost.fulfilled]: (state, action) => {
+      state.posts.push(action.payload)
+    }
+  }
+})
