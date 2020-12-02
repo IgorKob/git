@@ -44,3 +44,40 @@ render() {
   // як описано в “Додавання зображень та шрифтів” вище цього розділу.
   return <img src={process.env.PUBLIC_URL + '/img/logo.png'} />;
 }
+
+
+
+// 3. встановити фонове зображення в React
+// I.    Встановлення зображення за допомогою вбудованих стилів
+import React from 'react';
+import car from './images/car.png'
+
+function App() {
+  return (
+    <div  styles={{ backgroundImage:`url(${car})` }}>
+      <h1>This is red car</h1>
+    </div>
+  );
+}
+
+export default App;
+
+// II.  Встановлення зображення за допомогою зовнішнього css
+// ./App.js
+import React from 'react';
+import './App.css';
+
+function App() {
+  return (
+    <div  className="container">
+      <h1>This is red car</h1>
+    </div>
+  );
+}
+
+export default App;
+
+// ./App.css
+.container{
+  background-image: url(./images/car.png);
+}

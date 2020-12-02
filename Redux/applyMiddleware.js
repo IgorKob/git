@@ -31,3 +31,35 @@ const loggerMiddleware = storeAPI => next => action => {
   console.log('next state', storeAPI.getState())
   return result
 }
+
+
+// 222.
+const fetchTodosMiddleware = storeAPI => next => action => {
+  if (action.type === 'todos/fetchTodos') {
+    client.get('todos').then(todos => {
+      dispatch({ type: 'todos/todosLoaded', payload: todos })
+    })
+  }
+
+  return next(action)
+}
+
+
+
+// 3.      DevTools 
+// npm install redux-devtools-extension
+// Цей пакет експортує спеціалізовану composeWithDevToolsфункцію, 
+// яку ми можемо використовувати замість оригінальної composeфункції Redux
+import { createStore, applyMiddleware } from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import rootReducer from './reducer'
+import { print1, print2, print3 } from './exampleAddons/middleware'
+
+const composedEnhancer = composeWithDevTools(
+  // EXAMPLE: Add whatever middleware you actually want to use here
+  applyMiddleware(print1, print2, print3)
+  // other store enhancers if any
+)
+
+const store = createStore(rootReducer, composedEnhancer)
+export default store

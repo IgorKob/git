@@ -41,3 +41,8 @@ $primary-background: #222;
     color: $primary-color;
   }
 }
+
+
+// 2.  ./index.css - Цей імпорт додасть normalize.cssфайл до вашого проекту.
+@import-normalize;    
+
