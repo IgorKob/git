@@ -29,3 +29,41 @@ Asd.propTypes = {
 }
 
 export default Asddd;
+
+
+
+//1.  Перевірка об'єктів
+import React from "react";
+import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
+
+function App(props) {
+  return (
+    <div className="App">
+      <h1>{props.user.name}</h1>
+      <p>{props.user.age}</p>
+    </div>
+  );
+}
+
+App.propTypes = {
+  user: PropTypes.shape({
+    name: PropTypes.string,
+    age: PropTypes.number
+  })
+};
+
+const user = { name: "Sai", age: 3 };
+ReactDOM.render(<App user={user} />, document.getElementById("root"));
+
+
+
+
+// 2.   Перевірка масиву об'єктів
+App.propTypes = {
+    usersArray: PropTypes.arrayOf(
+     PropTypes.shape({
+      name: PropTypes.string,
+      age: PropTypes.number
+    })).isRequired
+  };
