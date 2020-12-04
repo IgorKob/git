@@ -39,3 +39,46 @@ function App() {
 }
 
 export default App;
+
+
+
+
+// 2.   my hook
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
+
+const useFetch = url => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  async function fetchData() {
+    const response = await fetch(url);
+    const json = await response.json();
+    setData(json);
+    setLoading(false)
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, []);
+
+  return {loading,data};
+};
+
+function App() {
+
+  const {loading,data} = useFetch("https://jsonplaceholder.typicode.com/todos/1");
+
+  return (
+    <div>
+      {loading ? <div>Loading...</div> :
+      <ul>
+       <li>{data.id}</li>
+       <li>{data.title}</li>
+      </ul>
+      }
+    </div>
+  )
+}
+
+export default App;
