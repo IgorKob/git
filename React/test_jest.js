@@ -32,3 +32,37 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<App />, div);
 });
+
+
+
+
+
+// II.   https://reactgo.com/react-testing-tutorial-jest/ 
+// зробити знімок нашого компонента.
+npm i -D react-test-renderer
+// ./App.js
+import React, { Component } from 'react';
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <button>Show</button>
+      </div>
+    );
+  }
+}
+export default App;
+
+
+// ./App.test.js
+import React from 'react';
+import App from '../App';
+import { create } from 'react-test-renderer'
+
+describe('My first snapshot test',()=>{
+    test('testing app button', () => {
+    let tree = create(<App />)
+    expect(tree.toJSON()).toMatchSnapshot();
+  })
+})
