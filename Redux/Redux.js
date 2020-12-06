@@ -1,3 +1,22 @@
+npx create-react-app my-app --template redux
+npm install redux
+yarn add redux
+
+npm install react-redux
+yarn add react-redux
+
+npm install @reduxjs/toolkit
+yarn add @reduxjs/toolkit
+
+npm install redux-thunk
+
+npm i --save redux-logger
+
+npm install axios
+
+
+
+
 Redux - це шаблон і бібліотека для управління та оновлення стану програми,
 використовуючи події, що називаються "actions". Він служить централізованим сховищем для програми,
 який потрібно використовувати в усьому вашому додатку, з правилами, що забезпечують оновлення програми
