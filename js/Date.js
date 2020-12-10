@@ -1,3 +1,26 @@
+// 1.  Date Lib 
+https://momentjs.com/
+npm install moment --save  
+yarn add moment            
+
+moment().format('MMMM Do YYYY, h:mm:ss a'); // December 10th 2020, 2:05:57 pm
+moment().format('dddd');                    // Thursday
+moment().format();                          // 2020-12-10T14:06:36+02:00
+//
+moment("20111031", "YYYYMMDD").fromNow(); // 9 years ago
+moment("20120620", "YYYYMMDD").fromNow(); // 8 years ago
+moment().startOf('day').fromNow();        // 14 hours ago
+moment().endOf('day').fromNow();          // in 10 hours
+moment().startOf('hour').fromNow();       // 7 minutes ago
+//
+moment().subtract(1, 'days').calendar();  // Yesterday at 2:07 PM
+moment().calendar();                      // Today at 2:07 PM
+moment().add(1, 'days').calendar();       // Tomorrow at 2:07 PM
+
+
+
+
+// 0.
 .....................Date
 <p id="demo"></p>
 <script>

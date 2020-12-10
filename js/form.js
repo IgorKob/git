@@ -30,3 +30,25 @@ function myFunction() {
   <input type="file" name="pic" accept="image/*">
   <input type="submit">
 </form>
+
+
+
+//                            validation
+<input type="text" pattern=".{5,}">Nane
+<input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$">Email
+<input type="text" pattern="([0-9]|\s){2,}">Phone
+<span data-validation-text>Must be 5 chars or more</span>
+//css
+// When the input is invalid & not blank
+input:invalid:not(:placeholder-shown) {
+	border: 2px solid red !important;
+}
+// When input is invalid, show and make the adjacanet validation text red 
+input:invalid:not(:placeholder-shown) + [data-validation-text] {
+	color: red !important;
+	display: block;
+}
+// Hide validation text by default
+[data-validation-text] {
+	display: none;
+}

@@ -1,5 +1,7 @@
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Assertions
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Character_Classes
+// https://regexlib.com/(X(1)A(a-T8ItcQ2fEhDfoLFsZqQQBSkMJpO3tuehH2VS5vCqO4fhsc0KEUhCx8eqUhs8qvJNU53exrxreFBoUbVdTqWBdl8-TXF_9izq5ZyJoyKvCvv_xj4OU59Gxp2HARaagKgYTNqZIZL7WL5WdfYwxCxDGKk9zp0Izq31XHFQfuqVxflids9IQAHIHLq_WGuNQW0))/CheatSheet.aspx?AspxAutoDetectCookieSupport=1
+
 //////////////////////
 //\ d - те саме, що [0-9],
 //\ w - те саме, що [a-zA-Z0-9_],
@@ -64,6 +66,25 @@
 // replaceAll()	Виконує пошук усіх збігів у рядку та замінює відповідні підрядки заміною підрядкою.
 // split()	Використовує регулярний вираз або фіксовану рядок для розбиття рядка на масив підрядів.
 
+
+<input type="text" pattern=".{5,}">Nane
+<input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$">Email
+<input type="text" pattern="([0-9]|\s){2,}">Phone
+<span data-validation-text>Must be 5 chars or more</span>
+//css
+// When the input is invalid & not blank
+input:invalid:not(:placeholder-shown) {
+	border: 2px solid red !important;
+}
+// When input is invalid, show and make the adjacanet validation text red 
+input:invalid:not(:placeholder-shown) + [data-validation-text] {
+	color: red !important;
+	display: block;
+}
+// Hide validation text by default
+[data-validation-text] {
+	display: none;
+}
 
 
 
@@ -155,10 +176,32 @@ var myArray = myRe.exec('cdbbdbsbz');
 console.log('The value of lastIndex is ' + myRe.lastIndex);  //myRe.index;
 // "The value of lastIndex is 5"
 
+/^\d{2}\/\d{2}\/\d{4}$/  перевіряє формат дати, наявність 2 цифри / 2 цифри / 4 цифри .
 
 // Регулярний вираз має відповідати (поштовий індекс США) 12345 і 12345-6789, але не 1234, 123456, 123456789 або 1234-56789.
 /^[0-9]{5}(?:-[0-9]{4})?$/
+or
+// На початку 1 або 2 алфавітні символи, за якими слідують 1 або 2 цифри, потім пробіл і одна цифра, і точно два алфавітні символи.
+/^[A-Z]{1,2}[0-9]{1,2} ?[0-9][A-Z]{2}$/i;
 
+// веб-сайт / сторінка 
+/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/
+
+
+// Якщо хочете дозволити лише буквено-цифрові символи
+/^[a-zA-Z0-9]*$/
+
+// Для десяткових чисел з однією десятковою комою
+/^[0-9]+\.?[0-9]*$/
+
+// підтверджує номер телефону
+function validate()
+{
+  var phoneNumber = document.getElementById('phone-number').value;
+  var phoneRGEX = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
+  var phoneResult = phoneRGEX.test(phoneNumber);
+  alert("phone:"+phoneResult );
+}
 
 
 //шукає будь-які символи, крім букв, цифр та пробілів:
