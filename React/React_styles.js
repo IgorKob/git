@@ -146,3 +146,34 @@ render(
 
 // as - для присвоєнню стилю з елементу "а"
 <Button as="a" href="/">Link with Button styles</Button>
+
+
+
+
+
+
+//                                         animations
+// https://styled-components.com/docs/basics#animations
+// Create the keyframes
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+// Here we create a component that will rotate everything we pass in over two seconds
+const Rotate = styled.div`
+  display: inline-block;
+  animation: ${rotate} 2s linear infinite;
+  padding: 2rem 1rem;
+  font-size: 1.2rem;
+  animation-fill-mode: none | forwards | backwards | both; //властивість елемента при закінченні анімації
+`;
+
+render(
+  <Rotate>&lt; 💅🏾 &gt;</Rotate>
+);

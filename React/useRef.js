@@ -96,3 +96,22 @@ const FancyButton = React.forwardRef((props, ref) => (
 // Тепер ви можете отримати реф беспосередньо на DOM button
 const ref = React.createRef();
 <FancyButton ref={ref}>Click me!</FancyButton>;
+
+
+
+
+// 5.           range and ref
+const [speed, setSpeed] = useState(1);
+const rangevalue1 = useRef();
+
+const handleChange = ({target}) => {
+    setSpeed(target.value);
+    rangevalue1.current.value = target.value;
+};
+
+return (
+    <>
+        <input type="range" min="0" max="5"  step=".1" value={speed} onChange={handleChange}/>
+        <output ref={rangevalue1}></output>
+    </>
+)
