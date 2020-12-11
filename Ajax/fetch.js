@@ -1,3 +1,5 @@
+// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
 // запрос с помощью fetch состоит из двух операторов await:
 let response = await fetch(url, options); // завершается с заголовками ответа
 let result = await response.json(); // читать тело ответа в формате JSON

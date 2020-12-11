@@ -1,8 +1,10 @@
 // https://semantic-ui.com/
 // https://reactgo.com/semantic-ui-react/
 // Семантичний інтерфейс - це розробка, яка допомагає нам створювати красиві, чуйні макети, використовуючи зручний для людини HTML.
-// npm i semantic-ui-react
-// npm i semantic-ui-css
+npm install semantic-ui-react semantic-ui-css
+yarn add semantic-ui-react semantic-ui-css
+// ./index.js
+import 'semantic-ui-css/semantic.min.css'
 
 
 // I.                                       NavBar
