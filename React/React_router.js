@@ -2,6 +2,19 @@
 npm install --save react-router-dom
 yarn add react-router-dom
 
+
+// 1.
+// зовнішнє посилання
+<Link to={{ pathname: "https://example.com/hc/Policies" }} target="_blank" />
+// 2.
+{this.state.session.user ? (
+  <Route exact path="/" component={MyComponent} />
+  ) : (
+  <Route exact path="/" render={() => (window.location = "https://redirectsite.com")} />
+)}
+
+
+
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
