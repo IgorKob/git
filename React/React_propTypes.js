@@ -16,6 +16,7 @@ const Asddd = (props) =>{
 Asd.propTypes = {
     asd: PropTypes.array,
     asd2: PropTypes.arrayOf(PropTypes.object).isRequired,
+    asd2: PropTypes.arrayOf(PropTypes.string),
     asd3: PropTypes.object.isRequired,
     asd4: PropTypes.number,
     myff: PropTypes.func.isRequired,

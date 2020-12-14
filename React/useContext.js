@@ -14,6 +14,24 @@ const dispatch = useContext(TodoContext);
         <p style={{ color }}>Hello World</p>
 </TodoContext.Consumer>
 
+
+// також можете передати функції у значення Постачальника, і ці функції будуть використані Споживачем для оновлення стану контексту:
+<Provider value={{
+  state: this.state,
+  updateSomething: () => this.setState({something: 'ho!'})}}>
+  {this.props.children}
+</Provider>
+
+/* ... */
+<Consumer>
+  {(context) => (
+    <button onClick={context.updateSomething}>{context.state.something}</button>
+  )}
+</Consumer>
+
+
+
+
 // II.
 const themes = {
   light: {

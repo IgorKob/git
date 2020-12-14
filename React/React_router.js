@@ -1,6 +1,23 @@
 // https://reactrouter.com/web/guides/quick-start
+// https://flaviocopes.com/react-router/
+// https://flaviocopes.com/react-reach-router/
 npm install --save react-router-dom
 yarn add react-router-dom
+
+
+
+// React Router надає два різні типи маршрутів:
+BrowserRouter
+HashRouter
+// Один створює класичні URL-адреси, інші будують URL-адреси за допомогою хешу:
+https://application.com/dashboard   /* BrowserRouter */
+https://application.com/#/dashboard /* HashRouter    */
+
+
+// Збіг декількох шляхів
+// Ви можете мати відповідь маршруту на кілька шляхів за допомогою path регулярного виразу
+<Route path='/(about|who)/' component={Dashboard} />
+
 
 
 // 1.
@@ -255,3 +272,93 @@ const routes = [
 // 6.        modal-gallery
 // https://reactrouter.com/web/example/modal-gallery
 
+
+
+
+// 7.
+const posts = [
+  { id: 1, title: 'First', content: 'Hello world!' },
+  { id: 2, title: 'Second', content: 'Hello again!' }
+]
+
+const Post = ({post}) => (
+  <div>
+    <h2>{post.title}</h2>
+    {post.content}
+  </div>
+)
+//...
+<Route exact path="/post/:id" render={({match}) => (
+  <Post post={posts.find(p => p.id === match.params.id)} />
+)} />
+
+
+
+
+// 8.                  Маршрут за замовчуванням
+// Коли користувач відвідує URL-адресу, яка не відповідає жодному маршруту, 
+// за замовчуванням маршрутизатор охоплення переспрямовує на /маршрут. Ви можете додати default
+// маршрут для розгляду цієї справи та натомість показати приємне повідомлення “404”:
+<Router>
+  <Form path="/" />
+  <PrivateArea path="/private-area" />
+  <NotFound default />
+</Router>
+
+
+
+
+// 9.       Програмно змінити маршрут
+// Використовуйте navigateфункцію для програмної зміни маршруту у вашому додатку:
+import { navigate } from '@reach/router'
+navigate('/private-area')
+
+
+
+// 10.       Параметри URL
+// Додайте параметри, використовуючи :param синтаксис:
+<Router>
+  <User path="users/:userId" />
+</Router>
+// Тепер у цьому гіпотетичному компоненті користувача ми можемо отримати userIdяк проп:
+const User = ({ userId }) => (
+  <p>User {userId}</p>
+)
+
+
+
+
+
+// 11.         Вкладені маршрути
+// Я показав вам, як можна визначити маршрути таким чином у вашому файлі React верхнього рівня:
+<Router>
+  <Form path="/" />
+  <PrivateArea path="/private-area" />
+</Router>
+// Ви можете визначити вкладені маршрути:
+<Router>
+  <Form path="/" />
+  <PrivateArea path="/private-area">
+    <User path=":userId" />
+  </PrivateArea>
+</Router>
+// Отже, тепер ви можете мати свою /private-area/23232точку посилання на компонент User, передаючи userId 23232.
+// Ви також можете дозволити компоненту визначати власні маршрути всередині нього. 
+// Ви використовуєте '/*' підстановку після маршруту:
+<Router>
+  <Form path="/" />
+  <PrivateArea path="/private-area/*" />
+</Router>
+// тоді всередині компонента ви можете знову імпортувати маршрутизатор і визначити його власний набір підмаршрутів:
+//component PrivateArea
+<Router>
+  <User path="/:userId" />
+</router>
+// Будь-який маршрут, що використовується, /private-area/somethingбуде оброблятись користувацьким компонентом, 
+// а частина після маршруту буде надіслана як його userIdпідтримка.
+// Щоб зараз щось відобразити в /private-areaмаршруті, вам також потрібно додати /обробник у PrivateAreaкомпонент:
+//component PrivateArea
+<Router>
+  <User path="/:userId" />
+  <PrivateAreaDashboard path="/" />
+</router>

@@ -115,3 +115,16 @@ return (
         <output ref={rangevalue1}></output>
     </>
 )
+
+
+
+// 6.
+function SomeComponent() {
+  let button
+  return <button ref={el => (button = el)} />
+}
+// kim
+function SomeComponent() {
+  let button
+  return <button ref={el => (color = el)} />
+}

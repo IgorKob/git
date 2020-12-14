@@ -26,7 +26,9 @@ const BooksContainer = (props) => {
   };
 
   const onScroll = () => {
-      (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500)
+      // (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500)
+      // (window.innerHeight + window.pageYOffset) >= (document.body.offsetHeight + 500)
+      event.target.scrollingElement.scrollTop >= event.target.scrollingElement.scrollHeight - event.target.scrollingElement.offsetHeight - 200
       && props.books.length
       && !props.isLoading
       && !props.isError

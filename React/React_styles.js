@@ -177,3 +177,33 @@ const Rotate = styled.div`
 render(
   <Rotate>&lt; 💅🏾 &gt;</Rotate>
 );
+
+
+
+
+// 00                                   Розширення існуючого стилізованого компонента
+// Якщо у вас є один компонент і ви хочете створити подібний, стилізований дещо інакше
+const Button = styled.button`
+  color: black;
+  //...
+`
+const WhiteButton = Button.extend`
+  color: white;
+`
+render(
+  <div>
+    <Button>A black button, like all buttons</Button>
+    <WhiteButton>A white button</WhiteButton>
+  </div>
+)
+
+
+
+
+//                                        приклад медіа-запиту:
+const Button = styled.button`
+  color: green;
+  @media screen and (max-width: 800px) {
+    color: black;
+  }
+`

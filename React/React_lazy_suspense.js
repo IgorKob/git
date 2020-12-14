@@ -81,3 +81,24 @@ class App extends Component {
 }
 
 export default App;
+
+
+
+// 3.
+// Все це добре з React Router:
+import React from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
+const TodoList = React.lazy(() => import('./routes/TodoList'))
+const NewTodo = React.lazy(() => import('./routes/NewTodo'))
+
+const App = () => (
+  <Router>
+    <React.Suspense fallback={<p>Please wait</p>}>
+      <Switch>
+        <Route exact path="/" component={TodoList} />
+        <Route path="/new" component={NewTodo} />
+      </Switch>
+    </React.Suspense>
+  </Router>
+)
