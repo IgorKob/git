@@ -6,6 +6,7 @@ import Books from './Books';
 import { Checkbox, Form, Image, Input, Item, List, Loader, Menu } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 import { NavLink } from 'react-router-dom';
+import classes from './Books.module.css';
 
 const BooksContainer = (props) => {
   const [query, setQuery] = useState('search+terms');
@@ -68,7 +69,9 @@ const orderByChange = () => setOrderBy(!orderBy);
 const langChange = () => setLangRestrict(!langRestrict);
 
   return (
-    <div> 
+    <div className={classes.wrapper}> 
+      <div className={classes.wrapper2}> 
+
       {/* main menu */}
       <Menu secondary style={{margin: '5px'}}>
         <Menu.Item
@@ -239,6 +242,7 @@ const langChange = () => setLangRestrict(!langRestrict);
 
       </div>
 
+     </div>
     </div>
   )
 }
