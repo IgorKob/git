@@ -1,6 +1,9 @@
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Assertions
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Character_Classes
 // https://regexlib.com/(X(1)A(a-T8ItcQ2fEhDfoLFsZqQQBSkMJpO3tuehH2VS5vCqO4fhsc0KEUhCx8eqUhs8qvJNU53exrxreFBoUbVdTqWBdl8-TXF_9izq5ZyJoyKvCvv_xj4OU59Gxp2HARaagKgYTNqZIZL7WL5WdfYwxCxDGKk9zp0Izq31XHFQfuqVxflids9IQAHIHLq_WGuNQW0))/CheatSheet.aspx?AspxAutoDetectCookieSupport=1
+// https://flaviocopes.com/javascript-regular-expressions/
+
+
 
 //////////////////////
 //\ d - те саме, що [0-9],
@@ -87,7 +90,33 @@ input:invalid:not(:placeholder-shown) + [data-validation-text] {
 }
 
 
+{/* Заперечення шаблону */}
+{/* ^Характер на початку візерунка якорів його до початку рядка. */}
+{/* Використовуючи всередині діапазону, він заперечує його, тому: */}
+/[^A-Za-z0-9]/.test('a') //❌
+/[^A-Za-z0-9]/.test('1') //❌
+/[^A-Za-z0-9]/.test('A') //❌
+/[^A-Za-z0-9]/.test('@') //✅
 
+{/* Якщо ви хочете здійснити пошук по тому чи іншому рядку */}
+/hey|ho/.test('hey') //✅
+/hey|ho/.test('ho')  //✅
+
+{/* Скажімо, у вас є цей регулярний вираз, який перевіряє, чи є в рядку одна цифра, і нічого іншого: */}
+/^\d$/
+{/* Ви можете використовувати в ?квантор , щоб зробити його обов'язковим, що вимагає нуль або один: */}
+/^\d?$/
+
+{/* ?= or ?<= для збігу рядка, за яким слідує певний підрядок: */}
+/Roger(?= Waters)/.test('Roger is my dog') //false
+/Roger(?= Waters)/.test('Roger is my dog and Roger Waters is a famous musician') //true
+{/* ?! or ?<! виконує обернену операцію, збігаючись, якщо за рядком не слідує певний підрядок: */}
+/Roger(?! Waters)/.test('Roger is my dog') //true
+/Roger(?! Waters)/.test('Roger Waters is a famous musician') //false
+
+
+
+</input>
 var re = /\w+\s/g;
 // або
 var re = new RegExp('\\w+\\s', 'g');

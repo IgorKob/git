@@ -62,6 +62,17 @@ function App() {
 
 export default App;
 
+
+function App() {
+  return (
+    <div style={{ 
+      backgroundImage: `url("https://via.placeholder.com/500")` 
+    }}>
+      Hello World
+    </div>
+  );
+}
+
 // II.  Встановлення зображення за допомогою зовнішнього css
 // ./App.js
 import React from 'react';
@@ -81,3 +92,14 @@ export default App;
 .container{
   background-image: url(./images/car.png);
 }
+
+
+// або
+// використовуючи метод абсолютної URL-адреси
+<div style={{ 
+  backgroundImage: `url(${process.env.PUBLIC_URL + '/image.png'})` 
+}}>
+  Hello World
+</div>
+
+

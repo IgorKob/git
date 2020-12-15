@@ -1,3 +1,19 @@
+// https://flaviocopes.com/how-to-format-number-as-currency-javascript/
+
+// 1.
+const formatter = new Intl.NumberFormat('en-US', {
+	style: 'currency',
+	currency: 'USD',
+	minimumFractionDigits: 2
+  })
+  
+  formatter.format(1000) // "$1,000.00"
+  formatter.format(10) // "$10.00"
+  formatter.format(123233000) // "$123,233,000.00"
+
+
+
+// 2.
 //функція яка добавляє коми, якщо число має тисячні:   1000000 -> 1,000,000 
 //kim
 function formatNum(num) {

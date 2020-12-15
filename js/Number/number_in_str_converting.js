@@ -1,3 +1,6 @@
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+Intl.NumberFormatз
+
 //+
 x = +'12'; // 12
 
