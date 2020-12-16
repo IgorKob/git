@@ -8,25 +8,16 @@ import {Provider} from "react-redux";
 import store from './Redux/store';
 import 'semantic-ui-css/semantic.min.css';
 
-// ReactDOM.render(
-//     <Router>
-//       <React.StrictMode>
-//         <Provider store={store}>
-//           <App />
-//         </Provider>
-//       </React.StrictMode>,
-//   </Router>,
-//   document.getElementById('root')
-// );
 ReactDOM.render(
-  <Router>
-    <Provider store={store}>
-      <App />
-    </Provider>
-</Router>,
-document.getElementById('root')
+    <Router>
+      <React.StrictMode>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </React.StrictMode>,
+  </Router>,
+  document.getElementById('root')
 );
-// ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

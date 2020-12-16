@@ -7,6 +7,8 @@ const SET_TOTAL_ITEMS = 'SET_TOTAL_ITEMS'
 const START_INDEX = 'START_INDEX'
 const IS_LOADING = 'IS_LOADING' 
 const FREE_BOOKS = 'FREE_BOOKS' 
+const ADD_FAVOURITES_BOOKS = 'ADD_FAVOURITES_BOOKS' 
+const UPDATE_FAVOURITES_BOOKS = 'UPDATE_FAVOURITES_BOOKS' 
 
 const initialState = {
   books: [],
@@ -15,6 +17,7 @@ const initialState = {
   startIndex: 0,
   isLoading: false,
   isError: false,
+  favouritesBook: [], 
 };
 
 const booksReducer = (state = initialState, action) => {
@@ -49,6 +52,16 @@ const booksReducer = (state = initialState, action) => {
                 ...state,
                 isLoading: action.payload
             };
+        case ADD_FAVOURITES_BOOKS:
+            return {
+                ...state,
+                favouritesBook: [... state.favouritesBook, action.payload]
+            };
+        case UPDATE_FAVOURITES_BOOKS:
+            return {
+                ...state,
+                favouritesBook: [...action.payload]
+            };
         default:
             return state;
     }
@@ -61,25 +74,25 @@ export const updateResultActionCreator = (payload) => ({type: UPDATE_RESULT, pay
 export const startIndexActionCreator = (payload) => ({type: START_INDEX, payload})
 export const setTotalItemsActionCreator = (payload) => ({type: SET_TOTAL_ITEMS, payload})
 export const isLoadingActionCreator = (payload) => ({type: IS_LOADING, payload})
+export const addFavouritesBookActionCreator = (payload) => ({type: ADD_FAVOURITES_BOOKS, payload})
+export const updateFavouritesBookActionCreator = (payload) => ({type: UPDATE_FAVOURITES_BOOKS, payload})
 
 
 export const searchBooksThunk = (query, startIndex, filter0, printType0, orderBy0, langRestrict0) => async (dispatch, getState) => {
+   
     dispatch(isLoadingActionCreator(true));
 
-    // if (getState().booksPages.page === 0) {
-
-    // }
     const maxResults = getState().booksPages.maxResults;
     const filter = filter0 ? `filter=${filter0}` : '';
     const printType = printType0 ? `printType=${printType0}` : '';
     const orderBy = orderBy0 ? `orderBy=newest` : 'orderBy=relevance';
     const langRestrict = langRestrict0 ? `langRestrict=uk` : '';
 
-
     const response = await booksAPI.searchBooks(query, maxResults, startIndex, filter, printType, orderBy, langRestrict);
 
     // if (response.status === 200) {
     if (response.data.items) {
+
         if (startIndex === 0) {
             dispatch(setBooksActionCreator(response.data.items));
         } else {
@@ -91,4 +104,25 @@ export const searchBooksThunk = (query, startIndex, filter0, printType0, orderBy
         dispatch(isLoadingActionCreator(false));
 
       }
+}
+
+
+
+
+export const favouritesBookThunk = (id) => async (dispatch, getState) => {
+
+    const favouritesBook = getState().booksPages.favouritesBook;
+    const books = getState().booksPages.books;
+    const myFavouritesBooksLocalStorage = JSON.parse(localStorage.getItem('mybooks'));
+    const prevLocalStorage = myFavouritesBooksLocalStorage === null ? '' : myFavouritesBooksLocalStorage;
+
+    if (favouritesBook.find(el => el.id === id)) {
+        dispatch(updateFavouritesBookActionCreator(favouritesBook.filter(el => el.id !== id)));
+        localStorage.setItem('mybooks', JSON.stringify([...prevLocalStorage.filter(el => el.id !== id)]));
+    } else {
+        const newBook = books.find(el => el.id === id);
+        dispatch(addFavouritesBookActionCreator(newBook));
+        localStorage.setItem('mybooks', JSON.stringify([...prevLocalStorage, newBook]));
+    }
+
 }
