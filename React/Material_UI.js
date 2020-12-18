@@ -4,6 +4,8 @@
 // icon
 // npm install @material-ui/icons
 
+// online editor
+https://mui.dev/editor?project=9fc5f67b1bd2fb651efdf21bb409470525d60673
 
 // I.                                  NavBar
 // 1.  ./public/index.html
@@ -11,8 +13,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  {/* ... */}
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
+  <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 </head>
 
 <body>

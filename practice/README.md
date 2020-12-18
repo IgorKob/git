@@ -1,3 +1,6 @@
+React Google Books API (useEffect, useState, react-router-dom, React.lazy, Redux, Thunk, connect, compose, axios, semantic-ui-react...)
+https://igorkob.github.io/React_GoogleBooksAPI_gh_pages
+
 wordpress demo version - tOrange
 http://kobryn9.000webhostapp.com
 https://github.com/IgorKob/git/tree/master/practice/psd_avocode_tOrange/wp_tOrange
