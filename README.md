@@ -187,3 +187,44 @@ git pull origin master
 git fetch
 # Щоб злити коммітов в основну гілку, потрібно використовувати
 git merge
+
+
+
+# список гілок
+git branch
+# створити гілку asd_gilka
+git branch asd_gilka
+# перейти до гілки asd_gilka
+git checkout asd_gilka
+
+# перейти до коміту
+git checkout commit_ID
+
+# представлення комітів
+git log --oneline --all
+# графічне представлення гілок і комітів
+git log --oneline --all --graph
+
+# (із гілки мастер) для злиття гілок
+git merge asd_gilka
+
+# скачати оновлення з GitHub.com
+git fetch
+git merge
+# скачати оновлення з GitHub.com
+git pull
+
+# для приєднання голови гілки
+git reset --hard commit_ID
+git reset --hard master
+
+
+# Я на гілці asd i зливаю свої коміти
+git rebase origin/master
+# якщо є конфлікти, то виправляю і
+git add .
+git rebase --continue
+
+git push
+git push --force
+i на github.com нажимаємо ребуйс мардж
