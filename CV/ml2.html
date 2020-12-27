@@ -297,6 +297,9 @@ $green: #26bc8c;   //sass
 //не перезавантажуючись, у фоновому режимі надсилає запити на сервер і сама звідти довантажує потрібні 
 //користувачу дані.
 
+REST (Representational State Transfer) - є архітектурним стилем, використовує HTTP як протокол передачі 
+даних для запитів і відповідей. Запит: GET, POST, PUT, DELETE.
+
 fetch(url, {
   method: 'POST', // или 'PUT'
   body: JSON.stringify(data), // данные могут быть 'строкой' или {объектом}!
@@ -460,6 +463,11 @@ git pull origin master
 git fetch
 // Щоб злити коммітов в основну гілку, потрібно використовувати
 git merge
+
+//для відміни індексації файла якщо він був за комітений
+git revert HEAD --no-edit
+
+git reset HEAD text.txt
 
 //для приєднання голови гілки
 git reset --hard commit_ID
@@ -1199,11 +1207,8 @@ switch (action.type) {
 }
 
 function Counter() {
-const [state, dispatch] = useReducer(
-  reducer,
-  initialState
-)
-return (<button onClick={() => dispatch({ type: 'increment' })}>OK</button>
+  const [state, dispatch] = useReducer(reducer, initialState)
+  return (<button onClick={() => dispatch({ type: 'increment' })}>OK</button>
 
 
 
