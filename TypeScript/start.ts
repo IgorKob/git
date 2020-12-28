@@ -67,3 +67,38 @@ const action : getAddActionType = {
   id: 13,
   type: GET_ADD,
 }
+
+
+////////////////////////////////////
+
+// 1.
+type Props = {
+  label: string;
+  count: number;
+  arr: Array<UserType>;
+  onIncrement: () => void;
+  onIncrement2: (num: number) => void;
+};
+
+export const FCCounter: React.FC<Props> = props => {
+const { label, count, onIncrement } = props;
+return (<></>)
+
+
+// 2.   class
+type Props = {
+label: string;
+};
+
+type State = {
+count: number;
+};
+
+export class ClassCounter extends React.Component<Props, State> {
+  readonly state: State = {
+      count: 0,
+  };
+
+  render() {
+      return (<></>)
+  }

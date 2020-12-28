@@ -11,13 +11,13 @@ const ADD_FAVOURITES_BOOKS = 'ADD_FAVOURITES_BOOKS'
 const UPDATE_FAVOURITES_BOOKS = 'UPDATE_FAVOURITES_BOOKS' 
 
 type initialStateType = {
-    books: [] as Array,
-    totalItems: null as number | null,
-    maxResults: 5 as number,
-    startIndex: 0 as number,
-    isLoading: false as boolean,
-    isError: false as boolean,
-    favouritesBook: [] as Array, 
+    books: any
+    totalItems: number | null,
+    maxResults: number,
+    startIndex: number,
+    isLoading: boolean,
+    isError: boolean,
+    favouritesBook: any 
 }
 
 const initialState: initialStateType = {
@@ -30,7 +30,7 @@ const initialState: initialStateType = {
   favouritesBook: [], 
 };
 
-const booksReducer = (state = initialState, action) => {
+const booksReducer = (state = initialState, action: any): initialStateType => {
     switch(action.type) {
         case SET_BOOKS:
             return {
@@ -79,21 +79,45 @@ const booksReducer = (state = initialState, action) => {
 
 export default booksReducer;
 
+
 type setBooksActionCreatorType = {
     type: typeof SET_BOOKS
     payload: any
 }
+export const setBooksActionCreator = (payload: any): setBooksActionCreatorType => ({type: SET_BOOKS, payload})
+type updateResultActionCreatorType = {
+    type: typeof UPDATE_RESULT
+    payload: any
+}
+export const updateResultActionCreator = (payload: any): updateResultActionCreatorType => ({type: UPDATE_RESULT, payload})
+type startIndexActionCreatorType = {
+    type: typeof START_INDEX
+    payload: number
+}
+export const startIndexActionCreator = (payload: number): startIndexActionCreatorType => ({type: START_INDEX, payload})
+type setTotalItemsActionCreatorType = {
+    type: typeof SET_TOTAL_ITEMS
+    payload: number
+}
+export const setTotalItemsActionCreator = (payload: number): setTotalItemsActionCreatorType => ({type: SET_TOTAL_ITEMS, payload})
+type isLoadingActionCreatorType = {
+    type: typeof IS_LOADING
+    payload: boolean
+}
+export const isLoadingActionCreator = (payload: boolean): isLoadingActionCreatorType => ({type: IS_LOADING, payload})
+type addFavouritesBookActionCreatorType = {
+    type: typeof ADD_FAVOURITES_BOOKS
+    payload: any
+}
+export const addFavouritesBookActionCreator = (payload: any): addFavouritesBookActionCreatorType => ({type: ADD_FAVOURITES_BOOKS, payload})
+type updateFavouritesBookActionCreatorType = {
+    type: typeof UPDATE_FAVOURITES_BOOKS
+    payload: any
+}
+export const updateFavouritesBookActionCreator = (payload: any): updateFavouritesBookActionCreatorType => ({type: UPDATE_FAVOURITES_BOOKS, payload})
 
-export const setBooksActionCreator = (payload) => ({type: SET_BOOKS, payload})
-export const updateResultActionCreator = (payload) => ({type: UPDATE_RESULT, payload})
-export const startIndexActionCreator = (payload) => ({type: START_INDEX, payload})
-export const setTotalItemsActionCreator = (payload) => ({type: SET_TOTAL_ITEMS, payload})
-export const isLoadingActionCreator = (payload) => ({type: IS_LOADING, payload})
-export const addFavouritesBookActionCreator = (payload) => ({type: ADD_FAVOURITES_BOOKS, payload})
-export const updateFavouritesBookActionCreator = (payload) => ({type: UPDATE_FAVOURITES_BOOKS, payload})
 
-
-export const searchBooksThunk = (query, startIndex, filter0, printType0, orderBy0, langRestrict0) => async (dispatch, getState) => {
+export const searchBooksThunk = (query, startIndex, filter0, printType0, orderBy0, langRestrict0) => async (dispatch: any, getState: any) => {
    
     dispatch(isLoadingActionCreator(true));
 
