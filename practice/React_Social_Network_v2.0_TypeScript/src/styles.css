@@ -1,0 +1,15 @@
+body {
+  background-color: rgb(76, 99, 107);
+  margin: 0;
+}
+
+.container {
+  /* background-color: rgb(76, 99, 107); */
+  display: grid;
+  grid-template-areas: 
+    "header header header header"
+    "nav main main main";
+  grid-template-columns: 1fr 3fr;
+  position: relative;
+}
+

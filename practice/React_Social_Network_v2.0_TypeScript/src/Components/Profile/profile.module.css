@@ -1,0 +1,32 @@
+.profile {
+  color: red;
+}
+.profile_header {
+
+}
+
+.profile_header__img {
+  width: 100%;
+  max-height: 400px;
+}
+
+.NewMyPost {
+  display: grid;
+  background-color: #beb8c4;
+  width: 50%;
+
+}
+.NewMyPost_text {
+
+
+}
+.NewMyPost_btn {
+ background-color: #218002;
+  margin: 20px;
+}
+.userPhoto {
+  width: 40%;
+}
+.error {
+    color: red;
+}

@@ -1,0 +1,8 @@
+.formWrapper {
+  text-align: center;
+}
+
+.error {
+  color: red;
+  border-bottom: 1px solid red;
+}
