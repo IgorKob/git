@@ -1,5 +1,5 @@
 import React from 'react';
-import * as axios from "axios";
+import axios from "axios";
 
 const instance = axios.create({
   withCredentials: true,
@@ -10,39 +10,39 @@ const instance = axios.create({
 });
 
 export const usersAPI = {
-  getUsers(currentPage = 1, pageSize = 100) {
-    return instance.get(`users?page=${currentPage}&count=${pageSize}`)
+  getUsers(currentPage = 1, pageSize = 100, term = '') {
+    return instance.get(`users?page=${currentPage}&count=${pageSize}&term=${term}`)
       .then(response => response.data);
   },
   getAuthMe() {
     return instance.get(`auth/me`)
       .then(response => response.data);
   },
-  getProfile(userId) {
+  getProfile(userId: number | null) {
     // console.log('Тут перенаправляє на новішу версію, кім')
     return profileAPI.getProfile(userId);
   },
-  follow(userId) {
+  follow(userId: number) {
     return instance.post(`follow/${userId}`);
   },
-  unfollow(userId) {
+  unfollow(userId: number) {
     return instance.delete(`follow/${userId}`);
   },
 
 }
 
 export const profileAPI = {
-  getProfile(userId) {
+  getProfile(userId: number | null) {
     return instance.get(`profile/${userId}`)
       .then(response => response.data);
   },
-  getStatus(userId) {
+  getStatus(userId: number) {
     return instance.get(`profile/status/${userId}`)
   },
-  updateStatus(status) {
+  updateStatus(status: string) {
     return instance.put(`profile/status`, {status: status});
   },
-  savePhoto(photoFile) {
+  savePhoto(photoFile: any) {
     const formData = new FormData();
     formData.append('image', photoFile);
     return instance.put(`profile/photo`, formData, {
@@ -51,19 +51,27 @@ export const profileAPI = {
       }
     });
   },
-  saveProfile(profile) {
+  saveProfile(profile: any) {
     return instance.put(`profile`, profile);
   },
 }
 
+type meResponseType = {
+  data: {
+    id: number,
+    email: string,
+    login: string
+  },
+  resultCode: number,
+  messages: Array<string>
+}
+
 export const authAPI = {
   me() {
-    return instance.get(`auth/me`)
-      // .then(response => response.data);
+    return instance.get<meResponseType>(`auth/me`)
   },
-  login(email, password, rememberMe = false, captcha = null) {
+  login(email: string, password: string, rememberMe: boolean = false, captcha: string | null = null) {
     return instance.post(`auth/login`, {email, password, rememberMe, captcha})
-      // .then(response => response.data);
   },
   logout() {
     return instance.delete(`auth/login`)

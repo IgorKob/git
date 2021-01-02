@@ -1,5 +1,5 @@
 import React from 'react';
-import {addPost, getStatus, getUserProfile, savePhoto, saveProfile, updateStatus} from "../../Redux/postPages_reducer";
+import {actions, getStatus, getUserProfile, savePhoto, saveProfile, updateStatus} from "../../Redux/postPages_reducer";
 import Profile from "./Profile";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
@@ -53,6 +53,8 @@ let mapStateToProps = (state) => {
     authorizedUserId: state.authUser.userId,
   }
 }
+
+const addPost = actions.addPost;
 
 export default compose(
   connect(mapStateToProps, {addPost, getUserProfile, getStatus, updateStatus, savePhoto, saveProfile}),

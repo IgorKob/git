@@ -1,7 +1,12 @@
+// 
+const [state, setState] = <number | null>useState(null)
 
+// 
+event: ChangeEvent<HTMLInputElement>
 
-
-
+//
+type PropsType = mapStateToPropsType & mapDispatchToPropsType & ownPropsType
+ 
 // 1
 let asd: string = 'asd';
 let asd2: number | null = 13;
@@ -106,3 +111,7 @@ export class ClassCounter extends React.Component<Props, State> {
   render() {
       return (<></>)
   }
+
+
+
+

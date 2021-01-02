@@ -5,15 +5,22 @@ import {Redirect} from "react-router-dom";
 import {Field, reduxForm} from "redux-form";
 import {maxLengthCreater, required} from "../../utils/validators";
 import {Textarea} from "../all/FormsControls/FormsControls";
+import { initialStateMessType } from '../../Redux/messagesPages_reducer';
 
-const Messages = (props) => {
+type PropsType = {
+  addMessageActionCreator: (newMessage: string) => void,
+  isAuth: boolean,
+  igor: Array<initialStateMessType>
+}
+
+const Messages: React.FC<PropsType> = (props) => {
 
   let newMessage = React.createRef();
 
-  let addNewMessage = (value) => {
+  let addNewMessage = (value: any) => {
     props.addMessageActionCreator(value.newMessage);
   }
-
+ 
   if (props.isAuth === false) {
     return (<Redirect to={'/login'} />)
   }
@@ -48,7 +55,11 @@ const Messages = (props) => {
 
 let maxLength30 = maxLengthCreater(30);
 
-const AddMessageForm = (props) => {
+type AddMessageFormType = {
+  handleSubmit: any
+}
+
+const AddMessageForm: React.FC<AddMessageFormType> = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
       <Field component={Textarea}

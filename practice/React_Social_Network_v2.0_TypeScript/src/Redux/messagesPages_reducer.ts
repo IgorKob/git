@@ -1,10 +1,10 @@
-const ADD_MESSAGE = 'ADD-MESSAGE';
+import { InferActionsTypes } from "./redux_store";
 
-type initialStateMessType = {
+export type initialStateMessType = {
   id: number 
   message: string
 }
-
+   
 let initialState = {
   igor: [
     {id : 1, message: 'Art hello'},
@@ -13,11 +13,13 @@ let initialState = {
 };
 
 export type initialStateType = typeof initialState;
+type ActionsTypes = InferActionsTypes<typeof actions>
 
-const messagesPagesReduce = (state = initialState, action: any): initialStateType => {
+
+const messagesPagesReduce = (state = initialState, action: ActionsTypes): initialStateType => {
 
   switch (action.type) {
-    case ADD_MESSAGE:
+    case 'ADD_MESSAGE':
       return {
         ...state,
         igor: [...state.igor, {id : 5, message: action.newMessage}]
@@ -29,11 +31,8 @@ const messagesPagesReduce = (state = initialState, action: any): initialStateTyp
 
 export default messagesPagesReduce;
 
-type addMessageActionCreatorType = {
-  type: typeof ADD_MESSAGE, 
-  newMessage: initialStateMessType
+export const actions = {
+  addMessageActionCreator: (newMessage: any) => {
+    return {type: 'ADD_MESSAGE', newMessage} as const
+  }
 }
-export const addMessageActionCreator = (newMessage: any): addMessageActionCreatorType => {
-  return {type: ADD_MESSAGE, newMessage}
-}
-
