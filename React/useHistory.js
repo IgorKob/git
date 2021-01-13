@@ -40,3 +40,14 @@ class App extends Component{
 }
 
 export default App;
+
+
+// kim розбиваємо url адрес
+  useEffect(() => {
+    // url адрес 
+    const {search} = history.location
+    // розбиваємо url адрес  (parsed.page, parsed.id, ...)
+    const parsed = queryString.parse(search)
+    // or
+    const parsed = queryString.parse(history.location.search)
+  }, [])
