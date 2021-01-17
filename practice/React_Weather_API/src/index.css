@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  background-color: lightblue!important;   
+  background: url('https://ua-news.liga.net/images/general/2019/12/26/thumbnail-tw-20191226115911-1209.jpg')!important;
+  background-repeat: no-repeat!important;
+  background-position: center!important;
+  background-size: cover!important;
+  background-attachment: fixed!important;
+}
