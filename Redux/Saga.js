@@ -1,5 +1,6 @@
 // https://flaviocopes.com/redux-saga/
 // https://scastiel.dev/posts/2019-08-03-lost-redux-saga-reimplement-them/
+// npm install --save redux-saga
 // yarn add redux-saga
 
 // function*

@@ -1,6 +1,9 @@
 // $ npm install node-sass --save
 // $ yarn add node-sass
 
+// kim v node err
+npm install node-sass@4.14.1
+
 @import 'styles/_colors.scss'; 
 @import '~nprogress/nprogress';
 
