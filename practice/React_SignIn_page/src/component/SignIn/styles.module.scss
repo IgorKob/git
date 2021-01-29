@@ -1,0 +1,85 @@
+@import "../../assets/styles/variables";
+@import "../../assets/styles/base";
+.app {
+    position: relative;
+    max-width: 100%;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper {
+    max-width: 100%;
+    width: 1440px;
+    height: 900px;
+    background: #fff;
+    display: flex;
+}
+.carousel_wrapper  {
+    max-width: 100%;
+    width: 798px;
+    height: 860px;
+    margin: 20px;
+    background: $primary_blue;
+    border-radius: 15px;
+}
+.content_wrapper {
+    margin-top: 51px;
+    margin-left: 62px;
+    max-width: 100%;
+    width: 420px;
+    background: #fff;
+}
+@media (max-width: 1400px) {
+    .carousel_wrapper  {
+        width: 698px;
+        height: auto;
+    }
+    .content_wrapper {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media (max-width: 1200px) {
+    .carousel_wrapper  {
+        width: 598px;
+    }
+}
+@media (max-width: 1100px) {
+    .carousel_wrapper  {
+        width: 60%;
+    }
+    .content_wrapper {
+        width: 40%;
+        margin-right: 20px;
+    }
+}
+@media (max-width: 900px) {
+    .app {
+        height: auto;
+    }
+    .wrapper {
+        flex-direction: column;
+        height: auto;
+    }
+    .carousel_wrapper  {
+        width: 100%;
+        margin: 0px;
+    }
+    .content_wrapper {
+        width: 80%;
+        margin: 40px auto;
+    }
+}
+@media (max-device-height: 900px) {
+    .app {
+        height: auto;
+    }
+}
+@media (max-width: 500px) {
+    .content_wrapper {
+        width: 100%;
+        padding: 8px;        
+    }
+}
