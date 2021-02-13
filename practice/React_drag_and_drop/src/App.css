@@ -1,0 +1,64 @@
+:root {
+  --greyLight: #aaa;
+  --borderRadius: 8px;
+}
+
+body {
+  user-select: none;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+.app {
+  display: flex;
+}
+
+.columns {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.column {
+  margin: 1px;
+}
+
+.column-title {}
+
+.column-title:hover {}
+
+.task-list {}
+
+.task-list::-webkit-scrollbar {
+  width: 1em;
+}
+
+.task-list::-webkit-scrollbar-track {
+  background-color: var(--greyLight);
+  borderradius: var(--borderRadius);
+}
+
+.task-list::-webkit-scrollbar-thumb {
+  background-color: rgb(139, 139, 139);
+}
+
+.item {
+  user-select: none;
+  /* center align text */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+.item.is-dragging {
+  color: #fff!important;
+  background-color: rgb(112, 112, 112)!important;
+  box-shadow: 0px 0px 2px rgb(8, 58, 30), 0px 0px 10px MediumSeaGreen;
+}
+
+.item span::first-letter {
+  text-transform: uppercase;
+}
