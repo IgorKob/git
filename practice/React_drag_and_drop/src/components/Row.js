@@ -13,7 +13,7 @@ const Row = React.memo(function Row(props) {
   
     return (
       <Draggable draggableId={item.id} index={index} key={item.id}>
-        {provided => <Item provided={provided} item={item} style={style} />}
+        {provided => <Item provided={provided} item={item} style={style} index={index} />}
       </Draggable>
     );
   }, areEqual);

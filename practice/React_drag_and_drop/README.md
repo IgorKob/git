@@ -29,13 +29,13 @@ $ npm start # or yarn start
 ```
 
 ## Description
-This is a simple react app using public [`React Beautiful dnd`](https://github.com/atlassian/react-beautiful-dnd).
-This is a simple react app using public [`React window`](https://www.npmjs.com/package/react-window).
-
+This is a simple react app using public [`React Beautiful dnd`](https://github.com/atlassian/react-beautiful-dnd) and [`React window`](https://www.npmjs.com/package/react-window).
 
 ## Technologies
 Project uses:
-* React (useState, useLayoutEffect, useRef, React.memo)
-* React-beautiful-dnd"
+* React (useState, useEffect, useLayoutEffect, useRef, React.memo)
+* React-router-dom
+* React-beautiful-dnd
 * React-window
 * Material-ui
+* Axios

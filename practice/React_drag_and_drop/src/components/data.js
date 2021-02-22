@@ -264,7 +264,17 @@ const products = `[
        "groupName": "домашнее хозяйство"
     }
  ]`;
- export const startProducts = JSON.parse(products);
+//  export const startProducts = JSON.parse(products);
+
+const startProducts0 = JSON.parse(products);
+const arr = [...startProducts0];
+
+for (let i = 1; i <= 22 ; i++) {
+   for (let j = 0; j <= 10000; j++) {
+     arr.push({id: `${i}_${j}`, name: `name_${i}_${j}`, groupId: i, groupName: `groupName_${i}_${j}`})
+   }   
+}
+export const startProducts = arr;
 
  const groups = `[
      {"id":1,"name":"разное","img":"other.png"},
