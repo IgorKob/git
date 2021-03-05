@@ -1,0 +1,88 @@
+.footer {
+    background: $black;
+}
+.footer-top {
+    display: flex;
+    justify-content: space-around;
+    padding: 154px 10px 97px 10px;
+}
+.footer-top__logo-wrap {
+    max-width: 308px;
+}
+.footer-top__logo {
+    font-family: 'Gilroy';
+    font-weight: 900;
+    font-size: 24px;
+    letter-spacing: 0.07em;
+    color: $yellow;
+}
+.footer-top__logo-text {
+    font-family: 'Gilroy';
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 25px;
+    letter-spacing: -0.7px;
+    color: $white;
+}
+.footer-top__nav-wrap {
+    max-width: 108px;
+}
+.footer-top__nav-item {
+    font-family: 'Gilroy';
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: $white; 
+    text-decoration: none;
+    margin-bottom: 23px;
+    display: block;
+}
+.footer-top__nav-item:hover {
+    color: $yellow;
+}
+.footer-top__contacts-wrap {
+    max-width: 200px;
+}
+.footer-top__contact-address {
+    font-family: 'Gilroy';
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    color: $white;
+    margin-bottom: 42px;
+}
+.footer-top__contact-tel {
+    font-family: 'Gilroy';
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: $white;
+}
+.footer-top__social-wrap {
+    max-width: 20px;
+}
+.footer-top__social-icon {
+    margin-bottom: 21px;
+    display: block;
+    text-decoration: none;
+}
+@include media-breakpoint-down(md) {
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+        padding: 54px 10px 37px 10px;
+    }
+    .footer-top__nav-wrap {
+        margin-top: 30px;
+    }
+    .footer-top__contacts-wrap {
+        margin-top: 30px;
+    }
+    .footer-top__social-wrap {
+        display: flex;
+        justify-content: center;
+    }
+    .footer-top__social-icon {
+        margin: 21px;
+    }
+}

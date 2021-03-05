@@ -1,0 +1,76 @@
+.top-nav__wrap {
+    padding: 0 68px;
+}
+.top-bar {
+    display: flex;
+    justify-content: flex-end;
+}
+.top-nav .container-fluid {
+    display: flex;
+    justify-content: space-between;
+}
+.top-nav .navbar-brand {
+    font-family: Gilroy;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 80px;
+    letter-spacing: 0.07em;
+    color: $yellow;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+        color: $white;    
+    }
+}
+.top-nav .nav-link {
+    font-family: Gilroy;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 16px;
+    letter-spacing: 0.07em;
+    color: $white!important;    
+    border-bottom: 3px solid rgba(0, 0, 0, 0);
+    padding-right: 0;
+    padding-left: 0;
+}
+.top-nav .nav-link:hover {
+    color: $yellow!important;
+    border-bottom: 3px solid $yellow;
+}
+.top-nav .navbar-nav__ul-wrap {
+    justify-content: center;
+}
+.top-nav .navbar-nav__ul {
+    width: 80%;
+    justify-content: space-around;
+}
+.top-nav .nav-link__tel {
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: -0.015em;
+    color: #FF9900!important;
+    border: 2px solid $yellow;
+    padding: 8px 12px!important;
+    &:hover {
+        color: $white!important;
+        background: $yellow;
+        box-shadow: 1px 1px 18px 4px rgba(255, 153, 0, 0.32);
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+@include media-breakpoint-down(lg) {
+    .nav-link__tel {
+        display: none;
+    }
+}
+@include media-breakpoint-down(sm) {
+    .top-nav__wrap {
+        padding: 0 10px;
+    }
+}

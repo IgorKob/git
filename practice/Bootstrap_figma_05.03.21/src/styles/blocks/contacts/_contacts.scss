@@ -1,0 +1,92 @@
+.contacts {
+    background-color: $lightyellow;
+}
+.contacts__title {
+    font-family: 'Playfair Display';
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 40px;
+    color: $white;
+    max-width: 705px;
+    margin: 0 auto;
+    padding-top: 45px;
+}
+.contacts__text {
+    font-family: 'Gilroy';
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.005em;
+    color: $white;
+    max-width: 705px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+.row {
+    max-width: 721px;
+    margin: 0 auto;
+}
+.g-3 {
+}
+.col-md-6 {
+}
+.contacts__form-name {
+    max-width: 304px;
+}
+.contacts__form-email {
+    max-width: 292px;
+    margin-left: auto;
+}
+.contacts__form-mess {
+    max-width: 705px;
+    margin-top: 20px;
+}
+.contacts__form-btn {
+    font-family: 'Gilroy';
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    color: $lightyellow;
+    background: $white;
+    margin-top: 20px;
+    margin-bottom: 39px;
+    padding: 10px 22px;
+}
+.form-control {
+    background-color: transparent;
+    border: none;
+    border-bottom: 0.5px solid #FFFFFF;
+    border-radius: 0;
+    padding-left: 0;
+    font-family: 'Gilroy';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.07em;
+    color: rgba(255, 255, 255, 0.72);
+}
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 16px;
+}
+.col-12 {
+}
+.btn {
+}
+.btn-primary {
+}
+@include media-breakpoint-down(ml) {
+    .contacts {
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+} 
+@include media-breakpoint-down(sm) {
+    .contacts__form-name {
+        max-width: 100%;
+    }
+    .contacts__form-email {
+        max-width: 100%;
+        margin-left: auto;
+    }
+} 

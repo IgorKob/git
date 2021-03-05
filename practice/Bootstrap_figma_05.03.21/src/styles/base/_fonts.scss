@@ -1,0 +1,104 @@
+// Playfair Display
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/playfair-display/playfair-display-v22-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+        url('../assets/fonts/playfair-display/playfair-display-v22-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('../assets/fonts/playfair-display/playfair-display-v22-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../assets/fonts/playfair-display/playfair-display-v22-latin-regular.woff') format('woff'), /* Modern Browsers */
+        url('../assets/fonts/playfair-display/playfair-display-v22-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+        url('../assets/fonts/playfair-display/playfair-display-v22-latin-regular.svg#PlayfairDisplay') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../assets/fonts/playfair-display/playfair-display-v22-latin-700.eot'); /* IE9 Compat Modes */
+  src: local(''),
+        url('../assets/fonts/playfair-display/playfair-display-v22-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('../assets/fonts/playfair-display/playfair-display-v22-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../assets/fonts/playfair-display/playfair-display-v22-latin-700.woff') format('woff'), /* Modern Browsers */
+        url('../assets/fonts/playfair-display/playfair-display-v22-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+        url('../assets/fonts/playfair-display/playfair-display-v22-latin-700.svg#PlayfairDisplay') format('svg'); /* Legacy iOS */
+}
+
+// Gilroy
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../assets/fonts/gilroy/Gilroy-Light.eot'); /* IE9 Compat Modes */
+  src: local(''),
+        url('../assets/fonts/gilroy/Gilroy-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('../assets/fonts/gilroy/Gilroy-Light.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../assets/fonts/gilroy/Gilroy-Light.woff') format('woff'), /* Modern Browsers */
+        url('../assets/fonts/gilroy/Gilroy-Light.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../assets/fonts/gilroy/Gilroy-Regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+        url('../assets/fonts/gilroy/Gilroy-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('../assets/fonts/gilroy/Gilroy-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../assets/fonts/gilroy/Gilroy-Regular.woff') format('woff'), /* Modern Browsers */
+        url('../assets/fonts/gilroy/Gilroy-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../assets/fonts/gilroy/Gilroy-Regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+        url('../assets/fonts/gilroy/Gilroy-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('../assets/fonts/gilroy/Gilroy-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../assets/fonts/gilroy/Gilroy-Regular.woff') format('woff'), /* Modern Browsers */
+        url('../assets/fonts/gilroy/Gilroy-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../assets/fonts/gilroy/Gilroy-Medium.eot'); /* IE9 Compat Modes */
+  src: local(''),
+        url('../assets/fonts/gilroy/Gilroy-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('../assets/fonts/gilroy/Gilroy-Medium.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../assets/fonts/gilroy/Gilroy-Medium.woff') format('woff'), /* Modern Browsers */
+        url('../assets/fonts/gilroy/Gilroy-Medium.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../assets/fonts/gilroy/Gilroy-Semibold.eot'); /* IE9 Compat Modes */
+  src: local(''),
+        url('../assets/fonts/gilroy/Gilroy-Semibold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('../assets/fonts/gilroy/Gilroy-Semibold.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../assets/fonts/gilroy/Gilroy-Semibold.woff') format('woff'), /* Modern Browsers */
+        url('../assets/fonts/gilroy/Gilroy-Semibold.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../assets/fonts/gilroy/Gilroy-Bold.eot'); /* IE9 Compat Modes */
+  src: local(''),
+        url('../assets/fonts/gilroy/Gilroy-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('../assets/fonts/gilroy/Gilroy-Bold.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../assets/fonts/gilroy/Gilroy-Bold.woff') format('woff'), /* Modern Browsers */
+        url('../assets/fonts/gilroy/Gilroy-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 900;
+  src: url('../assets/fonts/gilroy/Gilroy-Black.eot'); /* IE9 Compat Modes */
+  src: local(''),
+        url('../assets/fonts/gilroy/Gilroy-Black.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('../assets/fonts/gilroy/Gilroy-Black.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../assets/fonts/gilroy/Gilroy-Black.woff') format('woff'), /* Modern Browsers */
+        url('../assets/fonts/gilroy/Gilroy-Black.ttf') format('truetype'), /* Safari, Android, iOS */
+}

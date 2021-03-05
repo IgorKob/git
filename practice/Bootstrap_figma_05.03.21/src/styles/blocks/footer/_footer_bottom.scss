@@ -1,0 +1,14 @@
+.footer-bottom {
+    border: 0.5px solid rgba(255, 255, 255, 0.29);
+}
+.footer-bottom__text {
+    padding: 14px;
+    margin-bottom: 0;
+    margin-left: 160px;
+}
+@include media-breakpoint-down(md) {
+    .footer-bottom__text {
+        margin-left: 0;
+        text-align: center;
+    }
+}

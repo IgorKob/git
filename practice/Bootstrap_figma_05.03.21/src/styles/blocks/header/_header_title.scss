@@ -1,0 +1,66 @@
+.header-title__wrap {
+    margin-top: 136px;
+    padding: 0 20%;
+}
+.header-title__title {
+    font-family: 'Playfair Display';
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 139.4%;
+    letter-spacing: 0.2px;
+    color: $white;
+}
+.header-title__text {
+    font-family: Gilroy;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 139.4%;
+    letter-spacing: 0.2px;
+    color: $white;
+    margin-top: 21px;
+}
+.header-title__btn {
+    font-family: Gilroy;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.015em;
+    color: $white;
+    background: transparent;
+    display: inline-block;
+    text-decoration: none;
+    border: 2px solid $yellow;
+    color: $yellow;
+    padding: 11px;
+    margin-top: 44px;
+    transition: all .3s;
+    &:hover {
+        color: $white;
+        background: $yellow;
+        box-shadow: 1px 1px 18px 4px rgba(255, 153, 0, 0.32);
+    }
+}
+@include media-breakpoint-down(xl) {
+    .header-title__wrap {
+        padding: 0 10%;
+    }
+}
+@include media-breakpoint-down(lg) {
+    .header-title__wrap {
+        padding: 0 3%;
+    }
+} 
+@include media-breakpoint-down(md) {
+    .header-title__title {
+        font-size: 32px;
+    }
+}
+@include media-breakpoint-down(sm) {
+    .header-title__title {
+        font-size: 24px;
+        text-align: center;
+    }
+    .header-title__wrap {
+        text-align: center;
+    }
+}

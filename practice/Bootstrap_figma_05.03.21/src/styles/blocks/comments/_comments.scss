@@ -1,0 +1,136 @@
+.comments__wrap {
+    width: auto;
+    height: 671px;
+}
+.comments {
+    max-width: 766px;
+    height: 671px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(26px);
+    margin: 0 auto;
+} 
+.comments__subtitle {
+    font-family: 'Gilroy';
+    font-weight: normal; 
+    font-size: 18px;
+    line-height: 139.4%;
+    text-align: center;
+    letter-spacing: 9.7px;
+    text-transform: uppercase;
+    color: $yellow;
+    padding-top: 75px;
+}
+.comments__title {
+    font-family: 'Playfair Display';
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 139.4%;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: $white;
+}
+.carousel-wrap {
+    margin-top: 30px;
+    .carousel-item {
+        height: 422px;
+    }
+    .carousel__text {
+        max-width: 561px;
+        margin: 0 auto;
+        margin-top: 53px;
+        text-align: center;
+        font-family: 'Gilroy';
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 18px;
+        text-align: center;
+        letter-spacing: 0.01em;
+        color: $white;
+    }
+    .carousel__title {
+        text-align: center;
+        margin-top: 10px;
+        font-family: 'Gilroy';
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: -0.015em;
+        color: $white;
+    }
+    .carousel-indicators {
+        bottom: 84px;
+    }
+    .carousel-indicators [data-bs-target] {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        margin-right: 11px;
+        margin-left: 11px;
+    } 
+    .active {
+        position: relative;   
+    }
+    .carousel-indicators .active:after {
+        content: '';
+        position: absolute;
+        left: -2px;
+        top: -2px;
+        background: $yellow;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+    }
+    .carousel-arrow {
+        stroke: #FF9900;
+        fill: red;
+    }
+    .carousel-control-prev, .carousel-control-next {
+        top: 195px;
+        width: auto;
+        svg {
+            stroke: rgba(255, 255, 255, .6);
+            fill: none;  
+        }
+    }
+    .carousel-control-prev {
+        left: 280px;
+        z-index: 11;
+    }
+    .carousel-control-next {
+        right: 280px;
+        z-index: 11;
+    }
+    .carousel-control-next svg {
+        transform: rotate(180deg);
+    }
+    .carousel-control-prev:hover svg, .carousel-control-next:hover svg {
+        stroke: #FF9900;
+    }
+}
+@include media-breakpoint-down(md) {
+    .carousel-wrap {
+        .carousel-control-prev {
+            left: 200px;
+        }
+        .carousel-control-next {
+            right: 200px;
+        }
+    }
+}
+@include media-breakpoint-down(sm) {
+    .comments__title {
+        font-size: 24px;
+    }
+    .carousel-wrap {
+        padding: 10px;
+        .carousel-control-prev {
+            left: 50px;
+        }
+        .carousel-control-next {
+            right: 50px;
+        }
+        .carousel-control-prev, .carousel-control-next {
+            top: 215px;
+        }
+    }
+}

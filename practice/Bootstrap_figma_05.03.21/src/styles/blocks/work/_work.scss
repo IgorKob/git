@@ -1,0 +1,122 @@
+.work__wrap {
+    background: $black;
+    padding: 65px 0 126px 169px; 
+}
+.work__subtitle {
+    font-family: 'Gilroy';
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 139.4%;
+    letter-spacing: 9.7px;
+    text-transform: uppercase;
+    color: $yellow;
+}
+.work__title {
+    font-family: 'Playfair Display';
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 139.4%;
+    letter-spacing: 0.2px;
+    color: $white;
+}
+.work__timeline-wrap {
+    display: flex;
+    margin-top: 130px;
+}
+.work__timeline-item {
+    position: relative;
+    font-family: 'Gilroy';
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 139.4%;
+    letter-spacing: 0.2px;
+    color: $white;
+    width: 160px;
+    padding-top: 62px;
+}
+.work__timeline-item:not(:last-child) {
+    border-top: 1px solid $white;
+}
+.work__timeline-item:not(:first-child) {
+    padding-left: 20px; 
+}
+.chart {
+  width: 66px;
+  height: 66px;
+  margin: 1em auto;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: linear-gradient($black, $black) padding-box, conic-gradient($yellow var(--value), $white var(--value)) border-box;
+  position: absolute;
+  left: 0;
+  top: -74px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Playfair Display';
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 155.4%;
+  letter-spacing: 0.2px;
+  color: $white;
+}
+.x-20 {
+  --value: 20%;
+}
+.x-40 {
+  --value: 40%;
+}
+.x-60 {
+  --value: 60%;
+}
+.x-80 {
+  --value: 80%;
+}
+.x-90 {
+  --value: 90%;
+}
+.x-100 {
+  --value: 100%;
+}
+.chart p{
+    margin-bottom: 0;
+}
+@include media-breakpoint-down(lg) {
+    .work__wrap {
+        padding: 65px 0 126px 10px; 
+    }
+    .work__subtitle {
+        text-align: center;
+    }
+    .work__title {
+        text-align: center;
+    }
+} 
+@include media-breakpoint-down(md) {
+    .work__wrap {
+        padding-top: 36px; 
+        padding-bottom: 36px; 
+    }
+    .work__timeline-wrap {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 60px;
+    }
+    .work__timeline-item {
+        width: 255px;
+        padding-top: 0;
+        padding-bottom: 62px;
+        padding-left: 64px;
+    }
+    .work__timeline-item:not(:last-child) {
+        border-top: 0px solid $white;
+        border-left: 1px solid $white;
+    }
+    .work__timeline-item:not(:first-child) {
+        padding-left: 64px;
+    }
+    .chart {
+        left: -33px;
+        top: -63px
+    }
+}
