@@ -1,0 +1,42 @@
+{
+  "homepage": "https://IgorKob.github.io/Gulp2021",
+  "name": "gulp2021",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.14",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^3.1.0",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-jsmin": "^0.1.5",
+    "gulp-newer": "^1.4.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-purgecss": "^4.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sass": "^4.1.0",
+    "gulp-strip-debug": "^3.0.0",
+    "imagemin": "^7.0.1",
+    "imagemin-mozjpeg": "^9.0.0",
+    "node-sass": "^5.0.0",
+    "vinyl-paths": "^3.0.1"
+  },
+  "dependencies": {
+    "bem-tools-core": "0.0.3",
+    "gulp-htmlmin": "^5.0.1",
+    "imagemin-giflossy": "^5.1.10",
+    "imagemin-zopfli": "^7.0.0"
+  }
+}
