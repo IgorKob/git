@@ -1,0 +1,21 @@
+We use inertiajs: https://inertiajs.com/
+In order to add new page with view you need:
+- Generate new Controller
+
+  ```
+    php artisan make:controller YourControllerName --resource
+  ```
+- Specify it in web.php file, for events page example:
+```
+    Route::get('/events', [EventsController::class, 'index'])
+        ->name('events');
+```
+
+- And add template in the folder resources/js/pages/YourTemplateComponentFolder/index.vue
+- In EventsController add code to your index function, something like this
+```
+    public function index() {
+        return Inertia::render('Events');
+    }
+```
+Inertia::render('Events') - it renders this resources/js/Pages/Events/index.vue or  resources/js/Pages/Events.vue component

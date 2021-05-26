@@ -25,6 +25,14 @@ git config --global user.name
 ### очистити командний рядок редактора
 clear
 
+###
+git fetch
+###
+git merge master
+###
+git pull origin master
+### 
+git pull origin development
 
 
 ////////////
@@ -79,9 +87,9 @@ git commit -m "Коментарі"
 
 ### Якщо ви випадково помилково ввели повідомлення про фіксацію, ви можете змінити його, використовуючи.
 git commit --amend - m "new message"
-git commit --amend --no-edit 
+git commit --amend --no-edit
 
-### Для изменения старых или нескольких коммитов используйте команду 
+### Для изменения старых или нескольких коммитов используйте команду
 git rebase
 git rebase --continue
 
@@ -135,9 +143,16 @@ git checkout name
 ### Щоб створити гілку і перейти до неї
 git checkout -b name
 
+### щоб копіювати іншу гілку
+git checkout -b mybranch
+потім
+git pull origin mybranch
 
 ### Щоб переглянути список гілок
 git branch -a
+
+### щоб запушити у свою гілку
+git push --set-upstream origin feat/125-сonfirm-actiongit push --set-upstream origin feat/125-сonfirm-action
 
 
 ### Для об'єднання гілок, де name це гілку, яку ви хочете приєднати до головної гілки.
