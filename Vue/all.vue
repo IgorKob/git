@@ -12,3 +12,14 @@ data: function () {
     count: 0
   }
 }
+
+
+
+
+// оголосити реквізит з декількома типами
+props: {
+  value: {
+    type: String | Number | Boolean | Object, or [Number, String, Object]
+    default: ''
+  }
+}

@@ -19,3 +19,342 @@ In order to add new page with view you need:
     }
 ```
 Inertia::render('Events') - it renders this resources/js/Pages/Events/index.vue or  resources/js/Pages/Events.vue component
+
+
+
+
+1.
+./routes/web.php
+<?php
+
+use App\Http\Controllers\CompaniesController;
+use App\Http\Controllers\ContentsController;
+use App\Http\Controllers\GuestUserController;
+use App\Http\Controllers\MediaFilesController;
+use App\Http\Controllers\PasswordResetLinkController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\EventsController;
+use App\Http\Controllers\GalleryItemController;
+use App\Http\Controllers\PodcastingController;
+use App\Http\Controllers\CronofyController;
+use App\Models\GalleryItem;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/terms', [Contentscontroller::class, 'terms'])->name('terms');
+
+Route::middleware(['guest'])->group(function() {
+    Route::get('/', [Contentscontroller::class, 'landing'])->name('landing');
+    Route::get('/login', [Contentscontroller::class, 'login'])->name('login');
+    Route::get('/request-access', [Contentscontroller::class, 'requestInvite'])->name('request-access');
+    Route::get('/recorder/{ContentRequest}', [GuestUserController::class, 'recorder']);
+
+    Route::get('ext/archive/token', [GuestUserController::class, 'tokboxSession']);
+    Route::post('ext/archive/start', [GuestUserController::class, 'tokboxStartArchive']);
+    Route::post('ext/archive/stop', [GuestUserController::class, 'tokboxStopArchive']);
+    Route::post('ext/archive/info', [GuestUserController::class, 'tokboxArchiveInfo']);
+    Route::post('ext/archive/delete', [GuestUserController::class, 'tokboxDeleteArchive']);
+});
+
+Route::middleware(['auth:sanctum', 'verified', 'super.admin'])->group(function () {
+    Route::get('users', [UsersController::class, 'index'])
+        ->name('users');
+    Route::get('users/create', [UsersController::class, 'create'])
+        ->name('users.create');
+    Route::post('users', [UsersController::class, 'store'])
+        ->name('users.store');
+    Route::get('users/{user}/edit', [UsersController::class, 'edit'])
+        ->name('users.edit');
+    Route::put('users/{user}', [UsersController::class, 'update'])
+        ->name('users.update');
+
+    Route::get('companies', [CompaniesController::class, 'index'])
+        ->name('companies');
+    Route::get('companies/create', [CompaniesController::class, 'create'])
+        ->name('companies.create');
+    Route::post('companies', [CompaniesController::class, 'store'])
+        ->name('companies.store');
+    Route::get('companies/{Company}/edit', [CompaniesController::class, 'edit'])
+        ->name('companies.edit');
+    Route::put('companies/{Company}', [CompaniesController::class, 'update'])
+        ->name('companies.update');
+    Route::delete('companies/{Company}', [CompaniesController::class, 'destroy'])
+        ->name('companies.destroy');
+    Route::put('companies/{Company}/deactivate', [CompaniesController::class, 'deactivate'])
+        ->name('companies.deactivate');
+    Route::put('companies/{Company}/activate', [CompaniesController::class, 'activate'])
+        ->name('companies.activate');
+    Route::put('companies/{Company}/restore', [CompaniesController::class, 'restore'])
+        ->name('companies.restore');
+});
+
+
+./app/Http/Controllers/ContentsController.php
+
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Helpers\Security;
+use App\Helpers\TokBox;
+use App\Jobs\OpentokThumbGenerate;
+use App\Mail\ApproveMedia;
+use App\Mail\ContentRequested;
+use App\Mail\ExternalContentRequested;
+use App\Models\Company;
+use App\Models\ContentRequest;
+use App\Models\MediaFile;
+use App\Models\Podcasting;
+use App\Models\PodcastingRecord;
+use App\Models\User;
+use App\Models\Event;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Inertia\Inertia;
+use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
+
+class ContentsController extends Controller
+{
+
+  public function login() {
+      return Inertia::render('Login', []);
+  }
+
+  public function landing() {
+      return Inertia::render('Landing', []);
+  }
+
+  public function requestInvite() {
+      return Inertia::render('RequestInvite', []);
+  }
+
+  public function terms() {
+      return Inertia::render('Terms', []);
+  }
+
+  public function edit(User $user) {
+      return Inertia::render('Users/Edit', [
+          'user_o' => [
+              'id' => $user->id,
+              'role_id' => $user->role_id,
+              'f_name' => $user->f_name,
+              'l_name' => $user->l_name,
+              'email' => $user->email,
+              'title' => $user->title,
+              'department' => $user->department,
+              'company_name' => $user->company_name,
+              'deleted_at' => $user->deleted_at
+          ],
+      ]);
+  }
+
+  public function update(User $user) {
+      if(Request::post('active') == 'toggle') {
+          if(Security::hasAccessToUser($user, Auth::user())) {
+              $user->active = !$user->active;
+              $user->save();
+
+              return back(303);
+          }
+
+          return back(303);
+      }
+
+      Request::validate([
+          'f_name' => ['required', 'max:50'],
+          'l_name' => ['required', 'max:50'],
+          'password' => ['nullable', 'min:8'],
+          'title' => ['required', 'string'],
+          'department' => ['required', 'string'],
+          'role_id' => ['required', 'integer']
+      ]);
+
+      $user->update(Request::only('f_name', 'l_name', 'title', 'department'));
+
+      if (Request::post('password')) {
+          $user->update(['password' => Request::post('password')]);
+      }
+
+      if($user->role_id != Request::post('role_id')) {
+          if (Auth::user()->isSuperAdmin()) { //Only MS user can be SuperAdmin
+              if(Request::post('role_id') == User::ROLE_SUPER_ADMIN && $user->company_id != Auth::user()->company_id) {
+                  $user->role_id = User::ROLE_ADMIN;
+              } else {
+                  $user->role_id = Request::post('role_id');
+              }
+          } elseif (Auth::user()->isAdmin() && $user->company_id == Auth::user()->company_id) {
+              $user->role_id = Request::post('role_id');
+          }
+          $user->save();
+      }
+
+      return Redirect::back()->with('success', 'User updated.');
+  }
+
+}
+
+
+
+
+./resources/js/Pages/Landing.vue
+./resources/js/Pages/Terms.vue
+./resources/js/Pages/Login.vue
+
+<template>
+    <guest-layout>
+        <b-container>
+            <b-row align-h="center">
+                <b-col cols="12" sm="6" class="d-flex justify-content-center s-login__img-wrap">
+                    <img
+                        class="s-login__img"
+                        src="/img/guest/logo-big.svg"
+                        alt="landing 1"
+                    />
+                </b-col>
+                <b-col cols="12" md="6" class="d-flex justify-content-center">
+                    <b-card class="s-login__card">
+                        <b-form @submit.prevent="onSubmit">
+                            <b-form-group
+                                id="input-group-email"
+                                label="Email"
+                                label-for="Email"
+                                :invalid-feedback="errorEmail"
+                                :state="emailState"
+                            >
+                                <b-form-input
+                                id="Email"
+                                type="email"
+                                placeholder="Enter email"
+                                v-model="form.email"
+                                :state="emailState"
+                                trim
+                                @keyup.enter.native="onSubmit"
+                                ></b-form-input>
+                            </b-form-group>
+
+                            <b-form-group
+                                id="input-group-password"
+                                label="Password"
+                                label-for="password"
+                                :invalid-feedback="errorPassword"
+                                :state="passwordState"
+                                >
+                                <b-form-input
+                                    id="password"
+                                    type="password"
+                                    placeholder="Password"
+                                    ref="password"
+                                    v-model="form.password"
+                                    :state="passwordState"
+                                    trim
+                                    @keyup.enter.native="onSubmit"
+                                ></b-form-input>
+                            </b-form-group>
+
+                            <b-form-checkbox v-model="form.checked" class="mb-2 mr-sm-2 mb-sm-0">Remember me</b-form-checkbox>
+
+                            <a class="d-block text-success mb-2 mt-4" :href="route('password.request')">
+                                Forgot your password?
+                            </a>
+
+                            <b-button type="submit" variant="primary" class="w-100">Login</b-button>
+
+                        </b-form>
+                    </b-card>
+
+                </b-col>
+            </b-row>
+        </b-container>
+    </guest-layout>
+</template>
+
+<script>
+    import GuestLayout from '@/Layouts/GuestLayout';
+    import { emailRegEx } from "@/Shared/constants";
+    import { passwordRegEx } from "@/Shared/constants";
+
+    export default {
+        components: {
+            GuestLayout
+        },
+        data() {
+            return {
+                form: {
+                    email: '',
+                    password: '',
+                    checked: false
+                },
+                errorEmail: '',
+                lastEmail: null,
+                errorPassword: '',
+                lastPassword: null,
+            }
+        },
+        methods: {
+            onSubmit() {
+                this.lastEmail = this.form.email
+                this.lastPassword = this.form.password
+
+                this.$inertia.post(this.route('login'), this.form, {
+                    onStart: () => {
+                        this.lastEmail = this.form.email
+                        this.lastPassword = this.form.password
+                        this.errorEmail = ''
+                        this.errorPassword = ''
+                    },
+                    onFinish: () => {
+                    },
+                    onSuccess: (response) => {
+
+                    },
+                    onError: (error) => {
+                        if (error.email) {
+                            this.errorEmail = error.email;
+                        }
+                        if (error.password) {
+                            this.errorPassword = error.password;
+                        }
+                        else {
+                            this.errorPassword = 'Something went wrong!';
+                        }
+                    }
+                })
+
+            },
+        },
+        computed: {
+            emailState() {
+                if (this.errorEmail) {
+                    if (emailRegEx.test(this.form.email) && this.lastEmail !== this.form.email) {
+                        return true
+                    }
+                    return false
+                }
+                if (!this.form.email) {
+                    return null
+                }
+                if (emailRegEx.test(this.form.email)) {
+                    return true
+                }
+            },
+            passwordState() {
+                if (this.errorPassword) {
+                    if (passwordRegEx.test(this.form.password) && this.lastPassword !== this.form.password) {
+                        return true
+                    }
+                    return false
+                }
+                if (!this.form.password) {
+                    return null
+                }
+                if (passwordRegEx.test(this.form.password)) {
+                    return true
+                }
+            },
+        }
+    }
+</script>

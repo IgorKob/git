@@ -5,10 +5,13 @@ npm install
 "C:\MAMP\bin\php\php7.4.1\ext"
 
 // start
-php artisan migrate
 php artisan serve
 npm run watch
 
+php artisan migrate
+
+// clear cache
+php artisan storage:link
 
 // буде рефрешити сторінку по ідеї
 return Redirect::back()

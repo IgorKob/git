@@ -1,0 +1,30 @@
+```
+    this.$nextTick(function() {
+        const mediaContainer = document.getElementById('s-dashboard__media');
+        const widget = document.getElementById('c-event-widget');
+        const wrap = widget.querySelector('#c-event-widget__wrap');
+        // const additionalSpace = 50;
+        const isDesktop = window.screen.width >= 1368;
+
+        window.addEventListener("scroll", () => {
+            if (isDesktop && window.scrollY > widget.offsetTop - 25) {
+                if (mediaContainer.scrollHeight > wrap.scrollHeight) {
+                    if (window.scrollY + wrap.lastElementChild.offsetHeight >= wrap.offsetHeight) {
+                        if (this.events.length > 2) {
+                            wrap.classList.add('sticky');
+                        }
+                        else {
+                            wrap.classList.add('sticky-top');
+                        }
+                    }
+                    else {
+                        wrap.classList.remove('sticky');
+                    }
+                }
+            }
+            else {
+                wrap.classList.remove('sticky')
+            }
+        });
+    });
+```

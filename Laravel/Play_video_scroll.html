@@ -1,0 +1,103 @@
+All videos playing and muted by default, but when we scroll into unique video it unmute and plays
+
+```
+videoOptions: {
+    muted: false,
+    autoplay: false,
+    playsinline: true,
+    controls: true,
+    sources: [
+        {
+            src: this.videoUrl,
+            type: "video/mp4"
+        },
+        {
+            src: this.videoUrl,
+            type: "video/webm"
+        },
+        {
+            src: this.videoUrl,
+            type: "video/ogg"
+        },
+        {
+            src: this.videoUrl,
+            type: "video/youtube"
+        },
+    ]
+}
+```
+
+```
+    let videoEl = document.querySelectorAll('video[autoplay]');
+
+                if (videoEl.length > 0) {
+                    for (let i = 0; i < videoEl.length; i++) {
+                        let windowHeight = window.innerHeight;
+                        let thisVideoEl = videoEl[i];
+                        let videoHeight = thisVideoEl.clientHeight;
+                        let videoClientRect = thisVideoEl.getBoundingClientRect().top;
+
+                        if ( videoClientRect <= ( windowHeight - videoHeight )
+                            && videoClientRect >= ( 0 - ( videoHeight*.1 ) )
+                        ) {
+                            thisVideoEl.play();
+                            this.unmuteVideo(thisVideoEl);
+                        } else {
+                            thisVideoEl.pause();
+                        }
+                    }
+                }
+```
+
+
+
+All videos playing and muted by default, but when we scroll into unique video it unmute and plays
+
+```
+videoOptions: {
+    muted: false,
+    autoplay: false,
+    playsinline: true,
+    controls: true,
+    sources: [
+        {
+            src: this.videoUrl,
+            type: "video/mp4"
+        },
+        {
+            src: this.videoUrl,
+            type: "video/webm"
+        },
+        {
+            src: this.videoUrl,
+            type: "video/ogg"
+        },
+        {
+            src: this.videoUrl,
+            type: "video/youtube"
+        },
+    ]
+}
+```
+
+```
+    let videoEl = document.querySelectorAll('video[autoplay]');
+
+                if (videoEl.length > 0) {
+                    for (let i = 0; i < videoEl.length; i++) {
+                        let windowHeight = window.innerHeight;
+                        let thisVideoEl = videoEl[i];
+                        let videoHeight = thisVideoEl.clientHeight;
+                        let videoClientRect = thisVideoEl.getBoundingClientRect().top;
+
+                        if ( videoClientRect <= ( windowHeight - videoHeight )
+                            && videoClientRect >= ( 0 - ( videoHeight*.1 ) )
+                        ) {
+                            thisVideoEl.play();
+                            this.unmuteVideo(thisVideoEl);
+                        } else {
+                            thisVideoEl.pause();
+                        }
+                    }
+                }
+```
