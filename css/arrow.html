@@ -1,0 +1,13 @@
+// стрілка для випадаючого меню
+.c-outlined-form-group::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    border: 2px solid #000;
+    border-left: 2px solid transparent;
+    border-top: 2px solid transparent;
+}

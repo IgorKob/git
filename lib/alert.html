@@ -1,0 +1,106 @@
+https://www.npmjs.com/package/vue-notification
+https://github.com/euvl/vue-notification
+
+
+./Notification.vue
+<template>
+        <!-- ignoreDuplicates="true" -->
+    <notifications
+        :group="group"
+        :duration="duration"
+        :width="messWidth"
+        animation-name="v-fade-left"
+        :position="position"
+        reverse="true"
+        max="3"
+    >
+        <template slot="body" slot-scope="props">
+            <div class="c-notification">
+                <div class="c-notification__header">
+                    <div class="p-1 pl-2">{{title}}</div>
+                    <b-button variant="outline-dark" class="c-notification__btn-close border-0" @click="props.close">
+                        <i class="ms-icon ms-icon-fail-circle ms-icon-small d-flex"></i>
+                    </b-button>
+                </div>
+                <div class="c-notification__body" v-html="text"></div>
+            </div>
+        </template>
+    </notifications>
+</template>
+
+<script>
+    export default {
+        props: ['group', 'position', 'messWidth', 'duration', 'title', 'text'],
+        data() {
+            return {
+
+            };
+        },
+        methods: {
+            // show(group, type = '') {
+            //     const text = `
+            //         This is notification text!
+            //         <br>
+            //         Date: ${new Date()}
+            //     `
+            //     this.$notify({
+            //         group,
+            //         title: `Test ${type} notification #${this.id++}`,
+            //         text,
+            //         type,
+            //         data: {
+            //             randomNumber: Math.random()
+            //         }
+            //     })
+            // },
+
+            // clean (group) {
+            //     this.$notify({ group, clean: true })
+            // }
+        },
+    }
+</script>
+
+
+./Dashboard.vue
+<template>
+    <app-layout>
+        <Notification
+            group="notification"
+            position="bottom left"
+            :messWidth="250"
+            :duration="5000"
+            title=""
+            text="The link was copied to your clipboard."
+        />
+    </app-layout>
+</template>
+
+<script>
+    import AppLayout from '@/Layouts/AppLayout';
+    import Notification from '@/Jetstream/Notification';
+
+    export default {
+        components: {
+            Notification,
+        },
+        data() {
+            return {
+                mediaUrls: []
+            }
+        },
+        methods: {
+            copyLink(group, media_url, id) {
+                if (!this.mediaUrls.includes(id)) {
+                    this.mediaUrls.push(id)
+                    setTimeout(() => this.mediaUrls.splice(this.mediaUrls.indexOf(id), 1), 3000);
+                    this.$notify({group})
+                    // this.$inertia.post('/', {media_url}, {
+                    //     onSuccess: () => {},
+                    //     onFinish: () => {},
+                    // })
+                }
+            },
+        }
+    }
+</script>
