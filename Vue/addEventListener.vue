@@ -175,3 +175,48 @@
         },
     }
 </script>
+
+
+
+
+
+
+2. щоб відмінити прослуховування addEventListener, на дочірні кнопки які мають свої функції
+<div class="c-media-card__header">
+    <a
+        :href="route('media.download', item.id)"
+        class="btn btn-light mr-2 flex-grow-1 w-100 text-secondary"
+        title="Download"
+    >
+        <i class="ms-icon ms-icon-download ms-icon-small d-flex"></i>
+    </a>
+    <b-button
+        v-if="isAdminOrSuperAdmin($page.props.user.role_id)"
+        class="c-media-card__decline text-secondary"
+        variant="light"
+        title="Delete"
+        @click.stop.prevent="showDeleteMediaCardModal(item.id)"
+    >
+        <i class="ms-icon ms-icon-fail-circle ms-icon-small d-flex"></i>
+    </b-button>
+</div>
+
+mounted () {
+    let cardHeader = document.querySelectorAll(`#item${this.cardId} .c-media-card__header`)[0];
+    if (cardHeader && this.status === 'Approved' && this.model_type && this.cardId) {
+        cardHeader.addEventListener('click', this.mediaView, false);
+    }
+},
+beforeDestroy () {
+    let cardHeader = document.querySelectorAll(`#item${this.cardId} .c-media-card__header`)[0];
+    if (cardHeader && this.status === 'Approved' && this.model_type && this.cardId) {
+        cardHeader.removeEventListener('click', this.mediaView, false);
+    }
+},
+methods: {
+    mediaView(event) {
+        if (e.target.tagName !== 'A' && e.target.tagName !== 'I') {
+            this.$inertia.get(window.location.origin + '/media/' + this.cardId + '/view')
+        }
+    }
+}
