@@ -15,7 +15,7 @@ let app = new Vue({
 		warn: function (message, event) {
 			// Теперь у нас есть доступ к нативному событию:
 			event.preventDefault();
-
+			event.stopPropagation();
 			alert(message);
 		}
 	}
