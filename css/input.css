@@ -1,0 +1,4 @@
+/* щоб пофіксити синій (жовтий) колір при авто вставці */
+.c-request-new__question:-webkit-autofill, .c-request-new__question:focus:-webkit-autofill {
+    box-shadow: inset 0 0 0 50px palette(light, 700) !important;
+}
