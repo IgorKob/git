@@ -1,0 +1,10 @@
+// щоб обєднати дві таблички
+// 1.
+$podcasts = PodcastingRecord::where('approved', true)
+    ->join('podcastings', 'podcastings.id', '=', 'podcasting_records.podcasting_id')
+    ->select('podcasting_records.*', 'podcastings.questions');
+
+// 2.
+$podcasts = $podcasts->select('podcasting_records.*');
+$podcasts = $podcasts->join('users', 'users.id', '=', 'podcasting_records.user_id');
+$podcasts = $podcasts->where('users.company_id', Auth::user()->company_id);
